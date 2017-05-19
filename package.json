@@ -25,13 +25,12 @@
     "lite": "lite-server",
     "tsc": "tsc",
     "tsc:w": "tsc -w",
-    "postinstall": "npm install ntypescript -g",
     "build": "gulp build",
     "clean": "shx rm -Rf build/",
     "gulp": "gulp"
   },
   "dependencies": {
+    "ntypescript": "1.201609302242.1"
   },
-  "devDependencies": {
-  }
+  "devDependencies": {}
 }
