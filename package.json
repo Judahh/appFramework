@@ -31,7 +31,8 @@
   },
   "dependencies": {
     "ntypescript": "1.201609302242.1",
-    "typescript": "2.3.2"
+    "typescript": "2.3.2",
+    "concurrently": "^3.4.0"
   },
   "devDependencies": {}
 }
