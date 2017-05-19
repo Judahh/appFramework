@@ -1,17 +1,10 @@
-import * as React from "react";
-import * as ReactDOM from "react-dom";
+// import * as React from "react";
+// import * as ReactDOM from "react-dom";
+importJS('app/props');
 
-interface Props {
-    name: string;
-}
-
-export default class App extends React.Component<Props, {}> {
+class App{
   render() {
-    return React.createElement(
-      "div",
-      null,
-      "Hello ",
-      React.PropTypes.string.name
-    );
+    let a = new PropsT() 
+    return "Hello"+a.render();
   }
 }
