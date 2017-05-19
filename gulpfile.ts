@@ -1,82 +1,78 @@
-'use strict';
-var gulp = require('gulp');
-var mocha = require('gulp-mocha');
-var typescript = require('gulp-typescript');
-var runSequence = require('run-sequence');
-// var del = require('del');
-var presentationScriptsDir = 'Source/';
-var testScriptsDir = 'Test/';
-var allDir = '**/';
+import {Gulpclass, Task} from "gulpfile.ts/Annotations";
+import * as gulp from "gulp";
+import * as mocha from "gulp-mocha"; 
+import * as typescript from "gulp-typescript"; 
+import * as runSequence from "run-sequence"; 
+ 
 
-var allTypeScripts = [
-    allDir + '*.ts'/*,
-    definitelyTypedDefinitions*/
-];
 
-var typeScriptGlob = [
-    presentationScriptsDir + '**/*.ts'/*,
-    definitelyTypedDefinitions*/
-];
 
-var javaScriptTestGlob = [
-    presentationScriptsDir + testScriptsDir + '**/*.js'
-];
+@Gulpclass()
+export class Gulpfile {
 
-var typeScriptTestGlob = [
-    presentationScriptsDir + testScriptsDir + '**/*.ts'
-];
+    public presentationScriptsDir = 'Source/';
+    public  testScriptsDir = 'Test/';
+    public  allDir = '**/';
+    public  allTypeScripts = [
+        this.allDir + '*.ts' /*,
+        definitelyTypedDefinitions*/
+    ];
+    public  typeScriptGlob = [
+        this.presentationScriptsDir + '**/*.ts' /*,
+        definitelyTypedDefinitions*/
+    ];
+    public  javaScriptTestGlob = [
+        this.presentationScriptsDir + this.testScriptsDir + '**/*.js'
+    ];
+    public  typeScriptTestGlob = [
+        this.presentationScriptsDir + this.testScriptsDir + '**/*.ts'
+    ];
+    public  tsProject = typescript.createProject({
+        removeComments: true,
+        target: 'ES5',
+        module: 'commonjs',
+        noExternalResolve: false,
+        noImplicitAny: false,
+    });
+ 
+    @Task()
+    testJavaScript(cb: Function) {
+        return gulp.src(this.javaScriptTestGlob, { read: false })
+        .pipe(mocha());
+    }
+ 
+    @Task()
+    compileTypeScript() {
+        return gulp.src(this.typeScriptGlob)
+        .pipe(typescript(this.tsProject))
+        .pipe(gulp.dest(this.presentationScriptsDir));
+    }
+ 
+    @Task() // you can specify custom task name if you need 
+    compileAndTestTypeScript() {
+        return runSequence('compileTypeScript', 'testJavaScript');
+    }
+ 
+    @Task() // this special annotation using "run-sequence" module to run returned tasks in sequence 
+    watchTypeScript() {
+        gulp.watch(this.typeScriptGlob, ["compileAndTest-TypeScript"]);
+    }
 
-var tsProject = typescript.createProject(
-{
-    removeComments: true,
-    target: 'ES5',
-    module: 'commonjs',
-    noExternalResolve: false,
-    noImplicitAny: false,
-});
+    @Task()
+    scripts() { // because this task has "default" name it will be run as default gulp task 
+        const tsResult = this.tsProject.src()
+        .pipe(this.tsProject());
+        return tsResult.js.pipe(gulp.dest('dist'));
+    }
 
-// gulp.task('compile-TypeScript', function () {
-//     return gulp.src('app/**/*.ts')
-//         .pipe(typescript({
-//             noImplicitAny: true,
-//             out: 'output.js'
-//         })
-//         .pipe(gulp.dest('app')));
-// });
-
-// gulp.task('test-compile-TypeScript', function () {
-//     return gulp.src(typeScriptTestGlob)
-//         .pipe(typescript(tsProject))
-//         .pipe(gulp.dest(testScriptsDir));
-// });
-
-gulp.task('test-JavaScript', function () {
-    return gulp.src(javaScriptTestGlob, { read: false })
-    .pipe(mocha());
-});
-
-gulp.task("compile-TypeScript", function () {
-    return gulp.src(typeScriptGlob)
-        .pipe(typescript(tsProject))
-        .pipe(gulp.dest(presentationScriptsDir));
-});
-
-gulp.task("compileAndTest-TypeScript", function () {
-    return runSequence('compile-TypeScript',
-              'test-JavaScript');
-});
-
-gulp.task("watch-TypeScript", function() {
-    return gulp.watch(typeScriptGlob, ["compileAndTest-TypeScript"]);
-});
-gulp.task('scripts', () => {
-  const tsResult = tsProject.src()
-  .pipe(tsProject());
-  return tsResult.js.pipe(gulp.dest('dist'));
-});
-
-gulp.task('watch', ['scripts'], () => {
-  gulp.watch('src/**/*.ts', ['scripts']);
-});
-
-gulp.task('default', ['watch']);
+    @Task()
+    watch() { // because this task has "default" name it will be run as default gulp task 
+        gulp.watch('src/**/*.ts', ['scripts']);
+    } 
+ 
+    @Task()
+    default() { // because this task has "default" name it will be run as default gulp task 
+        return ['watch'];
+    }
+ 
+}
