@@ -17,7 +17,7 @@
   "license": "MIT",
   "angular-cli": {},
   "scripts": {
-    "start": "tsc && concurrently \"npm run tsc:w\" \"index.html\" ",
+    "start": "tsc && concurrently \"npm run tsc:w\"",
     "lint": "tslint \"src/**/*.ts\"",
     "test": "ng test",
     "pree2e": "webdriver-manager update",
@@ -31,32 +31,7 @@
     "gulp": "gulp"
   },
   "dependencies": {
-    "classnames": "^2.2.5",
-    "director": "^1.2.8",
-    "react": "^15.5.4",
-    "require": "^2.4.20",
-    "react-dom": "^15.5.4"
   },
   "devDependencies": {
-    "@types/classnames": "^2.2.0",
-    "@types/node": "^7.0.18",
-    "@types/react": "^15.0.24",
-    "@types/react-dom": "^15.5.0",
-    "@types/requirejs": "^2.1.29",
-    "concurrently": "^3.4.0",
-    "del": "^2.2.2",
-    "gulpfile.ts": "^0.0.2",
-    "gulp": "^3.9.1",
-    "gulp-if": "^2.0.2",
-    "gulp-mocha": "^4.3.1",
-    "gulp-postcss": "^7.0.0",
-    "gulp-pug": "^3.3.0",
-    "gulp-typescript": "^3.1.6",
-    "gulp-uglify": "^2.1.2",
-    "gulp-util": "^3.0.8",
-    "react-scripts": "1.0.0",
-    "ts-node": "3.0.4",
-    "tslint": "5.2.0",
-    "typescript": "^2.3.2"
   }
 }

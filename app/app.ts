@@ -1,10 +1,14 @@
-// import * as React from "react";
-// import * as ReactDOM from "react-dom";
-importJS('app/props');
+importJS('app/view/view');
 
 class App{
+
+  private view:View;
+
+  constructor(){
+    this.view = new View();
+  }
+
   render() {
-    let a = new PropsT() 
-    return "Hello"+a.render();
+    return this.view.render();
   }
 }
