@@ -25,6 +25,7 @@
     "lite": "lite-server",
     "tsc": "tsc",
     "tsc:w": "tsc -w",
+    "postinstall": "npm install ntypescript -g",
     "build": "gulp build",
     "clean": "shx rm -Rf build/",
     "gulp": "gulp"
