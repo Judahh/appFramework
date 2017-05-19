@@ -23,29 +23,35 @@ function type(format:string){
     }
 }
 
+function attributeSource(format:string){
+    switch (format) {
+        case "css":
+            return "href";
+
+        case "js":
+            return "src";
+    
+        default:
+            return "";
+    }
+}
+
 function importFile(path:string, format:string){
     var importedScript = document.createElement(type(format));
     var fullPath = path+'.'+format;
-    
+    var source = attributeSource(format);
+
+    importedScript.setAttribute(source, fullPath);
     if(format=='css'){
-        importedScript.href = fullPath;
-        importedScript.rel = "stylesheet";
-        importedScript.type = "text/css";
-    }else{
-        importedScript.src = fullPath;
+        importedScript.setAttribute("rel", "stylesheet");
+        importedScript.setAttribute("type", "text/css"); 
     }
     
     var nodes = document.head.children;
     for (var index = 0; index < nodes.length; index++) {
         var element = nodes[index];
-        if(format=='css'){
-            if(element.href == importedScript.href){
-                return;
-            }
-        }else{
-            if(element.src == importedScript.src){
-                return;
-            }
+        if(element.getAttribute(source) == importedScript.getAttribute(source)){
+            return;
         }
         
     }
