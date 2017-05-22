@@ -6,6 +6,10 @@ function importJS(path:string){
     importFile(path,'js');
 }
 
+function importJSON(path:string){
+    importFile(path,'json');
+}
+
 function importCSS(path:string){
     importFile(path,'css');
 }
@@ -19,7 +23,7 @@ function type(format:string){
             return "script";
     
         default:
-            return "";
+            return "script";
     }
 }
 
