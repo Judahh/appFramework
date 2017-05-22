@@ -4,7 +4,7 @@ class ComponentImage{
   render() {
     //  test.mad+
     console.log( "JSON Data:");
-    $.getJSON( "app/view/jSON/test.json", function( data ) {  
+    $.getJSON( "app/view/jSON/testytrd.json", function( data ) {  
         console.log( "JSON Data: " + data);
         $.each( data, function( key, val ) {
             console.log(key + "value:: " + val );
