@@ -1,5 +1,5 @@
 class ComponentImage{
   render() {
-    return ;
+    return Util.elementHTML("image","nasidas2");
   }
 }
