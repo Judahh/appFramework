@@ -5,4 +5,16 @@ class Util{
     }
     return "<"+name+">";
   }
+
+  static getJson(path:string, sendData?:any){
+    $.ajax({
+      url: path,
+      dataType: 'json',
+      async: false,
+      data: sendData,
+      success: function(data) {
+        return data;
+      }
+    });
+  }
 }
