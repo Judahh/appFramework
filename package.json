@@ -30,7 +30,6 @@
     "gulp": "gulp"
   },
   "dependencies": {
-    "jquery":"3.2.1",
     "@types/jquery":"2.0.45"
   },
   "devDependencies": {
