@@ -4,6 +4,6 @@ importJSON('app/view/jSON/test');
 class ComponentImage{
   render() {
     
-    return mad+Util.elementHTML("image","nasidas2");
+    return test.mad+Util.elementHTML("image","nasidas2");
   }
 }
