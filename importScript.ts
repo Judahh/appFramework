@@ -36,7 +36,7 @@ function attributeSource(format:string){
             return "src";
     
         default:
-            return "";
+            return "src";
     }
 }
 
