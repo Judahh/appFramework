@@ -1,6 +1,6 @@
 importCSS('app/view/common/image/componentImage');
 // importJSON('app/view/jSON/test');
-// import * as jQuery from "jquery";
+import * as jQuery from "jquery";
 
 class ComponentImage{
   render() {
