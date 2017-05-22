@@ -30,6 +30,7 @@
     "gulp": "gulp"
   },
   "dependencies": {
+    "requirejs":"2.3.3",
     "@types/requirejs":"2.1.29"
   },
   "devDependencies": {
