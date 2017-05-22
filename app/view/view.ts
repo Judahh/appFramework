@@ -1,6 +1,6 @@
-importJS('app/view/header/header');
-importJS('app/view/body/body');
-importJS('app/view/footer/footer');
+importJS('app/view/header/componentHeader');
+importJS('app/view/body/componentBody');
+importJS('app/view/footer/componentFooter');
 
 class View{
   render() {

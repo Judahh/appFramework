@@ -1,7 +1,11 @@
 importJS('app/view/util/util');
-importCSS('app/view/body/body');
+importJS('app/view/common/image/componentImage');
+
+importCSS('app/view/body/componentBody');
+
 class ComponentBody{
   render() {
-    return Util.elementHTML("pageBody","<br/>jasdlfkjbadskf");
+    let image=new ComponentImage();
+    return Util.elementHTML("pageBody",image.render());
   }
 }
