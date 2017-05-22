@@ -4,9 +4,9 @@ importJS('app/view/footer/footer');
 
 class View{
   render() {
-    let header=new Header();
-    let body=new Body();
-    let footer=new Footer();
+    let header=new ComponentHeader();
+    let body=new ComponentBody();
+    let footer=new ComponentFooter();
     return header.render()+body.render()+footer.render();
   }
 }

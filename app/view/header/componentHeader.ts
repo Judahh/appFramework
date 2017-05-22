@@ -1,6 +1,6 @@
 importJS('app/view/util/util');
 importCSS('app/view/header/header');
-class Header{
+class ComponentHeader{
   render() {
     return Util.elementHTML("header","nasidas");
   }
