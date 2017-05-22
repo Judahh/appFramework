@@ -5,9 +5,9 @@ import * as jQuery from "jquery";
 class ComponentImage{
   render() {
     //  test.mad+
-    $.getJSON( "app/view/jSON/test.json", function( data ) {  
+    jQuery.getJSON( "app/view/jSON/test.json", function( data ) {  
         console.log( "JSON Data: " + data);
-        $.each( data, function( key, val ) {
+        jQuery.each( data, function( key, val ) {
             console.log(key + "value:: " + val );
         });
     });
