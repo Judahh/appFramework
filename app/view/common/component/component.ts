@@ -19,15 +19,6 @@ class Component{
   }
 
   render() {
-    //  test.mad+
-    // console.log( "JSON Data:");
-
-    Util.getJson("app/view/jSON/test.json").then(
-      function(data:ModelImage){
-        console.log("JSONT:"+data.source);
-      }
-    ).fail();
-    
-    return Util.elementHTML("image","nasidas2");
+    return Util.elementHTML(this.name," ");
   }
 }
