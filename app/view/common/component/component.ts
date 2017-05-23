@@ -1,10 +1,14 @@
 importJS('app/view/util/util');
-importJS('app/view/common/image/modelImage');
 
-importCSS('app/view/common/image/componentImage');
-
-class ComponentImage{
-  public constructor(){}
+class Component{
+  public constructor(){
+    var tag = Util.getFileName(__filename);
+    var nodes = document.getElementsByTagName(tag); 
+    
+    for (var index = 0; index < nodes.length; index++) {
+        var element = nodes[index];
+    }
+  }
 
   render() {
     //  test.mad+
@@ -13,7 +17,6 @@ class ComponentImage{
     Util.getJson("app/view/jSON/test.json").then(
       function(data:ModelImage){
         console.log("JSONT:"+data.source);
-        console.log("FILE:"+__filename);
       }
     ).fail();
     
