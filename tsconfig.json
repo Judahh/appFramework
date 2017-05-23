@@ -15,5 +15,8 @@
     "types": [
       "jquery"
     ]
-  }
+  },
+  "exclude": [ 
+    "node_modules"
+  ]
 }
