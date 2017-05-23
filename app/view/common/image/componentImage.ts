@@ -9,7 +9,7 @@ class ComponentImage{
     let promise = $.getJSON( "app/view/jSON/test.json").promise();
     promise.done(
       function(data){
-        console.log("JSON:"+Util.getJson("app/view/jSON/test.json"));
+        console.log("JSON N:"+data);
       }
     ).fail();
     
