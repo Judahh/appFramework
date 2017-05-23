@@ -1,5 +1,6 @@
 class Util{
   static elementHTML(name:string,body?:string) {
+    console.log("Name: " + name);
     if(body){
       return "<"+name+">"+body+"</"+name+">";
     }
