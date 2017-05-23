@@ -7,6 +7,6 @@ class Util{
   }
 
   static getJson(path:string){
-    return $.getJSON( "app/view/jSON/test.json").promise();
+    return $.getJSON( "app/view/jSON/test.json");
   }
 }
