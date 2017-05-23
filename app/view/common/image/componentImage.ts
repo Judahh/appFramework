@@ -3,7 +3,7 @@ importJS('app/view/common/image/modelImage');
 
 importCSS('app/view/common/image/componentImage');
 
-class ComponentImage{
+export class ComponentImage{
   public constructor(){}
 
   public getName() {
@@ -12,14 +12,14 @@ class ComponentImage{
       return (results && results.length > 1) ? results[1] : "";
   }
 
-  render() {
+  public render() {
     //  test.mad+
     // console.log( "JSON Data:");
 
     Util.getJson("app/view/jSON/test.json").then(
       function(data:ModelImage){
         console.log("JSONT:" + data.source);
-        console.log("FILE:" + this.getName);
+        console.log("FILE:" + this.getName());
       }
     ).fail();
     
