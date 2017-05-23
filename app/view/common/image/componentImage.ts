@@ -8,7 +8,7 @@ class ComponentImage{
     // console.log( "JSON Data:");
     Util.getJson("app/view/jSON/test.json").done(
       function(data){
-        console.log("JSON:"+data.responseText);
+        console.log("JSON:"+data.data);
       }
     ).fail();
     
