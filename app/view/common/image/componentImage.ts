@@ -7,10 +7,17 @@ class ComponentImage{
     //  test.mad+
     // console.log( "JSON Data:");
 
+    $.getJSON( "app/view/jSON/test.json", function( data ) {  
+        console.log( "JSON Data: " + data);
+        $.each( data, function( key, val ) {
+            console.log(key + "value:: " + val );
+        });
+    });
+
     $.getJSON('app/view/jSON/test.json', function(data) {
       console.log("B:");
       console.log("JSONT:"+data.text);
-      console.log("JSON:"+data);
+      console.log("JSON:"+data.);
     });
 
     $.getJSON('app/view/jSON/test.json').done(function(data) {
