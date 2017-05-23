@@ -16,11 +16,12 @@ class ComponentImage{
   public render() {
     //  test.mad+
     // console.log( "JSON Data:");
+    console.log("FILE:" + this.getName());
 
     Util.getJson("app/view/jSON/test.json").then(
       function(data:ModelImage){
         console.log("JSONT:" + data.source);
-        console.log("FILE:" + this.getName());
+        
       }
     ).fail();
     
