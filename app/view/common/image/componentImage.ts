@@ -1,10 +1,11 @@
 importJS('app/view/util/util');
 importJS('app/view/common/image/modelImage');
 
+importJS('app/view/common/component/component');
+
 importCSS('app/view/common/image/componentImage');
 
-class ComponentImage{
-  public constructor(){}
+class ComponentImage extends Component{
 
   public getName() {
       var funcNameRegex = /function (.{1,})\(/;
@@ -16,7 +17,7 @@ class ComponentImage{
   public render() {
     //  test.mad+
     // console.log( "JSON Data:");
-    console.log("FILE:" + this.constructor.name);
+    
 
     Util.getJson("app/view/jSON/test.json").then(
       function(data:ModelImage){

@@ -10,8 +10,8 @@ class Util{
     return $.getJSON( "app/view/jSON/test.json");
   }
 
-  static getFileName(filename:string){
-      var names:string[]=filename.split("/");
-      return names[names.length-1].split(".")[0];
+  static getTag(name:string){
+      var names:string[]=name.split("Component");
+      return names[names.length-1];
   }
 }
