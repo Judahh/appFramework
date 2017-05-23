@@ -1,4 +1,5 @@
 importJS('app/view/util/util');
+importJS('app/view/common/image/modelImage');
 
 importCSS('app/view/common/image/componentImage');
 
@@ -8,13 +9,8 @@ class ComponentImage{
     // console.log( "JSON Data:");
 
     Util.getJson("app/view/jSON/test.json").then(
-      function(data){
-        console.log("A:");
-        console.log("JSONT:"+data.mad);
-        console.log("JSON:"+data);
-        $.each( data, function( key, val ) {
-            console.log(key + " value:: " + val );
-        });
+      function(data:ModelImage){
+        console.log("JSONT:"+data.source);
       }
     ).fail();
     
