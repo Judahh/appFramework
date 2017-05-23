@@ -16,7 +16,7 @@ class ComponentImage{
   public render() {
     //  test.mad+
     // console.log( "JSON Data:");
-    console.log("FILE:" + this.getName());
+    console.log("FILE:" + this.constructor.name);
 
     Util.getJson("app/view/jSON/test.json").then(
       function(data:ModelImage){
