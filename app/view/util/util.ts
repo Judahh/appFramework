@@ -12,6 +12,6 @@ class Util{
 
   static getTag(name:string){
       var names:string[]=name.split("Component");
-      return names[names.length-1];
+      return names[names.length-1].toLowerCase();
   }
 }
