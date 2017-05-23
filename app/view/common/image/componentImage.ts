@@ -7,9 +7,10 @@ class ComponentImage{
   public constructor(){}
 
   public getName() {
-      var funcNameRegex = /function (.{1,})\(/;
-      var results = (funcNameRegex).exec((<any> this).constructor.toString());
-      return (results && results.length > 1) ? results[1] : "";
+      // var funcNameRegex = /function (.{1,})\(/;
+      // var results = (funcNameRegex).exec((<any> this).constructor.toString());
+      // return (results && results.length > 1) ? results[1] : "";
+      return "FUCK";
   }
 
   public render() {
