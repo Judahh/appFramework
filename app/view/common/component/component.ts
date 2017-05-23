@@ -2,6 +2,7 @@ importJS('app/view/util/util');
 
 class Component{
   private id:string;
+  private name:string;
 
   public constructor(){
     var tag = Util.getTag(this.constructor.name);
@@ -9,7 +10,7 @@ class Component{
     // console.log("FILE:" + tag);
     // console.log("Name:" + this.constructor.name);
     // console.log("NUMBER:" + nodes.length);
-
+    this.name = tag;
     this.id = tag + "Id" + nodes.length;
     console.log("Id:" + this.id);
     // for (var index = 0; index < nodes.length; index++) {

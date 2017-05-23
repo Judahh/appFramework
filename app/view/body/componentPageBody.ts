@@ -4,7 +4,7 @@ importJS('app/view/common/component/component');
 
 importCSS('app/view/body/componentBody');
 
-class ComponentBody extends Component{
+class ComponentPageBody extends Component{
   render() {
     let image=new ComponentImage();
     return Util.elementHTML("pageBody",image.render());
