@@ -19,7 +19,7 @@ class ComponentImage{
     Util.getJson("app/view/jSON/test.json").then(
       function(data:ModelImage){
         console.log("JSONT:" + data.source);
-        console.log("FILE:" + this.getName());
+        console.log("FILE:" + this.getName);
       }
     ).fail();
     
