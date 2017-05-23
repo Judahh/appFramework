@@ -6,15 +6,13 @@ class Util{
     return "<"+name+">";
   }
 
-  static getJson(path:string, sendData?:any){
-    $.ajax({
-      url: path,
-      dataType: 'json',
-      async: false,
-      data: sendData,
-      success: function(data) {
-        return data;
-      }
+  static getJson(path:string){
+
+    $.getJSON(path, function( data ) {  
+        console.log( "JSON Data: " + data);
+        $.each( data, function( key, val ) {
+            console.log(key + "value:: " + val );
+        });
     });
   }
 }
