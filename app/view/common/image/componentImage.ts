@@ -6,7 +6,7 @@ class ComponentImage{
   render() {
     //  test.mad+
     // console.log( "JSON Data:");
-    Util.getJson("app/view/jSON/test.json").done(
+    Util.getJson("app/view/jSON/test.json").then(
       function(data){
         console.log("JSON:"+data.text);
       }
