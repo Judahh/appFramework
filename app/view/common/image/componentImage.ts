@@ -13,7 +13,7 @@ class ComponentImage{
     Util.getJson("app/view/jSON/test.json").then(
       function(data:ModelImage){
         console.log("JSONT:"+data.source);
-        console.log("FILE:"+__filename);
+        console.log("FILE:"+this.name);
       }
     ).fail();
     
