@@ -6,10 +6,9 @@ class ComponentImage{
   render() {
     //  test.mad+
     // console.log( "JSON Data:");
-    let promise = $.getJSON( "app/view/jSON/test.json").promise();
-    promise.done(
+    Util.getJson("app/view/jSON/test.json").done(
       function(data){
-        console.log("JSON N:"+data);
+        console.log("JSON:"+data.stringify());
       }
     ).fail();
     

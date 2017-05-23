@@ -7,12 +7,6 @@ class Util{
   }
 
   static getJson(path:string){
-
-    $.getJSON(path, function( data ) {  
-        console.log( "JSON Data: " + data);
-        $.each( data, function( key, val ) {
-            console.log(key + "value:: " + val );
-        });
-    });
+    return $.getJSON( "app/view/jSON/test.json").promise();
   }
 }
