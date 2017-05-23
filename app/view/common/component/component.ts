@@ -2,10 +2,10 @@ importJS('app/view/util/util');
 
 class Component{
   public constructor(){
-    var tag = Util.getTag(this.name);
+    var tag = Util.getTag(this.getName());
     var nodes = document.getElementsByTagName(tag); 
     console.log("FILE:" + tag);
-    console.log("Name:" + this.name);
+    console.log("Name:" + this.getName());
     
     for (var index = 0; index < nodes.length; index++) {
         var element = nodes[index];
