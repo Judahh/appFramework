@@ -3,7 +3,7 @@ importJS('app/view/common/image/modelImage');
 
 importCSS('app/view/common/image/componentImage');
 
-export class ComponentImage{
+class ComponentImage{
   public constructor(){}
 
   public getName() {
