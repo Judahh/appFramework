@@ -5,18 +5,12 @@ class Component{
     var tag = Util.getTag(this.constructor.name);
     var nodes = document.getElementsByTagName(tag); 
     console.log("FILE:" + tag);
-    console.log("Name:" + this.constructor.name);
+    // console.log("Name:" + this.constructor.name);
     
+    console.log("NUMBER:" + nodes.length);
     for (var index = 0; index < nodes.length; index++) {
         var element = nodes[index];
     }
-  }
-
-   public getName() {
-      var funcNameRegex = /function (.{1,})\(/;
-      var results = (funcNameRegex).exec((<any> this).constructor.toString());
-      return (results && results.length > 1) ? results[1] : "";
-      // return "FUCK";
   }
 
   render() {
