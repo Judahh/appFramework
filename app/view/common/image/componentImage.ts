@@ -6,11 +6,19 @@ class ComponentImage{
   render() {
     //  test.mad+
     // console.log( "JSON Data:");
+
+    $.getJSON('app/view/jSON/test.json', function(data) {
+      console.log("B:");
+      console.log("JSONT:"+data.text);
+      console.log("JSON:"+data);
+    });
+
     $.getJSON('app/view/jSON/test.json').done(function(data) {
       console.log("S:");
       console.log("JSONT:"+data.text);
       console.log("JSON:"+data);
     });
+
     Util.getJson("app/view/jSON/test.json").then(
       function(data){
         console.log("A:");
