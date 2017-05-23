@@ -2,12 +2,12 @@ importJS('app/view/util/util');
 
 class Component{
   public constructor(){
-    var tag = Util.getFileName(__filename);
-    var nodes = document.getElementsByTagName(tag); 
+    // var tag = Util.getFileName(__filename);
+    // var nodes = document.getElementsByTagName(tag); 
     
-    for (var index = 0; index < nodes.length; index++) {
-        var element = nodes[index];
-    }
+    // for (var index = 0; index < nodes.length; index++) {
+    //     var element = nodes[index];
+    // }
   }
 
   render() {
