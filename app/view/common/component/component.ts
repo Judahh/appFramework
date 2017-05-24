@@ -1,8 +1,8 @@
 importJS('app/view/util/util');
 
 class Component{
-  private id:string;
-  private name:string;
+  protected id:string;
+  protected name:string;
 
   public constructor(fatherElement){
     var tag = Util.getTag(this.constructor.name);
