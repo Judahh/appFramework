@@ -8,7 +8,7 @@ class Util{
     if(body){
       hTML += "\">"+body+"</"+name;
     }
-    return html+">";
+    return hTML+">";
   }
 
   static getJson(path:string){
