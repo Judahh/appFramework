@@ -13,7 +13,7 @@ class ComponentImage extends Component{
     ServiceModel.getPromise("test").then((data:ModelImage) => this.update(data)).fail((data) => this.updateFailed(data));
     // Util.getJson("app/view/jSON/test.json").then((data:ModelImage) => this.update(data)).fail((data) => this.updateFailed(data));
     
-    this.element.innerHTML="Loading...";
+    // this.element.innerHTML="Loading...";
   }
 
   protected update(data:ModelImage){
