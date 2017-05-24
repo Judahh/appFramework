@@ -1,10 +1,11 @@
 class ModelImage {
     //img
     boxSizing: string;
-    borderSize: number;
+    borderWidth: number;
+    borderRadius:number;//px
+
     color: string;
     position: string;
-    borderRadius:number;//px
     source:string;
     opacity:number;
     height:string;

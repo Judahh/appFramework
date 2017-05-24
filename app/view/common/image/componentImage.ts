@@ -21,6 +21,17 @@ class ComponentImage extends Component{
 
   protected update(data:ModelImage){
     console.log("JSONT:" + data.source);
+    
+    this.img.style.boxSizing = data.boxSizing;
+    this.img.style.borderWidth = data.borderWidth;
+    this.img.style.borderRadius = data.borderRadius;//px
+    this.img.style.color = data.color;
+    this.img.style.position = data.position;
     this.img.getElement().src = data.source;
+    this.img.style.opacity = data.opacity;
+    this.img.style.height = data.height;
+    this.img.style.width = data.width;
+    this.img.style.filter = data.filter;
+    this.img.style.zIndex = data.zIndex;
   }
 }
