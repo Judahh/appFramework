@@ -26,13 +26,7 @@ class Util{
 
   static getCurrentComponentPath() {
     var err = new Error();
-    var link = err.stack.split('(')[3];
-    // link = link;
-    // link = link.split(')')[0];
-    // link = link.split(':');
-    // link.splice(-2, 2);
-    // link = link.join(':');
-
+    var link = err.stack.split('(')[3].split(')')[0].split('.com/')[1];
     return link;
   }
 
