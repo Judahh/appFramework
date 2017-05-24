@@ -11,7 +11,7 @@ class Util{
     return hTML+">";
   }
 
-  static getJson(path:string){
+  static getJson(path:string):JQueryPromise<any>{
     return $.getJSON( "app/view/jSON/test.json");
   }
 

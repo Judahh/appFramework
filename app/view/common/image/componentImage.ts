@@ -1,4 +1,5 @@
 importJS('app/view/util/util');
+importJS('app/view/serviceModel/serviceModel');
 importJS('app/view/common/image/modelImage');
 importJS('app/view/common/component/component');
 
@@ -10,10 +11,10 @@ class ComponentImage extends Component{
     //  test.mad+
     // console.log( "JSON Data:");
     
-
-    Util.getJson("app/view/jSON/test.json").then((data:ModelImage) => this.update(data)).fail((data) => this.updateFailed(data));
+    ServiceModel.getPromise("test").then((data:ModelImage) => this.update(data)).fail((data) => this.updateFailed(data));
+    // Util.getJson("app/view/jSON/test.json").then((data:ModelImage) => this.update(data)).fail((data) => this.updateFailed(data));
     
-    this.element.innerHTML="nasidas3";
+    this.element.innerHTML="Loading...";
   }
 
   protected update(data:ModelImage){
