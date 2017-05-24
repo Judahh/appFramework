@@ -37,7 +37,7 @@ class Component{
   }
 
   protected updateFailed(data){
-    console.log("JSONT:" + data);
+    console.error("JSONT:" + data);
     this.element.innerHTML = data;
   }
 }
