@@ -22,26 +22,26 @@ class ComponentImage extends Component{
   protected update(data:ModelImage){
     // console.log("JSONT:" + data.source);
     if(data.boxSizing)
-      this.img.style.boxSizing = data.boxSizing;
+      this.img.getElement().style.boxSizing = data.boxSizing;
     if(data.borderWidth)
-      this.img.style.borderWidth = data.borderWidth;
+      this.img.getElement().style.borderWidth = data.borderWidth;
     if(data.borderRadius)
-      this.img.style.borderRadius = data.borderRadius;//px
+      this.img.getElement().style.borderRadius = data.borderRadius;//px
     if(data.color)
-      this.img.style.color = data.color;
+      this.img.getElement().style.color = data.color;
     if(data.position)
-      this.img.style.position = data.position;
+      this.img.getElement().style.position = data.position;
     if(data.source)
       this.img.getElement().src = data.source;
     if(data.opacity)
-      this.img.style.opacity = data.opacity;
+      this.img.getElement().style.opacity = data.opacity;
     if(data.height)
-      this.img.style.height = data.height;
+      this.img.getElement().style.height = data.height;
     if(data.width)
-      this.img.style.width = data.width;
+      this.img.getElement().style.width = data.width;
     if(data.filter)
-      this.img.style.filter = data.filter;
+      this.img.getElement().style.filter = data.filter;
     if(data.zIndex)
-      this.img.style.zIndex = data.zIndex;
+      this.img.getElement().style.zIndex = data.zIndex;
   }
 }
