@@ -5,7 +5,7 @@ class ServiceModel {
         // var internalJSON = require(this.internalURL+path+".json");
         // console.log(internalJSON);
         // console.log("A:");
-        return Util.getJson(this.uRL+path+".json");
+        return Util.getJsonPromise(this.uRL+path+".json");
         // this.http.get(this.URL+path+".json").toPromise().then(this.extractData).catch(this.handlePromiseError);
     }
 }

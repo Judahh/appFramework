@@ -11,8 +11,8 @@ class Util{
     return hTML+">";
   }
 
-  static getJson(path:string):JQueryPromise<any>{
-    return $.getJSON( "app/view/jSON/test.json");
+  static getJsonPromise(path:string):JQueryPromise<any>{
+    return $.getJSON(path);
   }
 
   static getTag(name:string){
