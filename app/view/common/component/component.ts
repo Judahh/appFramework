@@ -7,9 +7,9 @@ class Component{
   public constructor(fatherElement?){
     var tag = Util.getTag(this.constructor.name);
     var nodes = document.getElementsByTagName(tag); 
-    // console.log("FILE:" + tag);
-    // console.log("Name:" + this.constructor.name);
-    // console.log("NUMBER:" + nodes.length);
+    console.log("FILE:" + tag);
+    console.log("Name:" + this.constructor.name);
+    console.log("NUMBER:" + nodes.length);
     this.element = document.createElement(tag);
     this.element.id = tag + "Id" + nodes.length;
     console.log("Id:" + this.element.id);
