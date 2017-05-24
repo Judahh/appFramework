@@ -8,17 +8,19 @@ class Component{
     var tag = Util.getTag(this.constructor.name);
     var nodes = document.getElementsByTagName(tag); 
     var path = Util.getCurrentComponentPath();
+
     importCSS(path);
+
+    this.element = document.createElement(tag);
+    this.element.id = tag + "Id" + nodes.length;
 
     // console.log("TAG:" + tag);
     // console.log("PATH:" + Util.getCurrentComponentPath());
     // console.log("FileName:" + Util.getFileName(this.constructor.name));
     // console.log("Name:" + this.constructor.name);
     // console.log("NUMBER:" + nodes.length);
+    // console.log("Id:" + this.element.id);
 
-    this.element = document.createElement(tag);
-    this.element.id = tag + "Id" + nodes.length;
-    console.log("Id:" + this.element.id);
     // for (var index = 0; index < nodes.length; index++) {
     //     var element = nodes[index];
     // }
