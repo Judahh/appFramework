@@ -6,6 +6,6 @@ importCSS('app/view/body/componentPageBody');
 
 class ComponentPageBody extends Component{
   render() {
-    let image=new ComponentImage(this.element);
+    let background=new ComponentBackground(this.element);
   }
 }
