@@ -1,7 +1,7 @@
 importJS('app/view/util/util');
 
 class Component{
-  protected fatherElement:Component;
+  // protected fatherElement:Component;
   protected element;
 
   public constructor(fatherElement?){
@@ -39,5 +39,9 @@ class Component{
   protected updateFailed(data){
     console.error("JSONT:" + data);
     this.element.innerHTML = data;
+  }
+
+  public getElement(){
+    return this.element;
   }
 }
