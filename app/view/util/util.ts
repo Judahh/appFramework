@@ -26,7 +26,7 @@ class Util{
 
   static getCurrentScript() {
     if (document.currentScript) {
-      return document.currentScript.src;
+      return document.currentScript;
     } else {
       var scripts = document.getElementsByTagName('script');
       return scripts[scripts.length-1].src;
