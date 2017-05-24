@@ -23,4 +23,21 @@ class Util{
   static getFileName(name:string) {
     return name.charAt(0).toLowerCase() + name.slice(1);
   }
+
+  static getCurrentScript() {
+    if (document.currentScript) {
+      return document.currentScript.src;
+    } else {
+      var scripts = document.getElementsByTagName('script');
+      return scripts[scripts.length-1].src;
+
+    }
+  }
+
+  static getCurrentScriptPath() {
+    var script = this.getCurrentScript();
+    var path = script.substring(0, script.lastIndexOf('/'));
+    return path;
+  }
+
 }
