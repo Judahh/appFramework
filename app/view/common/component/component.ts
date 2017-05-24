@@ -17,7 +17,7 @@ class Component{
     //     var element = nodes[index];
     // }
 
-    render();
+    this.render();
 
     if(fatherElement){
         fatherElement.appendChild(this.element);
