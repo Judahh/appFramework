@@ -16,7 +16,7 @@ class Component{
     // for (var index = 0; index < nodes.length; index++) {
     //     var element = nodes[index];
     // }
-    fatherElement.innerHTML=this.render();
+    fatherElement.innerHTML+=this.render();
   }
 
   render() {
