@@ -7,7 +7,8 @@ class Component{
   public constructor(fatherElement?){
     var tag = Util.getTag(this.constructor.name);
     var nodes = document.getElementsByTagName(tag); 
-    console.log("FILE:" + tag);
+    console.log("TAG:" + tag);
+    console.log("FileName:" + Util.getFileName(this.constructor.name));
     console.log("Name:" + this.constructor.name);
     console.log("NUMBER:" + nodes.length);
     this.element = document.createElement(tag);

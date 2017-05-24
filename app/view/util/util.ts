@@ -19,4 +19,8 @@ class Util{
       var names:string[]=name.split("Component");
       return names[names.length-1].toLowerCase();
   }
+
+  static getFileName(name:string) {
+    return name.charAt(0).toUpperCase() + name.slice(1);
+  }
 }
