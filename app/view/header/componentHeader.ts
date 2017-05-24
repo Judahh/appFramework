@@ -5,6 +5,6 @@ importCSS('app/view/header/componentHeader');
 
 class ComponentHeader extends Component{
   render() {
-    return Util.elementHTML(this.name, id,"nasidas");
+    return Util.elementHTML(this.name, this.id,"nasidas");
   }
 }

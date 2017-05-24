@@ -5,6 +5,6 @@ importCSS('app/view/footer/componentFooter');
 
 class ComponentFooter extends Component{
   render() {
-    return Util.elementHTML(this.name, id,"nasidas2");
+    return Util.elementHTML(this.name, this.id,"nasidas2");
   }
 }

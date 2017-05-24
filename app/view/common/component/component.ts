@@ -20,6 +20,6 @@ class Component{
   }
 
   render() {
-    return Util.elementHTML(this.name, id," ");
+    return Util.elementHTML(this.name, this.id," ");
   }
 }

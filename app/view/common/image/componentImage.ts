@@ -18,6 +18,6 @@ class ComponentImage extends Component{
       }
     ).fail();
     
-    return Util.elementHTML("image","nasidas2");
+    return Util.elementHTML(this.name, this.id,"nasidas2");
   }
 }
