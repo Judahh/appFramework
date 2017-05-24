@@ -20,30 +20,8 @@ class ComponentImage extends Component{
   }
 
   protected update(data:ModelImage){
-    // console.log("JSONT:" + data.source);
-    // if(data.boxSizing)
-    //   this.img.getElement().style.boxSizing = data.boxSizing;
-    // if(data.borderWidth)
-    //   this.img.getElement().style.borderWidth = data.borderWidth;
-    // if(data.borderRadius)
-    //   this.img.getElement().style.borderRadius = data.borderRadius;//px
-    // if(data.color)
-    //   this.img.getElement().style.color = data.color;
-    // if(data.position)
-    //   this.img.getElement().style.position = data.position;
-    // if(data.source)
-    //   this.img.getElement().src = data.source;
-    // if(data.opacity)
-    //   this.img.getElement().style.opacity = data.opacity;
-    // if(data.height)
-    //   this.img.getElement().style.height = data.height;
-    // if(data.width)
-    //   this.img.getElement().style.width = data.width;
-    // if(data.filter)
-    //   this.img.getElement().style.filter = data.filter;
-    // if(data.zIndex)
-    //   this.img.getElement().style.zIndex = data.zIndex;
-    this.img.getElement().style = data;
-    this.img.getElement().src = data.source;
+    super.update(this.img, data.style);
+    if(data.source)
+      this.img.getElement().src = data.source;
   }
 }
