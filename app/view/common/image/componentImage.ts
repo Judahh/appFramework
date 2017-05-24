@@ -12,9 +12,9 @@ class ComponentImage extends Component{
     
 
     Util.getJson("app/view/jSON/test.json").then(
-      function(data:ModelImage){
+      (data:ModelImage)=>{
         console.log("JSONT:" + data.source);
-        this.element.innerHTML=data.source;
+        this.element.innerHTML = data.source;
       }
     ).fail();
     
