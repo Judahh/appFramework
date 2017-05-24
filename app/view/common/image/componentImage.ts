@@ -20,8 +20,7 @@ class ComponentImage extends Component{
   }
 
   protected update(data:ModelImage){
-    console.log("JSONT:" + data.source);
-    
+    // console.log("JSONT:" + data.source);
     this.img.style.boxSizing = data.boxSizing;
     this.img.style.borderWidth = data.borderWidth;
     this.img.style.borderRadius = data.borderRadius;//px
