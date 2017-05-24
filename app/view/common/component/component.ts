@@ -24,10 +24,20 @@ class Component{
     }
   }
 
-  render() {
+  public render() {
   }
 
-  insert(fatherElement){
+  public insert(fatherElement){
     fatherElement.appendChild(this.element);
+  }
+
+  protected update(data){
+    console.log("JSONT:" + data);
+    this.element.innerHTML = data;
+  }
+
+  protected updateFailed(data){
+    console.log("JSONT:" + data);
+    this.element.innerHTML = data;
   }
 }

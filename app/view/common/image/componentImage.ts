@@ -11,14 +11,12 @@ class ComponentImage extends Component{
     // console.log( "JSON Data:");
     
 
-    Util.getJson("app/view/jSON/test.json").then(
-      (data:ModelImage) => this.update(data)
-    ).fail();
+    Util.getJson("app/view/jSON/test.json").then((data:ModelImage) => this.update(data)).fail((data) => this.updateFailed(data));
     
     this.element.innerHTML="nasidas3";
   }
 
-  private update(data:ModelImage){
+  protected update(data:ModelImage){
     console.log("JSONT:" + data.source);
     this.element.innerHTML = data.source;
   }
