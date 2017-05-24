@@ -1,25 +1,33 @@
 importJS('app/view/util/util');
 
 class Component{
-  protected id:string;
-  protected name:string;
+  protected fatherElement:Component;
+  protected element;
 
-  public constructor(fatherElement){
+  public constructor(fatherElement?){
     var tag = Util.getTag(this.constructor.name);
     var nodes = document.getElementsByTagName(tag); 
     // console.log("FILE:" + tag);
     // console.log("Name:" + this.constructor.name);
     // console.log("NUMBER:" + nodes.length);
-    this.name = tag;
-    this.id = tag + "Id" + nodes.length;
-    console.log("Id:" + this.id);
+    this.element = document.createElement(tag);
+    this.element.id = tag + "Id" + nodes.length;
+    console.log("Id:" + this.element.id);
     // for (var index = 0; index < nodes.length; index++) {
     //     var element = nodes[index];
     // }
-    fatherElement.innerHTML+=this.render();
+
+    render();
+
+    if(fatherElement){
+        fatherElement.appendChild(this.element);
+    }
   }
 
   render() {
-    return Util.elementHTML(this.name, this.id," ");
+  }
+
+  insert(fatherElement){
+    fatherElement.appendChild(this.element);
   }
 }
