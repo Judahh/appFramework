@@ -26,8 +26,8 @@ class Util{
 
   static getCurrentComponentPath() {
     var err = new Error();
-    var link = err.stack.split('(')[3].split('.js')[0].split('.com/')[1];
-    console.log("path:"+location.href);
+    var link = err.stack.split('(')[3].split('.js')[0].split(location.href)[1];
+    // console.log("path:"+link);
     return link;
   }
 
