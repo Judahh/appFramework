@@ -5,7 +5,4 @@ importCSS('app/view/common/image/componentImage');
 
 class ComponentImg extends Component{
 
-  public render() {
-  }
-
 }
