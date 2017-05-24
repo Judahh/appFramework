@@ -20,7 +20,7 @@ class ComponentImage extends Component{
   }
 
   protected update(data:ModelImage){
-    super.update(this.img, data.style);
+    super.updateStyle(this.img, data.style);
     if(data.source)
       this.img.getElement().src = data.source;
   }
