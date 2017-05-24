@@ -7,11 +7,15 @@ class Component{
   public constructor(fatherElement?){
     var tag = Util.getTag(this.constructor.name);
     var nodes = document.getElementsByTagName(tag); 
-    console.log("TAG:" + tag);
-    console.log("PATH:" + Util.getCurrentComponentPath());
-    console.log("FileName:" + Util.getFileName(this.constructor.name));
-    console.log("Name:" + this.constructor.name);
-    console.log("NUMBER:" + nodes.length);
+    var path = Util.getCurrentComponentPath();
+    importCSS(path);
+
+    // console.log("TAG:" + tag);
+    // console.log("PATH:" + Util.getCurrentComponentPath());
+    // console.log("FileName:" + Util.getFileName(this.constructor.name));
+    // console.log("Name:" + this.constructor.name);
+    // console.log("NUMBER:" + nodes.length);
+
     this.element = document.createElement(tag);
     this.element.id = tag + "Id" + nodes.length;
     console.log("Id:" + this.element.id);

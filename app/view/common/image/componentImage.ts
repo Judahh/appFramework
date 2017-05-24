@@ -4,7 +4,7 @@ importJS('app/view/common/image/modelImage');
 importJS('app/view/common/component/component');
 importJS('app/view/common/image/img/componentImg');
 
-importCSS('app/view/common/image/componentImage');
+// importCSS('app/view/common/image/componentImage');
 
 class ComponentImage extends Component{
   private img;
