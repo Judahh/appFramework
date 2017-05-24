@@ -18,6 +18,6 @@ class ComponentImage extends Component{
 
   protected update(data:ModelImage){
     console.log("JSONT:" + data.source);
-    this.element.innerHTML = data.source;
+    this.element.src = data.source;
   }
 }
