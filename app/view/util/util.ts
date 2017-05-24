@@ -24,20 +24,16 @@ class Util{
     return name.charAt(0).toLowerCase() + name.slice(1);
   }
 
-  static getCurrentScript() {
-    if (document.currentScript) {
-      return document.currentScript;
-    } else {
-      var scripts = document.getElementsByTagName('script');
-      return scripts[scripts.length-1].src;
-
-    }
-  }
-
   static getCurrentScriptPath() {
-    var script = this.getCurrentScript();
-    var path = script.substring(0, script.lastIndexOf('/'));
-    return path;
+    let err = new Error();
+    let link = err.stack.split('(');
+    // link = link[1];
+    // link = link.split(')')[0];
+    // link = link.split(':');
+    // link.splice(-2, 2);
+    // link = link.join(':');
+
+    return link;
   }
 
 }
