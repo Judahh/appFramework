@@ -15,7 +15,7 @@ class ComponentImage extends Component{
     // console.log( "JSON Data:");
     ServiceModel.getPromise("test").then((data:ModelImage) => this.update(data)).fail((data) => this.updateFailed(data));
     // Util.getJson("app/view/jSON/test.json").then((data:ModelImage) => this.update(data)).fail((data) => this.updateFailed(data));
-    
+    //fuk
     // this.element.innerHTML="Loading...";
   }
 
