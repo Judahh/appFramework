@@ -25,9 +25,9 @@ class Util{
   }
 
   static getCurrentScriptPath() {
-    let err = new Error();
-    let link = err.stack.split('(');
-    // link = link[1];
+    var err = new Error();
+    var link = err.stack.split('(')[1];
+    // link = link;
     // link = link.split(')')[0];
     // link = link.split(':');
     // link.splice(-2, 2);
