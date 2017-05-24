@@ -24,9 +24,9 @@ class Util{
     return name.charAt(0).toLowerCase() + name.slice(1);
   }
 
-  static getCurrentScriptPath() {
+  static getCurrentComponentPath() {
     var err = new Error();
-    var link = err.stack.split('(')[2];
+    var link = err.stack.split('(')[3];
     // link = link;
     // link = link.split(')')[0];
     // link = link.split(':');

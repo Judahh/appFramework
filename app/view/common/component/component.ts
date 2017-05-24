@@ -8,7 +8,7 @@ class Component{
     var tag = Util.getTag(this.constructor.name);
     var nodes = document.getElementsByTagName(tag); 
     console.log("TAG:" + tag);
-    console.log("PATH:" + Util.getCurrentScriptPath());
+    console.log("PATH:" + Util.getCurrentComponentPath());
     console.log("FileName:" + Util.getFileName(this.constructor.name));
     console.log("Name:" + this.constructor.name);
     console.log("NUMBER:" + nodes.length);
