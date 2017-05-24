@@ -4,7 +4,7 @@ class Component{
   private id:string;
   private name:string;
 
-  public constructor(){
+  public constructor(fatherElement){
     var tag = Util.getTag(this.constructor.name);
     var nodes = document.getElementsByTagName(tag); 
     // console.log("FILE:" + tag);
@@ -16,9 +16,10 @@ class Component{
     // for (var index = 0; index < nodes.length; index++) {
     //     var element = nodes[index];
     // }
+    fatherElement.innerHTML=this.render();
   }
 
   render() {
-    return Util.elementHTML(this.name," ");
+    return Util.elementHTML(this.name, id," ");
   }
 }

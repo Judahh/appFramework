@@ -1,10 +1,14 @@
 class Util{
-  static elementHTML(name:string,body?:string) {
+  static elementHTML(name:string, id?:string, body?:string) {
     console.log("Name: " + name);
-    if(body){
-      return "<"+name+">"+body+"</"+name+">";
+    var hTML= "<" + name;
+    if(id){
+      hTML += " id=\"" + id;
     }
-    return "<"+name+">";
+    if(body){
+      hTML += "\">"+body+"</"+name;
+    }
+    return html+">";
   }
 
   static getJson(path:string){

@@ -6,7 +6,7 @@ importCSS('app/view/body/componentPageBody');
 
 class ComponentPageBody extends Component{
   render() {
-    let image=new ComponentImage();
-    return Util.elementHTML("pageBody",image.render());
+    let image=new ComponentImage(this);
+    return Util.elementHTML(this.name, id,"");
   }
 }
