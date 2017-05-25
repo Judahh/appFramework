@@ -3,6 +3,9 @@ importJS('app/view/common/item/colorEffect/font/animationEffect/information/mode
 importJS('app/view/common/component/component');
 
 class ComponentInformation extends Component{
+  information: string;
+  link: string;
+  
   public render() {
 
   }

@@ -5,7 +5,8 @@ importJS('app/view/common/component/component');
 importJS('app/view/common/item/colorEffect/componentColorEffect');
 
 class ComponentItem extends Component{
-  private colorEffect;
+  routerLink: string;
+  colorEffect: ComponentColorEffect;
 
   public render() {
     this.colorEffect = new ComponentColorEffect(this.element);

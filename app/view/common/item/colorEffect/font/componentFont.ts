@@ -4,7 +4,7 @@ importJS('app/view/common/component/component');
 importJS('app/view/common/item/colorEffect/font/animationEffect/componentAnimationEffect');
 
 class ComponentFont extends Component{
-  private animationEffect;
+  private animationEffect:ComponentAnimationEffect;
 
   public render() {
     this.animationEffect = new ComponentAnimationEffect(this.element);

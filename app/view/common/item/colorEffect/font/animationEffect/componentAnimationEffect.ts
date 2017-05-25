@@ -4,7 +4,11 @@ importJS('app/view/common/component/component');
 importJS('app/view/common/item/colorEffect/font/animationEffect/information/componentInformation');
 
 class ComponentAnimationEffect extends Component{
-  private information;
+  information: ComponentInformation;
+  class:string;
+  subClass:string;
+  subClasses:Array<any>;
+  arrayInformation: Array<ModelInformation>;
 
   public render() {
     this.information = new ComponentInformation(this.element);
