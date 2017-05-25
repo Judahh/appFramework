@@ -13,6 +13,9 @@ class ModelStyle {
     right: string;
     bottom: string;
 
+    padding: Array<string>;
+    margin: Array<string>;
+
     opacity:number;
 
     height:string;
@@ -20,5 +23,11 @@ class ModelStyle {
     filter:string;
     zIndex:number;
 
+    textDecoration: string;
 
+    font: string;
+    fontSize: number;
+    verticalAlign: string;
+    textAlign: string;
+    textIndent: string;
 } 
