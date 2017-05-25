@@ -82,6 +82,7 @@ class Component {
   }
 
   public insert(fatherElement) {
+    this.render();
     fatherElement.appendChild(this.element);
   }
 
