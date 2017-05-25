@@ -15,7 +15,7 @@ class Component {
     return this.getConstructor().name;
   }
 
-  public constructor(fatherElement?) {
+  public constructor(fatherElement?: HTMLElement) {
     var tag = Util.getTag(this.getName());
     var nodes = document.getElementsByTagName(tag);
     var path = Util.getCurrentComponentPath();
@@ -34,23 +34,43 @@ class Component {
   public render() {
   }
 
-  protected update(jSON, style?: CSSStyleDeclaration) {
+  protected update(jSON) {
+    this.updateJSON(jSON);
+  }
+
+  protected updateJSON(jSON, type?: number) {
+    // console.log("UPDATE!");
     for (var prop in jSON) {
       // console.log("Prop:" + prop);
       if (prop != undefined) {
         if (!jSON.hasOwnProperty(prop)) {
           continue;
         }
-        if(style){
-          // console.log("Prop2 is var");
-          style[prop] = jSON[prop];
+        // console.log("TYPE:"+type);
+        if(type){
+          // console.log("Prop2");
+          if(type==2){
+            // console.log("Prop3 is var");
+            this.element.style[prop] = jSON[prop];
+          }else{
+            if (prop == "style") {
+              // console.log("Prop is style");
+              this.updateJSON(jSON[prop], 2);
+            } else {
+              // console.log("Prop is not style");
+              this.element[prop] = jSON[prop];
+            }
+          }
         }else{
           if (typeof jSON[prop] === 'object') {
             // console.log("Prop is object");
-            if (prop == "style") {
-              this.update(jSON[prop], this.element.style);
+            if (prop == "element") {
+              // console.log("Prop is element");
+              this.updateJSON(jSON[prop], 1);
+              // console.log("Prop is element OUT");
             } else {
-              this[prop].update(jSON[prop]);
+              // console.log("Prop is regular");
+              this[prop].updateJSON(jSON[prop]);
             }
           } else {
             // console.log("Prop is var:" + jSON[prop]);

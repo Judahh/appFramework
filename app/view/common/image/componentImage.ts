@@ -12,9 +12,4 @@ class ComponentImage extends Component{
     this.img = new ComponentImg(this.element);
     this.getJSONPromise("test");
   }
-
-  protected update(data){
-    super.update(data);
-    this.img.setElementSource(this.img.source);
-  }
 }
