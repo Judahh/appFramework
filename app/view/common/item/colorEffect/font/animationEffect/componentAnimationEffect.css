@@ -1,0 +1,1023 @@
+.DivClassPulse:hover{
+    -webkit-animation: pulse 1.5s linear infinite;
+    -moz-animation: pulse 1.5s linear infinite;
+    -ms-animation: pulse 1.5s linear infinite;
+    -o-animation: pulse 1.5s linear infinite;
+    animation: pulse 1.5s linear infinite;
+}
+
+.DivClassShake:hover{
+    -webkit-animation: shake 0.7s linear infinite;
+    -moz-animation: shake 0.7s linear infinite;
+    -ms-animation: shake 0.7s linear infinite;
+    -o-animation: shake 0.7s linear infinite;
+    animation: shake 0.7s linear infinite;
+}
+
+.DivClassSpin:hover{
+    -webkit-animation: spin 2.5s linear infinite;
+    -moz-animation: spin 2.5s linear infinite;
+    -ms-animation: spin 2.5s linear infinite;
+    -o-animation: spin 2.5s linear infinite;
+    animation: spin 2.5s linear infinite;
+}
+
+.DivClassSpin2:hover{
+    -webkit-animation: spin2 2.5s linear infinite;
+    -moz-animation: spin2 2.5s linear infinite;
+    -ms-animation: spin2 2.5s linear infinite;
+    -o-animation: spin2 2.5s linear infinite;
+    animation: spin2 2.5s linear infinite;
+}
+
+@-webkit-keyframes goUp {
+    from {
+        bottom: -100px;
+        opacity:0;
+    }
+    to {
+        bottom: 40px;
+        opacity:1;
+    }
+}
+
+@-moz-keyframes goUp {
+    from {
+        bottom: -100px;
+        opacity:0;
+    }
+    to {
+        bottom: 40px;
+        opacity:1;
+    }
+}
+
+@-ms-keyframes goUp {
+    from {
+        bottom: -100px;
+        opacity:0;
+    }
+    to {
+        bottom: 40px;
+        opacity:1;
+    }
+}
+
+@-o-keyframes goUp {
+    from {
+        bottom: -100px;
+        opacity:0;
+    }
+    to {
+        bottom: 40px;
+        opacity:1;
+    }
+}
+
+@keyframes goUp {
+    from {
+        bottom: -100px;
+        opacity:0;
+    }
+    to {
+        bottom: 40px;
+        opacity:1;
+    }
+}
+
+@-webkit-keyframes goUp2 {
+    from {
+        bottom: -100px;
+        opacity:0;
+    }
+    to {
+        bottom: 0px;
+        opacity:1;
+    }
+}
+
+@-moz-keyframes goUp2 {
+    from {
+        bottom: -100px;
+        opacity:0;
+    }
+    to {
+        bottom: 0px;
+        opacity:1;
+    }
+}
+
+@-ms-keyframes goUp2 {
+    from {
+        bottom: -100px;
+        opacity:0;
+    }
+    to {
+        bottom: 0px;
+        opacity:1;
+    }
+}
+
+@-o-keyframes goUp2 {
+    from {
+        bottom: -100px;
+        opacity:0;
+    }
+    to {
+        bottom: 0px;
+        opacity:1;
+    }
+}
+
+@keyframes goUp2 {
+    from {
+        bottom: -100px;
+        opacity:0;
+    }
+    to {
+        bottom: 0px;
+        opacity:1;
+    }
+}
+
+@-webkit-keyframes goDown {
+    from {
+        top: -100px;
+        opacity:0;
+    }
+    to {
+        top: 0;
+        opacity:1;
+    }
+}
+
+@-moz-keyframes goDown {
+    from {
+        top: -100px;
+        opacity:0;
+    }
+    to {
+        top: 0;
+        opacity:1;
+    }
+}
+
+@-ms-keyframes goDown {
+    from {
+        top: -100px;
+        opacity:0;
+    }
+    to {
+        top: 0;
+        opacity:1;
+    }
+}
+
+@-o-keyframes goDown {
+    from {
+        top: -100px;
+        opacity:0;
+    }
+    to {
+        top: 0;
+        opacity:1;
+    }
+}
+
+@keyframes goDown {
+    from {
+        top: -100px;
+        opacity:0;
+    }
+    to {
+        top: 0;
+        opacity:1;
+    }
+}
+
+@-webkit-keyframes goLeft {
+    from {
+        right: -100px;
+        opacity:0;
+    }
+    to {
+        right: 0;
+        opacity:1;
+    }
+}
+
+@-moz-keyframes goLeft {
+    from {
+        right: -100px;
+        opacity:0;
+    }
+    to {
+        right: 0;
+        opacity:1;
+    }
+}
+
+@-ms-keyframes goLeft {
+    from {
+        right: -100px;
+        opacity:0;
+    }
+    to {
+        right: 0;
+        opacity:1;
+    }
+}
+
+@-o-keyframes goLeft {
+    from {
+        right: -100px;
+        opacity:0;
+    }
+    to {
+        right: 0;
+        opacity:1;
+    }
+}
+
+@keyframes goLeft {
+    from {
+        right: -100px;
+        opacity:0;
+    }
+    to {
+        right: 0;
+        opacity:1;
+    }
+}
+
+@-webkit-keyframes goRight {
+    from {
+        left: -100px;
+        opacity:0;
+    }
+    to {
+        left: 0;
+        opacity:1;
+    }
+}
+
+@-moz-keyframes goRight {
+    from {
+        left: -100px;
+        opacity:0;
+    }
+    to {
+        left: 0;
+        opacity:1;
+    }
+}
+
+@-ms-keyframes goRight {
+    from {
+        left: -100px;
+        opacity:0;
+    }
+    to {
+        left: 0;
+        opacity:1;
+    }
+}
+
+@-o-keyframes goRight {
+    from {
+        left: -100px;
+        opacity:0;
+    }
+    to {
+        left: 0;
+        opacity:1;
+    }
+}
+
+@keyframes goRight {
+    from {
+        left: -100px;
+        opacity:0;
+    }
+    to {
+        left: 0;
+        opacity:1;
+    }
+}
+
+@-o-keyframes pulse {
+    0% {
+        -o-transform: scale(0.9);
+        opacity: 0.7;
+    }
+    50% {
+        -o-transform: scale(1);
+        opacity: 1;
+    }
+    100% {
+        -o-transform: scale(0.9);
+        opacity: 0.7;
+    }
+}
+
+@-ms-keyframes pulse {
+    0% {
+        -ms-transform: scale(0.9);
+        opacity: 0.7;
+    }
+    50% {
+        -ms-transform: scale(1);
+        opacity: 1;
+    }
+    100% {
+        -ms-transform: scale(0.9);
+        opacity: 0.7;
+    }
+}
+
+@-moz-keyframes pulse {
+    0% {
+        -moz-transform: scale(0.9);
+        opacity: 0.7;
+    }
+    50% {
+        -moz-transform: scale(1);
+        opacity: 1;
+    }
+    100% {
+        -moz-transform: scale(0.9);
+        opacity: 0.7;
+    }
+}
+
+@-webkit-keyframes pulse {
+    0% {
+        -webkit-transform: scale(0.9);
+        opacity: 0.7;
+    }
+    50% {
+        -webkit-transform: scale(1);
+        opacity: 1;
+    }
+    100% {
+        -webkit-transform: scale(0.9);
+        opacity: 0.7;
+    }
+}
+
+@keyframes pulse {
+    0% {
+        -webkit-transform: scale(0.9);
+        transform: scale(0.9);
+        opacity: 0.7;
+    }
+    50% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+        opacity: 1;
+    }
+    100% {
+        -webkit-transform: scale(0.9);
+        transform: scale(0.9);
+        opacity: 0.7;
+    }
+}
+
+@-o-keyframes spin { 100% { -o-transform: rotate(360deg); } }
+
+@-ms-keyframes spin { 100% { -ms-transform: rotate(360deg); } }
+
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+
+
+@-o-keyframes spin2 { 100% { -o-transform: rotate(-360deg); } }
+
+@-ms-keyframes spin2 { 100% { -ms-transform: rotate(-360deg); } }
+
+@-moz-keyframes spin2 { 100% { -moz-transform: rotate(-360deg); } }
+
+@-webkit-keyframes spin2 { 100% { -webkit-transform: rotate(-360deg); } }
+
+@keyframes spin2 { 100% { -webkit-transform: rotate(-360deg); transform:rotate(-360deg); } }
+
+@-o-keyframes shake {
+    0% { -o-transform: rotate(0deg); }
+    10% { -o-transform: rotate(-10deg); }
+    20% { -o-transform: rotate(5deg); }
+    30% { -o-transform: rotate(-5deg); }
+    40% { -o-transform: rotate(5deg); }
+    60% { -o-transform: rotate(-5deg); }
+    70% { -o-transform: rotate(5deg); }
+    80% { -o-transform: rotate(-5deg); }
+    90% { -o-transform: rotate(10deg); }
+    100% { -o-transform: rotate(0deg); }
+}
+
+@-ms-keyframes shake {
+    0% { -ms-transform: rotate(0deg); }
+    10% { -ms-transform: rotate(-10deg); }
+    20% { -ms-transform: rotate(5deg); }
+    30% { -ms-transform: rotate(-5deg); }
+    40% { -ms-transform: rotate(5deg); }
+    60% { -ms-transform: rotate(-5deg); }
+    70% { -ms-transform: rotate(5deg); }
+    80% { -ms-transform: rotate(-5deg); }
+    90% { -ms-transform: rotate(10deg); }
+    100% { -ms-transform: rotate(0deg); }
+}
+
+@-moz-keyframes shake {
+    0% { -moz-transform: rotate(0deg); }
+    10% { -moz-transform: rotate(-10deg); }
+    20% { -moz-transform: rotate(5deg); }
+    30% { -moz-transform: rotate(-5deg); }
+    40% { -moz-transform: rotate(5deg); }
+    60% { -moz-transform: rotate(-5deg); }
+    70% { -moz-transform: rotate(5deg); }
+    80% { -moz-transform: rotate(-5deg); }
+    90% { -moz-transform: rotate(10deg); }
+    100% { -moz-transform: rotate(0deg); }
+}
+
+@-webkit-keyframes shake {
+    0% { -webkit-transform: rotate(0deg); }
+    10% { -webkit-transform: rotate(-10deg); }
+    20% { -webkit-transform: rotate(5deg); }
+    30% { -webkit-transform: rotate(-5deg); }
+    40% { -webkit-transform: rotate(5deg); }
+    60% { -webkit-transform: rotate(-5deg); }
+    70% { -webkit-transform: rotate(5deg); }
+    80% { -webkit-transform: rotate(-5deg); }
+    90% { -webkit-transform: rotate(10deg); }
+    100% { -webkit-transform: rotate(0deg); }
+}
+
+@keyframes shake {
+    0% { -webkit-transform: rotate(0deg); transform: rotate(0deg); }
+    10% { -webkit-transform: rotate(-10deg); transform: rotate(-10deg); }
+    20% { -webkit-transform: rotate(5deg); transform: rotate(5deg); }
+    30% { -webkit-transform: rotate(-5deg); transform: rotate(-5deg); }
+    40% { -webkit-transform: rotate(5deg); transform: rotate(5deg); }
+    60% { -webkit-transform: rotate(-5deg); transform: rotate(-5deg); }
+    70% { -webkit-transform: rotate(5deg); transform: rotate(5deg); }
+    80% { -webkit-transform: rotate(-5deg); transform: rotate(-5deg); }
+    90% { -webkit-transform: rotate(10deg); transform: rotate(10deg); }
+    100% { -webkit-transform: rotate(0deg); transform: rotate(0deg); }
+}
+
+@-o-keyframes consoleOn {
+    0% {
+        visibility: hidden;
+        height: 0px;
+        width: 0px;
+    }
+    100% {
+        visibility: visible;
+        height: 100%;
+        width: auto;
+    }
+}
+
+@-ms-keyframes consoleOn {
+    0% {
+        visibility: hidden;
+        height: 0px;
+        width: 0px;
+    }
+    100% {
+        visibility: visible;
+        height: 100%;
+        width: auto;
+    }
+}
+
+@-moz-keyframes consoleOn {
+    0% {
+        visibility: hidden;
+        height: 0px;
+        width: 0px;
+    }
+    100% {
+        visibility: visible;
+        height: 100%;
+        width: auto;
+    }
+}
+
+@-webkit-keyframes consoleOn {
+    0% {
+        visibility: hidden;
+        height: 0px;
+        width: 0px;
+    }
+    100% {
+        visibility: visible;
+        height: 100%;
+        width: auto;
+    }
+}
+
+@keyframes consoleOn {
+    0% {
+        visibility: hidden;
+        height: 0px;
+        width: 0px;
+    }
+    100% {
+        visibility: visible;
+        height: 100%;
+        width: auto;
+    }
+}
+
+@-o-keyframes webOn {
+    0% {
+        visibility: hidden;
+        height: 0px;
+        width: 0px;
+    }
+    75% {
+        visibility: hidden;
+        height: 0px;
+        width: 0px;
+    }
+    100% {
+        visibility: visible;
+        height: 100%;
+        width: auto;
+    }
+}
+
+@-ms-keyframes webOn {
+    0% {
+        visibility: hidden;
+        height: 0px;
+        width: 0px;
+    }
+    75% {
+        visibility: hidden;
+        height: 0px;
+        width: 0px;
+    }
+    100% {
+        visibility: visible;
+        height: 100%;
+        width: auto;
+    }
+}
+
+@-moz-keyframes webOn {
+    0% {
+        visibility: hidden;
+        height: 0px;
+        width: 0px;
+    }
+    75% {
+        visibility: hidden;
+        height: 0px;
+        width: 0px;
+    }
+    100% {
+        visibility: visible;
+        height: 100%;
+        width: auto;
+    }
+}
+
+@-webkit-keyframes webOn {
+    0% {
+        visibility: hidden;
+        height: 0px;
+        width: 0px;
+    }
+    75% {
+        visibility: hidden;
+        height: 0px;
+        width: 0px;
+    }
+    100% {
+        visibility: visible;
+        height: 100%;
+        width: auto;
+    }
+}
+
+@keyframes webOn {
+    0% {
+        visibility: hidden;
+        height: 0px;
+        width: 0px;
+    }
+    75% {
+        visibility: hidden;
+        height: 0px;
+        width: 0px;
+    }
+    100% {
+        visibility: visible;
+        height: 100%;
+        width: auto;
+    }
+}
+
+/*
+@-webkit-keyframes neon {
+    from {
+        text-shadow: 0 0 1px white,
+        0 0 2px lightgrey,
+        0 0 3px lightgrey,
+        0 0 4px lightgrey,
+        0 0 5px lightgrey,
+        0 0 6px lightgrey,
+        0 0 7px lightgrey,
+        0 0 8px lightgrey,
+        0 0 9px lightgrey,
+        0 0 10px grey;
+    }
+    to {
+        text-shadow: 0 0 2px white,
+        0 0 4px  lightgrey,
+        0 0 6px  lightgrey,
+        0 0 8px  lightgrey,
+        0 0 10px  lightgrey,
+        0 0 12px  lightgrey,
+        0 0 14px  lightgrey,
+        0 0 16px  lightgrey,
+        0 0 18px  lightgrey,
+        0 0 20px  grey;
+    }
+}
+@-moz-keyframes neon {
+    from {
+        text-shadow: 0 0 1px white,
+        0 0 2px lightgrey,
+        0 0 3px lightgrey,
+        0 0 4px lightgrey,
+        0 0 5px lightgrey,
+        0 0 6px lightgrey,
+        0 0 7px lightgrey,
+        0 0 8px lightgrey,
+        0 0 9px lightgrey,
+        0 0 10px grey;
+    }
+    to {
+        text-shadow: 0 0 2px white,
+        0 0 4px  lightgrey,
+        0 0 6px  lightgrey,
+        0 0 8px  lightgrey,
+        0 0 10px  lightgrey,
+        0 0 12px  lightgrey,
+        0 0 14px  lightgrey,
+        0 0 16px  lightgrey,
+        0 0 18px  lightgrey,
+        0 0 20px  grey;
+    }
+}
+@-ms-keyframes neon {
+    from {
+        text-shadow: 0 0 1px white,
+        0 0 2px lightgrey,
+        0 0 3px lightgrey,
+        0 0 4px lightgrey,
+        0 0 5px lightgrey,
+        0 0 6px lightgrey,
+        0 0 7px lightgrey,
+        0 0 8px lightgrey,
+        0 0 9px lightgrey,
+        0 0 10px grey;
+    }
+    to {
+        text-shadow: 0 0 2px white,
+        0 0 4px  lightgrey,
+        0 0 6px  lightgrey,
+        0 0 8px  lightgrey,
+        0 0 10px  lightgrey,
+        0 0 12px  lightgrey,
+        0 0 14px  lightgrey,
+        0 0 16px  lightgrey,
+        0 0 18px  lightgrey,
+        0 0 20px  grey;
+    }
+}
+@-o-keyframes neon {
+    from {
+        text-shadow: 0 0 1px white,
+        0 0 2px lightgrey,
+        0 0 3px lightgrey,
+        0 0 4px lightgrey,
+        0 0 5px lightgrey,
+        0 0 6px lightgrey,
+        0 0 7px lightgrey,
+        0 0 8px lightgrey,
+        0 0 9px lightgrey,
+        0 0 10px grey;
+    }
+    to {
+        text-shadow: 0 0 2px white,
+        0 0 4px  lightgrey,
+        0 0 6px  lightgrey,
+        0 0 8px  lightgrey,
+        0 0 10px  lightgrey,
+        0 0 12px  lightgrey,
+        0 0 14px  lightgrey,
+        0 0 16px  lightgrey,
+        0 0 18px  lightgrey,
+        0 0 20px  grey;
+    }
+}
+@keyframes neon {
+    from {
+        text-shadow: 0 0 1px lightgrey,
+        0 0 2px lightgrey,
+        0 0 3px lightgrey,
+        0 0 4px lightgrey,
+        0 0 5px lightgrey,
+        0 0 6px lightgrey,
+        0 0 7px lightgrey,
+        0 0 8px lightgrey,
+        0 0 9px lightgrey,
+        0 0 10px grey;
+    }
+    to {
+        text-shadow: 0 0 2px lightgrey,
+        0 0 4px  lightgrey,
+        0 0 6px  lightgrey,
+        0 0 8px  lightgrey,
+        0 0 10px  lightgrey,
+        0 0 12px  lightgrey,
+        0 0 14px  lightgrey,
+        0 0 16px  lightgrey,
+        0 0 18px  lightgrey,
+        0 0 20px  grey;
+    }
+}*/
+
+@-o-keyframes fontFuturisticPulse {
+    0% {  font-family: "FontFuturisticII"; }
+    10% { font-family: "FontFuturisticI"; }
+    20% { font-family: "FontFuturisticII"; }
+    30% { font-family: "FontFuturisticI"; }
+    40% { font-family: "FontFuturisticII"; }
+    60% { font-family: "FontFuturisticI"; }
+    70% { font-family: "FontFuturisticII"; }
+    80% { font-family: "FontFuturisticI"; }
+    90% { font-family: "FontFuturisticII"; }
+    100% {font-family: "FontFuturisticI"; }
+}
+
+@-ms-keyframes fontFuturisticPulse {
+    0% {  font-family: "FontFuturisticII"; }
+    10% { font-family: "FontFuturisticI"; }
+    20% { font-family: "FontFuturisticII"; }
+    30% { font-family: "FontFuturisticI"; }
+    40% { font-family: "FontFuturisticII"; }
+    60% { font-family: "FontFuturisticI"; }
+    70% { font-family: "FontFuturisticII"; }
+    80% { font-family: "FontFuturisticI"; }
+    90% { font-family: "FontFuturisticII"; }
+    100% {font-family: "FontFuturisticI"; }
+}
+
+@-moz-keyframes fontFuturisticPulse {
+    0% {  font-family: "FontFuturisticII"; }
+    10% { font-family: "FontFuturisticI"; }
+    20% { font-family: "FontFuturisticII"; }
+    30% { font-family: "FontFuturisticI"; }
+    40% { font-family: "FontFuturisticII"; }
+    60% { font-family: "FontFuturisticI"; }
+    70% { font-family: "FontFuturisticII"; }
+    80% { font-family: "FontFuturisticI"; }
+    90% { font-family: "FontFuturisticII"; }
+    100% {font-family: "FontFuturisticI"; }
+}
+
+@-webkit-keyframes fontFuturisticPulse {
+    0% {  font-family: "FontFuturisticII"; }
+    10% { font-family: "FontFuturisticI"; }
+    20% { font-family: "FontFuturisticII"; }
+    30% { font-family: "FontFuturisticI"; }
+    40% { font-family: "FontFuturisticII"; }
+    60% { font-family: "FontFuturisticI"; }
+    70% { font-family: "FontFuturisticII"; }
+    80% { font-family: "FontFuturisticI"; }
+    90% { font-family: "FontFuturisticII"; }
+    100% {font-family: "FontFuturisticI"; }
+}
+
+@keyframes fontFuturisticPulse {
+    0% {  font-family: "FontFuturisticII"; }
+    10% { font-family: "FontFuturisticI"; }
+    20% { font-family: "FontFuturisticII"; }
+    30% { font-family: "FontFuturisticI"; }
+    40% { font-family: "FontFuturisticII"; }
+    60% { font-family: "FontFuturisticI"; }
+    70% { font-family: "FontFuturisticII"; }
+    80% { font-family: "FontFuturisticI"; }
+    90% { font-family: "FontFuturisticII"; }
+    100% {font-family: "FontFuturisticI"; }
+}
+
+
+
+
+
+.DivClassHandIconOn, .DivClassHandIcon:hover .DivClassHandIconOff, .DivClassHandIcon .DivClassHandIconOn{
+    visibility: hidden;
+    height: 0px;
+    width: 0px;
+    float: left;
+}
+
+.DivClassHandIconOff, .DivClassHandIcon:hover .DivClassHandIconOn, .DivClassHandIcon .DivClassHandIconOff{
+    visibility: visible;
+    height: 100%;
+    width: auto;
+    float: left;
+}
+
+.DivClassConsoleIcon:hover .DivClassConsoleIconOn{
+    visibility: hidden;
+    height: 0px;
+    width: 0px;
+
+    -webkit-animation: consoleOn 1s;
+    -moz-animation: consoleOn 1s;
+    -ms-animation: consoleOn 1s;
+    -o-animation: consoleOn 1s;
+    animation: consoleOn 1s;
+
+    -webkit-animation-timing-function: steps(2, end);
+    -moz-animation-timing-function: steps(2, end);
+    -ms-animation-timing-function: steps(2, end);
+    -o-animation-timing-function: steps(2, end);
+    animation-timing-function: steps(2, end);
+
+    -webkit-animation-delay: -0.5s;
+    -moz-animation-delay: -0.5s;
+    -ms-animation-delay: -0.5s;
+    -o-animation-delay: -0.5s;
+    animation-delay: -0.5s;
+}
+
+.DivClassConsoleIcon:hover .DivClassConsoleIconOn1{
+    visibility: hidden;
+    height: 0px;
+    width: 0px;
+
+    -webkit-animation: consoleOn 1s infinite;
+    -moz-animation: consoleOn 1s infinite;
+    -ms-animation: consoleOn 1s infinite;
+    -o-animation: consoleOn 1s infinite;
+    animation: consoleOn 1s infinite;
+
+    -webkit-animation-timing-function: steps(2, end);
+    -moz-animation-timing-function: steps(2, end);
+    -ms-animation-timing-function: steps(2, end);
+    -o-animation-timing-function: steps(2, end);
+    animation-timing-function: steps(2, end);
+}
+
+.DivClassConsoleIcon:hover .DivClassConsoleIconOn2{
+    visibility: hidden;
+    height: 0px;
+    width: 0px;
+
+    -webkit-animation: consoleOn 1s infinite;
+    -moz-animation: consoleOn 1s infinite;
+    -ms-animation: consoleOn 1s infinite;
+    -o-animation: consoleOn 1s infinite;
+    animation: consoleOn 1s infinite;
+
+    -webkit-animation-timing-function: steps(2, end);
+    -moz-animation-timing-function: steps(2, end);
+    -ms-animation-timing-function: steps(2, end);
+    -o-animation-timing-function: steps(2, end);
+    animation-timing-function: steps(2, end);
+
+    -webkit-animation-delay: 0.5s;
+    -moz-animation-delay: 0.5s;
+    -ms-animation-delay: 0.5s;
+    -o-animation-delay: 0.5s;
+    animation-delay: 0.5s;
+
+}
+
+.DivClassConsoleIconOff, .DivClassConsoleIcon .DivClassConsoleIconOff{
+    visibility: visible;
+    height: 100%;
+    width: auto;
+}
+
+.DivClassConsoleIconOn, .DivClassConsoleIconOn1, .DivClassConsoleIconOn2, .DivClassConsoleIcon:hover .DivClassConsoleIconOff{
+    visibility: hidden;
+    height: 0px;
+    width: 0px;
+}
+
+.DivClassWebIcon:hover .DivClassWebIconOn1{
+    visibility: hidden;
+    height: 0px;
+    width: 0px;
+
+    -webkit-animation: webOn 2s infinite;
+    -moz-animation: webOn 2s infinite;
+    -ms-animation: webOn 2s infinite;
+    -o-animation: webOn 2s infinite;
+    animation: webOn 2s infinite;
+
+    -webkit-animation-timing-function: steps(4, start);
+    -moz-animation-timing-function: steps(4, start);
+    -ms-animation-timing-function: steps(4, start);
+    -o-animation-timing-function: steps(4, start);
+    animation-timing-function: steps(4, start);
+
+    -webkit-animation-delay: -1.5s;
+    -moz-animation-delay: -1.5s;
+    -ms-animation-delay: -1.5s;
+    -o-animation-delay: -1.5s;
+    animation-delay: -1.5s;
+}
+
+.DivClassWebIcon:hover .DivClassWebIconOn2{
+    visibility: hidden;
+    height: 0px;
+    width: 0px;
+
+    -webkit-animation: webOn 2s infinite;
+    -moz-animation: webOn 2s infinite;
+    -ms-animation: webOn 2s infinite;
+    -o-animation: webOn 2s infinite;
+    animation: webOn 2s infinite;
+
+    -webkit-animation-timing-function: steps(4, start);
+    -moz-animation-timing-function: steps(4, start);
+    -ms-animation-timing-function: steps(4, start);
+    -o-animation-timing-function: steps(4, start);
+    animation-timing-function: steps(4, start);
+
+    -webkit-animation-delay: -1s;
+    -moz-animation-delay: -1s;
+    -ms-animation-delay: -1s;
+    -o-animation-delay: -1s;
+    animation-delay: -1s;
+}
+
+.DivClassWebIcon:hover .DivClassWebIconOn3{
+    visibility: hidden;
+    height: 0px;
+    width: 0px;
+
+    -webkit-animation: webOn 2s infinite;
+    -moz-animation: webOn 2s infinite;
+    -ms-animation: webOn 2s infinite;
+    -o-animation: webOn 2s infinite;
+    animation: webOn 2s infinite;
+
+    -webkit-animation-timing-function: steps(4, start);
+    -moz-animation-timing-function: steps(4, start);
+    -ms-animation-timing-function: steps(4, start);
+    -o-animation-timing-function: steps(4, start);
+    animation-timing-function: steps(4, start);
+
+    -webkit-animation-delay: -0.5s;
+    -moz-animation-delay: -0.5s;
+    -ms-animation-delay: -0.5s;
+    -o-animation-delay: -0.5s;
+    animation-delay: -0.5s;
+
+}
+
+.DivClassWebIcon:hover .DivClassWebIconOn4{
+    visibility: hidden;
+    height: 0px;
+    width: 0px;
+
+    -webkit-animation: webOn 2s infinite;
+    -moz-animation: webOn 2s infinite;
+    -ms-animation: webOn 2s infinite;
+    -o-animation: webOn 2s infinite;
+    animation: webOn 2s infinite;
+
+    -webkit-animation-timing-function: steps(4, start);
+    -moz-animation-timing-function: steps(4, start);
+    -ms-animation-timing-function: steps(4, start);
+    -o-animation-timing-function: steps(4, start);
+    animation-timing-function: steps(4, start);
+
+}
+
+.DivClassWebIconOff, .DivClassWebIcon .DivClassWebIconOff{
+    visibility: visible;
+    height: 100%;
+    width: auto;
+}
+
+.DivClassWebIconOn1, .DivClassWebIconOn2, .DivClassWebIconOn3, .DivClassWebIconOn4, .DivClassWebIcon:hover .DivClassWebIconOff{
+    visibility: hidden;
+    height: 0px;
+    /*width: 0px;*/
+}
