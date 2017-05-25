@@ -1,4 +1,5 @@
 importJS('app/view/util/util');
+importJS('app/view/common/component/model');
 importJS('app/view/common/style/modelStyle');
 
 class Component{

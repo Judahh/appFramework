@@ -1,4 +1,5 @@
-class ModelStyle {
+importJS('app/view/common/component/model');
+class ModelStyle extends Model{
     //img
     boxSizing: string;
     borderWidth: string;

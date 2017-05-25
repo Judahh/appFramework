@@ -20,6 +20,19 @@ class ComponentImage extends Component{
   }
 
   protected update(data:ModelImage){
+    console.log(data.constructor.name);
+    if(data instanceof Model){
+      console.log(data.constructor.name + " é Model");
+    }
+    for(var name in data){
+      if(data[name] instanceof Model){
+        console.log(name + " é Model");
+      }
+      if(data[name] instanceof ModelStyle){
+        console.log(name + " é ModelStyle");
+      }
+      console.log(name, data[name]);
+    }
     super.updateStyle(this.img, data.style);
     if(data.source)
       this.img.getElement().src = data.source;
