@@ -1,6 +1,6 @@
-importJS('app/view/common/style/modelStyle');
+// importJS('app/view/common/style/componentStyle');
 class ModelInformation {
-    style:ModelStyle;
+    // style:ComponentStyle;
     information: string;
     link: string;
 

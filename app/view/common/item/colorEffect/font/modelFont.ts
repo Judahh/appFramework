@@ -1,5 +1,5 @@
-importJS('app/view/common/style/modelStyle');
+// importJS('app/view/common/style/componentStyle');
 class ModelFont {
-    style:ModelStyle;
+    // style:ComponentStyle;
     animationEffect: ModelAnimationEffect;
 } 

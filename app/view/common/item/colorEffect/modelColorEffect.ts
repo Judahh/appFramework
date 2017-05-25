@@ -1,6 +1,6 @@
-importJS('app/view/common/style/modelStyle');
+// importJS('app/view/common/style/componentStyle');
 class ModelColorEffect {
     colorEffect: string;
-    style:ModelStyle;
+    // style:ComponentStyle;
     font: ModelFont;
 } 

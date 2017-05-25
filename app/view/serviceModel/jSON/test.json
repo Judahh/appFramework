@@ -1,21 +1,17 @@
 {   
-    "source":"app/view/images/programming.jpg",
     "style":{
         "opacity":1,
-        "width": "100%",
-        "height": "100%",
         "position": "fixed",
         "filter": "brightness(70%) grayscale(0%) blur(5px)",
-        "zIndex": -1000
+        "zIndex": -1000,
+        "width": "100%",
+        "height": "100%"
     },
     "img":{
         "style":{
-            "opacity":1,
             "width": "100%",
-            "height": "100%",
-            "position": "fixed",
-            "filter": "brightness(70%) grayscale(0%) blur(5px)",
-            "zIndex": -1000
-        }
+            "height": "100%"
+        },
+        "source":"app/view/images/programming.jpg"
     }
 }

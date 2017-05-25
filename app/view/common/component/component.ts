@@ -1,14 +1,23 @@
 importJS('app/view/util/util');
-importJS('app/view/common/component/model');
-importJS('app/view/common/style/modelStyle');
 
-class Component{
+class Component {
   // protected fatherElement:Component;
-  protected element;
+  protected element: HTMLElement;
+  // protected style: ComponentStyle;: CSSStyleDeclaration
 
-  public constructor(fatherElement?){
-    var tag = Util.getTag(this.constructor.name);
-    var nodes = document.getElementsByTagName(tag); 
+  protected getConstructor() {
+    let constructor: any = this.constructor;
+    return constructor;
+  }
+
+  public getName() {
+    let constructor: any = this.constructor;
+    return this.getConstructor().name;
+  }
+
+  public constructor(fatherElement?) {
+    var tag = Util.getTag(this.getName());
+    var nodes = document.getElementsByTagName(tag);
     var path = Util.getCurrentComponentPath();
 
     importCSS(path);
@@ -16,72 +25,61 @@ class Component{
     this.element = document.createElement(tag);
     this.element.id = tag + "Id" + nodes.length;
 
-    // console.log("TAG:" + tag);
-    // console.log("PATH:" + Util.getCurrentComponentPath());
-    // console.log("FileName:" + Util.getFileName(this.constructor.name));
-    // console.log("Name:" + this.constructor.name);
-    // console.log("NUMBER:" + nodes.length);
-    // console.log("Id:" + this.element.id);
-
-    // for (var index = 0; index < nodes.length; index++) {
-    //     var element = nodes[index];
-    // }
-
-    this.render();
-
-    if(fatherElement){
-        fatherElement.appendChild(this.element);
+    if (fatherElement) {
+      this.render();
+      fatherElement.appendChild(this.element);
     }
   }
 
   public render() {
   }
 
-  public insert(fatherElement){
+  protected update(jSON, style?: CSSStyleDeclaration) {
+    for (var prop in jSON) {
+      // console.log("Prop:" + prop);
+      if (prop != undefined) {
+        if (!jSON.hasOwnProperty(prop)) {
+          continue;
+        }
+        if(style){
+          // console.log("Prop2 is var");
+          style[prop] = jSON[prop];
+        }else{
+          if (typeof jSON[prop] === 'object') {
+            // console.log("Prop is object");
+            if (prop == "style") {
+              this.update(jSON[prop], this.element.style);
+            } else {
+              this[prop].update(jSON[prop]);
+            }
+          } else {
+            // console.log("Prop is var:" + jSON[prop]);
+            this[prop] = jSON[prop];
+          }
+        }
+      }
+    }
+  }
+
+  public insert(fatherElement) {
     fatherElement.appendChild(this.element);
   }
 
-  protected updateStyle(component:Component, data:ModelStyle){
-    if(data.boxSizing)
-      component.getElement().style.boxSizing = data.boxSizing;
-    if(data.borderWidth)
-      component.getElement().style.borderWidth = data.borderWidth;
-    if(data.borderRadius)
-      component.getElement().style.borderRadius = data.borderRadius;//px
-    if(data.color)
-      component.getElement().style.color = data.color;
-    if(data.position)
-      component.getElement().style.position = data.position;
-    if(data.top)
-      component.getElement().style.top = data.top;
-    if(data.left)
-      component.getElement().style.left = data.left;
-    if(data.right)
-      component.getElement().style.right = data.right;
-    if(data.bottom)
-      component.getElement().style.bottom = data.bottom;
-    if(data.opacity)
-      component.getElement().style.opacity = data.opacity;
-    if(data.height)
-      component.getElement().style.height = data.height;
-    if(data.width)
-      component.getElement().style.width = data.width;
-    if(data.filter)
-      component.getElement().style.filter = data.filter;
-    if(data.zIndex)
-      component.getElement().style.zIndex = data.zIndex;
-  }
-
-  protected update(data){
-    this.updateStyle(this,data);
-  }
-
-  protected updateFailed(data){
+  protected updateFailed(data) {
     console.error("JSONT:" + data);
     this.element.innerHTML = data;
   }
 
-  public getElement(){
+  public getElement() {
     return this.element;
+  }
+
+  public setElementSource(source:string) {
+    var tmp:any = this.element;
+    tmp.src = source;
+  }
+
+  protected getJSONPromise(file){
+    ServiceModel.getPromise(file).then((data) => this.update(data)).fail((data) => this.updateFailed(data));
   }
 }
