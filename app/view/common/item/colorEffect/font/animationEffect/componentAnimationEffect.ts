@@ -9,6 +9,13 @@ class ComponentAnimationEffect extends Component{
   subClasses:Array<any>;
   arrayInformation: Array<ComponentInformation>;
 
+  constructor(fatherElement?: HTMLElement){
+    super(fatherElement);
+    this.information = new ComponentInformation(this.element);
+    this.arrayInformation = new Array<ComponentInformation>();
+  }
+
   public render() {
+    this.information.render();
   }
 }

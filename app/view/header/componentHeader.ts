@@ -9,10 +9,10 @@ class ComponentHeader extends Component{
 
   constructor(fatherElement?: HTMLElement){
     super(fatherElement);
-    // this.item=new ComponentItem(this.element);
+    this.item=new ComponentItem(this.element);
   }
 
   public render() {
-    // this.item.render();
+    this.item.render();
   }
 }

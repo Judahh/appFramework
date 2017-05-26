@@ -7,12 +7,15 @@ class ComponentItem extends Component{
   routerLink: string;
   colorEffect: ComponentColorEffect;
 
+  constructor(fatherElement?: HTMLElement){
+    super(fatherElement);
+    this.colorEffect = new ComponentColorEffect(this.element);
+  }
+
   public render() {
-    // this.colorEffect = new ComponentColorEffect(this.element);
-    // this.colorEffect.font = new ComponentFont(this.colorEffect.getElement());
-    // this.colorEffect.font.animationEffect = new ComponentAnimationEffect(this.colorEffect.font.getElement());
-    // this.colorEffect.font.animationEffect.information = new ComponentInformation(this.colorEffect.font.animationEffect.getElement());
-    // this.colorEffect.font.animationEffect.arrayInformation = new Array<ComponentInformation>();
-    // this.getJSONPromise("test1");
+    // console.log("ITEM RENDER");
+    this.getJSONPromise("test1");
+    // console.log("ITEM RENDER PROMISE");
+    this.colorEffect.render();
   }
 }
