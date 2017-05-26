@@ -18,5 +18,6 @@ class ComponentPageBody extends Component{
 
   render() {
     this.background.render();
+    this.divisorBlock.render();
   }
 }
