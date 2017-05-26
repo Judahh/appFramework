@@ -39,41 +39,44 @@ class Component {
   }
 
   protected updateJSON(jSON, type?: number) {
-    // console.log("UPDATE!");
+    console.log("UPDATE!");
     for (var prop in jSON) {
-      // console.log("Prop:" + prop);
+      console.log("Prop:" + prop);
       if (prop != undefined) {
         if (!jSON.hasOwnProperty(prop)) {
           continue;
         }
-        // console.log("TYPE:"+type);
+        console.log("TYPE:"+type);
         if(type){
-          // console.log("Prop2");
+          console.log("Prop2");
           if(type==2){
-            // console.log("Prop3 is var");
+            console.log("Prop3 is var");
             this.element.style[prop] = jSON[prop];
           }else{
             if (prop == "style") {
-              // console.log("Prop is style");
+              console.log("Prop is style");
               this.updateJSON(jSON[prop], 2);
             } else {
-              // console.log("Prop is not style");
+              console.log("Prop is not style");
               this.element[prop] = jSON[prop];
             }
           }
         }else{
           if (typeof jSON[prop] === 'object') {
-            // console.log("Prop is object");
+            console.log("Prop is object");
             if (prop == "element") {
-              // console.log("Prop is element");
+              console.log("Prop is element");
               this.updateJSON(jSON[prop], 1);
-              // console.log("Prop is element OUT");
+              console.log("Prop is element OUT");
             } else {
-              // console.log("Prop is regular");
+              console.log("Prop is regular");
+              // if(this[prop]==undefined){
+
+              // }
               this[prop].updateJSON(jSON[prop]);
             }
           } else {
-            // console.log("Prop is var:" + jSON[prop]);
+            console.log("Prop is var:" + jSON[prop]);
             this[prop] = jSON[prop];
           }
         }

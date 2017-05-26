@@ -9,5 +9,6 @@ class ComponentItem extends Component{
 
   public render() {
     this.colorEffect = new ComponentColorEffect(this.element);
+    // this.getJSONPromise("test1");
   }
 }

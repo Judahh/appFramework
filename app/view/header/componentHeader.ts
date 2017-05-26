@@ -1,10 +1,12 @@
 importJS('app/view/util/util');
 importJS('app/view/common/component/component');
+importJS('app/view/common/item/componentItem');
 
 // importCSS('app/view/header/componentHeader');
 
 class ComponentHeader extends Component{
   render() {
-    this.element.innerHTML="nasidas";
+    let item=new ComponentItem(this.element);
+    // this.element.innerHTML="nasidas";
   }
 }
