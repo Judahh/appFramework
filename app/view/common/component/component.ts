@@ -6,16 +6,15 @@ class Component {
   // protected style: ComponentStyle;: CSSStyleDeclaration
 
   protected getConstructor() {
-    let constructor: any = this.constructor;
-    return constructor;
+    return this.constructor;
   }
 
-  public getName() {
+  public getClassName() {
     return this.getConstructor().name;
   }
 
   public constructor(fatherElement?: HTMLElement) {
-    var tag = Util.getTag(this.getName());
+    var tag = Util.getTag(this.getClassName());
     var nodes = document.getElementsByTagName(tag);
     var path = Util.getCurrentComponentPath();
 

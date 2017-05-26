@@ -32,12 +32,25 @@ class Util{
   }
 
 }
-
+ 
 interface Array<T> {
     type:any;
     getType(): string;
 }
 
+// interface Object {
+//     getClassName(): string;
+//     getConstructor(): any;
+// }
+
 Array.prototype.getType = function() {
     return this.type;
 }
+
+// Object.prototype.getConstructor = function() {
+//   return this.constructor;
+// }
+
+// Object.prototype.getClassName = function() {
+//   return this.constructor.name;
+// }
