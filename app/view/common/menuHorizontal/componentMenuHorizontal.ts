@@ -1,4 +1,3 @@
-
 importJS('app/view/util/util');
 importJS('app/view/serviceModel/serviceModel');
 importJS('app/view/common/component/component');
