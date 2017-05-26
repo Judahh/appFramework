@@ -1,31 +1,33 @@
-{   
-    "element":{
-        "style":{
-        }
-    },
-    "routerLink":"somewhere",
-    "colorEffect":{
-        "element":{
-            "style":{
-            }
-        },
-        "colorEffect":"test",
-        "font":{
-            "element":{
-                "style":{
-                    "font":"test"
-                }
+{
+    "arrayItem": [
+        {
+            "element": {
+                "style": {}
             },
-            "animationEffect":{
-                "information": {
-                    "information": "information",
-                    "link": "link"
+            "routerLink": "somewhere",
+            "colorEffect": {
+                "element": {
+                    "style": {}
                 },
-                "class":"test",
-                "subClass":"test2",
-                "subClasses":{},
-                "arrayInformation": {}
+                "colorEffect": "test",
+                "font": {
+                    "element": {
+                        "style": {
+                            "font": "test"
+                        }
+                    },
+                    "animationEffect": {
+                        "information": {
+                            "information": "information",
+                            "link": "link"
+                        },
+                        "class": "test",
+                        "subClass": "test2",
+                        "subClasses": {},
+                        "arrayInformation": []
+                    }
+                }
             }
         }
-    }
+    ]
 }

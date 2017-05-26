@@ -1,7 +1,6 @@
 typings
 *.js
 *.map
-
 jspm_packages
 bower_components
 platforms

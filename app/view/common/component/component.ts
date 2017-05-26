@@ -11,7 +11,6 @@ class Component {
   }
 
   public getName() {
-    let constructor: any = this.constructor;
     return this.getConstructor().name;
   }
 
@@ -40,59 +39,75 @@ class Component {
   public renderAfterUpdateJSON(){
   }
 
+  public getArrayType(array:Array<any>){
+    return array.type;
+  }
+
   protected update(jSON) {
     this.updateJSON(jSON);
   }
 
+  private updateJSONWithArray(jSON, property:any){
+    jSON[property].forEach(element => {
+      var properElement = new this[property].type(this.element);
+      properElement.updateJSON(element);
+    });
+  }
+
+  private updateJSONWithType(jSON, property:any, type:number){
+    // console.log("Prop2");
+    if(type==2){
+      // console.log("Prop3 is var");
+      this.element.style[property] = jSON[property];
+    }else{
+      if (property == "style") {
+        // console.log("Prop is style");
+        this.updateJSON(jSON[property], 2);
+      } else {
+        // console.log("Prop is not style");
+        this.element[property] = jSON[property];
+      }
+    }
+  }
+
+  private updateJSONWithObject(jSON, property:any){
+    console.log("Prop is object");
+    if (property == "element") {
+      console.log("Prop is element");
+      this.updateJSON(jSON[property], 1);
+      // // console.log("Prop is element OUT");
+    } else {
+      console.log("Prop is regular");
+      if(this[property] == undefined){
+        this[property] = jSON[property];
+      }else{
+        if(this[property].constructor === Array){
+          this.updateJSONWithArray(jSON,property);
+        }else{
+          this[property].updateJSON(jSON[property]);
+        }
+      }
+    }
+  }
+
   protected updateJSON(jSON, type?: number) {
     this.renderBeforeUpdateJSON();
-    // console.log("UPDATE!");
-    for (var prop in jSON) {
-      // console.log("Prop:" + prop);
-      if (prop != undefined) {
-        if (!jSON.hasOwnProperty(prop)) {
+    console.log("UPDATE!");
+    for (var property in jSON) {
+      console.log("Prop:" + property);
+      if (property != undefined) {
+        if (!jSON.hasOwnProperty(property)) {
           continue;
         }
         // console.log("TYPE:"+type);
         if(type){
-          // console.log("Prop2");
-          if(type==2){
-            // console.log("Prop3 is var");
-            this.element.style[prop] = jSON[prop];
-          }else{
-            if (prop == "style") {
-              // console.log("Prop is style");
-              this.updateJSON(jSON[prop], 2);
-            } else {
-              // console.log("Prop is not style");
-              this.element[prop] = jSON[prop];
-            }
-          }
+          this.updateJSONWithType(jSON,property,type);
         }else{
-          if (typeof jSON[prop] === 'object') {
-            // console.log("Prop is object");
-            if (prop == "element") {
-              // console.log("Prop is element");
-              this.updateJSON(jSON[prop], 1);
-              // // console.log("Prop is element OUT");
-            } else {
-              // console.log("Prop is regular");
-              if(this[prop] == undefined){
-                this[prop] = jSON[prop];
-              }else{
-                if(this[prop].constructor === Array){
-                  // console.log("Prop is array");
-                  this[prop].forEach(element => {
-                    element.updateJSON(element);
-                  });
-                }else{
-                  this[prop].updateJSON(jSON[prop]);
-                }
-              }
-            }
+          if (typeof jSON[property] === 'object') {
+            this.updateJSONWithObject(jSON,property);
           } else {
             // console.log("Prop is var:" + jSON[prop]);
-            this[prop] = jSON[prop];
+            this[property] = jSON[property];
           }
         }
       }

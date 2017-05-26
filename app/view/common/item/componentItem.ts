@@ -14,7 +14,7 @@ class ComponentItem extends Component{
 
   public render() {
     // console.log("ITEM RENDER");
-    this.getJSONPromise("test1");
+    // this.getJSONPromise("test1");
     // console.log("ITEM RENDER PROMISE");
     this.colorEffect.render();
   }

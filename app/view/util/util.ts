@@ -32,3 +32,12 @@ class Util{
   }
 
 }
+
+interface Array<T> {
+    type:any;
+    getType(): string;
+}
+
+Array.prototype.getType = function() {
+    return this.type;
+}

@@ -1,18 +1,18 @@
 importJS('app/view/util/util');
 importJS('app/view/common/component/component');
-importJS('app/view/common/item/componentItem');
+importJS('app/view/common/menuHorizontal/componentMenuHorizontal');
 
 // importCSS('app/view/header/componentHeader');
 
 class ComponentHeader extends Component{
-  item:ComponentItem;
+  menuHorizontal:ComponentMenuHorizontal;
 
   constructor(fatherElement?: HTMLElement){
     super(fatherElement);
-    this.item=new ComponentItem(this.element);
+    this.menuHorizontal=new ComponentMenuHorizontal(this.element);
   }
 
   public render() {
-    this.item.render();
+    this.menuHorizontal.render();
   }
 }
