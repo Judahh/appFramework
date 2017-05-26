@@ -8,8 +8,13 @@ importJS('app/view/common/image/img/componentImg');
 class ComponentImage extends Component{
   img:ComponentImg;
 
-  public render() {
+  constructor(fatherElement?: HTMLElement){
+    super(fatherElement);
     this.img = new ComponentImg(this.element);
+  }
+
+  public render() {
     this.getJSONPromise("test");
+    this.img.render();
   }
 }

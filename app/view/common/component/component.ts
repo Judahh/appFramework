@@ -26,7 +26,7 @@ class Component {
     this.element.id = tag + "Id" + nodes.length;
 
     if (fatherElement) {
-      this.render();
+      // this.render();
       fatherElement.appendChild(this.element);
     }
   }
@@ -71,7 +71,6 @@ class Component {
             } else {
               console.log("Prop is regular");
               // if(this[prop]==undefined){
-
               // }
               this[prop].updateJSON(jSON[prop]);
             }
@@ -85,7 +84,7 @@ class Component {
   }
 
   public insert(fatherElement) {
-    this.render();
+    // this.render();
     fatherElement.appendChild(this.element);
   }
 

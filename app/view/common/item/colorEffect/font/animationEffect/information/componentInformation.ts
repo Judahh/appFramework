@@ -6,6 +6,5 @@ class ComponentInformation extends Component{
   link: string;
   
   public render() {
-
   }
 }

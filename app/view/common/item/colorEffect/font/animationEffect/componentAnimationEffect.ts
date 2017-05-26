@@ -10,6 +10,5 @@ class ComponentAnimationEffect extends Component{
   arrayInformation: Array<ComponentInformation>;
 
   public render() {
-    this.information = new ComponentInformation(this.element);
   }
 }

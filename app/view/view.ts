@@ -8,5 +8,8 @@ class View{
     let header=new ComponentHeader(body);
     let pageBody=new ComponentPageBody(body);
     let footer=new ComponentFooter(body);
+    header.render();
+    pageBody.render();
+    footer.render();
   }
 }

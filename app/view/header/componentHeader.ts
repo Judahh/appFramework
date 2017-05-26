@@ -5,8 +5,14 @@ importJS('app/view/common/item/componentItem');
 // importCSS('app/view/header/componentHeader');
 
 class ComponentHeader extends Component{
-  render() {
-    let item=new ComponentItem(this.element);
-    // this.element.innerHTML="nasidas";
+  item:ComponentItem;
+
+  constructor(fatherElement?: HTMLElement){
+    super(fatherElement);
+    // this.item=new ComponentItem(this.element);
+  }
+
+  public render() {
+    // this.item.render();
   }
 }

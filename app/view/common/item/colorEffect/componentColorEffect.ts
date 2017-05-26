@@ -7,6 +7,5 @@ class ComponentColorEffect extends Component{
   font: ComponentFont;
 
   public render() {
-    this.font = new ComponentFont(this.element);
   }
 }

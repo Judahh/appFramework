@@ -5,7 +5,14 @@ importJS('app/view/common/image/componentImage');
 // importCSS('app/view/body/background/componentBackground');
 
 class ComponentBackground extends Component{
+  image:ComponentImage;
+
+  constructor(fatherElement?: HTMLElement){
+    super(fatherElement);
+    this.image = new ComponentImage(this.element);
+  }
+
   render() {
-    let image=new ComponentImage(this.element);
+    this.image.render();
   }
 }
