@@ -34,11 +34,18 @@ class Component {
   public render() {
   }
 
+  public renderBeforeUpdateJSON(){
+  }
+
+  public renderAfterUpdateJSON(){
+  }
+
   protected update(jSON) {
     this.updateJSON(jSON);
   }
 
   protected updateJSON(jSON, type?: number) {
+    this.renderBeforeUpdateJSON();
     // console.log("UPDATE!");
     for (var prop in jSON) {
       // console.log("Prop:" + prop);
@@ -90,6 +97,7 @@ class Component {
         }
       }
     }
+    this.renderAfterUpdateJSON();
   }
 
   public insert(fatherElement) {
