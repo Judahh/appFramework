@@ -17,14 +17,15 @@
                         }
                     },
                     "animationEffect": {
-                        "information": {
-                            "information": "information",
-                            "link": "link"
-                        },
                         "class": "test",
                         "subClass": "test2",
                         "subClasses": {},
-                        "arrayInformation": []
+                        "arrayInformation": [
+                            {
+                                "information": "information0",
+                                "link": "link0"
+                            }
+                        ]
                     }
                 }
             }
