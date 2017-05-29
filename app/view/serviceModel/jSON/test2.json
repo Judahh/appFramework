@@ -83,7 +83,7 @@
                                             "arrayAnimationSubEffectHolder": [
                                                 {
                                                     "information":{
-                                                        "information": "<br>B TEST",
+                                                        "information": "B TEST",
                                                         "element": {
                                                             "href": "B"
                                                         }
@@ -155,7 +155,7 @@
                                             "arrayAnimationSubEffectHolder": [
                                                 {
                                                     "information":{
-                                                        "information": "<br>C TEST",
+                                                        "information": "C TEST",
                                                         "element": {
                                                             "href": "C"
                                                         }
@@ -206,7 +206,7 @@
                                             "arrayAnimationSubEffectHolder": [
                                                 {
                                                     "information":{
-                                                        "information": "<br>D TEST",
+                                                        "information": "D TEST",
                                                         "element": {
                                                             "href": "D"
                                                         }
@@ -291,7 +291,7 @@
                                             "arrayAnimationSubEffectHolder": [
                                                 {
                                                     "information":{
-                                                        "information": "<br>E TEST",
+                                                        "information": "E TEST",
                                                         "element": {
                                                             "href": "E"
                                                         }
