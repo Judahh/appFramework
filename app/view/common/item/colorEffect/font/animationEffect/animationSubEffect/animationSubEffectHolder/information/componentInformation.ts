@@ -1,4 +1,3 @@
-importJS('app/view/serviceModel/serviceModel');
 importJS('app/view/common/component/component');
 
 class ComponentInformation extends Component{

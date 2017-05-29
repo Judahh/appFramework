@@ -18,15 +18,16 @@
                             }
                         },
                         "animationEffect": {
-                            "class": "test",
-                            "subClass": "test2",
-                            "subClasses": {},
-                            "arrayInformation": [
-                                {
-                                    "information": "information0",
-                                    "link": "link0"
-                                }
-                            ]
+                            "animationSubEffect": {
+                                "arrayAnimationSubEffectHolder": [
+                                    {
+                                        "information":{
+                                            "information": "information0",
+                                            "link": "link0"
+                                        }
+                                    }
+                                ]
+                            }
                         }
                     }
                 }

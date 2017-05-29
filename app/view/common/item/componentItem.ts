@@ -1,5 +1,4 @@
 importJS('app/view/util/util');
-importJS('app/view/serviceModel/serviceModel');
 importJS('app/view/common/component/component');
 importJS('app/view/common/item/colorEffect/componentColorEffect');
 importJS('app/view/common/menuHorizontal/componentMenuHorizontal');
