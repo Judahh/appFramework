@@ -8,6 +8,8 @@ importJS('app/view/common/divisorBlock/componentDivisorBlock');
 class ComponentPageBody extends Component{
   background:ComponentBackground;
   arrayDivisorBlock:Array<ComponentDivisorBlock>;
+  currentPageName: string;
+  nextPageName: string;
 
   constructor(father?: Component,pageName?:string){
     super(father);
@@ -19,10 +21,18 @@ class ComponentPageBody extends Component{
 
   public goToPage(pageName?:string){
     console.log("goToPage");
-    if(pageName){
-      this.getJSONPromise(pageName);
-    }else{
-      this.getJSONPromise("test");
+    if(this.currentPageName == undefined ||
+       this.currentPageName != pageName){
+      this.nextPageName = pageName;
+      if(pageName){
+        this.getJSONPromise(pageName);
+      }else{
+        this.getJSONPromise("test");
+      }
     }
+  }
+
+  public renderAfterUpdateJSON(){
+    this.currentPageName=this.nextPageName;
   }
 }
