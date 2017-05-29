@@ -1,3 +1,4 @@
+importJS('app/view/common/component/component');
 importJS('app/app');
 
 function onLoad(){
