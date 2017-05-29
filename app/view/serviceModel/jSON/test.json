@@ -1,9 +1,9 @@
-{   
-    "background":{
-        "image":{
-            "element":{
-                "style":{
-                    "opacity":1,
+{
+    "background": {
+        "image": {
+            "element": {
+                "style": {
+                    "opacity": 1,
                     "position": "fixed",
                     "filter": "brightness(70%) grayscale(0%) blur(5px)",
                     "zIndex": -1000,
@@ -11,13 +11,13 @@
                     "height": "100%"
                 }
             },
-            "img":{
-                "element":{
-                    "style":{
+            "img": {
+                "element": {
+                    "style": {
                         "width": "100%",
                         "height": "100%"
                     },
-                    "src":"app/view/images/programming.jpg"
+                    "src": "app/view/images/programming.jpg"
                 }
             }
         }
@@ -27,15 +27,15 @@
             "divisor": {
                 "arraySubDivisor": [
                     {
-                        "item":{},
-                        "image":{}
+                        "item": {},
+                        "image": {}
                     }
                 ]
             },
             "arraySubDivisor": [
                 {
-                    "item":{},
-                    "image":{}
+                    "item": {},
+                    "image": {}
                 }
             ]
         }

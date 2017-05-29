@@ -18,6 +18,7 @@ class ComponentPageBody extends Component{
   }
 
   public goToPage(pageName?:string){
+    console.log("goToPage");
     if(pageName){
       this.getJSONPromise(pageName);
     }else{

@@ -11,6 +11,8 @@ class ComponentItem extends Component{
   menuHorizontal: ComponentMenuHorizontal;
   menuVertical: ComponentMenuVertical;
 
+  view: ComponentView;
+
   constructor(father?: Component){
     super(father);
     this.colorEffect = new ComponentColorEffect(this);
@@ -25,8 +27,14 @@ class ComponentItem extends Component{
   }
 
   onClick(){
-    console.log("CLICK:"+this.routerLink);
-    var body = this.seekFatherComponent("ComponentView");
-    console.log("BODY:"+body);
+    // console.log("CLICK:"+this.routerLink);
+    if(this.view==undefined){
+      this.view = <ComponentView> this.seekFatherComponent("ComponentView");
+      this.view.goToPage("test2");
+    }else{
+      this.view.goToPage("test2");
+    }
+    // console.log("BODY:"+body);
+    
   }
 }
