@@ -6,3 +6,63 @@ font {
     -moz-font-smoothing: antialiased;
     -webkit-font-smoothing: antialiased;
 }
+
+.DivClassCompanies{
+    font-family: "Companies";
+}
+
+.DivClassIconSocialMedia{
+    font-family: "FontIconSocialMedia";
+    margin-bottom: -20px;
+}
+
+.DivClassIconSocialMedia2{
+    font-family: "FontIconSocialMedia2";
+    margin-bottom: -20px;
+}
+
+.DivClassIconSocialMedia3{
+    font-family: "FontIconSocialMedia3";
+    margin-bottom: -20px;
+}
+
+.DivClassIconSocialMedia4{
+    font-family: "FontIconSocialMedia4";
+    margin-bottom: -20px;
+}
+
+.DivClassFuturisticI{
+    font-family: "FontFuturisticI";
+}
+
+.DivClassFuturisticII{
+    font-family: "FontFuturisticII";
+}
+
+.DivClassFuturisticIAndII{
+    font-family: "FontFuturisticI";
+}
+
+.DivClassFuturisticIAndII:hover{
+    font-family: "FontFuturisticII";
+}
+
+.DivClassOpenSansLight{
+    font-family: "OpenSans-Light";
+}
+
+.DivClassOpenSans{
+    font-family: "Open Sans";
+}
+
+.DivClassFacebook{
+    font-family: "Facebook";
+}
+
+.DivClassRoboto{
+    font-family: "Roboto";
+}
+
+.DivClassFontAwesome{
+    font-family: "FontAwesome";
+}
