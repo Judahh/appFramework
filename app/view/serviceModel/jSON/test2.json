@@ -15,6 +15,22 @@
                     "image": {}
                 }
             ]
+        },
+        {
+            "divisor": {
+                "arraySubDivisor": [
+                    {
+                        "item": {},
+                        "image": {}
+                    }
+                ]
+            },
+            "arraySubDivisor": [
+                {
+                    "item": {},
+                    "image": {}
+                }
+            ]
         }
     ]
 }

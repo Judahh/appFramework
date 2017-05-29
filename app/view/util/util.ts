@@ -31,6 +31,10 @@ class Util{
     return link;
   }
 
+  static removeElements(elements:NodeListOf<Element>){
+    while (elements[0]) elements[0].parentNode.removeChild(elements[0]);
+  }
+
 }
  
 interface Array<T> {
