@@ -11,9 +11,9 @@ class ComponentSubDivisor extends Component {
     // basicForm: ModelBasicForm;
     // inputData: ModelInputData;
 
-    constructor(fatherElement?: HTMLElement) {
-        super(fatherElement);
-        this.item = new ComponentItem(this.element);
-        this.image = new ComponentImage(this.element);
+    constructor(father?: Component) {
+        super(father);
+        this.item = new ComponentItem(this);
+        this.image = new ComponentImage(this);
     }
 }

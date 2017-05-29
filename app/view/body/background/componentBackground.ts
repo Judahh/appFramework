@@ -7,8 +7,8 @@ importJS('app/view/common/image/componentImage');
 class ComponentBackground extends Component{
   image:ComponentImage;
 
-  constructor(fatherElement?: HTMLElement){
-    super(fatherElement);
-    this.image = new ComponentImage(this.element);
+  constructor(father?: Component){
+    super(father);
+    this.image = new ComponentImage(this);
   }
 }

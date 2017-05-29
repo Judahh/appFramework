@@ -11,10 +11,22 @@ class ComponentItem extends Component{
   menuHorizontal: ComponentMenuHorizontal;
   menuVertical: ComponentMenuVertical;
 
-  constructor(fatherElement?: HTMLElement){
-    super(fatherElement);
-    this.colorEffect = new ComponentColorEffect(this.element);
-    this.menuHorizontal = new ComponentMenuHorizontal(this.element);
-    this.menuVertical = new ComponentMenuVertical(this.element);
+  constructor(father?: Component){
+    super(father);
+    this.colorEffect = new ComponentColorEffect(this);
+    this.menuHorizontal = new ComponentMenuHorizontal(this);
+    this.menuVertical = new ComponentMenuVertical(this);
+  }
+
+  renderAfterUpdateJSON(){
+    if(this.routerLink!=undefined){
+      this.element.addEventListener('click', () => this.onClick());
+    }
+  }
+
+  onClick(){
+    console.log("CLICK:"+this.routerLink);
+    var body = this.seekFatherComponent("ComponentView");
+    console.log("BODY:"+body);
   }
 }

@@ -8,10 +8,10 @@ class ComponentDivisorBlock extends Component {
     arraySubDivisor: Array<ComponentSubDivisor>;
     divisor: ComponentDivisor;
 
-    constructor(fatherElement?: HTMLElement) {
-        super(fatherElement);
+    constructor(father?: Component) {
+        super(father);
         this.arraySubDivisor = new Array<ComponentSubDivisor>();
         this.arraySubDivisor.type = ComponentSubDivisor;
-        this.divisor = new ComponentDivisor(this.element);
+        this.divisor = new ComponentDivisor(this);
     }
 }

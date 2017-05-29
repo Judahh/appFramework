@@ -9,15 +9,11 @@ class ComponentPageBody extends Component{
   background:ComponentBackground;
   arrayDivisorBlock:Array<ComponentDivisorBlock>;
 
-
-  constructor(fatherElement?: HTMLElement){
-    super(fatherElement);
-    this.background = new ComponentBackground(this.element);
+  constructor(father?: Component,pageName?:string){
+    super(father);
+    this.background = new ComponentBackground(this);
     this.arrayDivisorBlock = new Array<ComponentDivisorBlock>();
     this.arrayDivisorBlock.type=ComponentDivisorBlock;
-  }
-
-  render() {
-    this.getJSONPromise("test");
+    this.getJSONPromise(pageName);
   }
 }

@@ -6,13 +6,9 @@ importJS('app/view/common/component/component');
 class ComponentFooter extends Component{
   // item:ComponentItem;
 
-  constructor(fatherElement?: HTMLElement){
-    super(fatherElement);
+  constructor(father?: Component){
+    super(father);
     // this.item=new ComponentItem(this.element);
-  }
-
-  public render() {
-    // this.item.render();
     this.element.innerHTML="nasidas2";
   }
 }

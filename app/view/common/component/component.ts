@@ -3,6 +3,7 @@ importJS('app/view/util/util');
 class Component {
   // protected fatherElement:Component;
   protected element: HTMLElement;
+  protected father: Component;
   // protected style: ComponentStyle;: CSSStyleDeclaration
 
   protected getConstructor() {
@@ -13,18 +14,28 @@ class Component {
     return this.getConstructor().name;
   }
 
-  public constructor(fatherElement?: HTMLElement) {
-    var tag = Util.getTag(this.getClassName());
-    var nodes = document.getElementsByTagName(tag);
-    var path = Util.getCurrentComponentPath();
+  public constructor(father?: Component, tagName?: string) {
+    var tag;
 
-    importCSS(path);
+    if(tagName){
+      tag = tagName;
+      if(tag=="body"){
+        this.element=document.body;
+      }
+    }else{
+      tag = Util.getTag(this.getClassName());
+      var nodes = document.getElementsByTagName(tag);
+      var path = Util.getCurrentComponentPath();
 
-    this.element = document.createElement(tag);
-    this.element.id = tag + "Id" + nodes.length;
+      importCSS(path);
 
-    if (fatherElement) {
-      this.insert(fatherElement);
+      this.element = document.createElement(tag);
+      this.element.id = tag + "Id" + nodes.length;
+    }
+
+    if (father) {
+      this.father=father;
+      this.insert(father.getElement());
     }
   }
 
@@ -44,7 +55,7 @@ class Component {
 
   private updateJSONWithArray(jSON, property:any){
     jSON[property].forEach(element => {
-      var properElement = new this[property].type(this.element);
+      var properElement = new this[property].type(this);
       properElement.updateJSON(element);
     });
   }
@@ -129,6 +140,10 @@ class Component {
     return this.element;
   }
 
+  public getFather() {
+    return this.father;
+  }
+
   public setElementSource(source:string) {
     var tmp:any = this.element;
     tmp.src = source;
@@ -136,5 +151,17 @@ class Component {
 
   protected getJSONPromise(file){
     ServiceModel.getPromise(file).then((data) => this.update(data)).fail((data) => this.updateFailed(data));
+  }
+
+  public seekFatherComponent(className:string):Component{
+    if(this.father!=undefined){
+      console.log("FATHER NAME:"+this.father.getClassName());
+      if(this.father.getClassName()==className){
+        return this.father;
+      }else{
+        return this.father.seekFatherComponent(className);
+      }
+    }
+    return undefined;
   }
 }

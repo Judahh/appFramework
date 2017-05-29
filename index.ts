@@ -1,5 +1,5 @@
 importJS('app/app');
 
 function onLoad(){
-    let app=new App(document.body);
+    let app=new App();
 }

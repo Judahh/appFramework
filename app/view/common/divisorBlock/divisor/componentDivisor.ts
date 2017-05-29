@@ -7,8 +7,8 @@ importJS('app/view/common/divisorBlock/divisor/subDivisor/componentSubDivisor');
 class ComponentDivisor extends Component {
     arraySubDivisor: Array<ComponentSubDivisor>;
 
-    constructor(fatherElement?: HTMLElement) {
-        super(fatherElement);
+    constructor(father?: Component) {
+        super(father);
         this.arraySubDivisor = new Array<ComponentSubDivisor>();
         this.arraySubDivisor.type = ComponentSubDivisor;
     }

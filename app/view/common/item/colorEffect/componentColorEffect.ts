@@ -6,8 +6,8 @@ class ComponentColorEffect extends Component{
   colorEffect: string;
   font: ComponentFont;
 
-  constructor(fatherElement?: HTMLElement){
-    super(fatherElement);
-    this.font = new ComponentFont(this.element);
+  constructor(father?: Component){
+    super(father);
+    this.font = new ComponentFont(this);
   }
 }

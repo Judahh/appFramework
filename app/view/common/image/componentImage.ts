@@ -8,8 +8,8 @@ importJS('app/view/common/image/img/componentImg');
 class ComponentImage extends Component{
   img:ComponentImg;
 
-  constructor(fatherElement?: HTMLElement){
-    super(fatherElement);
-    this.img = new ComponentImg(this.element);
+  constructor(father?: Component){
+    super(father);
+    this.img = new ComponentImg(this);
   }
 }

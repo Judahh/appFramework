@@ -7,12 +7,9 @@ importJS('app/view/common/menuHorizontal/componentMenuHorizontal');
 class ComponentHeader extends Component{
   menuHorizontal:ComponentMenuHorizontal;
 
-  constructor(fatherElement?: HTMLElement){
-    super(fatherElement);
-    this.menuHorizontal=new ComponentMenuHorizontal(this.element);
-  }
-
-  public render() {
+  constructor(father?: Component){
+    super(father);
+    this.menuHorizontal=new ComponentMenuHorizontal(this);
     this.getJSONPromise("test1");
   }
 }

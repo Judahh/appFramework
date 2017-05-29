@@ -5,8 +5,8 @@ class ComponentInformation extends Component{
   information: string;
   link: string;
 
-  constructor(fatherElement?: HTMLElement){
-    super(fatherElement);
+  constructor(father?: Component){
+    super(father);
     // this.item=new ComponentItem(this.element);
   }
 

@@ -7,8 +7,8 @@ class ComponentMenuVertical extends Component{
   class: string;
   arrayItem: Array<ComponentItem>;
 
-  constructor(fatherElement?: HTMLElement){
-    super(fatherElement);
+  constructor(father?: Component){
+    super(father);
     this.arrayItem = new Array<ComponentItem>();
     this.arrayItem.type=ComponentItem;
   }

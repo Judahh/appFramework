@@ -8,8 +8,8 @@ class ComponentAnimationEffect extends Component{
   subClasses:Array<any>;
   arrayInformation: Array<ComponentInformation>;
 
-  constructor(fatherElement?: HTMLElement){
-    super(fatherElement);
+  constructor(father?: Component){
+    super(father);
     this.arrayInformation = new Array<ComponentInformation>();
     this.arrayInformation.type=ComponentInformation;
   }

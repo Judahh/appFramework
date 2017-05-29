@@ -1,10 +1,11 @@
-importJS('app/view/view');
 importJS('app/view/common/component/component');
+importJS('app/view/componentView');
 
 class App{
-  private view:View;
+  private view:ComponentView;
 
-  constructor(body){
-    this.view = new View(body);
+  constructor(){
+    this.view = new ComponentView();
+    // this.view.renderOnFatherElement(document);
   }
 }

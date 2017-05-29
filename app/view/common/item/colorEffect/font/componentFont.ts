@@ -5,8 +5,8 @@ importJS('app/view/common/item/colorEffect/font/animationEffect/componentAnimati
 class ComponentFont extends Component{
   animationEffect:ComponentAnimationEffect;
 
-  constructor(fatherElement?: HTMLElement){
-    super(fatherElement);
-    this.animationEffect = new ComponentAnimationEffect(this.element);
+  constructor(father?: Component){
+    super(father);
+    this.animationEffect = new ComponentAnimationEffect(this);
   }
 }
