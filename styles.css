@@ -649,6 +649,7 @@ a {
   /*color: deepskyblue;*/
   color: inherit;
   cursor: default;
+  text-decoration: none;
 }
 
 a:visited {
@@ -656,6 +657,7 @@ a:visited {
   /*cursor: hand;*/
   color: inherit;
   cursor: default;
+  text-decoration: none;
 }
 
 datalist, option{
