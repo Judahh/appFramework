@@ -83,30 +83,30 @@ class Component {
   }
 
   private updateJSONWithType(jSON, property: any, type: number) {
-    console.log("Prop2");
+    // console.log("Prop2");
     if (type == 2) {
-      console.log("Prop3 is var");
+      // console.log("Prop3 is var");
       this.element.style[property] = jSON[property];
     } else {
       if (property == "style") {
-        console.log("Prop is style");
+        // console.log("Prop is style");
         this.updateJSON(jSON[property], 2);
       } else {
-        console.log("Prop is not style");
+        // console.log("Prop is not style");
         this.element[property] = jSON[property];
-        console.log("Href:"+this.element[property]);
+        // console.log("Href:"+this.element[property]);
       }
     }
   }
 
   private updateJSONWithObject(jSON, property: any) {
-    console.log("Prop is object");
+    // console.log("Prop is object");
     if (property == "element") {
-      console.log("Prop is element");
+      // console.log("Prop is element");
       this.updateJSON(jSON[property], 1);
       // // console.log("Prop is element OUT");
     } else {
-      console.log("Prop is regular");
+      // console.log("Prop is regular");
       if (this[property] == undefined) {
         this[property] = jSON[property];
         // this[property].insert(this);
@@ -123,9 +123,9 @@ class Component {
 
   protected updateJSON(jSON, type?: number) {
     this.renderBeforeUpdateJSON();
-    console.log("UPDATE!");
+    // console.log("UPDATE!");
     for (var property in jSON) {
-      console.log("Prop:" + property);
+      // console.log("Prop:" + property);
       if (property != undefined) {
         // console.log("DEFINED!");
         if (!jSON.hasOwnProperty(property)) {
@@ -138,7 +138,7 @@ class Component {
           if (typeof jSON[property] === 'object') {
             this.updateJSONWithObject(jSON, property);
           } else {
-            console.log("Prop is var:" + jSON[property]);
+            // console.log("Prop is var:" + jSON[property]);
             this[property] = jSON[property];
           }
         }
@@ -149,8 +149,8 @@ class Component {
 
   public insert(fatherElement: HTMLElement) {
     // this.render();
-    console.log("FATHER:" + fatherElement.tagName);
-    console.log("this:" + this.getClassName());
+    // console.log("FATHER:" + fatherElement.tagName);
+    // console.log("this:" + this.getClassName());
     fatherElement.appendChild(this.element);
   }
 
@@ -182,7 +182,7 @@ class Component {
 
   public seekFatherComponent(className: string): Component {
     if (this.father != undefined) {
-      console.log("FATHER NAME:" + this.father.getClassName());
+      // console.log("FATHER NAME:" + this.father.getClassName());
       if (this.father.getClassName() == className) {
         return this.father;
       } else {

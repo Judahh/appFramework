@@ -20,7 +20,7 @@ class ComponentPageBody extends Component{
   }
 
   public goToPage(pageName?:string){
-    console.log("goToPage");
+    // console.log("goToPage");
     if(this.currentPageName == undefined ||
        this.currentPageName != pageName){
       this.nextPageName = pageName;

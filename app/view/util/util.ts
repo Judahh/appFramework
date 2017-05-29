@@ -35,6 +35,33 @@ class Util{
     while (elements[0]) elements[0].parentNode.removeChild(elements[0]);
   }
 
+  static getBrowserLanguage() {
+    var navigator = <any> window.navigator,
+    browserLanguagePropertyKeys = ['language', 'browserLanguage', 'systemLanguage', 'userLanguage'],
+    i,
+    language;
+
+    // support for HTML 5.1 "navigator.languages"
+    if (Array.isArray(navigator.languages)) {
+      for (i = 0; i < navigator.languages.length; i++) {
+        language = navigator.languages[i];
+        if (language && language.length) {
+          return language;
+        }
+      }
+    }
+
+    // support for other well known properties in browsers
+    for (i = 0; i < browserLanguagePropertyKeys.length; i++) {
+      language = navigator[browserLanguagePropertyKeys[i]];
+      if (language && language.length) {
+        return language;
+      }
+    }
+
+    return "en-US";
+  }
+
 }
  
 interface Array<T> {

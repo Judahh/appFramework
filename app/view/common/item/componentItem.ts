@@ -33,7 +33,7 @@ class ComponentItem extends Component{
     }else{
       this.view.goToPage("test2");
     }
-    // console.log("BODY:"+body);
+    // console.log("BODY:"+Util.getBrowserLanguage());
     
   }
 }
