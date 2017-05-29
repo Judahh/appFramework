@@ -29,9 +29,9 @@ class ComponentItem extends Component{
     // console.log("CLICK:"+this.routerLink);
     if(this.view==undefined){
       this.view = <ComponentView> this.seekFatherComponent("ComponentView");
-      this.view.goToPage("test2");
+      this.view.goToPage(this.routerLink);
     }else{
-      this.view.goToPage("test2");
+      this.view.goToPage(this.routerLink);
     }
     // console.log("BODY:"+Util.getBrowserLanguage());
     

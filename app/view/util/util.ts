@@ -1,4 +1,7 @@
 class Util{
+  static browserLanguage;
+  static currentLanguage;
+
   static elementHTML(name:string, id?:string, body?:string) {
     console.log("Name: " + name);
     var hTML= "<" + name;
@@ -36,6 +39,10 @@ class Util{
   }
 
   static getBrowserLanguage() {
+    if(Util.browserLanguage!=undefined){
+      return Util.browserLanguage;
+    }
+
     var navigator = <any> window.navigator,
     browserLanguagePropertyKeys = ['language', 'browserLanguage', 'systemLanguage', 'userLanguage'],
     i,
@@ -46,6 +53,7 @@ class Util{
       for (i = 0; i < navigator.languages.length; i++) {
         language = navigator.languages[i];
         if (language && language.length) {
+          Util.browserLanguage = language;
           return language;
         }
       }
@@ -55,11 +63,22 @@ class Util{
     for (i = 0; i < browserLanguagePropertyKeys.length; i++) {
       language = navigator[browserLanguagePropertyKeys[i]];
       if (language && language.length) {
+        Util.browserLanguage = language;
         return language;
       }
     }
 
-    return "en-US";
+    Util.browserLanguage = "en-US";
+    return Util.browserLanguage;
+  }
+
+  static getCurrentLanguage(){
+    if(Util.currentLanguage!=undefined){
+      return Util.currentLanguage;
+    }else{
+      Util.currentLanguage = Util.getBrowserLanguage();
+    }
+    return Util.currentLanguage;
   }
 
 }

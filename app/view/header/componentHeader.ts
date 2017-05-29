@@ -10,6 +10,6 @@ class ComponentHeader extends Component{
   constructor(father?: Component){
     super(father);
     this.menuHorizontal=new ComponentMenuHorizontal(this);
-    this.getJSONPromise("test1");
+    this.getJSONPromise(this.tag);
   }
 }

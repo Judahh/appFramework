@@ -1,14 +1,14 @@
 importJS('app/view/util/util');
 importJS('app/view/common/component/component');
-
+importJS('app/view/common/menuHorizontal/componentMenuHorizontal');
 // importCSS('app/view/footer/componentFooter');
 
 class ComponentFooter extends Component{
-  // item:ComponentItem;
+  menuHorizontal:ComponentMenuHorizontal;
 
   constructor(father?: Component){
     super(father);
-    // this.item=new ComponentItem(this.element);
-    this.element.innerHTML="nasidas2";
+    this.menuHorizontal=new ComponentMenuHorizontal(this);
+    this.getJSONPromise(this.tag);
   }
 }

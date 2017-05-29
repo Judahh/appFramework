@@ -15,6 +15,10 @@ class Component {
     return this.getConstructor().name;
   }
 
+  public getTag() {
+    return this.tag;
+  }
+
   public constructor(father?: Component, tag?: string) {
     if (tag) {
       this.tag = tag;
@@ -190,5 +194,15 @@ class Component {
       }
     }
     return undefined;
+  }
+
+  protected getLanguage(){
+  }
+
+  protected getJSONLanguagePromise(file) {
+    ServiceModel.getPromise(file).then((data) => this.updateLanguage(data)).fail((data) => this.updateFailed(data));
+  }
+
+  protected updateLanguage(jSON) {
   }
 }

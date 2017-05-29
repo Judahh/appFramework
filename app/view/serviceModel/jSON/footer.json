@@ -5,7 +5,7 @@
                 "element": {
                     "style": {}
                 },
-                "routerLink": "somewhere",
+                "routerLink": "home",
                 "colorEffect": {
                     "element": {
                         "style": {}
@@ -22,7 +22,7 @@
                                 "arrayAnimationSubEffectHolder": [
                                     {
                                         "information":{
-                                            "information": "information0",
+                                            "information": "title",
                                             "link": "link0"
                                         }
                                     }
