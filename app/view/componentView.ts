@@ -4,15 +4,19 @@ importJS('app/view/body/componentPageBody');
 importJS('app/view/footer/componentFooter');
 
 class ComponentView extends Component{//body
+
+  header:ComponentHeader;
+  pageBody:ComponentPageBody;
+  footer:ComponentFooter;
+
   constructor(father?:Component) {
     super(father,"body");
-    this.element.innerHTML="";
-    let header=new ComponentHeader(this);
-    let pageBody=new ComponentPageBody(this,"test");
-    let footer=new ComponentFooter(this);
+    this.header=new ComponentHeader(this);
+    this.pageBody=new ComponentPageBody(this);
+    this.footer=new ComponentFooter(this);
   }
 
-  // renderOnFatherElement(fatherElement:HTMLElement){
-  //   this.insert(fatherElement);
-  // }
+  public goToPage(pageName?:string){
+    this.pageBody.goToPage(pageName);
+  }
 }

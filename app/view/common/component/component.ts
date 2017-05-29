@@ -37,6 +37,8 @@ class Component {
       this.father=father;
       this.insert(father.getElement());
     }
+    
+    this.clear();
   }
 
   public renderBeforeUpdateJSON(){
@@ -151,6 +153,10 @@ class Component {
 
   protected getJSONPromise(file){
     ServiceModel.getPromise(file).then((data) => this.update(data)).fail((data) => this.updateFailed(data));
+  }
+
+  public clear() {
+    this.element.innerHTML="";
   }
 
   public seekFatherComponent(className:string):Component{

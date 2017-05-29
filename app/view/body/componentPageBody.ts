@@ -14,6 +14,14 @@ class ComponentPageBody extends Component{
     this.background = new ComponentBackground(this);
     this.arrayDivisorBlock = new Array<ComponentDivisorBlock>();
     this.arrayDivisorBlock.type=ComponentDivisorBlock;
-    this.getJSONPromise(pageName);
+    this.goToPage(pageName);
+  }
+
+  public goToPage(pageName?:string){
+    if(pageName){
+      this.getJSONPromise(pageName);
+    }else{
+      this.getJSONPromise("test");
+    }
   }
 }
