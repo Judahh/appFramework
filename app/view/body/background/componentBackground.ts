@@ -11,8 +11,4 @@ class ComponentBackground extends Component{
     super(fatherElement);
     this.image = new ComponentImage(this.element);
   }
-
-  render() {
-    this.image.render();
-  }
 }

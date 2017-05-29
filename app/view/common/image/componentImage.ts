@@ -12,9 +12,4 @@ class ComponentImage extends Component{
     super(fatherElement);
     this.img = new ComponentImg(this.element);
   }
-
-  public render() {
-    this.getJSONPromise("test");
-    this.img.render();
-  }
 }

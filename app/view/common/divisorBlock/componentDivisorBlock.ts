@@ -12,19 +12,6 @@ class ComponentDivisorBlock extends Component {
         super(fatherElement);
         this.arraySubDivisor = new Array<ComponentSubDivisor>();
         this.arraySubDivisor.type = ComponentSubDivisor;
-        this.divisor = new ComponentDivisor;
+        this.divisor = new ComponentDivisor(this.element);
     }
-
-    public render() {
-        // console.log("ITEM RENDER");
-        // this.getJSONPromise("test1");
-        // console.log("ITEM RENDER PROMISE");
-    }
-
-    //   public renderAfterUpdateJSON(){
-    //     this.arrayItem.forEach(item => {
-    //         console.log("ITEM RENDER");
-    //         item.render();
-    //     });
-    //   }
 }

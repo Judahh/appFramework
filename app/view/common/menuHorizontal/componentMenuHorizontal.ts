@@ -12,17 +12,4 @@ class ComponentMenuHorizontal extends Component{
     this.arrayItem = new Array<ComponentItem>();
     this.arrayItem.type=ComponentItem;
   }
-
-  public render() {
-    // console.log("ITEM RENDER");
-    this.getJSONPromise("test1");
-    // console.log("ITEM RENDER PROMISE");
-  }
-
-//   public renderAfterUpdateJSON(){
-//     this.arrayItem.forEach(item => {
-//         console.log("ITEM RENDER");
-//         item.render();
-//     });
-//   }
 }

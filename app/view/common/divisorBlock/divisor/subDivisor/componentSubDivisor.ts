@@ -13,20 +13,7 @@ class ComponentSubDivisor extends Component {
 
     constructor(fatherElement?: HTMLElement) {
         super(fatherElement);
-        this.item = new ComponentItem;
-        this.image = new ComponentImage;
+        this.item = new ComponentItem(this.element);
+        this.image = new ComponentImage(this.element);
     }
-
-    public render() {
-        // console.log("ITEM RENDER");
-        // this.getJSONPromise("test1");
-        // console.log("ITEM RENDER PROMISE");
-    }
-
-    //   public renderAfterUpdateJSON(){
-    //     this.arrayItem.forEach(item => {
-    //         console.log("ITEM RENDER");
-    //         item.render();
-    //     });
-    //   }
 }

@@ -24,12 +24,8 @@ class Component {
     this.element.id = tag + "Id" + nodes.length;
 
     if (fatherElement) {
-      // this.render();
-      fatherElement.appendChild(this.element);
+      this.insert(fatherElement);
     }
-  }
-
-  public render() {
   }
 
   public renderBeforeUpdateJSON(){
@@ -79,11 +75,13 @@ class Component {
       console.log("Prop is regular");
       if(this[property] == undefined){
         this[property] = jSON[property];
+        // this[property].insert(this);
       }else{
         if(this[property].constructor === Array){
           this.updateJSONWithArray(jSON,property);
         }else{
           this[property].updateJSON(jSON[property]);
+          // this[property].insert(this);
         }
       }
     }
@@ -95,6 +93,7 @@ class Component {
     for (var property in jSON) {
       console.log("Prop:" + property);
       if (property != undefined) {
+        console.log("DEFINED!");
         if (!jSON.hasOwnProperty(property)) {
           continue;
         }
@@ -114,8 +113,10 @@ class Component {
     this.renderAfterUpdateJSON();
   }
 
-  public insert(fatherElement) {
+  public insert(fatherElement: HTMLElement) {
     // this.render();
+    console.log("FATHER:"+fatherElement.tagName);
+    console.log("this:"+this.getClassName());
     fatherElement.appendChild(this.element);
   }
 

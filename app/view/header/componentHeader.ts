@@ -13,6 +13,6 @@ class ComponentHeader extends Component{
   }
 
   public render() {
-    this.menuHorizontal.render();
+    this.getJSONPromise("test1");
   }
 }

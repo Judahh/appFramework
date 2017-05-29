@@ -12,17 +12,4 @@ class ComponentDivisor extends Component {
         this.arraySubDivisor = new Array<ComponentSubDivisor>();
         this.arraySubDivisor.type = ComponentSubDivisor;
     }
-
-    public render() {
-        // console.log("ITEM RENDER");
-        // this.getJSONPromise("test1");
-        // console.log("ITEM RENDER PROMISE");
-    }
-
-    //   public renderAfterUpdateJSON(){
-    //     this.arrayItem.forEach(item => {
-    //         console.log("ITEM RENDER");
-    //         item.render();
-    //     });
-    //   }
 }

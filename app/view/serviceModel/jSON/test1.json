@@ -1,34 +1,36 @@
 {
-    "arrayItem": [
-        {
-            "element": {
-                "style": {}
-            },
-            "routerLink": "somewhere",
-            "colorEffect": {
+    "menuHorizontal":{
+        "arrayItem": [
+            {
                 "element": {
                     "style": {}
                 },
-                "colorEffect": "test",
-                "font": {
+                "routerLink": "somewhere",
+                "colorEffect": {
                     "element": {
-                        "style": {
-                            "font": "test"
-                        }
+                        "style": {}
                     },
-                    "animationEffect": {
-                        "class": "test",
-                        "subClass": "test2",
-                        "subClasses": {},
-                        "arrayInformation": [
-                            {
-                                "information": "information0",
-                                "link": "link0"
+                    "colorEffect": "test",
+                    "font": {
+                        "element": {
+                            "style": {
+                                "font": "test"
                             }
-                        ]
+                        },
+                        "animationEffect": {
+                            "class": "test",
+                            "subClass": "test2",
+                            "subClasses": {},
+                            "arrayInformation": [
+                                {
+                                    "information": "information0",
+                                    "link": "link0"
+                                }
+                            ]
+                        }
                     }
                 }
             }
-        }
-    ]
+        ]
+    }
 }

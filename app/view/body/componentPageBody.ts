@@ -7,17 +7,17 @@ importJS('app/view/common/divisorBlock/componentDivisorBlock');
 
 class ComponentPageBody extends Component{
   background:ComponentBackground;
-  divisorBlock:ComponentDivisorBlock;
+  arrayDivisorBlock:Array<ComponentDivisorBlock>;
 
 
   constructor(fatherElement?: HTMLElement){
     super(fatherElement);
     this.background = new ComponentBackground(this.element);
-    this.divisorBlock = new ComponentDivisorBlock(this.element);
+    this.arrayDivisorBlock = new Array<ComponentDivisorBlock>();
+    this.arrayDivisorBlock.type=ComponentDivisorBlock;
   }
 
   render() {
-    this.background.render();
-    this.divisorBlock.render();
+    this.getJSONPromise("test");
   }
 }

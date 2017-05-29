@@ -17,13 +17,4 @@ class ComponentItem extends Component{
     this.menuHorizontal = new ComponentMenuHorizontal(this.element);
     this.menuVertical = new ComponentMenuVertical(this.element);
   }
-
-  public render() {
-    // console.log("ITEM RENDER");
-    // this.getJSONPromise("test1");
-    // console.log("ITEM RENDER PROMISE");
-    this.colorEffect.render();
-    this.menuHorizontal.render();
-    this.menuVertical.render();
-  }
 }

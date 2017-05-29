@@ -9,8 +9,4 @@ class ComponentFont extends Component{
     super(fatherElement);
     this.animationEffect = new ComponentAnimationEffect(this.element);
   }
-
-  public render() {
-    this.animationEffect.render();
-  }
 }

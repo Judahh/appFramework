@@ -10,11 +10,6 @@ class ComponentInformation extends Component{
     // this.item=new ComponentItem(this.element);
   }
 
-  public render() {
-    // this.item.render();
-    
-  }
-
   public renderAfterUpdateJSON(){
     this.element.innerHTML=this.information;
   }

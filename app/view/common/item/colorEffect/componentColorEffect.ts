@@ -10,8 +10,4 @@ class ComponentColorEffect extends Component{
     super(fatherElement);
     this.font = new ComponentFont(this.element);
   }
-
-  public render() {
-    this.font.render();
-  }
 }
