@@ -2,10 +2,9 @@ importJS('app/view/common/component/component');
 
 class ComponentInformation extends Component{
   information: string;
-  link: string;
 
   constructor(father?: Component){
-    super(father);
+    super(father,"a");
     // this.item=new ComponentItem(this.element);
   }
 

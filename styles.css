@@ -644,15 +644,18 @@ body {
 }
 
 a {
-  cursor: pointer;
-  cursor: hand;
-  color: deepskyblue;
+  /*cursor: pointer;*/
+  /*cursor: hand;*/
+  /*color: deepskyblue;*/
+  color: inherit;
+  cursor: default;
 }
 
 a:visited {
-  cursor: pointer;
-  cursor: hand;
+  /*cursor: pointer;*/
+  /*cursor: hand;*/
   color: inherit;
+  cursor: default;
 }
 
 datalist, option{

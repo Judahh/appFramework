@@ -20,6 +20,14 @@ class Component {
       this.tag = tag;
       if (tag == "body") {
         this.element = document.body;
+      }else{
+        var nodes = document.getElementsByTagName(this.tag);
+        var path = Util.getCurrentComponentPath();
+
+        importCSS(path);
+
+        this.element = document.createElement(this.tag);
+        this.element.id = this.tag + "Id" + nodes.length;
       }
     } else {
       this.tag = Util.getTag(this.getClassName());
@@ -75,17 +83,18 @@ class Component {
   }
 
   private updateJSONWithType(jSON, property: any, type: number) {
-    // console.log("Prop2");
+    console.log("Prop2");
     if (type == 2) {
-      // console.log("Prop3 is var");
+      console.log("Prop3 is var");
       this.element.style[property] = jSON[property];
     } else {
       if (property == "style") {
-        // console.log("Prop is style");
+        console.log("Prop is style");
         this.updateJSON(jSON[property], 2);
       } else {
-        // console.log("Prop is not style");
+        console.log("Prop is not style");
         this.element[property] = jSON[property];
+        console.log("Href:"+this.element[property]);
       }
     }
   }
@@ -118,7 +127,7 @@ class Component {
     for (var property in jSON) {
       console.log("Prop:" + property);
       if (property != undefined) {
-        console.log("DEFINED!");
+        // console.log("DEFINED!");
         if (!jSON.hasOwnProperty(property)) {
           continue;
         }
@@ -129,7 +138,7 @@ class Component {
           if (typeof jSON[property] === 'object') {
             this.updateJSONWithObject(jSON, property);
           } else {
-            // console.log("Prop is var:" + jSON[prop]);
+            console.log("Prop is var:" + jSON[property]);
             this[property] = jSON[property];
           }
         }

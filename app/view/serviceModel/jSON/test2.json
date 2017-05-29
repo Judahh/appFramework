@@ -35,7 +35,10 @@
                                                 {
                                                     "information":{
                                                         "information": "<br>A TEST",
-                                                        "link": "B"
+                                                        "element": {
+                                                            "href": "A",
+                                                            "className": "DivClassFuturisticIAndII"
+                                                        }
                                                     }
                                                 }
                                             ]
@@ -83,7 +86,9 @@
                                                 {
                                                     "information":{
                                                         "information": "<br>B TEST",
-                                                        "link": "C"
+                                                        "element": {
+                                                            "href": "B"
+                                                        }
                                                     }
                                                 }
                                             ]
@@ -153,7 +158,9 @@
                                                 {
                                                     "information":{
                                                         "information": "<br>C TEST",
-                                                        "link": "D"
+                                                        "element": {
+                                                            "href": "C"
+                                                        }
                                                     }
                                                 }
                                             ]
@@ -202,7 +209,9 @@
                                                 {
                                                     "information":{
                                                         "information": "<br>D TEST",
-                                                        "link": "E"
+                                                        "element": {
+                                                            "href": "D"
+                                                        }
                                                     }
                                                 }
                                             ]
@@ -285,7 +294,9 @@
                                                 {
                                                     "information":{
                                                         "information": "<br>E TEST",
-                                                        "link": "F"
+                                                        "element": {
+                                                            "href": "E"
+                                                        }
                                                     }
                                                 }
                                             ]
