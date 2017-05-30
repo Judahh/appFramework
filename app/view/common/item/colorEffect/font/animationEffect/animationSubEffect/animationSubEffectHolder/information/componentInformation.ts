@@ -3,13 +3,17 @@ importJS('app/view/common/component/component');
 class ComponentInformation extends Component {
   information: string;
   language: string;
-  pageBody: ComponentPageBody;
-  header: ComponentHeader;
-  footer: ComponentFooter;
+  item: ComponentItem;
+  
 
   constructor(father?: Component) {
     super(father, "a");
+    this.getItem();
     // this.item=new ComponentItem(this.element);
+  }
+
+  private getItem(){
+    this.item = <ComponentItem>this.seekFatherComponent("ComponentItem");
   }
 
   public renderAfterUpdateJSON() {
@@ -20,38 +24,11 @@ class ComponentInformation extends Component {
   }
 
   protected getLanguage() {
-    var page;
-
-    if (this.pageBody == undefined) {
-      this.pageBody = <ComponentPageBody>this.seekFatherComponent("ComponentPageBody");
-      if (this.pageBody != undefined) {
-        page = this.pageBody.nextPageName;
+    if(this.item!=undefined){
+      if (this.item.getPage() != undefined) {
+        console.log("PAGE:" + this.item.getPage());
+        this.getJSONLanguagePromise(this.item.getPage() + "L");
       }
-    } else {
-      page = this.pageBody.nextPageName;
-    }
-
-    if (this.header == undefined) {
-      this.header = <ComponentHeader>this.seekFatherComponent("ComponentHeader");
-      if (this.header != undefined) {
-        page = this.header.getTag();
-      }
-    } else {
-      page = this.header.getTag();
-    }
-
-    if (this.footer == undefined) {
-      this.footer = <ComponentFooter>this.seekFatherComponent("ComponentFooter");
-      if (this.footer != undefined) {
-        page = this.footer.getTag();
-      }
-    } else {
-      page = this.footer.getTag();
-    }
-
-    if (page != undefined) {
-      console.log("PAGE:" + page);
-      this.getJSONLanguagePromise(page + "L");
     }
   }
 
