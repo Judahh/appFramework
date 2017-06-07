@@ -4,6 +4,9 @@ importJS('app/view/common/textInput/typeTextInput');
 importJS('app/view/common/textInput/option/componentOption');
 
 class ComponentDataInput extends Component {
+  //IF DATALIST IT NEEDS A INPUT
+  //<input list="datalistID" name="inputNAME">
+  //<datalist id="datalistID">
   private type:TypeDataInput;
 
   constructor(father?: Component, type?:TypeDataInput) {
