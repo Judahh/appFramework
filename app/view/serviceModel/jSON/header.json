@@ -1,4 +1,9 @@
 {
+    "element": {
+        "style": {
+            "background-color":"rgba(255, 255, 255, 0.1)"
+        }
+    },
     "menuHorizontal": {
         "arrayItem": [
             {
@@ -46,7 +51,7 @@
                         "font-size": "40px"
                     }
                 },
-                "routerLink": "home",
+                "routerLink": "education",
                 "colorEffect": {
                     "element": {
                         "className": "ClassNeon"
@@ -83,7 +88,7 @@
                         "font-size": "40px"
                     }
                 },
-                "routerLink": "home",
+                "routerLink": "skills",
                 "colorEffect": {
                     "element": {
                         "className": "ClassNeon"
@@ -142,10 +147,84 @@
                         "font-size": "40px"
                     }
                 },
-                "routerLink": "home",
+                "routerLink": "projects",
                 "colorEffect": {
                     "element": {
                         "className": "ClassNeon"
+                    },
+                    "colorEffect": "test",
+                    "font": {
+                        "element": {
+                            "className": "ClassIcon"
+                        },
+                        "animationEffect": {
+                            "animationSubEffect": {
+                                "element": {
+                                    "className": "ClassConsoleIcon"
+                                },
+                                "arrayAnimationSubEffectHolder": [
+                                    {
+                                        "element": {
+                                            "className": "ClassConsoleIconOff"
+                                        },
+                                        "information":{
+                                            "information": "i",
+                                            "link": "link1",
+                                            "opacity":1
+                                        }
+                                    },
+                                    {
+                                        "element": {
+                                            "className": "ClassConsoleIconOn"
+                                        },
+                                        "information":{
+                                            "information": "j",
+                                            "link": "link1",
+                                            "opacity":1
+                                        }
+                                    },
+                                    {
+                                        "element": {
+                                            "className": "ClassConsoleIconOn1"
+                                        },
+                                        "information":{
+                                            "information": "k",
+                                            "link": "link1",
+                                            "opacity":1
+                                        }
+                                    },
+                                    {
+                                        "element": {
+                                            "className": "ClassConsoleIconOn2"
+                                        },
+                                        "information":{
+                                            "information": "l",
+                                            "link": "link1",
+                                            "opacity":1
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                }
+            },
+            {
+                "element": {
+                    "style": {
+                        "padding":"5px",
+                        "color":"white",
+                        "font-size": "40px"
+                    }
+                },
+                "routerLink": "contact",
+                "colorEffect": {
+                    "element": {
+                        "className": "ClassNeon",
+                        "style": {
+                            "padding":"5px",
+                            "font-size": "40px"
+                        }
                     },
                     "colorEffect": "test",
                     "font": {

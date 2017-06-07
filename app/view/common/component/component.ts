@@ -160,7 +160,7 @@ class Component {
 
   protected updateFailed(data) {
     console.error("JSONT:" + data);
-    this.element.innerHTML = data;
+    // this.element.innerHTML = data;
   }
 
   public getElement() {
@@ -200,6 +200,7 @@ class Component {
   }
 
   protected getJSONLanguagePromise(file) {
+    // console.log("lang");
     ServiceModel.getPromise(file).then((data) => this.updateLanguage(data)).fail((data) => this.updateFailed(data));
   }
 

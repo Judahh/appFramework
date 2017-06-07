@@ -20,16 +20,21 @@ class ComponentPageBody extends Component{
   }
 
   public goToPage(pageName?:string){
-    // console.log("goToPage");
+    console.log("goToPage:"+pageName);
     if(this.currentPageName == undefined ||
        this.currentPageName != pageName){
       this.nextPageName = pageName;
+      console.log("goToPage2:"+pageName);
       if(pageName){
         this.getJSONPromise(pageName);
       }else{
-        this.getJSONPromise("test");
+        this.goToPage("home");
       }
     }
+  }
+
+  protected updateFailed(data) {
+    this.goToPage("unknown");
   }
 
   public renderAfterUpdateJSON(){

@@ -847,6 +847,11 @@ animationEffect{
     float: left;
 }
 
+.ClassConsoleIconOff, .ClassConsoleIconOn, .ClassConsoleIconOn1, .ClassConsoleIconOn2{
+   float: left;
+}
+
+
 .ClassConsoleIcon:hover .ClassConsoleIconOn{
     visibility: hidden;
     height: 0px;
