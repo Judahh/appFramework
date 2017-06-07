@@ -1,4 +1,9 @@
-.DivClassPulse:hover{
+animationEffect{
+    display: table-row;
+}
+
+
+.ClassPulse:hover{
     -webkit-animation: pulse 1.5s linear infinite;
     -moz-animation: pulse 1.5s linear infinite;
     -ms-animation: pulse 1.5s linear infinite;
@@ -6,7 +11,7 @@
     animation: pulse 1.5s linear infinite;
 }
 
-.DivClassShake:hover{
+.ClassShake:hover{
     -webkit-animation: shake 0.7s linear infinite;
     -moz-animation: shake 0.7s linear infinite;
     -ms-animation: shake 0.7s linear infinite;
@@ -14,7 +19,7 @@
     animation: shake 0.7s linear infinite;
 }
 
-.DivClassSpin:hover{
+.ClassSpin:hover{
     -webkit-animation: spin 2.5s linear infinite;
     -moz-animation: spin 2.5s linear infinite;
     -ms-animation: spin 2.5s linear infinite;
@@ -22,7 +27,7 @@
     animation: spin 2.5s linear infinite;
 }
 
-.DivClassSpin2:hover{
+.ClassSpin2:hover{
     -webkit-animation: spin2 2.5s linear infinite;
     -moz-animation: spin2 2.5s linear infinite;
     -ms-animation: spin2 2.5s linear infinite;
@@ -824,22 +829,25 @@
 
 
 
+.ClassHandIcon{
+    
+}
 
-.DivClassHandIconOn, .DivClassHandIcon:hover .DivClassHandIconOff, .DivClassHandIcon .DivClassHandIconOn{
+.ClassHandIconOn, .ClassHandIcon:hover .ClassHandIconOff, .ClassHandIcon .ClassHandIconOn{
     visibility: hidden;
     height: 0px;
     width: 0px;
     float: left;
 }
 
-.DivClassHandIconOff, .DivClassHandIcon:hover .DivClassHandIconOn, .DivClassHandIcon .DivClassHandIconOff{
+.ClassHandIconOff, .ClassHandIcon:hover .ClassHandIconOn, .ClassHandIcon .ClassHandIconOff{
     visibility: visible;
     height: 100%;
     width: auto;
     float: left;
 }
 
-.DivClassConsoleIcon:hover .DivClassConsoleIconOn{
+.ClassConsoleIcon:hover .ClassConsoleIconOn{
     visibility: hidden;
     height: 0px;
     width: 0px;
@@ -863,7 +871,7 @@
     animation-delay: -0.5s;
 }
 
-.DivClassConsoleIcon:hover .DivClassConsoleIconOn1{
+.ClassConsoleIcon:hover .ClassConsoleIconOn1{
     visibility: hidden;
     height: 0px;
     width: 0px;
@@ -881,7 +889,7 @@
     animation-timing-function: steps(2, end);
 }
 
-.DivClassConsoleIcon:hover .DivClassConsoleIconOn2{
+.ClassConsoleIcon:hover .ClassConsoleIconOn2{
     visibility: hidden;
     height: 0px;
     width: 0px;
@@ -906,19 +914,19 @@
 
 }
 
-.DivClassConsoleIconOff, .DivClassConsoleIcon .DivClassConsoleIconOff{
+.ClassConsoleIconOff, .ClassConsoleIcon .ClassConsoleIconOff{
     visibility: visible;
     height: 100%;
     width: auto;
 }
 
-.DivClassConsoleIconOn, .DivClassConsoleIconOn1, .DivClassConsoleIconOn2, .DivClassConsoleIcon:hover .DivClassConsoleIconOff{
+.ClassConsoleIconOn, .ClassConsoleIconOn1, .ClassConsoleIconOn2, .ClassConsoleIcon:hover .ClassConsoleIconOff{
     visibility: hidden;
     height: 0px;
     width: 0px;
 }
 
-.DivClassWebIcon:hover .DivClassWebIconOn1{
+.ClassWebIcon:hover .ClassWebIconOn1{
     visibility: hidden;
     height: 0px;
     width: 0px;
@@ -942,7 +950,7 @@
     animation-delay: -1.5s;
 }
 
-.DivClassWebIcon:hover .DivClassWebIconOn2{
+.ClassWebIcon:hover .ClassWebIconOn2{
     visibility: hidden;
     height: 0px;
     width: 0px;
@@ -966,7 +974,7 @@
     animation-delay: -1s;
 }
 
-.DivClassWebIcon:hover .DivClassWebIconOn3{
+.ClassWebIcon:hover .ClassWebIconOn3{
     visibility: hidden;
     height: 0px;
     width: 0px;
@@ -991,7 +999,7 @@
 
 }
 
-.DivClassWebIcon:hover .DivClassWebIconOn4{
+.ClassWebIcon:hover .ClassWebIconOn4{
     visibility: hidden;
     height: 0px;
     width: 0px;
@@ -1010,13 +1018,13 @@
 
 }
 
-.DivClassWebIconOff, .DivClassWebIcon .DivClassWebIconOff{
+.ClassWebIconOff, .ClassWebIcon .ClassWebIconOff{
     visibility: visible;
     height: 100%;
     width: auto;
 }
 
-.DivClassWebIconOn1, .DivClassWebIconOn2, .DivClassWebIconOn3, .DivClassWebIconOn4, .DivClassWebIcon:hover .DivClassWebIconOff{
+.ClassWebIconOn1, .ClassWebIconOn2, .ClassWebIconOn3, .ClassWebIconOn4, .ClassWebIcon:hover .ClassWebIconOff{
     visibility: hidden;
     height: 0px;
     /*width: 0px;*/

@@ -1,4 +1,4 @@
-.DivClassNeon{
+.ClassNeon{
     /*color: black;*/
     -webkit-transition: all 1s;
     -moz-transition: all 1s;
@@ -7,7 +7,7 @@
     transition: all 1s;
 }
 
-.DivClassNeon:hover{
+.ClassNeon:hover{
     color: deepskyblue;
     -webkit-transition: all 1s;
     -moz-transition: all 1s;

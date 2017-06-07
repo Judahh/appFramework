@@ -7,62 +7,66 @@ font {
     -webkit-font-smoothing: antialiased;
 }
 
-.DivClassCompanies{
+.ClassCompanies{
     font-family: "Companies";
 }
 
-.DivClassIconSocialMedia{
+.ClassIcon{
+    font-family: "FontIcon";
+}
+
+.ClassIconSocialMedia{
     font-family: "FontIconSocialMedia";
     margin-bottom: -20px;
 }
 
-.DivClassIconSocialMedia2{
+.ClassIconSocialMedia2{
     font-family: "FontIconSocialMedia2";
     margin-bottom: -20px;
 }
 
-.DivClassIconSocialMedia3{
+.ClassIconSocialMedia3{
     font-family: "FontIconSocialMedia3";
     margin-bottom: -20px;
 }
 
-.DivClassIconSocialMedia4{
+.ClassIconSocialMedia4{
     font-family: "FontIconSocialMedia4";
     margin-bottom: -20px;
 }
 
-.DivClassFuturisticI{
+.ClassFuturisticI{
     font-family: "FontFuturisticI";
 }
 
-.DivClassFuturisticII{
+.ClassFuturisticII{
     font-family: "FontFuturisticII";
 }
 
-.DivClassFuturisticIAndII{
+.ClassFuturisticIAndII{
     font-family: "FontFuturisticI";
 }
 
-.DivClassFuturisticIAndII:hover{
+.ClassFuturisticIAndII:hover{
     font-family: "FontFuturisticII";
 }
 
-.DivClassOpenSansLight{
+.ClassOpenSansLight{
     font-family: "OpenSans-Light";
 }
 
-.DivClassOpenSans{
+.ClassOpenSans{
     font-family: "Open Sans";
 }
 
-.DivClassFacebook{
+.ClassFacebook{
     font-family: "Facebook";
 }
 
-.DivClassRoboto{
+.ClassRoboto{
     font-family: "Roboto";
 }
 
-.DivClassFontAwesome{
+.ClassFontAwesome{
     font-family: "FontAwesome";
 }
