@@ -20,7 +20,10 @@ class ComponentInformation extends Component {
     if (this.language == undefined) {
       this.getLanguage();
     }
-    this.element.innerHTML = this.information;
+    if(!this.element.innerHTML){
+      this.element.innerHTML = this.information;
+    }
+    
   }
 
   protected getLanguage() {
@@ -41,6 +44,7 @@ class ComponentInformation extends Component {
         }
 
         if (jSON[property]["language"] == Util.getCurrentLanguage()) {
+          // console.log("LANG:"+jSON[property]["language"]);
           break;
         }
       }
@@ -55,6 +59,7 @@ class ComponentInformation extends Component {
 
         if (languageProperty == this.information) {
           this.element.innerHTML = subJSON[languageProperty];
+          // console.log("INNER:"+subJSON[languageProperty]);
         }
       }
     }
