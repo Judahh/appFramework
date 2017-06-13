@@ -16,6 +16,8 @@
                             "colorEffect": {
                                 "element": {
                                     "style":{
+                                        "display": "block",
+                                        "text-align": "center",
                                         "color": "white"
                                     }
                                 },

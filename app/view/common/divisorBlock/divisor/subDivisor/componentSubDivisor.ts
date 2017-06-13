@@ -5,15 +5,16 @@ importJS('app/view/common/item/componentItem');
 importJS('app/view/common/image/componentImage');
 
 class ComponentSubDivisor extends Component {
-    item: ComponentItem;
+    arrayItem: Array<ComponentItem>;
     image: ComponentImage;
     // videoLink: ModelVideoLink;
     // basicForm: ModelBasicForm;
-    // inputData: ModelInputData;
+    DataInput: ComponentDataInput;
 
     constructor(father?: Component) {
         super(father);
-        this.item = new ComponentItem(this);
+        this.arrayItem = new Array<ComponentItem>();
+        this.arrayItem.type = ComponentItem;
         this.image = new ComponentImage(this);
     }
 }
