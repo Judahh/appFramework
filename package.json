@@ -1,6 +1,6 @@
 {
-  "name": "appFramework",
-  "productName": "appFramework",
+  "name": "backApp",
+  "productName": "backApp",
   "author": "Judah <judahholanda7@gmail.com>",
   "version": "0.1.0",
   "private": true,
