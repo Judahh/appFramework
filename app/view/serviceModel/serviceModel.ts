@@ -1,5 +1,5 @@
 class ServiceModel {
-    private static uRL = '../app/frame/jSON/';
+    private static uRL = '../frame/';
 
     public static getPromise(path:string):JQueryPromise<any>{
         // var internalJSON = require(this.internalURL+path+".json");
