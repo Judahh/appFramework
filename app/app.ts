@@ -1,6 +1,7 @@
 importJS('app/view/common/component/component');
 importJS('app/view/componentView');
 importJS('code/imports/imports');
+importJS('app/view/common/appClass/appClass');
 
 class App{
   private view:ComponentView;

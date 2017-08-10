@@ -2,7 +2,7 @@ importJS('app/view/common/component/component');
 
 class ComponentInformation extends Component {
   code: boolean;
-  className: object;
+  appClass: AppClass;
   information: string;
   language: string;
   item: ComponentItem;
@@ -11,6 +11,7 @@ class ComponentInformation extends Component {
   constructor(father?: Component) {
     super(father, "a");
     this.getItem();
+    // this.appClass = new AppClass(this);
     // this.item=new ComponentItem(this.element);
   }
 
@@ -23,9 +24,10 @@ class ComponentInformation extends Component {
       this.getLanguage();
     }
     if(this.code){
-      var age = new this.className();//window[this.className]();
-
-      this.element.innerHTML = age.age;
+      // var age = new this.className();//window[this.className]();
+      console.log("CODE:" + this.code);
+      console.log("appClass:" + this.appClass.result());
+      this.element.innerHTML = this.appClass.result();
     }
     if(!this.element.innerHTML){
       this.element.innerHTML = this.information;
