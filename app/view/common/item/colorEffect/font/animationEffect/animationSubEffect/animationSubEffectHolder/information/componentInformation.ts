@@ -1,6 +1,7 @@
 importJS('app/view/common/component/component');
 
 class ComponentInformation extends Component {
+  code: boolean;
   information: string;
   language: string;
   item: ComponentItem;
@@ -19,6 +20,9 @@ class ComponentInformation extends Component {
   public renderAfterUpdateJSON() {
     if (this.language == undefined) {
       this.getLanguage();
+    }
+    if(this.code){
+      this.element.innerHTML = Age.age;
     }
     if(!this.element.innerHTML){
       this.element.innerHTML = this.information;
