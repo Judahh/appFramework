@@ -17,7 +17,6 @@
     ]
   },
   "exclude": [ 
-    "node_modules",
-    "backApp"
+    "node_modules"
   ]
 }
