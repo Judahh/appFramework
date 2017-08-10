@@ -2,6 +2,7 @@ importJS('app/view/common/component/component');
 
 class ComponentInformation extends Component {
   code: boolean;
+  className: object;
   information: string;
   language: string;
   item: ComponentItem;
@@ -22,7 +23,9 @@ class ComponentInformation extends Component {
       this.getLanguage();
     }
     if(this.code){
-      this.element.innerHTML = Age.age;
+      var age = new this.className();//window[this.className]();
+
+      this.element.innerHTML = age.age;
     }
     if(!this.element.innerHTML){
       this.element.innerHTML = this.information;
