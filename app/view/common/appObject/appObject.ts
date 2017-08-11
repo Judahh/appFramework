@@ -1,5 +1,5 @@
 importJS('app/view/common/component/component');
 
-interface AppClass extends Component{
+interface AppObject extends Component{
   result();
 }
