@@ -25,8 +25,8 @@ class ComponentInformation extends Component {
     if(this.code){
       // var age = new this.className();//window[this.className]();
       this.appObject = AppObjectFactory.create(this.information,this.father);
-      console.log("CODE:" + this.code);
-      console.log("appClass:" + this.appObject.result());
+      // console.log("CODE:" + this.code);
+      // console.log("appClass:" + this.appObject.result());
       this.element.innerHTML = this.appObject.result();
     }
     if(!this.element.innerHTML){
@@ -38,7 +38,7 @@ class ComponentInformation extends Component {
   protected getLanguage() {
     if(this.item!=undefined){
       if (this.item.getPage() != undefined) {
-        console.log("PAGE:" + this.item.getPage());
+        // console.log("PAGE:" + this.item.getPage());
         this.getJSONLanguagePromise(this.item.getPage() + "L");
       }
     }

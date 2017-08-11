@@ -200,7 +200,7 @@ class Component {
   }
 
   protected getJSONLanguagePromise(file) {
-    console.log("lang is "+file);
+    // console.log("lang is "+file);
     ServiceModel.getPromise(file).then((data) => this.updateLanguage(data)).fail((data) => this.updateFailed(data));
   }
 
