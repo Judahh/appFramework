@@ -26,8 +26,7 @@
     "gulp": "gulp"
   },
   "dependencies": {
-    "@types/jquery":"3.2.9"
+    "@types/jquery": "3.2.9"
   },
-  "devDependencies": {
-  }
+  "devDependencies": {}
 }
