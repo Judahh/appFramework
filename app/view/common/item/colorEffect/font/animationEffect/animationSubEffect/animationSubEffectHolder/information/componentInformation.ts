@@ -67,7 +67,14 @@ class ComponentInformation extends Component {
         }
 
         if (languageProperty == this.information) {
-          this.element.innerHTML = subJSON[languageProperty];
+          if(subJSON[languageProperty].constructor === Array){
+            this.element.innerHTML = "";
+            subJSON[languageProperty].forEach(element => {
+              this.element.innerHTML += element+"<br/>";
+            });
+          }else{
+            this.element.innerHTML = subJSON[languageProperty];
+          }
           // console.log("INNER:"+subJSON[languageProperty]);
         }
       }

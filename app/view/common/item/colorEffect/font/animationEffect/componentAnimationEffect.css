@@ -542,90 +542,60 @@ animationEffect{
 @-o-keyframes webOn {
     0% {
         visibility: hidden;
-        height: 0px;
-        width: 0px;
     }
     75% {
         visibility: hidden;
-        height: 0px;
-        width: 0px;
     }
     100% {
         visibility: visible;
-        height: 100%;
-        width: auto;
     }
 }
 
 @-ms-keyframes webOn {
     0% {
         visibility: hidden;
-        height: 0px;
-        width: 0px;
     }
     75% {
         visibility: hidden;
-        height: 0px;
-        width: 0px;
     }
     100% {
         visibility: visible;
-        height: 100%;
-        width: auto;
     }
 }
 
 @-moz-keyframes webOn {
     0% {
         visibility: hidden;
-        height: 0px;
-        width: 0px;
     }
     75% {
         visibility: hidden;
-        height: 0px;
-        width: 0px;
     }
     100% {
         visibility: visible;
-        height: 100%;
-        width: auto;
     }
 }
 
 @-webkit-keyframes webOn {
     0% {
         visibility: hidden;
-        height: 0px;
-        width: 0px;
     }
     75% {
         visibility: hidden;
-        height: 0px;
-        width: 0px;
     }
     100% {
         visibility: visible;
-        height: 100%;
-        width: auto;
     }
 }
 
 @keyframes webOn {
     0% {
         visibility: hidden;
-        height: 0px;
-        width: 0px;
     }
     75% {
         visibility: hidden;
-        height: 0px;
-        width: 0px;
     }
     100% {
         visibility: visible;
-        height: 100%;
-        width: auto;
     }
 }
 
@@ -931,10 +901,14 @@ animationEffect{
     width: 0px;
 }
 
+.ClassWebIconOff, .ClassWebIconOn1, .ClassWebIconOn2, .ClassWebIconOn3 , .ClassWebIconOn4{
+    float: left;
+ }
+
 .ClassWebIcon:hover .ClassWebIconOn1{
     visibility: hidden;
-    height: 0px;
-    width: 0px;
+    height: 100%;
+    width: auto;
 
     -webkit-animation: webOn 2s infinite;
     -moz-animation: webOn 2s infinite;
@@ -957,8 +931,8 @@ animationEffect{
 
 .ClassWebIcon:hover .ClassWebIconOn2{
     visibility: hidden;
-    height: 0px;
-    width: 0px;
+    height: 100%;
+    width: auto;
 
     -webkit-animation: webOn 2s infinite;
     -moz-animation: webOn 2s infinite;
@@ -981,8 +955,8 @@ animationEffect{
 
 .ClassWebIcon:hover .ClassWebIconOn3{
     visibility: hidden;
-    height: 0px;
-    width: 0px;
+    height: 100%;
+    width: auto;
 
     -webkit-animation: webOn 2s infinite;
     -moz-animation: webOn 2s infinite;
@@ -1006,8 +980,8 @@ animationEffect{
 
 .ClassWebIcon:hover .ClassWebIconOn4{
     visibility: hidden;
-    height: 0px;
-    width: 0px;
+    height: 100%;
+    width: auto;
 
     -webkit-animation: webOn 2s infinite;
     -moz-animation: webOn 2s infinite;
@@ -1023,14 +997,24 @@ animationEffect{
 
 }
 
-.ClassWebIconOff, .ClassWebIcon .ClassWebIconOff{
+.ClassWebIconOff, .ClassWebIcon .ClassWebIconOff, .ClassWebIconOn1, .ClassWebIcon .ClassWebIconOn1{
     visibility: visible;
     height: 100%;
     width: auto;
 }
 
+.ClassWebIconOff, .ClassWebIcon:hover .ClassWebIconOff{
+    width: auto;
+    float: left;
+    position: absolute;
+    left: 0px;
+}
+
 .ClassWebIconOn1, .ClassWebIconOn2, .ClassWebIconOn3, .ClassWebIconOn4, .ClassWebIcon:hover .ClassWebIconOff{
     visibility: hidden;
-    height: 0px;
-    /*width: 0px;*/
+    height: 100%;
+    width: auto;
+    float: left;
+    position: absolute;
+    left: 0px;
 }
