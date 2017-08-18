@@ -20,8 +20,8 @@
     "start": "npm install",
     "lint": "tslint \"src/**/*.ts\"",
     "test": "ng test",
-    "tsc": "tsc",
-    "tsc:w": "tsc -w",
+    "ntsc": "ntsc",
+    "ntsc:w": "ntsc -w",
     "clean": "shx rm -Rf build/",
     "gulp": "gulp"
   },
