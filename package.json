@@ -17,7 +17,7 @@
   "license": "MIT",
   "angular-cli": {},
   "scripts": {
-    "start": "sudo npm install",
+    "start": "npm install",
     "lint": "tslint \"src/**/*.ts\"",
     "test": "ng test",
     "tsc": "tsc",
