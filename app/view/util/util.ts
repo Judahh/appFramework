@@ -40,7 +40,14 @@ class Util {
 
   static getCurrentComponentPath() {
     var error = new Error();
-    var link = error.stack.split('(')[3].split('.js')[0].split(location.href)[1];
+    // console.log("test:"+(stack+"")+"end");
+    var stack = error.stack+"END";
+    // console.log("path:"+stack);    
+    var link = stack.split('(')[3];
+    if(link==null||link==undefined||link==""){
+      link = stack.split('@')[3];
+    }
+    link = link.split('.js')[0].split(location.href)[1];
     // console.log("path:"+link);
     return link;
   }
