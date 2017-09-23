@@ -21,8 +21,8 @@ class ComponentItem extends Component {
 
   page: string;
 
-  constructor(father?: Component) {
-    super(father);
+  constructor(father?: Component, tag?: string) {
+    super(father, tag);
     this.colorEffect = new ComponentColorEffect(this);
     this.menuHorizontal = new ComponentMenuHorizontal(this);
     this.menuVertical = new ComponentMenuVertical(this);

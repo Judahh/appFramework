@@ -11,12 +11,14 @@ class ComponentSubDivisor extends Component {
     videoHolder: ComponentVideoHolder;
     // videoLink: ModelVideoLink;
     // basicForm: ModelBasicForm;
-    DataInput: ComponentDataInput;
+    // arrayDataInput: Array<ComponentDataInput>;
 
     constructor(father?: Component) {
         super(father);
         this.arrayItem = new Array<ComponentItem>();
         this.arrayItem.type = ComponentItem;
+        // this.arrayDataInput = new Array<ComponentDataInput>();
+        // this.arrayDataInput.type = ComponentDataInput;
         this.image = new ComponentImage(this);
         this.videoHolder = new ComponentVideoHolder(this);
     }
