@@ -26,7 +26,8 @@
     "gulp": "gulp"
   },
   "dependencies": {
-    "@types/jquery": "3.2.12"
+    "@types/jquery": "3.2.12",
+    "font-awesome": "4.7.0"
   },
   "devDependencies": {}
 }
