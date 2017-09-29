@@ -27,7 +27,7 @@ class ComponentInformation extends Component {
       this.appObject = AppObjectFactory.create(this.information,this.father);
       // console.log("CODE:" + this.code);
       // console.log("appClass:" + this.appObject.result());
-      this.element.innerHTML = this.appObject.result();
+      this.appObject.result(this.element);
     }
     if(!this.element.innerHTML){
       this.element.innerHTML = this.information;
