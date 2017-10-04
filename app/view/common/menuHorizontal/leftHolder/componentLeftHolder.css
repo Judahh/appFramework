@@ -1,4 +1,8 @@
 leftHolder{
+    align-content: left;
+    align-items: left;
+    align-self: left;
+    text-align: left;
     float: left;
-    /* width: 33%; */
+    width: 33%;
 }
