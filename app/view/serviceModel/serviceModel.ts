@@ -1,3 +1,4 @@
+importJS('app/view/util/util');
 class ServiceModel {
     private static uRL = '../frame/';
 
