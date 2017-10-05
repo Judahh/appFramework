@@ -26,6 +26,7 @@
     "gulp": "gulp"
   },
   "dependencies": {
+    "ntypescript": "^1.201706190042.1",
     "@types/jquery": "3.2.12",
     "font-awesome": "4.7.0"
   },
