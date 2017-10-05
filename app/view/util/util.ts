@@ -1,3 +1,17 @@
+// import { JQueryPromise } from "@types/jquery"
+// declare var $: any;
+// declare var JQueryPromise: any;
+
+// declare module '$' {
+//   var _$: any;
+//   export = _$;
+// }
+
+// declare module 'JQueryPromise' {
+//   var _JQueryPromise: any;
+//   export = _JQueryPromise;
+// }
+
 class Util {
   static browserLanguage;
   static currentLanguage;
