@@ -1,4 +1,5 @@
 importJS('app/view/common/component/component');
+importJS('app/view/common/appObject/appObjectFactory/appObjectFactory');
 
 class ComponentInformation extends Component {
   code: boolean;
