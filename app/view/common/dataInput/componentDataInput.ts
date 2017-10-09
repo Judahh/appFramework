@@ -1,34 +1,33 @@
 importJS('app/view/util/util');
 importJS('app/view/common/component/component');
-importJS('app/view/common/textInput/typeTextInput');
-importJS('app/view/common/textInput/option/componentOption');
+importJS('app/view/common/dataInput/textField/componentTextField');
+importJS('app/view/common/dataInput/textArea/componentTextArea');
+importJS('app/view/common/dataInput/comboBox/componentComboBox');
+importJS('app/view/common/dataInput/box/componentBox');
 
 class ComponentDataInput extends ComponentItem {
+  arrayTextField: Array<ComponentTextField>;
+  arrayTextArea: Array<ComponentTextArea>;
+  arrayComboBox: Array<ComponentComboBox>;
+  arrayBox: Array<ComponentBox>;
+  
   //IF DATALIST IT NEEDS A INPUT
   //<input list="datalistID" name="inputNAME">
   //<datalist id="datalistID">
-  private type:TypeDataInput;
 
-  constructor(father?: Component, type?:TypeDataInput) {
-    super(father, ComponentDataInput.typeTag(type));
-    this.type = type;
-    console.log("a");
-  }
+  constructor(father?: Component, tag?) {
+    super(father, tag);
+    this.arrayTextField = new Array<ComponentTextField>();
+    this.arrayTextField.type = ComponentTextField;
 
-  public static typeTag(type:TypeDataInput){
-    switch(type){
-      case TypeDataInput.textArea:
-        return "textarea";
-      case TypeDataInput.combobox:
-        return "select";
-      default:
-        return "input";
-    }
-  }
+    this.arrayTextArea = new Array<ComponentTextArea>();
+    this.arrayTextArea.type = ComponentTextArea;
 
-  public static hasOption(type:TypeDataInput){
-    return (type==TypeDataInput.dataList||
-            type==TypeDataInput.combobox);
+    this.arrayComboBox = new Array<ComponentComboBox>();
+    this.arrayComboBox.type = ComponentComboBox;
+    
+    this.arrayBox = new Array<ComponentBox>();
+    this.arrayBox.type = ComponentBox;
   }
   
 }

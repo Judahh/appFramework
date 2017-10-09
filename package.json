@@ -2,7 +2,7 @@
   "name": "backappjh",
   "productName": "backApp",
   "author": "Judah Holanda Correia Lima <judahholanda7@gmail.com> (https://judahh.com)",
-  "version": "0.1.1",
+  "version": "0.1.7",
   "private": false,
   "description": "Judahh APP project",
   "keywords": [
@@ -20,6 +20,8 @@
     "start": "npm install",
     "lint": "tslint \"src/**/*.ts\"",
     "test": "ng test",
+    "tsc": "tsc",
+    "tsc:w": "tsc -w",
     "ntsc": "ntsc",
     "ntsc:w": "ntsc -w",
     "clean": "shx rm -Rf build/",
