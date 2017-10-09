@@ -1,9 +1,9 @@
 {
-  "name": "backApp",
+  "name": "backappjh",
   "productName": "backApp",
-  "author": "Judah <judahholanda7@gmail.com>",
-  "version": "0.1.0",
-  "private": true,
+  "author": "Judah Holanda Correia Lima <judahholanda7@gmail.com> (https://judahh.com)",
+  "version": "0.1.1",
+  "private": false,
   "description": "Judahh APP project",
   "keywords": [
     "judahh",
@@ -11,10 +11,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git://github.com/Judahh/appFramework"
+    "url": "git+https://github.com/Judahh/backApp.git"
   },
-  "homepage": "https://judahh.com",
-  "license": "MIT",
+  "homepage": "https://github.com/Judahh/backApp#readme",
+  "license": "BSD-3-Clause",
   "angular-cli": {},
   "scripts": {
     "start": "npm install",
