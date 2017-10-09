@@ -130,9 +130,13 @@ class ComponentItem extends Component {
   }
 
   onClick() {
-    // console.log("CLICK:"+this.routerLink);
-    this.getView().goToPage(this.routerLink);
-    // console.log("BODY:"+Util.getBrowserLanguage());
+    // if(this.routerLink!=undefined){
+      // console.log("CLICK:"+this.routerLink);
+      this.getView().goToPage(this.routerLink);
+      // console.log("BODY:"+Util.getBrowserLanguage());
+    // }else{
+      // console.log("CLICK!");
+    // }
 
   }
 }

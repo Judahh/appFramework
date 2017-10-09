@@ -4,19 +4,30 @@ importJS('app/view/common/dataInput/textField/componentTextField');
 importJS('app/view/common/dataInput/textArea/componentTextArea');
 importJS('app/view/common/dataInput/comboBox/componentComboBox');
 importJS('app/view/common/dataInput/box/componentBox');
+importJS('app/view/common/dataInput/button/componentButton');
+importJS('app/view/common/item/componentItem');
 
 class ComponentDataInput extends ComponentItem {
+  arrayBeforeItem: Array<ComponentItem>;
   arrayTextField: Array<ComponentTextField>;
   arrayTextArea: Array<ComponentTextArea>;
   arrayComboBox: Array<ComponentComboBox>;
   arrayBox: Array<ComponentBox>;
-  
+  arrayButton: Array<ComponentButton>;
+  arrayAfterItem: Array<ComponentItem>;
+  appObject: AppObject;
+  code: boolean;
+  codeName: string;
+
   //IF DATALIST IT NEEDS A INPUT
   //<input list="datalistID" name="inputNAME">
   //<datalist id="datalistID">
 
   constructor(father?: Component, tag?) {
     super(father, tag);
+    this.arrayBeforeItem = new Array<ComponentItem>();
+    this.arrayBeforeItem.type = ComponentItem;
+
     this.arrayTextField = new Array<ComponentTextField>();
     this.arrayTextField.type = ComponentTextField;
 
@@ -25,9 +36,30 @@ class ComponentDataInput extends ComponentItem {
 
     this.arrayComboBox = new Array<ComponentComboBox>();
     this.arrayComboBox.type = ComponentComboBox;
-    
+
     this.arrayBox = new Array<ComponentBox>();
     this.arrayBox.type = ComponentBox;
+
+    this.arrayButton = new Array<ComponentButton>();
+    this.arrayButton.type = ComponentButton;
+
+    this.arrayAfterItem = new Array<ComponentItem>();
+    this.arrayAfterItem.type = ComponentItem;
   }
-  
+
+  public renderAfterUpdateJSON() {
+    if (this.code) {
+      this.element.addEventListener('click', () => this.onClick());
+    }
+  }
+
+  public onClick() {
+    // var age = new this.className();//window[this.className]();
+    this.appObject = AppObjectFactory.create(this.codeName, this.father);
+    // console.log("CODE:" + this.code);
+    // console.log("appClass:" + this.appObject.result());
+    this.appObject.result(this.element);
+
+  }
+
 }

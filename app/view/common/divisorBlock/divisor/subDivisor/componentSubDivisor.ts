@@ -4,6 +4,7 @@ importJS('app/view/common/component/component');
 importJS('app/view/common/item/componentItem');
 importJS('app/view/common/image/componentImage');
 importJS('app/view/common/dataInput/componentDataInput');
+importJS('app/view/common/form/componentForm');
 importJS('app/view/common/videoHolder/componentVideoHolder');
 
 class ComponentSubDivisor extends Component {
@@ -11,8 +12,8 @@ class ComponentSubDivisor extends Component {
     image: ComponentImage;
     videoHolder: ComponentVideoHolder;
     // videoLink: ModelVideoLink;
-    // basicForm: ModelBasicForm;
     arrayDataInput: Array<ComponentDataInput>;
+    arrayForm: Array<ComponentForm>;
 
     constructor(father?: Component) {
         super(father);
@@ -22,5 +23,7 @@ class ComponentSubDivisor extends Component {
         this.arrayDataInput.type = ComponentDataInput;
         this.image = new ComponentImage(this);
         this.videoHolder = new ComponentVideoHolder(this);
+        this.arrayForm = new Array<ComponentForm>();
+        this.arrayForm.type = ComponentForm;
     }
 }
