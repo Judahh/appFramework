@@ -61,6 +61,42 @@
 }
 
 @font-face {
+  font-family: "NewIcons0";
+  src: url("app/view/common/fonts/NewIcons/newIcons0.otf");
+  src: url("app/view/common/fonts/NewIcons/newIcons0.woff") format('woff');
+  /*src: url("../../../../../../fonts/newIcons.ttf")  format(‘truetype’);*/
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "NewIcons1";
+  src: url("app/view/common/fonts/NewIcons/newIcons1.otf");
+  src: url("app/view/common/fonts/NewIcons/newIcons1.woff") format('woff');
+  /*src: url("../../../../../../fonts/newIcons.ttf")  format(‘truetype’);*/
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "NewIcons";
+  src: url("app/view/common/fonts/NewIcons/newIcons.otf");
+  src: url("app/view/common/fonts/NewIcons/newIcons.woff") format('woff');
+  /*src: url("../../../../../../fonts/newIcons.ttf")  format(‘truetype’);*/
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "MaterialWifi";
+  src: url("app/view/common/fonts/material-wifi.ttf") format(‘truetype’);
+  src: url("app/view/common/fonts/material-wifi.woff") format('woff');
+  /*src: url("../../../../../../fonts/newIcons.ttf")  format(‘truetype’);*/
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
     font-family: "FontFuturisticI";
     src: url("app/view/common/fonts/Letters/FuturisticFontI.otf");
     src: url("app/view/common/fonts/Letters/FuturisticFontI.woff") format('woff');
