@@ -6,6 +6,7 @@ importJS('app/view/common/image/componentImage');
 importJS('app/view/common/dataInput/componentDataInput');
 importJS('app/view/common/form/componentForm');
 importJS('app/view/common/chart/componentChart');
+importJS('app/view/common/progressBar/componentProgressBar');
 importJS('app/view/common/videoHolder/componentVideoHolder');
 
 class ComponentSubDivisor extends Component {
@@ -16,6 +17,7 @@ class ComponentSubDivisor extends Component {
     arrayDataInput: Array<ComponentDataInput>;
     arrayForm: Array<ComponentForm>;
     arrayChart: Array<ComponentChart>;
+    arrayProgressBar: Array<ComponentProgressBar>;
     
 
     constructor(father?: Component) {
@@ -30,5 +32,7 @@ class ComponentSubDivisor extends Component {
         this.arrayForm.type = ComponentForm;
         this.arrayChart = new Array<ComponentChart>();
         this.arrayChart.type = ComponentChart;
+        this.arrayProgressBar = new Array<ComponentProgressBar>();
+        this.arrayProgressBar.type = ComponentProgressBar;
     }
 }
