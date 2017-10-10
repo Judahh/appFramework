@@ -7,7 +7,7 @@ importJS('app/view/common/dataInput/box/componentBox');
 importJS('app/view/common/dataInput/button/componentButton');
 importJS('app/view/common/item/componentItem');
 
-class ComponentDataInput extends ComponentItem {
+class ComponentDataInput extends Component {
   arrayBeforeItem: Array<ComponentItem>;
   arrayTextField: Array<ComponentTextField>;
   arrayTextArea: Array<ComponentTextArea>;

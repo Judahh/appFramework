@@ -3,7 +3,7 @@ importJS('app/view/common/component/component');
 importJS('app/view/common/item/componentItem');
 importJS('app/view/common/form/componentForm');
 
-class ComponentButton extends ComponentItem {
+class ComponentButton extends Component {
   appObject: AppObject;
   code: boolean;
   submit: boolean;

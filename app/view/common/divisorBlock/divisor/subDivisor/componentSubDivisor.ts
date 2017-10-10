@@ -5,6 +5,7 @@ importJS('app/view/common/item/componentItem');
 importJS('app/view/common/image/componentImage');
 importJS('app/view/common/dataInput/componentDataInput');
 importJS('app/view/common/form/componentForm');
+importJS('app/view/common/chart/componentChart');
 importJS('app/view/common/videoHolder/componentVideoHolder');
 
 class ComponentSubDivisor extends Component {
@@ -14,6 +15,8 @@ class ComponentSubDivisor extends Component {
     // videoLink: ModelVideoLink;
     arrayDataInput: Array<ComponentDataInput>;
     arrayForm: Array<ComponentForm>;
+    arrayChart: Array<ComponentChart>;
+    
 
     constructor(father?: Component) {
         super(father);
@@ -25,5 +28,7 @@ class ComponentSubDivisor extends Component {
         this.videoHolder = new ComponentVideoHolder(this);
         this.arrayForm = new Array<ComponentForm>();
         this.arrayForm.type = ComponentForm;
+        this.arrayChart = new Array<ComponentChart>();
+        this.arrayChart.type = ComponentChart;
     }
 }
