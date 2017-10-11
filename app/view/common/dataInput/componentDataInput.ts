@@ -59,7 +59,13 @@ class ComponentDataInput extends Component {
 
   public onClick() {
     // var age = new this.className();//window[this.className]();
-    this.appObject = AppObjectFactory.create(this.code, this.father);
+    var appObject = AppObjectFactory.create(this.code, this);
+    for (var property in this.appObject) {
+      if (this.appObject.hasOwnProperty(property)) {
+        appObject[property] = this.appObject[property];
+      }
+    }
+    this.appObject = appObject;
     // console.log("CODE:" + this.code);
     // console.log("appClass:" + this.appObject.result());
     this.appObject.result(this.element);

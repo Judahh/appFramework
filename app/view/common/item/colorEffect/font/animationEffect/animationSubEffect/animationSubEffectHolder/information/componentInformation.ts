@@ -7,7 +7,7 @@ class ComponentInformation extends Component {
   information: string;
   language: string;
   item: ComponentItem;
-  
+
 
   constructor(father?: Component) {
     super(father, "a");
@@ -15,7 +15,7 @@ class ComponentInformation extends Component {
     // this.item=new ComponentItem(this.element);
   }
 
-  private getItem(){
+  private getItem() {
     this.item = <ComponentItem>this.seekFatherComponent("ComponentItem");
   }
 
@@ -23,21 +23,28 @@ class ComponentInformation extends Component {
     if (this.language == undefined) {
       this.getLanguage();
     }
-    if(this.code!=undefined){
+    if (this.code != undefined) {
       // var age = new this.className();//window[this.className]();
-      this.appObject = AppObjectFactory.create(this.code,this);
+
+      var appObject = AppObjectFactory.create(this.code, this);
+      for (var property in this.appObject) {
+        if (this.appObject.hasOwnProperty(property)) {
+          appObject[property] = this.appObject[property];
+        }
+      }
+      this.appObject = appObject;
       // console.log("CODE:" + this.code);
       // console.log("appClass:" + this.appObject.result());
       this.appObject.result(this.element);
     }
-    if(!this.element.innerHTML){
+    if (!this.element.innerHTML) {
       this.element.innerHTML = this.information;
     }
-    
+
   }
 
   protected getLanguage() {
-    if(this.item!=undefined){
+    if (this.item != undefined) {
       if (this.item.getPage() != undefined) {
         // console.log("PAGE:" + this.item.getPage());
         this.getJSONLanguagePromise(this.item.getPage() + "L");
@@ -68,12 +75,12 @@ class ComponentInformation extends Component {
         }
 
         if (languageProperty == this.information) {
-          if(subJSON[languageProperty].constructor === Array){
+          if (subJSON[languageProperty].constructor === Array) {
             this.element.innerHTML = "";
             subJSON[languageProperty].forEach(element => {
-              this.element.innerHTML += element+"<br/>";
+              this.element.innerHTML += element + "<br/>";
             });
-          }else{
+          } else {
             this.element.innerHTML = subJSON[languageProperty];
           }
           // console.log("INNER:"+subJSON[languageProperty]);
