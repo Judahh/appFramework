@@ -18,8 +18,7 @@ class ComponentDataInput extends Component {
   arrayRangeSlider: Array<ComponentRangeSlider>;
   arrayAfterItem: Array<ComponentItem>;
   appObject: AppObject;
-  code: boolean;
-  codeName: string;
+  code: string;
 
   //IF DATALIST IT NEEDS A INPUT
   //<input list="datalistID" name="inputNAME">
@@ -53,14 +52,14 @@ class ComponentDataInput extends Component {
   }
 
   public renderAfterUpdateJSON() {
-    if (this.code) {
+    if (this.code!=undefined) {
       this.element.addEventListener('click', () => this.onClick());
     }
   }
 
   public onClick() {
     // var age = new this.className();//window[this.className]();
-    this.appObject = AppObjectFactory.create(this.codeName, this.father);
+    this.appObject = AppObjectFactory.create(this.code, this.father);
     // console.log("CODE:" + this.code);
     // console.log("appClass:" + this.appObject.result());
     this.appObject.result(this.element);

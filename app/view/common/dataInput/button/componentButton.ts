@@ -5,9 +5,8 @@ importJS('app/view/common/form/componentForm');
 
 class ComponentButton extends Component {
   appObject: AppObject;
-  code: boolean;
+  code: string;
   submit: boolean;
-  codeName: string;
   item: ComponentItem;
   form: ComponentForm;
   formChecked: boolean;
@@ -18,7 +17,7 @@ class ComponentButton extends Component {
   }
 
   public renderAfterUpdateJSON() {
-    if (this.code) {
+    if (this.code!=undefined) {
       this.element.addEventListener('click', () => this.onClick());
     }else if(this.submit){
       var form:HTMLFormElement = <HTMLFormElement>this.getForm().getElement();
@@ -40,7 +39,7 @@ class ComponentButton extends Component {
 
   public onClick() {
     // var age = new this.className();//window[this.className]();
-    this.appObject = AppObjectFactory.create(this.codeName, this.father);
+    this.appObject = AppObjectFactory.create(this.code, this);
     // console.log("CODE:" + this.code);
     // console.log("appClass:" + this.appObject.result());
     this.appObject.result(this.element);

@@ -2,7 +2,7 @@ importJS('app/view/common/component/component');
 importJS('app/view/common/appObject/appObjectFactory/appObjectFactory');
 
 class ComponentInformation extends Component {
-  code: boolean;
+  code: string;
   appObject: AppObject;
   information: string;
   language: string;
@@ -23,9 +23,9 @@ class ComponentInformation extends Component {
     if (this.language == undefined) {
       this.getLanguage();
     }
-    if(this.code){
+    if(this.code!=undefined){
       // var age = new this.className();//window[this.className]();
-      this.appObject = AppObjectFactory.create(this.information,this.father);
+      this.appObject = AppObjectFactory.create(this.code,this);
       // console.log("CODE:" + this.code);
       // console.log("appClass:" + this.appObject.result());
       this.appObject.result(this.element);
