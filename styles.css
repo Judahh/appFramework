@@ -802,3 +802,33 @@ input[type=checkbox] + label:before { letter-spacing: 10px; } /* space between c
 
 input[type=checkbox]:checked + label:before { content: "\f046"; } /* checked icon */
 input[type=checkbox]:checked + label:before { letter-spacing: 5px; } /* allow space for check mark */
+
+input[type=range]{
+  -webkit-appearance: none;
+  border: none;
+  border-radius: 0px;
+  width: 100%;
+  height: 25px;
+  background-color: rgba(0, 0, 0, 0.1);
+  outline: none;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+input[type=range]:hover {
+  opacity: 1;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 10%;
+  height: 25px;
+  background: black;
+}
+
+input[type=range]::-moz-range-thumb {
+  width: 10%;
+  height: 25px;
+  background: black;
+}
