@@ -3,6 +3,7 @@ importJS('app/view/common/component/component');
 importJS('app/view/common/item/colorEffect/componentColorEffect');
 importJS('app/view/common/menuHorizontal/componentMenuHorizontal');
 importJS('app/view/common/menuVertical/componentMenuVertical');
+importJS('app/view/common/divisorBlock/divisor/subDivisor/componentSubDivisor');
 
 class ComponentItem extends Component {
   routerLink: string;
@@ -10,117 +11,14 @@ class ComponentItem extends Component {
   menuHorizontal: ComponentMenuHorizontal;
   menuVertical: ComponentMenuVertical;
 
-  view: ComponentView;
-  pageBody: ComponentPageBody;
-  header: ComponentHeader;
-  footer: ComponentFooter;
-
-  pageBodyChecked: boolean;
-  headerChecked: boolean;
-  footerChecked: boolean;
-
-  page: string;
+  subDivisor: ComponentSubDivisor;
 
   constructor(father?: Component, tag?: string) {
     super(father, tag);
+    this.getSubDivisor();
     this.colorEffect = new ComponentColorEffect(this);
     this.menuHorizontal = new ComponentMenuHorizontal(this);
     this.menuVertical = new ComponentMenuVertical(this);
-    this.pageBodyChecked = false;
-    this.headerChecked = false;
-    this.footerChecked = false;
-  }
-
-  private setPageBody() {
-    this.pageBody = <ComponentPageBody>this.seekFatherComponent("ComponentPageBody");
-    this.pageBodyChecked=true;
-  }
-
-  private setHeader() {
-    this.header = <ComponentHeader>this.seekFatherComponent("ComponentHeader");
-    this.headerChecked=true;
-  }
-
-  private setFooter() {
-    this.footer = <ComponentFooter>this.seekFatherComponent("ComponentFooter");
-    this.footerChecked=true;
-  }
-
-  private setView() {
-    if (this.getPageBody() != undefined) {
-      this.view = <ComponentView>this.pageBody.seekFatherComponent("ComponentView");
-      if (this.view != undefined) {
-        return;
-      }
-    }
-
-    if (this.getHeader() != undefined) {
-      this.view = <ComponentView>this.header.seekFatherComponent("ComponentView");
-      if (this.view != undefined) {
-        return;
-      }
-    }
-
-    if (this.getFooter() != undefined) {
-      this.view = <ComponentView>this.footer.seekFatherComponent("ComponentView");
-      if (this.view != undefined) {
-        return;
-      }
-    }
-
-    this.view = <ComponentView>this.seekFatherComponent("ComponentView");
-  }
-
-  private setPage() {
-    if (this.getPageBody() != undefined) {
-      this.page = this.pageBody.nextPageName;
-      return;
-    }
-
-    if (this.getHeader() != undefined) {
-      this.page = this.header.getTag();
-      return;
-    }
-
-    if (this.getFooter() != undefined) {
-      this.page = this.footer.getTag();
-      return;
-    }
-  }
-
-  public getView() {
-    if (this.view == undefined) {
-      this.setView();
-    }
-    return this.view;
-  }
-
-  public getPage() {
-    if (this.page == undefined) {
-      this.setPage();
-    }
-    return this.page;
-  }
-
-  public getPageBody() {
-    if (!this.pageBodyChecked){
-      this.setPageBody();
-    }
-    return this.pageBody;
-  }
-
-  public getHeader() {
-    if (!this.headerChecked) {
-      this.setHeader();
-    }
-    return this.header;
-  }
-
-  public getFooter() {
-    if (!this.footerChecked) {
-      this.setFooter();
-    }
-    return this.footer;
   }
 
   renderAfterUpdateJSON() {
@@ -129,13 +27,21 @@ class ComponentItem extends Component {
     }
   }
 
+  private getSubDivisor() {
+    this.subDivisor = <ComponentSubDivisor>this.seekFatherComponent("ComponentSubDivisor");
+  }
+
+  public getPage() {
+    return this.subDivisor.getPage();
+  }
+
   onClick() {
     // if(this.routerLink!=undefined){
-      // console.log("CLICK:"+this.routerLink);
-      this.getView().goToPage(this.routerLink);
-      // console.log("BODY:"+Util.getBrowserLanguage());
+    // console.log("CLICK:"+this.routerLink);
+    this.subDivisor.getView().goToPage(this.routerLink);
+    // console.log("BODY:"+Util.getBrowserLanguage());
     // }else{
-      // console.log("CLICK!");
+    // console.log("CLICK!");
     // }
 
   }

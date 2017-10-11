@@ -1,15 +1,15 @@
 importJS('app/view/util/util');
 importJS('app/view/serviceModel/serviceModel');
 importJS('app/view/common/component/component');
-importJS('app/view/common/item/componentItem');
+importJS('app/view/common/divisorBlock/divisor/subDivisor/componentSubDivisor');
 
 class ComponentCenterHolder extends Component{
   class: string;
-  arrayItem: Array<ComponentItem>;
-
-  constructor(father?: Component){
-    super(father);
-    this.arrayItem = new Array<ComponentItem>();
-    this.arrayItem.type=ComponentItem;
+  arraySubDivisor: Array<ComponentSubDivisor>;
+  
+  constructor(father?: Component) {
+      super(father);
+      this.arraySubDivisor = new Array<ComponentSubDivisor>();
+      this.arraySubDivisor.type = ComponentSubDivisor;
   }
 }
