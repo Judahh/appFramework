@@ -13,6 +13,13 @@ class ComponentItem extends Component {
 
   subDivisor: ComponentSubDivisor;
 
+  appObject: AppObject;
+  code: string;
+
+  submit: boolean;
+  form: ComponentForm;
+  formChecked: boolean;
+
   constructor(father?: Component, tag?: string) {
     super(father, tag);
     this.getSubDivisor();
@@ -22,7 +29,7 @@ class ComponentItem extends Component {
   }
 
   renderAfterUpdateJSON() {
-    if (this.routerLink != undefined) {
+    if (this.routerLink != undefined || this.code != undefined || this.submit) {
       this.element.addEventListener('click', () => this.onClick());
     }
   }
@@ -35,14 +42,39 @@ class ComponentItem extends Component {
     return this.subDivisor.getPage();
   }
 
+  private setForm() {
+    this.form = <ComponentForm>this.seekFatherComponent("ComponentForm");
+    this.formChecked = true;
+  }
+
+  public getForm() {
+    if (!this.formChecked) {
+      this.setForm();
+    }
+    return this.form;
+  }
+
   onClick() {
-    // if(this.routerLink!=undefined){
-    // console.log("CLICK:"+this.routerLink);
-    this.subDivisor.getView().goToPage(this.routerLink);
-    // console.log("BODY:"+Util.getBrowserLanguage());
-    // }else{
-    // console.log("CLICK!");
-    // }
+    if (this.routerLink != undefined) {
+      // console.log("CLICK:"+this.routerLink);
+      this.subDivisor.getView().goToPage(this.routerLink);
+      // console.log("BODY:"+Util.getBrowserLanguage());
+    } else if (this.code != undefined) {
+      // var age = new this.className();//window[this.className]();
+      var appObject = AppObjectFactory.create(this.code, this);
+      for (var property in this.appObject) {
+        if (this.appObject.hasOwnProperty(property)) {
+          appObject[property] = this.appObject[property];
+        }
+      }
+      this.appObject = appObject;
+      // console.log("CODE:" + this.code);
+      // console.log("appClass:" + this.appObject.result());
+      this.appObject.result(this.element);
+    } else {
+      var form: HTMLFormElement = <HTMLFormElement>this.getForm().getElement();
+      form.submit();
+    }
 
   }
 }
