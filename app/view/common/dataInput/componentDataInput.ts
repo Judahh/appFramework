@@ -7,6 +7,7 @@ importJS('app/view/common/dataInput/box/componentBox');
 importJS('app/view/common/dataInput/button/componentButton');
 importJS('app/view/common/dataInput/rangeSlider/componentRangeSlider');
 importJS('app/view/common/item/componentItem');
+importJS('app/view/common/appObject/appObjectFactory/appObjectFactory');
 
 class ComponentDataInput extends Component {
   arrayBeforeItem: Array<ComponentItem>;
@@ -84,8 +85,7 @@ class ComponentDataInput extends Component {
       }
       this.appObject = appObject;
       // console.log("CODE:" + this.code);
-      // console.log("appClass:" + this.appObject.result());
-      this.appObject.result(this.element);
+      this.appObject.run();
     } else if (this.submit) {
       var form: HTMLFormElement = <HTMLFormElement>this.getForm().getElement();
       form.submit();

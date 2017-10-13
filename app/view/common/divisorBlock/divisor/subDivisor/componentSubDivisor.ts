@@ -9,6 +9,7 @@ importJS('app/view/common/chart/componentChart');
 importJS('app/view/common/map/componentMap');
 importJS('app/view/common/progressBar/componentProgressBar');
 importJS('app/view/common/videoHolder/componentVideoHolder');
+importJS('app/view/common/appObject/appObjectFactory/appObjectFactory');
 
 class ComponentSubDivisor extends Component {
     arrayItem: Array<ComponentItem>;
@@ -85,8 +86,7 @@ class ComponentSubDivisor extends Component {
             }
             this.appObject = appObject;
             // console.log("CODE:" + this.code);
-            // console.log("appClass:" + this.appObject.result());
-            this.appObject.result(this.element);
+            this.appObject.run();
         } else {
             this.arrayForm.forEach(form => {
                 var currentForm: HTMLFormElement = <HTMLFormElement>form.getElement();

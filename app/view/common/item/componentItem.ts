@@ -69,8 +69,7 @@ class ComponentItem extends Component {
       }
       this.appObject = appObject;
       // console.log("CODE:" + this.code);
-      // console.log("appClass:" + this.appObject.result());
-      this.appObject.result(this.element);
+      this.appObject.run();
     } else {
       var form: HTMLFormElement = <HTMLFormElement>this.getForm().getElement();
       form.submit();

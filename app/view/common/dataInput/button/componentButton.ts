@@ -2,6 +2,7 @@ importJS('app/view/util/util');
 importJS('app/view/common/component/component');
 importJS('app/view/common/item/componentItem');
 importJS('app/view/common/form/componentForm');
+importJS('app/view/common/appObject/appObjectFactory/appObjectFactory');
 
 class ComponentButton extends Component {
   appObject: AppObject;
@@ -47,8 +48,7 @@ class ComponentButton extends Component {
     }
     this.appObject = appObject;
     // console.log("CODE:" + this.code);
-    // console.log("appClass:" + this.appObject.result());
-    this.appObject.result(this.element);
+    this.appObject.run();
 
   }
 }

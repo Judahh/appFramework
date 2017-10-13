@@ -34,8 +34,7 @@ class ComponentInformation extends Component {
       }
       this.appObject = appObject;
       // console.log("CODE:" + this.code);
-      // console.log("appClass:" + this.appObject.result());
-      this.appObject.result(this.element);
+      this.appObject.run();
     }
     if (!this.element.innerHTML) {
       this.element.innerHTML = this.information;
