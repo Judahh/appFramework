@@ -32,7 +32,7 @@ class ComponentChart extends Component {
       this.getLanguage();
     }
     // Load google charts
-    var charts;
+    let charts;
     eval ("charts = google.charts;");
     charts.load('current', { 'packages': ['corechart'] });
     let _self = this;
@@ -49,7 +49,7 @@ class ComponentChart extends Component {
   }
 
   protected updateLanguage(jSON) {
-    var property;
+    let property;
     for (property in jSON) {
       if (property != undefined) {
         if (!jSON.hasOwnProperty(property)) {
@@ -63,15 +63,15 @@ class ComponentChart extends Component {
       }
     }
     // console.log("selected lan:"+property);
-    var subJSON = jSON[property];
-    for (var languageProperty in subJSON) {
+    let subJSON = jSON[property];
+    for (let languageProperty in subJSON) {
       if (languageProperty != undefined) {
         if (!subJSON.hasOwnProperty(languageProperty)) {
           continue;
         }
         
 
-        for (var index = 0; index < this.arrayData.length; index++) {
+        for (let index = 0; index < this.arrayData.length; index++) {
           if (languageProperty == this.arrayData[index]) {
             if (subJSON[languageProperty].constructor === Array) {
               this.arrayData[index] = "";
@@ -83,7 +83,7 @@ class ComponentChart extends Component {
             }
             // console.log("INNER:"+subJSON[languageProperty]);
           }
-          for (var index2 = 0; index2 < this.arrayData[index].length; index2++) {
+          for (let index2 = 0; index2 < this.arrayData[index].length; index2++) {
             if (languageProperty == this.arrayData[index][index2]) {
               if (subJSON[languageProperty].constructor === Array) {
                 this.arrayData[index][index2] = "";
@@ -115,12 +115,12 @@ class ComponentChart extends Component {
   }
 
   drawChart() {
-    var visualization;
+    let visualization;
     eval ("visualization = google.visualization;");
-    var data = visualization.arrayToDataTable(this.arrayData);
+    let data = visualization.arrayToDataTable(this.arrayData);
     // Display the chart inside the <div> element with id="piechart"
     // console.log(this.element.id);
-    var chart;
+    let chart;
     eval ("chart = new google.visualization."+this.chartType+"(this.element);");
     chart.draw(data, this.options);
   }

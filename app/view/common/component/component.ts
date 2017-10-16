@@ -25,8 +25,8 @@ class Component {
       if (tag == "body") {
         this.element = document.body;
       }else{
-        var nodes = document.getElementsByTagName(this.tag);
-        var path = Util.getCurrentComponentPath();
+        let nodes = document.getElementsByTagName(this.tag);
+        let path = Util.getCurrentComponentPath();
 
         importCSS(path);
 
@@ -35,8 +35,8 @@ class Component {
       }
     } else {
       this.tag = Util.getTag(this.getClassName());
-      var nodes = document.getElementsByTagName(this.tag);
-      var path = Util.getCurrentComponentPath();
+      let nodes = document.getElementsByTagName(this.tag);
+      let path = Util.getCurrentComponentPath();
 
       importCSS(path);
 
@@ -70,13 +70,13 @@ class Component {
 
   private updateJSONWithArray(jSON, property: any) {
     if (this[property].length > 0) {
-      var elements = this.element.getElementsByTagName(this.getComponentNameFromArrayName(property));
+      let elements = this.element.getElementsByTagName(this.getComponentNameFromArrayName(property));
       Util.removeElements(elements);
       this[property].length=0;
     }
 
     jSON[property].forEach(element => {
-      var properElement = new this[property].type(this);
+      let properElement = new this[property].type(this);
       properElement.updateJSON(element);
       this[property].push(properElement);
     });
@@ -128,7 +128,7 @@ class Component {
   protected updateJSON(jSON, type?: number) {
     this.renderBeforeUpdateJSON();
     // console.log("UPDATE!");
-    for (var property in jSON) {
+    for (let property in jSON) {
       // console.log("Prop:" + property);
       if (property != undefined) {
         // console.log("DEFINED!");
@@ -172,7 +172,7 @@ class Component {
   }
 
   public setElementSource(source: string) {
-    var tmp: any = this.element;
+    let tmp: any = this.element;
     tmp.src = source;
   }
 

@@ -4,8 +4,8 @@ importJS('app/view/common/component/component');
 class ComponentMap extends Component {
   options: any;
   // centerPosition: any;
-  marker: any;
-  markerPosition: any;
+  arrayMarker: Array<any>;
+  arrayMarkerPosition: Array<any>;
   maps: any;
   map: any;
   key: any;
@@ -24,8 +24,8 @@ class ComponentMap extends Component {
 
   initMap() {
     if (this.key != undefined) {
-      var path = "https://maps.googleapis.com/maps/api/js?key=" + this.key;
-      // var _self = this;
+      let path = "https://maps.googleapis.com/maps/api/js?key=" + this.key;
+      // let _self = this;
       importFileWithoutExtentionWithCallback(path, 'js', this);
     }
   }
@@ -34,11 +34,12 @@ class ComponentMap extends Component {
     // console.log("key:"+this.key);
     eval("this.maps = google.maps;");
     this.map = new this.maps.Map(this.element, this.options);
-    if (this.markerPosition != undefined) {
-      var marker = new this.maps.Marker({
-        position: this.markerPosition,
+    this.arrayMarkerPosition.forEach(markerPosition => {
+      let marker = new this.maps.Marker({
+        position: markerPosition,
         map: this.map
       });
-    }
+      this.arrayMarker.push(marker);
+    });
   }
 }

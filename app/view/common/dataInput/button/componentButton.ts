@@ -21,7 +21,7 @@ class ComponentButton extends Component {
     if (this.code!=undefined) {
       this.element.addEventListener('click', () => this.onClick());
     }else if(this.submit){
-      var form:HTMLFormElement = <HTMLFormElement>this.getForm().getElement();
+      let form:HTMLFormElement = <HTMLFormElement>this.getForm().getElement();
       form.submit();
     }
   }
@@ -39,9 +39,9 @@ class ComponentButton extends Component {
   }
 
   public onClick() {
-    // var age = new this.className();//window[this.className]();
-    var appObject = AppObjectFactory.create(this.code, this);
-    for (var property in this.appObject) {
+    // let age = new this.className();//window[this.className]();
+    let appObject = AppObjectFactory.create(this.code, this);
+    for (let property in this.appObject) {
       if (this.appObject.hasOwnProperty(property)) {
         appObject[property] = this.appObject[property];
       }

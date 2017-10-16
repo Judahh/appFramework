@@ -60,9 +60,9 @@ class ComponentItem extends Component {
       this.subDivisor.getView().goToPage(this.routerLink);
       // console.log("BODY:"+Util.getBrowserLanguage());
     } else if (this.code != undefined) {
-      // var age = new this.className();//window[this.className]();
-      var appObject = AppObjectFactory.create(this.code, this);
-      for (var property in this.appObject) {
+      // let age = new this.className();//window[this.className]();
+      let appObject = AppObjectFactory.create(this.code, this);
+      for (let property in this.appObject) {
         if (this.appObject.hasOwnProperty(property)) {
           appObject[property] = this.appObject[property];
         }
@@ -71,7 +71,7 @@ class ComponentItem extends Component {
       // console.log("CODE:" + this.code);
       this.appObject.run();
     } else {
-      var form: HTMLFormElement = <HTMLFormElement>this.getForm().getElement();
+      let form: HTMLFormElement = <HTMLFormElement>this.getForm().getElement();
       form.submit();
     }
 

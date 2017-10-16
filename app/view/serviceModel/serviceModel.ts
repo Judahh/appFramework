@@ -3,7 +3,7 @@ class ServiceModel {
     private static uRL = '../frame/';
 
     public static getPromise(path:string):JQueryPromise<any>{
-        // var internalJSON = require(this.internalURL+path+".json");
+        // let internalJSON = require(this.internalURL+path+".json");
         // console.log(internalJSON);
         // console.log("A:");
         return Util.getJsonPromise(this.uRL+path+".json");

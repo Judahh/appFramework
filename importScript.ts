@@ -44,9 +44,9 @@ function importFile(path:string, format:string) {
     importFileWithoutExtention(path + "." + format, format, false, false);
 }
 function importFileWithoutExtention(path:string, format:string, async:boolean, defer:boolean) {
-    var importedScript = document.createElement(type(format));
-    var fullPath = path;
-    var source = attributeSource(format);
+    let importedScript = document.createElement(type(format));
+    let fullPath = path;
+    let source = attributeSource(format);
     if(async){
         importedScript.setAttribute("async", '');
     }
@@ -58,9 +58,9 @@ function importFileWithoutExtention(path:string, format:string, async:boolean, d
         importedScript.setAttribute("rel", "stylesheet");
         importedScript.setAttribute("type", "text/css");
     }
-    var nodes = document.head.children;
-    for (var index = 0; index < nodes.length; index++) {
-        var element = nodes[index];
+    let nodes = document.head.children;
+    for (let index = 0; index < nodes.length; index++) {
+        let element = nodes[index];
         if (element.getAttribute(source) == importedScript.getAttribute(source)) {
             return;
         }
@@ -68,7 +68,7 @@ function importFileWithoutExtention(path:string, format:string, async:boolean, d
     document.head.appendChild(importedScript);
 }
 
-var callbacker;
+let callbacker;
 
 function importFileWithoutExtentionWithCallback(path:string, format:string, object){
     // importFileWithoutExtention(path, format, true, true);

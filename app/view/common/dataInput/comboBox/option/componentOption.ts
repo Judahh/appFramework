@@ -28,9 +28,9 @@ class ComponentOption extends Component {
       this.getLanguage();
     }
     if(this.code!=undefined){
-      // var age = new this.className();//window[this.className]();
-      var appObject = AppObjectFactory.create(this.code, this);
-      for (var property in this.appObject) {
+      // let age = new this.className();//window[this.className]();
+      let appObject = AppObjectFactory.create(this.code, this);
+      for (let property in this.appObject) {
         if (this.appObject.hasOwnProperty(property)) {
           appObject[property] = this.appObject[property];
         }
@@ -142,7 +142,7 @@ class ComponentOption extends Component {
   }
 
   protected updateLanguage(jSON) {
-    var property;
+    let property;
     for (property in jSON) {
       if (property != undefined) {
         if (!jSON.hasOwnProperty(property)) {
@@ -156,8 +156,8 @@ class ComponentOption extends Component {
       }
     }
     // console.log("selected lan:"+property);
-    var subJSON = jSON[property];
-    for (var languageProperty in subJSON) {
+    let subJSON = jSON[property];
+    for (let languageProperty in subJSON) {
       if (languageProperty != undefined) {
         if (!subJSON.hasOwnProperty(languageProperty)) {
           continue;

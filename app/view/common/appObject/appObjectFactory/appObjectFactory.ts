@@ -1,6 +1,6 @@
 abstract class AppObjectFactory{
     public static create(name:string, father?: Component){
-        var object;
+        let object;
         eval ("object = new "+name+"(father);");
         return object;
     }
