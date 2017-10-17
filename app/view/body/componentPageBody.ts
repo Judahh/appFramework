@@ -39,5 +39,6 @@ class ComponentPageBody extends Component{
 
   public renderAfterUpdateJSON(){
     this.currentPageName=this.nextPageName;
+    window.history.pushState("", "", '/'+this.currentPageName);
   }
 }
