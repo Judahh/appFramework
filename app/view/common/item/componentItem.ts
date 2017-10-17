@@ -13,10 +13,6 @@ class ComponentItem extends Component {
 
   subDivisor: ComponentSubDivisor;
 
-  appObject: AppObject;
-  code: string;
-
-  submit: boolean;
   form: ComponentForm;
   formChecked: boolean;
 
@@ -28,12 +24,6 @@ class ComponentItem extends Component {
     this.menuVertical = new ComponentMenuVertical(this);
   }
 
-  renderAfterUpdateJSON() {
-    if (this.routerLink != undefined || this.code != undefined || this.submit) {
-      this.element.addEventListener('click', () => this.onClick());
-    }
-  }
-
   private getSubDivisor() {
     this.subDivisor = <ComponentSubDivisor>this.seekFatherComponent("ComponentSubDivisor");
   }
@@ -42,7 +32,7 @@ class ComponentItem extends Component {
     return this.subDivisor.getPage();
   }
 
-  private setForm() {
+  protected setForm() {
     this.form = <ComponentForm>this.seekFatherComponent("ComponentForm");
     this.formChecked = true;
   }
@@ -52,28 +42,5 @@ class ComponentItem extends Component {
       this.setForm();
     }
     return this.form;
-  }
-
-  onClick() {
-    if (this.routerLink != undefined) {
-      // console.log("CLICK:"+this.routerLink);
-      this.subDivisor.getView().goToPage(this.routerLink);
-      // console.log("BODY:"+Util.getBrowserLanguage());
-    } else if (this.code != undefined) {
-      // let age = new this.className();//window[this.className]();
-      let appObject = AppObjectFactory.create(this.code, this);
-      for (let property in this.appObject) {
-        if (this.appObject.hasOwnProperty(property)) {
-          appObject[property] = this.appObject[property];
-        }
-      }
-      this.appObject = appObject;
-      // console.log("CODE:" + this.code);
-      this.appObject.run();
-    } else {
-      let form: HTMLFormElement = <HTMLFormElement>this.getForm().getElement();
-      form.submit();
-    }
-
   }
 }

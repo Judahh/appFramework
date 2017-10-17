@@ -179,6 +179,13 @@ class Component {
     return this.footer;
   }
 
+  protected setForm() {
+  }
+
+  public getForm():ComponentForm {
+    return null;
+  }
+
   private beforeUpdateJSON() {
     if (this.isToRenderBeforeUpdateJSON){
       this.renderBeforeUpdateJSON();
@@ -226,6 +233,9 @@ class Component {
       // console.log("CODE:" + this.code);
       this.appObject.run();
       this.running = true;
+    }else if (this.submit) {
+      let form:HTMLFormElement = <HTMLFormElement>this.getForm().getElement();
+      form.submit();
     }
   }
 

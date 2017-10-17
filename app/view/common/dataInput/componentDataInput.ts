@@ -18,10 +18,7 @@ class ComponentDataInput extends Component {
   arrayButton: Array<ComponentButton>;
   arrayRangeSlider: Array<ComponentRangeSlider>;
   arrayAfterItem: Array<ComponentItem>;
-  appObject: AppObject;
-  code: string;
 
-  submit: boolean;
   form: ComponentForm;
   formChecked: boolean;
 
@@ -56,13 +53,7 @@ class ComponentDataInput extends Component {
     this.arrayAfterItem.type = ComponentItem;
   }
 
-  public renderAfterUpdateJSON() {
-    if (this.code != undefined || this.submit) {
-      this.element.addEventListener('click', () => this.onClick());
-    }
-  }
-
-  private setForm() {
+  protected setForm() {
     this.form = <ComponentForm>this.seekFatherComponent("ComponentForm");
     this.formChecked = true;
   }
@@ -72,25 +63,6 @@ class ComponentDataInput extends Component {
       this.setForm();
     }
     return this.form;
-  }
-
-  public onClick() {
-    if (this.code != undefined) {
-      // let age = new this.className();//window[this.className]();
-      let appObject = AppObjectFactory.create(this.code, this);
-      for (let property in this.appObject) {
-        if (this.appObject.hasOwnProperty(property)) {
-          appObject[property] = this.appObject[property];
-        }
-      }
-      this.appObject = appObject;
-      // console.log("CODE:" + this.code);
-      this.appObject.run();
-    } else if (this.submit) {
-      let form: HTMLFormElement = <HTMLFormElement>this.getForm().getElement();
-      form.submit();
-    }
-
   }
 
 }
