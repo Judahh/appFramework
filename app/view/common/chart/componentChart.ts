@@ -41,13 +41,6 @@ class ComponentChart extends Component {
 
   }
 
-  protected getLanguage() {
-    if (this.getPage() != undefined) {
-      // console.log("PAGE:" + this.item.getPage());
-      this.getJSONLanguagePromise(this.getPage() + "L");
-    }
-  }
-
   protected updateLanguage(jSON) {
     let property;
     for (property in jSON) {
@@ -123,97 +116,5 @@ class ComponentChart extends Component {
     let chart;
     eval ("chart = new google.visualization."+this.chartType+"(this.element);");
     chart.draw(data, this.options);
-  }
-
-  private setPageBody() {
-    this.pageBody = <ComponentPageBody>this.seekFatherComponent("ComponentPageBody");
-    this.pageBodyChecked=true;
-  }
-
-  private setHeader() {
-    this.header = <ComponentHeader>this.seekFatherComponent("ComponentHeader");
-    this.headerChecked=true;
-  }
-
-  private setFooter() {
-    this.footer = <ComponentFooter>this.seekFatherComponent("ComponentFooter");
-    this.footerChecked=true;
-  }
-
-  private setView() {
-    if (this.getPageBody() != undefined) {
-      this.view = <ComponentView>this.pageBody.seekFatherComponent("ComponentView");
-      if (this.view != undefined) {
-        return;
-      }
-    }
-
-    if (this.getHeader() != undefined) {
-      this.view = <ComponentView>this.header.seekFatherComponent("ComponentView");
-      if (this.view != undefined) {
-        return;
-      }
-    }
-
-    if (this.getFooter() != undefined) {
-      this.view = <ComponentView>this.footer.seekFatherComponent("ComponentView");
-      if (this.view != undefined) {
-        return;
-      }
-    }
-
-    this.view = <ComponentView>this.seekFatherComponent("ComponentView");
-  }
-
-  private setPage() {
-    if (this.getPageBody() != undefined) {
-      this.page = this.pageBody.nextPageName;
-      return;
-    }
-
-    if (this.getHeader() != undefined) {
-      this.page = this.header.getTag();
-      return;
-    }
-
-    if (this.getFooter() != undefined) {
-      this.page = this.footer.getTag();
-      return;
-    }
-  }
-
-  public getView() {
-    if (this.view == undefined) {
-      this.setView();
-    }
-    return this.view;
-  }
-
-  public getPage() {
-    if (this.page == undefined) {
-      this.setPage();
-    }
-    return this.page;
-  }
-
-  public getPageBody() {
-    if (!this.pageBodyChecked){
-      this.setPageBody();
-    }
-    return this.pageBody;
-  }
-
-  public getHeader() {
-    if (!this.headerChecked) {
-      this.setHeader();
-    }
-    return this.header;
-  }
-
-  public getFooter() {
-    if (!this.footerChecked) {
-      this.setFooter();
-    }
-    return this.footer;
   }
 }

@@ -68,15 +68,13 @@ function importFileWithoutExtention(path:string, format:string, async:boolean, d
     document.head.appendChild(importedScript);
 }
 
-let callbacker;
-
-function importFileWithoutExtentionWithCallback(path:string, format:string, object){
+function callbacker(){}
+function importFileWithoutExtentionWithCallback(path, format, callback) {
     // importFileWithoutExtention(path, format, true, true);
-    callbacker = callbackerFunction.bind(null,object);
-    importFileWithoutExtention(path+"&callback=callbacker", format, true, true);
+    eval ("callbacker = callbackerFunction.bind(null, callback);");
+    importFileWithoutExtention(path + "&callback=callbacker", format, true, true);
     // importFileWithoutExtention(path, format, true, true);
 }
-
-function callbackerFunction(object) {
-    object.callback();
+function callbackerFunction(callback) {
+    callback();
 }

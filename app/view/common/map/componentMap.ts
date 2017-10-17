@@ -16,6 +16,7 @@ class ComponentMap extends Component {
 
   constructor(father?: Component, tag?) {
     super(father, "map");
+    this.arrayMarker = new Array<any>();
   }
 
   renderAfterUpdateJSON() {
@@ -25,8 +26,8 @@ class ComponentMap extends Component {
   initMap() {
     if (this.key != undefined) {
       let path = "https://maps.googleapis.com/maps/api/js?key=" + this.key;
-      // let _self = this;
-      importFileWithoutExtentionWithCallback(path, 'js', this);
+      let _self = this;
+      importFileWithoutExtentionWithCallback(path, 'js', ()=>{_self.callback();});
     }
   }
 

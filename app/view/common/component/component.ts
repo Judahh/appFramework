@@ -5,7 +5,33 @@ class Component {
   protected element: HTMLElement;
   protected father: Component;
   protected tag: string;
+  routerLink: string;
+
+  code: string;
+
+  runOnBuild: boolean;
+
+  submit: boolean;
+
+  running: boolean;//TODO: TEMP
+
+  appObject: AppObject;
   // protected style: ComponentStyle;: CSSStyleDeclaration
+
+  view: ComponentView;
+  pageBody: ComponentPageBody;
+  header: ComponentHeader;
+  footer: ComponentFooter;
+
+  pageBodyChecked: boolean;
+  headerChecked: boolean;
+  footerChecked: boolean;
+
+  page: string;
+
+  isToRenderBeforeUpdateJSON: boolean;
+
+  isToRenderAfterUpdateJSON: boolean;
 
   protected getConstructor() {
     return this.constructor;
@@ -24,7 +50,7 @@ class Component {
       this.tag = tag;
       if (tag == "body") {
         this.element = document.body;
-      }else{
+      } else {
         let nodes = document.getElementsByTagName(this.tag);
         let path = Util.getCurrentComponentPath();
 
@@ -50,6 +76,157 @@ class Component {
     }
 
     this.clear();
+    this.pageBodyChecked = false;
+    this.headerChecked = false;
+    this.footerChecked = false;
+    this.submit = false;
+    this.running = false;
+    this.isToRenderBeforeUpdateJSON = true;
+    this.isToRenderAfterUpdateJSON = true;
+  }
+
+
+
+  private setPageBody() {
+    this.pageBody = <ComponentPageBody>this.seekFatherComponent("ComponentPageBody");
+    this.pageBodyChecked = true;
+  }
+
+  private setHeader() {
+    this.header = <ComponentHeader>this.seekFatherComponent("ComponentHeader");
+    this.headerChecked = true;
+  }
+
+  private setFooter() {
+    this.footer = <ComponentFooter>this.seekFatherComponent("ComponentFooter");
+    this.footerChecked = true;
+  }
+
+  private setView() {
+    if (this.getPageBody() != undefined) {
+      this.view = <ComponentView>this.pageBody.seekFatherComponent("ComponentView");
+      if (this.view != undefined) {
+        return;
+      }
+    }
+
+    if (this.getHeader() != undefined) {
+      this.view = <ComponentView>this.header.seekFatherComponent("ComponentView");
+      if (this.view != undefined) {
+        return;
+      }
+    }
+
+    if (this.getFooter() != undefined) {
+      this.view = <ComponentView>this.footer.seekFatherComponent("ComponentView");
+      if (this.view != undefined) {
+        return;
+      }
+    }
+
+    this.view = <ComponentView>this.seekFatherComponent("ComponentView");
+  }
+
+  private setPage() {
+    if (this.getPageBody() != undefined) {
+      this.page = this.pageBody.nextPageName;
+      return;
+    }
+
+    if (this.getHeader() != undefined) {
+      this.page = this.header.getTag();
+      return;
+    }
+
+    if (this.getFooter() != undefined) {
+      this.page = this.footer.getTag();
+      return;
+    }
+  }
+
+  public getView() {
+    if (this.view == undefined) {
+      this.setView();
+    }
+    return this.view;
+  }
+
+  public getPage() {
+    if (this.page == undefined) {
+      this.setPage();
+    }
+    return this.page;
+  }
+
+  public getPageBody() {
+    if (!this.pageBodyChecked) {
+      this.setPageBody();
+    }
+    return this.pageBody;
+  }
+
+  public getHeader() {
+    if (!this.headerChecked) {
+      this.setHeader();
+    }
+    return this.header;
+  }
+
+  public getFooter() {
+    if (!this.footerChecked) {
+      this.setFooter();
+    }
+    return this.footer;
+  }
+
+  private beforeUpdateJSON() {
+    if (this.isToRenderBeforeUpdateJSON){
+      this.renderBeforeUpdateJSON();
+      // this.isToRenderBeforeUpdateJSON = false;
+    }
+  }
+
+  private afterUpdateJSON() {
+    if (this.isToRenderAfterUpdateJSON){
+      if (this.routerLink != undefined || this.code != undefined || this.submit) {
+        this.element.addEventListener('click', () => this.onClick());
+      }
+      if (this.runOnBuild && this.code != undefined && !this.running) {
+        // let age = new this.className();//window[this.className]();
+        let appObject = AppObjectFactory.create(this.code, this);
+        for (let property in this.appObject) {
+          if (this.appObject.hasOwnProperty(property)) {
+            appObject[property] = this.appObject[property];
+          }
+        }
+        this.appObject = appObject;
+        // console.log("CODE:" + this.code);
+        this.appObject.run();
+        this.running = true;
+      }
+      this.renderAfterUpdateJSON();
+      // this.isToRenderAfterUpdateJSON = false;
+    }
+  }
+
+  onClick() {
+    if (this.routerLink != undefined) {
+      // console.log("CLICK:"+this.routerLink);
+      this.getView().goToPage(this.routerLink);
+      // console.log("BODY:"+Util.getBrowserLanguage());
+    } else if (this.code != undefined && !this.running) {
+      // let age = new this.className();//window[this.className]();
+      let appObject = AppObjectFactory.create(this.code, this);
+      for (let property in this.appObject) {
+        if (this.appObject.hasOwnProperty(property)) {
+          appObject[property] = this.appObject[property];
+        }
+      }
+      this.appObject = appObject;
+      // console.log("CODE:" + this.code);
+      this.appObject.run();
+      this.running = true;
+    }
   }
 
   public renderBeforeUpdateJSON() {
@@ -66,13 +243,11 @@ class Component {
     this.updateJSON(jSON);
   }
 
-
-
   private updateJSONWithArray(jSON, property: any) {
     if (this[property].length > 0) {
       let elements = this.element.getElementsByTagName(this.getComponentNameFromArrayName(property));
       Util.removeElements(elements);
-      this[property].length=0;
+      this[property].length = 0;
     }
 
     jSON[property].forEach(element => {
@@ -126,7 +301,7 @@ class Component {
   }
 
   protected updateJSON(jSON, type?: number) {
-    this.renderBeforeUpdateJSON();
+    this.beforeUpdateJSON();
     // console.log("UPDATE!");
     for (let property in jSON) {
       // console.log("Prop:" + property);
@@ -148,7 +323,7 @@ class Component {
         }
       }
     }
-    this.renderAfterUpdateJSON();
+    this.afterUpdateJSON();
   }
 
   public insert(fatherElement: HTMLElement) {
@@ -196,7 +371,11 @@ class Component {
     return undefined;
   }
 
-  protected getLanguage(){
+  protected getLanguage() {
+    if (this.getPage() != undefined) {
+      // console.log("PAGE:" + this.item.getPage());
+      this.getJSONLanguagePromise(this.getPage() + "L");
+    }
   }
 
   protected getJSONLanguagePromise(file) {

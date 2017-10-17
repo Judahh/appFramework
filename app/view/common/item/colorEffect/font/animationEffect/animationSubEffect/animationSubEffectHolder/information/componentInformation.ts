@@ -45,15 +45,6 @@ class ComponentInformation extends Component {
 
   }
 
-  protected getLanguage() {
-    if (this.item != undefined) {
-      if (this.item.getPage() != undefined) {
-        // console.log("PAGE:" + this.item.getPage());
-        this.getJSONLanguagePromise(this.item.getPage() + "L");
-      }
-    }
-  }
-
   protected updateLanguage(jSON) {
     let property;
     for (property in jSON) {
