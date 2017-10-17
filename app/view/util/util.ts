@@ -30,11 +30,11 @@ class Util {
   }
 
   static getJsonPromise(path: string): JQueryPromise<any> {
-    if (Util.dataJSON == null){
-        Util.dataJSON = new Array();
+    if (Util.dataJSON == null) {
+      Util.dataJSON = new Array();
     }
-    if (Util.dataJSON[path] == null){
-        Util.dataJSON[path] = $.getJSON(path);
+    if (Util.dataJSON[path] == null) {
+      Util.dataJSON[path] = $.getJSON(path);
     }
     // else{
     //   console.log("CACHE");
@@ -55,10 +55,10 @@ class Util {
   static getCurrentComponentPath() {
     let error = new Error();
     // console.log("test:"+(stack+"")+"end");
-    let stack = error.stack+"END";
+    let stack = error.stack + "END";
     // console.log("path:"+stack);    
     let link = stack.split('(')[3];
-    if(link==null||link==undefined||link==""){
+    if (link == null || link == undefined || link == "") {
       link = stack.split('@')[3];
     }
     link = link.split('.js')[0].split(location.href)[1];
@@ -111,6 +111,18 @@ class Util {
       Util.currentLanguage = Util.getBrowserLanguage();
     }
     return Util.currentLanguage;
+  }
+
+  static publicApiRequest(methodType: string, apiURL: string, callback) {
+    let xmlHttp = new XMLHttpRequest();
+    xmlHttp.onreadystatechange = function () {
+      if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
+        // console.log(xmlHttp.responseText);
+        callback(xmlHttp.responseText);
+      }
+    }
+    xmlHttp.open(methodType, apiURL, true); // true for asynchronous 
+    xmlHttp.send(null);
   }
 
 }
