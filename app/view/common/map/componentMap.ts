@@ -27,8 +27,14 @@ class ComponentMap extends Component {
     if (this.key != undefined) {
       let path = "https://maps.googleapis.com/maps/api/js?key=" + this.key;
       let _self = this;
-      importFileWithoutExtentionWithCallback(path, 'js', ()=>{_self.callback();});
-    }
+      let exists;
+      eval("exists = google.maps;");
+      if(exists==undefined){
+          importFileWithoutExtentionWithCallback(path, 'js', () => { _self.callback(); });
+      }else{
+          this.callback();
+      }
+  }
   }
 
   callback() {
