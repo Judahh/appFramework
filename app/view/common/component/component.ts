@@ -13,7 +13,7 @@ class Component {
 
   submit: boolean;
 
-  // running: boolean;//TODO: TEMP
+  running: boolean;
 
   appObject: AppObject;
   // protected style: ComponentStyle;: CSSStyleDeclaration
@@ -81,7 +81,7 @@ class Component {
     this.headerChecked = false;
     this.footerChecked = false;
     this.submit = false;
-    // this.running = false;
+    this.running = false;
     // this.isToRenderBeforeUpdateJSON = true;
     // this.isToRenderAfterUpdateJSON = true;
     this.clickListener = false;
@@ -204,7 +204,7 @@ class Component {
       this.element.addEventListener('click', () => this.onClick());
       this.clickListener = true;
     }
-    if (this.runOnBuild && this.code != undefined) {
+    if (this.runOnBuild && this.code != undefined && !this.running) {
       // let age = new this.className();//window[this.className]();
       let appObject = AppObjectFactory.create(this.code, this);
       for (let property in this.appObject) {
@@ -215,6 +215,7 @@ class Component {
       this.appObject = appObject;
       // console.log("CODE:" + this.code);
       this.appObject.run();
+      this.running=true;
     }
     // this.isToRenderAfterUpdateJSON = false;
   }

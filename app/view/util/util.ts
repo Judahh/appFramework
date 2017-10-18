@@ -113,6 +113,10 @@ class Util {
     return Util.currentLanguage;
   }
 
+  static setCurrentLanguage(language: string) {
+    Util.currentLanguage = language;
+  }
+
   static publicApiRequest(methodType: string, apiURL: string, callback) {
     let xmlHttp = new XMLHttpRequest();
     xmlHttp.onreadystatechange = function () {
