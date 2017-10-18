@@ -13,7 +13,7 @@ class Component {
 
   submit: boolean;
 
-  running: boolean;//TODO: TEMP
+  // running: boolean;//TODO: TEMP
 
   appObject: AppObject;
   // protected style: ComponentStyle;: CSSStyleDeclaration
@@ -29,9 +29,10 @@ class Component {
 
   page: string;
 
-  isToRenderBeforeUpdateJSON: boolean;
+  // isToRenderBeforeUpdateJSON: boolean;
 
-  isToRenderAfterUpdateJSON: boolean;
+  // isToRenderAfterUpdateJSON: boolean;
+  clickListener: boolean;
 
   protected getConstructor() {
     return this.constructor;
@@ -80,9 +81,10 @@ class Component {
     this.headerChecked = false;
     this.footerChecked = false;
     this.submit = false;
-    this.running = false;
-    this.isToRenderBeforeUpdateJSON = true;
-    this.isToRenderAfterUpdateJSON = true;
+    // this.running = false;
+    // this.isToRenderBeforeUpdateJSON = true;
+    // this.isToRenderAfterUpdateJSON = true;
+    this.clickListener = false;
   }
 
 
@@ -182,46 +184,27 @@ class Component {
   protected setForm() {
   }
 
-  public getForm():ComponentForm {
+  public getForm(): ComponentForm {
     return null;
   }
 
-  private beforeUpdateJSON() {
-    if (this.isToRenderBeforeUpdateJSON){
-      this.renderBeforeUpdateJSON();
-      // this.isToRenderBeforeUpdateJSON = false;
-    }
+  public renderBeforeUpdateJSON() {
   }
 
-  private afterUpdateJSON() {
-    if (this.isToRenderAfterUpdateJSON){
-      if (this.routerLink != undefined || this.code != undefined || this.submit) {
-        this.element.addEventListener('click', () => this.onClick());
-      }
-      if (this.runOnBuild && this.code != undefined && !this.running) {
-        // let age = new this.className();//window[this.className]();
-        let appObject = AppObjectFactory.create(this.code, this);
-        for (let property in this.appObject) {
-          if (this.appObject.hasOwnProperty(property)) {
-            appObject[property] = this.appObject[property];
-          }
-        }
-        this.appObject = appObject;
-        // console.log("CODE:" + this.code);
-        this.appObject.run();
-        this.running = true;
-      }
-      this.renderAfterUpdateJSON();
-      // this.isToRenderAfterUpdateJSON = false;
-    }
-  }
+  // public renderAfterUpdateJSON() {
+  // }
 
-  onClick() {
-    if (this.routerLink != undefined) {
-      // console.log("CLICK:"+this.routerLink);
-      this.getView().goToPage(this.routerLink);
-      // console.log("BODY:"+Util.getBrowserLanguage());
-    } else if (this.code != undefined && !this.running) {
+  // private beforeUpdateJSON() {
+  //   this.renderBeforeUpdateJSON();
+  //   // this.isToRenderBeforeUpdateJSON = false;
+  // }
+
+  public renderAfterUpdateJSON() {
+    if (!this.clickListener && (this.routerLink != undefined || this.code != undefined || this.submit)) {
+      this.element.addEventListener('click', () => this.onClick());
+      this.clickListener = true;
+    }
+    if (this.runOnBuild && this.code != undefined) {
       // let age = new this.className();//window[this.className]();
       let appObject = AppObjectFactory.create(this.code, this);
       for (let property in this.appObject) {
@@ -232,17 +215,30 @@ class Component {
       this.appObject = appObject;
       // console.log("CODE:" + this.code);
       this.appObject.run();
-      this.running = true;
-    }else if (this.submit) {
-      let form:HTMLFormElement = <HTMLFormElement>this.getForm().getElement();
+    }
+    // this.isToRenderAfterUpdateJSON = false;
+  }
+
+  onClick() {
+    if (this.routerLink != undefined) {
+      // console.log("CLICK:"+this.routerLink);
+      this.getView().goToPage(this.routerLink);
+      // console.log("BODY:"+Util.getBrowserLanguage());
+    } else if (this.code != undefined) {
+      // let age = new this.className();//window[this.className]();
+      let appObject = AppObjectFactory.create(this.code, this);
+      for (let property in this.appObject) {
+        if (this.appObject.hasOwnProperty(property)) {
+          appObject[property] = this.appObject[property];
+        }
+      }
+      this.appObject = appObject;
+      // console.log("CODE:" + this.code);
+      this.appObject.run();
+    } else if (this.submit) {
+      let form: HTMLFormElement = <HTMLFormElement>this.getForm().getElement();
       form.submit();
     }
-  }
-
-  public renderBeforeUpdateJSON() {
-  }
-
-  public renderAfterUpdateJSON() {
   }
 
   public getArrayType(array: Array<any>) {
@@ -311,7 +307,7 @@ class Component {
   }
 
   protected updateJSON(jSON, type?: number) {
-    this.beforeUpdateJSON();
+    this.renderBeforeUpdateJSON();
     // console.log("UPDATE!");
     for (let property in jSON) {
       // console.log("Prop:" + property);
@@ -333,7 +329,7 @@ class Component {
         }
       }
     }
-    this.afterUpdateJSON();
+    this.renderAfterUpdateJSON();
   }
 
   public insert(fatherElement: HTMLElement) {

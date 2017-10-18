@@ -7,13 +7,11 @@ class ComponentInformation extends Component {
   information: string;
   language: string;
   item: ComponentItem;
-  running: boolean;//TODO: TEMP
 
 
   constructor(father?: Component) {
     super(father, "a");
     this.getItem();
-    this.running = false;
     // this.item=new ComponentItem(this.element);
   }
 
@@ -25,20 +23,7 @@ class ComponentInformation extends Component {
     if (this.language == undefined) {
       this.getLanguage();
     }
-    if (this.code != undefined && !this.running) {
-      // let age = new this.className();//window[this.className]();
-
-      let appObject = AppObjectFactory.create(this.code, this);
-      for (let property in this.appObject) {
-        if (this.appObject.hasOwnProperty(property)) {
-          appObject[property] = this.appObject[property];
-        }
-      }
-      this.appObject = appObject;
-      // console.log("CODE:" + this.code);
-      this.appObject.run();
-      this.running = true;
-    }
+    super.renderAfterUpdateJSON();
     if (!this.element.innerHTML) {
       this.element.innerHTML = this.information;
     }

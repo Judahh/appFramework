@@ -44,7 +44,7 @@ class ComponentSubDivisor extends Component {
 
     onClick() {
         super.onClick();
-        if (this.routerLink == undefined && !(this.code != undefined && !this.running)) {
+        if (this.routerLink == undefined && this.code == undefined) {
             this.arrayForm.forEach(form => {
                 let currentForm: HTMLFormElement = <HTMLFormElement>form.getElement();
                 currentForm.submit();
