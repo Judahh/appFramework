@@ -129,7 +129,7 @@ class Util {
     xmlHttp.send(null);
   }
 
-  static setCookie(name: string, value: any, expiresDays: number) {
+  static setCookie(name: string, value: any, expiresDays?: number) {
     if (expiresDays) {
       var d = new Date();
       d.setTime(d.getTime() + (expiresDays * 24 * 60 * 60 * 1000));
@@ -137,6 +137,17 @@ class Util {
       document.cookie = name + "=" + value + ";" + expires + ";path=/";
     } else {
       document.cookie = name + "=" + value + ";path=/";
+    }
+  }
+
+  static clearCookie(name: string, expiresDays?: number) {
+    if (expiresDays) {
+      var d = new Date();
+      d.setTime(d.getTime() + (expiresDays * 24 * 60 * 60 * 1000));
+      var expires = "expires=" + d.toUTCString();
+      document.cookie = name + "=" + "" + ";" + expires + ";path=/";
+    } else {
+      document.cookie = name + "=" + "" + ";path=/";
     }
   }
 
