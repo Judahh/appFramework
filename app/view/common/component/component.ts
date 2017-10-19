@@ -55,7 +55,10 @@ class Component {
         let nodes = document.getElementsByTagName(this.tag);
         let path = Util.getCurrentComponentPath();
 
-        importCSS(path);
+        if (path) {
+          // console.log("importCSS:" + path);
+          importCSS(path);
+        }
 
         this.element = document.createElement(this.tag);
         this.element.id = this.tag + "Id" + nodes.length;
@@ -65,7 +68,10 @@ class Component {
       let nodes = document.getElementsByTagName(this.tag);
       let path = Util.getCurrentComponentPath();
 
-      importCSS(path);
+      if (path) {
+        // console.log("importCSS2:" + path);
+        importCSS(path);
+      }
 
       this.element = document.createElement(this.tag);
       this.element.id = this.tag + "Id" + nodes.length;
@@ -215,7 +221,7 @@ class Component {
       this.appObject = appObject;
       // console.log("CODE:" + this.code);
       this.appObject.run();
-      this.running=true;
+      this.running = true;
     }
     // this.isToRenderAfterUpdateJSON = false;
   }
