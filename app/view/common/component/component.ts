@@ -1,4 +1,5 @@
 importJS('app/view/util/util');
+importJS('app/view/common/elementEvent/componentElementEvent');
 
 class Component {
   // protected fatherElement:Component;
