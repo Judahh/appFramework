@@ -4,12 +4,14 @@ importJS('app/view/common/videoHolder/video/componentVideo');
 importJS('app/view/common/videoHolder/iframe/componentIframe');
 
 class ComponentVideoHolder extends Component {
-    video:ComponentVideo;
-    iframe:ComponentIframe;
+    arrayVideo:Array<ComponentVideo>;
+    arrayIframe:Array<ComponentIframe>;
     
     constructor(father?: Component){
         super(father);
-        this.video = new ComponentVideo(this);
-        this.iframe = new ComponentIframe(this);
+        this.arrayVideo = new Array<ComponentVideo>();
+        this.arrayVideo.type = ComponentVideo;
+        this.arrayIframe = new Array<ComponentIframe>();
+        this.arrayIframe.type = ComponentIframe;
     }
 }
