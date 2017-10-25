@@ -42,6 +42,7 @@ class ComponentPageBody extends Component {
   }
 
   public renderAfterUpdateJSON() {
+    super.renderAfterUpdateJSON();
     this.currentPageName = this.nextPageName;
     window.history.pushState("", "", '/' + this.currentPageName);
     Util.clearCookie("page");

@@ -116,5 +116,6 @@ class ComponentChart extends Component {
     let chart;
     eval ("chart = new google.visualization."+this.chartType+"(this.element);");
     chart.draw(data, this.options);
+    super.renderAfterUpdateJSON();
   }
 }

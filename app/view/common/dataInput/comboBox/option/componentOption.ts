@@ -3,21 +3,8 @@ importJS('app/view/common/component/component');
 importJS('app/view/common/appObject/appObjectFactory/appObjectFactory');
 
 class ComponentOption extends Component {
-  code: string;
-  appObject: AppObject;
   information: string;
   language: string;
-
-  view: ComponentView;
-  pageBody: ComponentPageBody;
-  header: ComponentHeader;
-  footer: ComponentFooter;
-
-  page: string;
-
-  pageBodyChecked: boolean;
-  headerChecked: boolean;
-  footerChecked: boolean;
   
   constructor(father?: Component) {
     super(father, "option");
@@ -27,18 +14,7 @@ class ComponentOption extends Component {
     if (this.language == undefined) {
       this.getLanguage();
     }
-    if(this.code!=undefined){
-      // let age = new this.className();//window[this.className]();
-      let appObject = AppObjectFactory.create(this.code, this);
-      for (let property in this.appObject) {
-        if (this.appObject.hasOwnProperty(property)) {
-          appObject[property] = this.appObject[property];
-        }
-      }
-      this.appObject = appObject;
-      // console.log("CODE:" + this.code);
-      this.appObject.run();
-    }
+    super.renderAfterUpdateJSON();
     if(!this.element.innerHTML){
       this.element.innerHTML = this.information;
     }
