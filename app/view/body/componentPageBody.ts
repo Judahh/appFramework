@@ -1,21 +1,21 @@
 importJS('app/view/util/util');
 importJS('app/view/body/background/componentBackground');
 importJS('app/view/common/component/component');
-importJS('app/view/common/divisorBlock/componentDivisorBlock');
+importJS('app/view/common/divisor/componentDivisor');
 
 // importCSS('app/view/body/componentPageBody');
 
 class ComponentPageBody extends Component {
   background: ComponentBackground;
-  arrayDivisorBlock: Array<ComponentDivisorBlock>;
+  arrayDivisor: Array<ComponentDivisor>;
   currentPageName: string;
   nextPageName: string;
 
   constructor(father?: Component, pageName?: string) {
     super(father);
     this.background = new ComponentBackground(this);
-    this.arrayDivisorBlock = new Array<ComponentDivisorBlock>();
-    this.arrayDivisorBlock.type = ComponentDivisorBlock;
+    this.arrayDivisor = new Array<ComponentDivisor>();
+    this.arrayDivisor.type = ComponentDivisor;
     this.goToPage(pageName);
   }
 

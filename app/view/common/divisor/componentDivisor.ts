@@ -11,7 +11,7 @@ importJS('app/view/common/progressBar/componentProgressBar');
 importJS('app/view/common/videoHolder/componentVideoHolder');
 importJS('app/view/common/appObject/appObjectFactory/appObjectFactory');
 
-class ComponentSubDivisor extends Component {
+class ComponentDivisor extends Component {
     arrayItem: Array<ComponentItem>;
     arrayImage: Array<ComponentImage>;
     arrayVideoHolder: Array<ComponentVideoHolder>;
@@ -21,6 +21,7 @@ class ComponentSubDivisor extends Component {
     arrayChart: Array<ComponentChart>;
     arrayMap: Array<ComponentMap>;
     arrayProgressBar: Array<ComponentProgressBar>;
+    arrayDivisor: Array<ComponentDivisor>;
 
     constructor(father?: Component) {
         super(father);
@@ -40,6 +41,8 @@ class ComponentSubDivisor extends Component {
         this.arrayMap.type = ComponentMap;
         this.arrayProgressBar = new Array<ComponentProgressBar>();
         this.arrayProgressBar.type = ComponentProgressBar;
+        this.arrayDivisor = new Array<ComponentDivisor>();
+        this.arrayDivisor.type = ComponentDivisor;
     }
 
     onClick() {

@@ -1,5 +1,6 @@
 divisor{
     width: 100%;
+    position: relative;
     box-sizing: border-box;
     /*border-bottom: solid black; mover para o codigo*/
 }

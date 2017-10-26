@@ -3,7 +3,7 @@ importJS('app/view/common/component/component');
 importJS('app/view/common/item/colorEffect/componentColorEffect');
 importJS('app/view/common/menuHorizontal/componentMenuHorizontal');
 importJS('app/view/common/menuVertical/componentMenuVertical');
-importJS('app/view/common/divisorBlock/divisor/subDivisor/componentSubDivisor');
+importJS('app/view/common/divisor/componentDivisor');
 
 class ComponentItem extends Component {
   routerLink: string;
@@ -11,25 +11,25 @@ class ComponentItem extends Component {
   menuHorizontal: ComponentMenuHorizontal;
   menuVertical: ComponentMenuVertical;
 
-  subDivisor: ComponentSubDivisor;
+  divisor: ComponentDivisor;
 
   form: ComponentForm;
   formChecked: boolean;
 
   constructor(father?: Component, tag?: string) {
     super(father, tag);
-    this.getSubDivisor();
+    this.getdivisor();
     this.colorEffect = new ComponentColorEffect(this);
     this.menuHorizontal = new ComponentMenuHorizontal(this);
     this.menuVertical = new ComponentMenuVertical(this);
   }
 
-  private getSubDivisor() {
-    this.subDivisor = <ComponentSubDivisor>this.seekFatherComponent("ComponentSubDivisor");
+  private getdivisor() {
+    this.divisor = <ComponentDivisor>this.seekFatherComponent("ComponentDivisor");
   }
 
   public getPage() {
-    return this.subDivisor.getPage();
+    return this.divisor.getPage();
   }
 
   protected setForm() {
