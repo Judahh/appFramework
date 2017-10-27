@@ -9,6 +9,7 @@ importJS('app/view/common/chart/componentChart');
 importJS('app/view/common/map/componentMap');
 importJS('app/view/common/progressBar/componentProgressBar');
 importJS('app/view/common/videoHolder/componentVideoHolder');
+importJS('app/view/common/sVG/componentSVG');
 importJS('app/view/common/appObject/appObjectFactory/appObjectFactory');
 
 class ComponentDivisor extends Component {
@@ -21,6 +22,7 @@ class ComponentDivisor extends Component {
     arrayChart: Array<ComponentChart>;
     arrayMap: Array<ComponentMap>;
     arrayProgressBar: Array<ComponentProgressBar>;
+    arraySVG: Array<ComponentSVG>;
     arrayDivisor: Array<ComponentDivisor>;
 
     constructor(father?: Component) {
@@ -41,6 +43,8 @@ class ComponentDivisor extends Component {
         this.arrayMap.type = ComponentMap;
         this.arrayProgressBar = new Array<ComponentProgressBar>();
         this.arrayProgressBar.type = ComponentProgressBar;
+        this.arraySVG = new Array<ComponentSVG>();
+        this.arraySVG.type = ComponentSVG;
         this.arrayDivisor = new Array<ComponentDivisor>();
         this.arrayDivisor.type = ComponentDivisor;
     }

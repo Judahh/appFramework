@@ -3,7 +3,7 @@ importJS('app/view/common/elementEvent/componentElementEvent');
 
 class Component {
   // protected fatherElement:Component;
-  protected element: HTMLElement;
+  protected element: HTMLElement | SVGElement | SVGSVGElement;
   protected father: Component;
   protected tag: string;
   routerLink: string;
@@ -32,6 +32,8 @@ class Component {
   headerChecked: boolean;
   footerChecked: boolean;
 
+  sVG: boolean;
+
   page: string;
 
   // isToRenderBeforeUpdateJSON: boolean;
@@ -51,7 +53,8 @@ class Component {
     return this.tag;
   }
 
-  public constructor(father?: Component, tag?: string) {
+  public constructor(father?: Component, tag?: string, sVG?: boolean) {
+    this.sVG=sVG;
     if (tag) {
       this.tag = tag;
       if (tag == "body") {
@@ -65,7 +68,16 @@ class Component {
           importCSS(path);
         }
 
-        this.element = document.createElement(this.tag);
+
+        if (this.sVG) {
+          console.log("this.tag:" + this.tag);
+          this.sVG = true;
+          this.element = document.createElementNS("http://www.w3.org/2000/svg", this.tag);
+        } else {
+          this.sVG = false;
+          this.element = document.createElement(this.tag);
+        }
+
         this.element.id = this.tag + "Id" + nodes.length;
       }
     } else {
@@ -78,7 +90,15 @@ class Component {
         importCSS(path);
       }
 
-      this.element = document.createElement(this.tag);
+      if (this.sVG) {
+        console.log("this.tag:" + this.tag);
+        this.sVG = true;
+        this.element = document.createElementNS("http://www.w3.org/2000/svg", this.tag);
+      } else {
+        this.sVG = false;
+        this.element = document.createElement(this.tag);
+      }
+
       this.element.id = this.tag + "Id" + nodes.length;
     }
 
@@ -312,11 +332,22 @@ class Component {
       if (property == "style") {
         // console.log("Prop is style");
         this.updateJSON(jSON[property], 2);
+      } else if (property == "special") {
+        // console.log("Prop is special");
+        this.updateJSONWithSpecialType(jSON, property, type);
       } else {
-        // console.log("Prop is not style");
+        // console.log("Prop is not style or special");
         this.element[property] = jSON[property];
-        // console.log("Href:"+this.element[property]);
       }
+    }
+  }
+
+  private updateJSONWithSpecialType(jSON, property: any, type: number) {
+    for (let property2 in jSON[property]) {
+      console.log("ValueSP:" + property2);
+      console.log("ValueS:" + jSON[property][property2]);
+      this.element.setAttribute(property2, jSON[property][property2]);
+
     }
   }
 
@@ -368,7 +399,7 @@ class Component {
     this.renderAfterUpdateJSON();
   }
 
-  public insert(fatherElement: HTMLElement) {
+  public insert(fatherElement: HTMLElement | SVGElement | SVGSVGElement) {
     // this.render();
     // console.log("FATHER:" + fatherElement.tagName);
     // console.log("this:" + this.getClassName());
