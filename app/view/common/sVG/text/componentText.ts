@@ -15,7 +15,7 @@ class ComponentText extends Component {
     }
     super.renderAfterUpdateJSON();
     if (!this.element.innerHTML) {
-      console.log(this.text);
+      // console.log(this.text);
       this.element.innerHTML = this.text;
     }
 

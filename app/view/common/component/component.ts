@@ -16,6 +16,8 @@ class Component {
 
   arrayElementEvent: Array<ComponentElementEvent>;
 
+  arrayForm: Array<ComponentForm>;
+
   submit: boolean;
 
   running: boolean;
@@ -56,7 +58,7 @@ class Component {
   public constructor(father?: Component, tag?: string, sVG?: boolean) {
     if (sVG) {
       this.sVG = sVG;
-    }else{
+    } else {
       this.sVG = false;
     }
     if (tag) {
@@ -124,6 +126,8 @@ class Component {
     this.clickListener = false;
     this.arrayElementEvent = new Array<ComponentElementEvent>();
     this.arrayElementEvent.type = ComponentElementEvent;
+    this.arrayForm = new Array<ComponentForm>();
+    this.arrayForm.type = ComponentForm;
   }
 
 
@@ -220,13 +224,6 @@ class Component {
     return this.footer;
   }
 
-  protected setForm() {
-  }
-
-  public getForm(): ComponentForm {
-    return null;
-  }
-
   public renderBeforeUpdateJSON() {
   }
 
@@ -252,7 +249,7 @@ class Component {
         }
       }
       this.appObject = appObject;
-      // console.log("CODE:" + this.code);
+      console.log("CODE:" + this.code);
       this.appObject.run();
       this.running = true;
     }
@@ -296,8 +293,10 @@ class Component {
       // console.log("CODE:" + this.code);
       this.appObject.run();
     } else if (this.submit) {
-      let form: HTMLFormElement = <HTMLFormElement>this.getForm().getElement();
-      form.submit();
+      this.arrayForm.forEach(form => {
+        let currentForm: HTMLFormElement = <HTMLFormElement>form.getElement();
+        currentForm.submit();
+      });
     }
   }
 

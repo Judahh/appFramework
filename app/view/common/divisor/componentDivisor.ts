@@ -18,7 +18,7 @@ class ComponentDivisor extends Component {
     arrayVideoHolder: Array<ComponentVideoHolder>;
     // videoLink: ModelVideoLink;
     arrayDataInput: Array<ComponentDataInput>;
-    arrayForm: Array<ComponentForm>;
+    
     arrayChart: Array<ComponentChart>;
     arrayMap: Array<ComponentMap>;
     arrayProgressBar: Array<ComponentProgressBar>;
@@ -35,8 +35,7 @@ class ComponentDivisor extends Component {
         this.arrayImage.type = ComponentImage;
         this.arrayVideoHolder = new Array<ComponentVideoHolder>();
         this.arrayVideoHolder.type = ComponentVideoHolder;
-        this.arrayForm = new Array<ComponentForm>();
-        this.arrayForm.type = ComponentForm;
+        
         this.arrayChart = new Array<ComponentChart>();
         this.arrayChart.type = ComponentChart;
         this.arrayMap = new Array<ComponentMap>();
@@ -47,15 +46,5 @@ class ComponentDivisor extends Component {
         this.arraySVG.type = ComponentSVG;
         this.arrayDivisor = new Array<ComponentDivisor>();
         this.arrayDivisor.type = ComponentDivisor;
-    }
-
-    onClick() {
-        super.onClick();
-        if (this.routerLink == undefined && this.code == undefined) {
-            this.arrayForm.forEach(form => {
-                let currentForm: HTMLFormElement = <HTMLFormElement>form.getElement();
-                currentForm.submit();
-            });
-        }
     }
 }
