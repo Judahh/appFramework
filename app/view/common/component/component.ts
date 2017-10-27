@@ -54,7 +54,11 @@ class Component {
   }
 
   public constructor(father?: Component, tag?: string, sVG?: boolean) {
-    this.sVG=sVG;
+    if (sVG) {
+      this.sVG = sVG;
+    }else{
+      this.sVG = false;
+    }
     if (tag) {
       this.tag = tag;
       if (tag == "body") {
@@ -70,7 +74,7 @@ class Component {
 
 
         if (this.sVG) {
-          console.log("this.tag:" + this.tag);
+          // console.log("this.tag:" + this.tag);
           this.sVG = true;
           this.element = document.createElementNS("http://www.w3.org/2000/svg", this.tag);
         } else {
@@ -91,7 +95,7 @@ class Component {
       }
 
       if (this.sVG) {
-        console.log("this.tag:" + this.tag);
+        // console.log("this.tag:" + this.tag);
         this.sVG = true;
         this.element = document.createElementNS("http://www.w3.org/2000/svg", this.tag);
       } else {
@@ -344,8 +348,8 @@ class Component {
 
   private updateJSONWithSpecialType(jSON, property: any, type: number) {
     for (let property2 in jSON[property]) {
-      console.log("ValueSP:" + property2);
-      console.log("ValueS:" + jSON[property][property2]);
+      // console.log("ValueSP:" + property2);
+      // console.log("ValueS:" + jSON[property][property2]);
       this.element.setAttribute(property2, jSON[property][property2]);
 
     }
