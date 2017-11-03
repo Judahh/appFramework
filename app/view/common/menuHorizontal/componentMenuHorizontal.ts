@@ -7,14 +7,17 @@ importJS('app/view/common/menuHorizontal/rightHolder/componentRightHolder');
 
 class ComponentMenuHorizontal extends Component{
   class: string;
-  centerHolder: ComponentCenterHolder;
-  leftHolder: ComponentLeftHolder;
-  rightHolder: ComponentRightHolder;
+  arrayCenterHolder: Array<ComponentCenterHolder>;
+  arrayLeftHolder: Array<ComponentLeftHolder>;
+  arrayRightHolder: Array<ComponentRightHolder>;
 
   constructor(father?: Component){
     super(father);
-    this.leftHolder = new ComponentLeftHolder(this);
-    this.centerHolder = new ComponentCenterHolder(this);
-    this.rightHolder = new ComponentRightHolder(this);
+    this.arrayLeftHolder = new Array<ComponentLeftHolder>();
+    this.arrayLeftHolder.type = ComponentLeftHolder;
+    this.arrayCenterHolder = new Array<ComponentCenterHolder>();
+    this.arrayCenterHolder.type = ComponentCenterHolder;
+    this.arrayRightHolder = new Array<ComponentRightHolder>();
+    this.arrayRightHolder.type = ComponentRightHolder;
   }
 }

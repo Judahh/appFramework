@@ -8,8 +8,8 @@ importJS('app/view/common/divisor/componentDivisor');
 class ComponentItem extends Component {
   routerLink: string;
   colorEffect: ComponentColorEffect;
-  menuHorizontal: ComponentMenuHorizontal;
-  menuVertical: ComponentMenuVertical;
+  arrayMenuHorizontal: Array<ComponentMenuHorizontal>;
+  arrayMenuVertical: Array<ComponentMenuVertical>;
 
   divisor: ComponentDivisor;
 
@@ -20,8 +20,10 @@ class ComponentItem extends Component {
     super(father, tag);
     this.getdivisor();
     this.colorEffect = new ComponentColorEffect(this);
-    this.menuHorizontal = new ComponentMenuHorizontal(this);
-    this.menuVertical = new ComponentMenuVertical(this);
+    this.arrayMenuHorizontal = new Array<ComponentMenuHorizontal>();
+    this.arrayMenuHorizontal.type = ComponentMenuHorizontal;
+    this.arrayMenuVertical = new Array<ComponentMenuVertical>();
+    this.arrayMenuVertical.type = ComponentMenuVertical;
   }
 
   private getdivisor() {

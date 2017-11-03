@@ -4,11 +4,12 @@ importJS('app/view/common/menuHorizontal/componentMenuHorizontal');
 // importCSS('app/view/footer/componentFooter');
 
 class ComponentFooter extends Component{
-  menuHorizontal:ComponentMenuHorizontal;
+  arrayMenuHorizontal: Array<ComponentMenuHorizontal>;
 
   constructor(father?: Component){
     super(father);
-    this.menuHorizontal=new ComponentMenuHorizontal(this);
+    this.arrayMenuHorizontal = new Array<ComponentMenuHorizontal>();
+    this.arrayMenuHorizontal.type = ComponentMenuHorizontal;
     this.getJSONPromise(this.tag);
   }
 }
