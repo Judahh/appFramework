@@ -1,8 +1,7 @@
-importJS('app/view/util/util');
-importJS('app/view/common/component/component');
-importJS('app/view/common/dataInput/textField/dataList/componentDataList');
+import { Component } from './../../component/component';
+import { ComponentDataList } from './../textField/dataList/componentDataList';
 
-class ComponentTextField extends Component {
+export class ComponentTextField extends Component {
   //IF DATALIST IT NEEDS A INPUT
   //<input list="datalistID" name="inputNAME">
   //<datalist id="datalistID">

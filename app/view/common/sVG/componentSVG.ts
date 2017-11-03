@@ -1,17 +1,17 @@
-importJS('app/view/util/util');
-importJS('app/view/common/component/component');
-importJS('app/view/common/sVG/circle/componentCircle');
-importJS('app/view/common/sVG/ellipse/componentEllipse');
-importJS('app/view/common/sVG/rectangle/componentRectangle');
-importJS('app/view/common/sVG/polygon/componentPolygon');
-importJS('app/view/common/sVG/polyline/componentPolyline');
-importJS('app/view/common/sVG/line/componentLine');
-importJS('app/view/common/sVG/path/componentPath');
-importJS('app/view/common/sVG/text/componentText');
-importJS('app/view/common/sVG/g/componentG');
-importJS('app/view/common/sVG/defs/componentDefs');
+import { Component } from './../component/component';
+import { ComponentCircle } from './circle/componentCircle';
+import { ComponentEllipse } from './ellipse/componentEllipse';
+import { ComponentRectangle } from './rectangle/componentRectangle';
+import { ComponentPolygon } from './polygon/componentPolygon';
+import { ComponentPolyline } from './polyline/componentPolyline';
+import { ComponentLine } from './line/componentLine';
+import { ComponentPath } from './path/componentPath';
+import { ComponentText } from './text/componentText';
+import { ComponentG } from './g/componentG';
+import { ComponentDefs } from './defs/componentDefs';
 
-class ComponentSVG extends Component {
+
+export class ComponentSVG extends Component {
   arrayCircle: Array<ComponentCircle>;
   arrayEllipse: Array<ComponentEllipse>;
 

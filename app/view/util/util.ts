@@ -12,7 +12,7 @@
 //   export = _JQueryPromise;
 // }
 
-class Util {
+export class Util {
   static browserLanguage;
   static currentLanguage;
   static dataJSON: Array<any>;

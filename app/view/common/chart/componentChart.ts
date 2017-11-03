@@ -1,15 +1,10 @@
-importJS('app/view/util/util');
-importJS('app/view/common/component/component');
+import { Component } from './../component/component';
+import { Util } from './../../util/util';
 
-class ComponentChart extends Component {
+export class ComponentChart extends Component {
   arrayData: Array<any>;
   options: any;
   chartType: string;
-
-  view: ComponentView;
-  pageBody: ComponentPageBody;
-  header: ComponentHeader;
-  footer: ComponentFooter;
 
   pageBodyChecked: boolean;
   headerChecked: boolean;

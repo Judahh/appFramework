@@ -1,7 +1,7 @@
-importJS('app/view/common/component/component');
-importJS('app/view/common/item/colorEffect/font/animationEffect/animationSubEffect/animationSubEffectHolder/information/componentInformation');
+import { Component } from './../../../../../../component/component';
+import { ComponentInformation } from './information/componentInformation';
 
-class ComponentAnimationSubEffectHolder extends Component{
+export class ComponentAnimationSubEffectHolder extends Component{
   information: ComponentInformation;
 
   constructor(father?: Component){

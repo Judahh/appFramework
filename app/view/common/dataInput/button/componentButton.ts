@@ -1,10 +1,8 @@
-importJS('app/view/util/util');
-importJS('app/view/common/component/component');
-importJS('app/view/common/item/componentItem');
-importJS('app/view/common/form/componentForm');
-importJS('app/view/common/appObject/appObjectFactory/appObjectFactory');
+import { Component } from './../../component/component';
+import { ComponentItem } from './../../item/componentItem';
+import { ComponentForm } from './../../form/componentForm';
 
-class ComponentButton extends Component {
+export class ComponentButton extends Component {
   item: ComponentItem;
   form: ComponentForm;
   formChecked: boolean;

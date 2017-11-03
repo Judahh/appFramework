@@ -1,7 +1,7 @@
-importJS('app/view/common/component/component');
-importJS('app/view/common/item/colorEffect/font/componentFont');
+import { Component } from './../../component/component';
+import { ComponentFont } from './font/componentFont';
 
-class ComponentColorEffect extends Component{
+export class ComponentColorEffect extends Component{
   colorEffect: string;
   font: ComponentFont;
 

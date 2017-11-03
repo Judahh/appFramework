@@ -1,8 +1,7 @@
-importJS('app/view/util/util');
-importJS('app/view/common/component/component');
-importJS('app/view/common/dataInput/comboBox/option/componentOption');
+import { Component } from './../../../component/component';
+import { ComponentOption } from './../../comboBox/option/componentOption';
 
-class ComponentDataList extends Component {
+export class ComponentDataList extends Component {
   arrayOption: Array<ComponentOption>;
 
   constructor(father?: Component, tag?) {

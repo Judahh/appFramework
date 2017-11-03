@@ -1,7 +1,7 @@
-importJS('app/view/common/component/component');
-importJS('app/view/common/item/colorEffect/font/animationEffect/animationSubEffect/animationSubEffectHolder/componentAnimationSubEffectHolder');
+import { Component } from './../../../../../component/component';
+import { ComponentAnimationSubEffectHolder } from './animationSubEffectHolder/componentAnimationSubEffectHolder';
 
-class ComponentAnimationSubEffect extends Component{
+export class ComponentAnimationSubEffect extends Component{
   arrayAnimationSubEffectHolder: Array<ComponentAnimationSubEffectHolder>;
 
   constructor(father?: Component){

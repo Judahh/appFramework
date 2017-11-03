@@ -1,7 +1,8 @@
-importJS('app/view/common/component/component');
-importJS('app/view/common/appObject/appObjectFactory/appObjectFactory');
+import { Component } from './../../../../../../../component/component';
+import { ComponentItem } from './../../../../../../componentItem';
+import { Util } from './../../../../../../../../util/util';
 
-class ComponentInformation extends Component {
+export class ComponentInformation extends Component {
   code: string;
   appObject: AppObject;
   information: string;

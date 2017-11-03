@@ -1,8 +1,7 @@
-importJS('app/view/util/util');
-importJS('app/view/common/component/component');
-importJS('app/view/common/appObject/appObjectFactory/appObjectFactory');
+import { Component } from './../../../component/component';
+import { Util } from './../../../../util/util';
 
-class ComponentOption extends Component {
+export class ComponentOption extends Component {
   information: string;
   language: string;
   

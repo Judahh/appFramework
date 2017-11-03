@@ -1,11 +1,18 @@
-importJS('app/view/util/util');
-importJS('app/view/common/component/component');
-importJS('app/view/common/item/colorEffect/componentColorEffect');
-importJS('app/view/common/menuHorizontal/componentMenuHorizontal');
-importJS('app/view/common/menuVertical/componentMenuVertical');
-importJS('app/view/common/divisor/componentDivisor');
+// importJS('app/view/util/util');
+// importJS('app/view/common/component/component');
+// importJS('app/view/common/item/colorEffect/componentColorEffect');
+// importJS('app/view/common/menuHorizontal/componentMenuHorizontal');
+// importJS('app/view/common/menuVertical/componentMenuVertical');
+// importJS('app/view/common/divisor/componentDivisor');
 
-class ComponentItem extends Component {
+import { Component } from './../component/component';
+import { ComponentColorEffect } from './colorEffect/componentColorEffect';
+import { ComponentMenuHorizontal } from './../menuHorizontal/componentMenuHorizontal';
+import { ComponentMenuVertical } from './../menuVertical/componentMenuVertical';
+import { ComponentDivisor } from './../divisor/componentDivisor';
+import { ComponentForm } from './../form/componentForm';
+
+export class ComponentItem extends Component {
   routerLink: string;
   colorEffect: ComponentColorEffect;
   arrayMenuHorizontal: Array<ComponentMenuHorizontal>;

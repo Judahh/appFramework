@@ -1,18 +1,29 @@
-importJS('app/view/util/util');
-importJS('app/view/serviceModel/serviceModel');
-importJS('app/view/common/component/component');
-importJS('app/view/common/item/componentItem');
-importJS('app/view/common/image/componentImage');
-importJS('app/view/common/dataInput/componentDataInput');
-importJS('app/view/common/form/componentForm');
-importJS('app/view/common/chart/componentChart');
-importJS('app/view/common/map/componentMap');
-importJS('app/view/common/progressBar/componentProgressBar');
-importJS('app/view/common/videoHolder/componentVideoHolder');
-importJS('app/view/common/sVG/componentSVG');
-importJS('app/view/common/appObject/appObjectFactory/appObjectFactory');
+// importJS('app/view/util/util');
+// importJS('app/view/serviceModel/serviceModel');
+// importJS('app/view/common/component/component');
+// importJS('app/view/common/item/componentItem');
+// importJS('app/view/common/image/componentImage');
+// importJS('app/view/common/dataInput/componentDataInput');
+// importJS('app/view/common/form/componentForm');
+// importJS('app/view/common/chart/componentChart');
+// importJS('app/view/common/map/componentMap');
+// importJS('app/view/common/progressBar/componentProgressBar');
+// importJS('app/view/common/videoHolder/componentVideoHolder');
+// importJS('app/view/common/sVG/componentSVG');
+// importJS('app/view/common/appObject/appObjectFactory/appObjectFactory');
 
-class ComponentDivisor extends Component {
+import { Component } from './../component/component';
+import { ComponentItem } from './../item/componentItem';
+import { ComponentImage } from './../image/componentImage';
+import { ComponentVideoHolder } from './../videoHolder/componentVideoHolder';
+import { ComponentDataInput } from './../dataInput/componentDataInput';
+import { ComponentChart } from './../chart/componentChart';
+import { ComponentMap } from './../map/componentMap';
+import { ComponentProgressBar } from './../progressBar/componentProgressBar';
+import { ComponentSVG } from './../sVG/componentSVG';
+
+
+export class ComponentDivisor extends Component {
     arrayItem: Array<ComponentItem>;
     arrayImage: Array<ComponentImage>;
     arrayVideoHolder: Array<ComponentVideoHolder>;

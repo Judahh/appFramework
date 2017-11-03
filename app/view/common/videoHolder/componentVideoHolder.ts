@@ -3,7 +3,11 @@ importJS('app/view/common/component/component');
 importJS('app/view/common/videoHolder/video/componentVideo');
 importJS('app/view/common/videoHolder/iframe/componentIframe');
 
-class ComponentVideoHolder extends Component {
+import { Component } from './../component/component';
+import { ComponentVideo } from './video/componentVideo';
+import { ComponentIframe } from './iframe/componentIframe';
+
+export class ComponentVideoHolder extends Component {
     arrayVideo:Array<ComponentVideo>;
     arrayIframe:Array<ComponentIframe>;
     

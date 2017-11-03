@@ -1,9 +1,11 @@
-importJS('app/view/util/util');
-importJS('app/view/common/component/component');
-importJS('app/view/common/menuHorizontal/componentMenuHorizontal');
+// importJS('app/view/util/util');
+// importJS('app/view/common/component/component');
+// importJS('app/view/common/menuHorizontal/componentMenuHorizontal');
 // importCSS('app/view/footer/componentFooter');
+import { Component } from './../common/component/component';
+import { ComponentMenuHorizontal } from './../common/menuHorizontal/componentMenuHorizontal';
 
-class ComponentFooter extends Component{
+export class ComponentFooter extends Component{
   arrayMenuHorizontal: Array<ComponentMenuHorizontal>;
 
   constructor(father?: Component){

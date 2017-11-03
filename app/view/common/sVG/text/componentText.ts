@@ -1,7 +1,10 @@
 importJS('app/view/util/util');
 importJS('app/view/common/component/component');
 
-class ComponentText extends Component {
+import { Component } from './../../component/component';
+import { Util } from './../../../util/util';
+
+export class ComponentText extends Component {
   text:string;
   language: string;
 

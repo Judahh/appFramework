@@ -1,7 +1,6 @@
-importJS('app/view/util/util');
-importJS('app/view/common/component/component');
+import { Component } from './../component/component';
 
-class ComponentMap extends Component {
+export class ComponentMap extends Component {
   options: any;
   // centerPosition: any;
   arrayMarker: Array<any>;

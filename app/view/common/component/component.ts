@@ -1,7 +1,16 @@
-importJS('app/view/util/util');
-importJS('app/view/common/elementEvent/componentElementEvent');
+import { Util } from './../../util/util';
+import { ServiceModel } from './../../serviceModel/serviceModel';
+import { ComponentView } from './../../componentView';
+import { ComponentPageBody } from './../../body/componentPageBody';
+import { ComponentHeader } from './../../header/componentHeader';
+import { ComponentFooter } from './../../footer/componentFooter';
+import { ComponentElementEvent } from './../elementEvent/componentElementEvent';
+import { ComponentForm } from './../form/componentForm';
+import { AppObjectFactory } from './../appObject/appObjectFactory/appObjectFactory';
 
-class Component {
+
+
+export class Component {
   // protected fatherElement:Component;
   protected element: HTMLElement | SVGElement | SVGSVGElement;
   protected father: Component;

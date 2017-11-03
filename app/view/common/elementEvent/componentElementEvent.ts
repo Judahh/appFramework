@@ -1,6 +1,6 @@
-importJS('app/view/util/util');
+import { Component } from './../component/component';
 
-class ComponentElementEvent extends Component{
+export class ComponentElementEvent extends Component{
   name: string;
   eventListener: boolean;
 

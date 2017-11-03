@@ -12,7 +12,19 @@ importJS('app/view/common/sVG/text/componentText');
 importJS('app/view/common/sVG/g/componentG');
 importJS('app/view/common/sVG/defs/componentDefs');
 
-class ComponentG extends Component {
+import { Component } from './../../component/component';
+import { ComponentCircle } from './../circle/componentCircle';
+import { ComponentEllipse } from './../ellipse/componentEllipse';
+import { ComponentRectangle } from './../rectangle/componentRectangle';
+import { ComponentPolygon } from './../polygon/componentPolygon';
+import { ComponentPolyline } from './../polyline/componentPolyline';
+import { ComponentLine } from './../line/componentLine';
+import { ComponentPath } from './../path/componentPath';
+import { ComponentText } from './../text/componentText';
+import { ComponentDefs } from './../defs/componentDefs';
+
+
+export class ComponentG extends Component {
   arrayCircle: Array<ComponentCircle>;
   arrayEllipse: Array<ComponentEllipse>;
 

@@ -29,8 +29,15 @@
   },
   "dependencies": {
     "@types/jquery": "3.2.12",
+    "@types/node": "8.0.47",
     "jquery": "3.2.1",
-    "font-awesome": "4.7.0"
+    "font-awesome": "4.7.0",
+    "path": "0.12.7",
+    "node": "9.0.0"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "ts-loader": "^3.1.1",
+    "typescript": "^2.6.1",
+    "webpack": "^3.8.1"
+  }
 }

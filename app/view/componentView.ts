@@ -1,9 +1,13 @@
-importJS('app/view/common/component/component');
-importJS('app/view/header/componentHeader');
-importJS('app/view/body/componentPageBody');
-importJS('app/view/footer/componentFooter');
+// importJS('app/view/common/component/component');
+// importJS('app/view/header/componentHeader');
+// importJS('app/view/body/componentPageBody');
+// importJS('app/view/footer/componentFooter');
+import { Component } from './common/component/component';
+import { ComponentHeader } from './header/componentHeader';
+import { ComponentPageBody } from './body/componentPageBody';
+import { ComponentFooter } from './footer/componentFooter';
 
-class ComponentView extends Component{//body
+export class ComponentView extends Component{//body
 
   header:ComponentHeader;
   pageBody:ComponentPageBody;

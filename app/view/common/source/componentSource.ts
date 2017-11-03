@@ -1,5 +1,7 @@
 importJS('app/view/util/util');
 importJS('app/view/common/component/component');
 
-class ComponentSource extends Component {
+import { Component } from './../component/component';
+
+export class ComponentSource extends Component {
 }

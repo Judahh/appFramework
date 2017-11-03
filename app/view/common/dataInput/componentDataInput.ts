@@ -1,15 +1,15 @@
-importJS('app/view/util/util');
-importJS('app/view/common/component/component');
-importJS('app/view/common/dataInput/textField/componentTextField');
-importJS('app/view/common/dataInput/textArea/componentTextArea');
-importJS('app/view/common/dataInput/comboBox/componentComboBox');
-importJS('app/view/common/dataInput/box/componentBox');
-importJS('app/view/common/dataInput/button/componentButton');
-importJS('app/view/common/dataInput/rangeSlider/componentRangeSlider');
-importJS('app/view/common/item/componentItem');
-importJS('app/view/common/appObject/appObjectFactory/appObjectFactory');
+import { Util } from './../../util/util';
+import { Component } from './../component/component';
+import { ComponentItem } from './../item/componentItem';
+import { ComponentTextField } from './../dataInput/textField/componentTextField';
+import { ComponentTextArea } from './../dataInput/textArea/componentTextArea';
+import { ComponentComboBox } from './../dataInput/comboBox/componentComboBox';
+import { ComponentBox } from './../dataInput/box/componentBox';
+import { ComponentForm } from './../form/componentForm';
+import { ComponentButton } from './../dataInput/button/componentButton';
+import { ComponentRangeSlider } from './../dataInput/rangeSlider/componentRangeSlider';
 
-class ComponentDataInput extends Component {
+export class ComponentDataInput extends Component {
   arrayBeforeItem: Array<ComponentItem>;
   arrayTextField: Array<ComponentTextField>;
   arrayTextArea: Array<ComponentTextArea>;

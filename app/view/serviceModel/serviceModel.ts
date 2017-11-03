@@ -1,12 +1,13 @@
-importJS('app/view/util/util');
-class ServiceModel {
+// importJS('app/view/util/util');
+import { Util } from './../util/util'
+export class ServiceModel {
     private static uRL = '../frame/';
 
-    public static getPromise(path:string):JQueryPromise<any>{
+    public static getPromise(path: string): JQueryPromise<any> {
         // let internalJSON = require(this.internalURL+path+".json");
         // console.log(internalJSON);
         // console.log("A:");
-        return Util.getJsonPromise(this.uRL+path+".json");
+        return Util.getJsonPromise(this.uRL + path + ".json");
         // this.http.get(this.URL+path+".json").toPromise().then(this.extractData).catch(this.handlePromiseError);
     }
 

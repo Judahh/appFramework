@@ -2,7 +2,10 @@ importJS('app/view/util/util');
 importJS('app/view/common/component/component');
 importJS('app/view/common/sVG/defs/stop/componentStop');
 
-class ComponentLinearGradient extends Component {
+import { Component } from './../../../component/component';
+import { ComponentStop } from './../stop/componentStop';
+
+export class ComponentLinearGradient extends Component {
   arrayStop: Array<ComponentStop>;
 
   constructor(father?: Component, tag?, sVG?) {

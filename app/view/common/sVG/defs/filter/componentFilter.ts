@@ -1,7 +1,9 @@
 importJS('app/view/util/util');
 importJS('app/view/common/component/component');
 
-class ComponentFilter extends Component {//TODO
+import { Component } from './../../../component/component';
+
+export class ComponentFilter extends Component {//TODO
   // arrayFEBlend: Array<ComponentFEBlend>;
   // arrayFEColorMatrix: Array<ComponentFEColorMatrix>;
   // arrayFEComponentTransfer: Array<ComponentFEComponentTransfer>;

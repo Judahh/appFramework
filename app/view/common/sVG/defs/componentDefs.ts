@@ -4,8 +4,13 @@ importJS('app/view/common/sVG/defs/filter/componentFilter');
 importJS('app/view/common/sVG/defs/linearGradient/componentLinearGradient');
 importJS('app/view/common/sVG/defs/radialGradient/componentRadialGradient');
 
+import { Component } from './../../component/component';
+import { ComponentFilter } from './filter/componentFilter';
+import { ComponentLinearGradient } from './linearGradient/componentLinearGradient';
+import { ComponentRadialGradient } from './radialGradient/componentRadialGradient';
 
-class ComponentDefs extends Component {
+
+export class ComponentDefs extends Component {
   arrayFilter: Array<ComponentFilter>;
 
   arrayLinearGradient: Array<ComponentLinearGradient>;

@@ -1,7 +1,10 @@
 importJS('app/view/common/component/component');
 importJS('app/view/common/item/colorEffect/font/animationEffect/componentAnimationEffect');
 
-class ComponentFont extends Component{
+import { Component } from './../../../component/component';
+import { ComponentAnimationEffect } from './animationEffect/componentAnimationEffect';
+
+export class ComponentFont extends Component{
   animationEffect:ComponentAnimationEffect;
 
   constructor(father?: Component){

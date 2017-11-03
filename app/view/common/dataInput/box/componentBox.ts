@@ -1,8 +1,6 @@
-importJS('app/view/util/util');
-importJS('app/view/common/component/component');
-importJS('app/view/common/label/componentLabel');
-
-class ComponentBox extends Component {
+import { Component } from './../../component/component';
+import { ComponentLabel } from './../../label/componentLabel';
+export class ComponentBox extends Component {
   //type = radio or checkbox
   boxLabel: ComponentLabel;
 

@@ -1,5 +1,6 @@
 importJS('app/view/util/util');
-class ApiConnection {
+import { Util } from './../util/util';
+export class ApiConnection {
 
     static request(methodType: string, apiMethod: string, callback) {
         let currentURL:string = window.location.href || document.URL;

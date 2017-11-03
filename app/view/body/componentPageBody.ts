@@ -4,8 +4,12 @@ importJS('app/view/common/component/component');
 importJS('app/view/common/divisor/componentDivisor');
 
 // importCSS('app/view/body/componentPageBody');
+import { Util } from './../util/util';
+import { ComponentBackground } from './background/componentBackground';
+import { ComponentDivisor } from './../common/divisor/componentDivisor';
+import { Component } from './../common/component/component';
 
-class ComponentPageBody extends Component {
+export class ComponentPageBody extends Component {
   background: ComponentBackground;
   arrayDivisor: Array<ComponentDivisor>;
   currentPageName: string;
