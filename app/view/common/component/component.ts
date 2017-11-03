@@ -431,6 +431,20 @@ class Component {
     ServiceModel.getPromise(file).then((data) => this.update(data)).fail((data) => this.updateFailed(data));
   }
 
+  protected getJSONPromiseFromSize(file) {
+    ServiceModel.getPromise(file + "S").then((data) => this.updateFromSize(data)).fail((data) => this.updateFailed(data));
+  }
+
+  protected updateFromSize(jSON) {
+    for (let property in jSON) {
+      if (document.body.clientWidth <= parseInt(property, 10)) {
+        console.log(jSON[property]);
+        this.getJSONPromise(jSON[property]);
+        return;
+      }
+    }
+  }
+
   public clear() {
     this.element.innerHTML = "";
   }
