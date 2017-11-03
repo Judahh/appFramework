@@ -1,6 +1,3 @@
-importJS('app/view/util/util');
-importJS('app/view/common/component/component');
-
 import { Component } from './../../component/component';
 import { Util } from './../../../util/util';
 

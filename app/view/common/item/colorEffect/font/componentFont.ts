@@ -1,6 +1,3 @@
-importJS('app/view/common/component/component');
-importJS('app/view/common/item/colorEffect/font/animationEffect/componentAnimationEffect');
-
 import { Component } from './../../../component/component';
 import { ComponentAnimationEffect } from './animationEffect/componentAnimationEffect';
 

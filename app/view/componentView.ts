@@ -1,7 +1,3 @@
-// importJS('app/view/common/component/component');
-// importJS('app/view/header/componentHeader');
-// importJS('app/view/body/componentPageBody');
-// importJS('app/view/footer/componentFooter');
 import { Component } from './common/component/component';
 import { ComponentHeader } from './header/componentHeader';
 import { ComponentPageBody } from './body/componentPageBody';

@@ -1,4 +1,3 @@
-// importJS('app/view/util/util');
 import { Util } from './../util/util'
 export class ServiceModel {
     private static uRL = '../frame/';
