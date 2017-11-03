@@ -1,5 +1,6 @@
 import { Component } from './../../component/component';
 import { ComponentDataList } from './../textField/dataList/componentDataList';
+import { Array } from 'simpleutils';
 
 export class ComponentTextField extends Component {
   //IF DATALIST IT NEEDS A INPUT

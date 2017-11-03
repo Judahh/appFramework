@@ -6,8 +6,9 @@ import { ComponentHeader } from './../../header/componentHeader';
 import { ComponentFooter } from './../../footer/componentFooter';
 import { ComponentElementEvent } from './../elementEvent/componentElementEvent';
 import { ComponentForm } from './../form/componentForm';
+import { AppObject } from './../appObject/appObject';
 import { AppObjectFactory } from './../appObject/appObjectFactory/appObjectFactory';
-
+import { Array } from 'simpleutils';
 
 
 export class Component {

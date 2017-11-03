@@ -1,10 +1,4 @@
-// importJS('app/view/util/util');
-// importJS('app/view/serviceModel/serviceModel');
-// importJS('app/view/common/component/component');
-// importJS('app/view/common/menuHorizontal/centerHolder/componentCenterHolder');
-// importJS('app/view/common/menuHorizontal/leftHolder/componentLeftHolder');
-// importJS('app/view/common/menuHorizontal/rightHolder/componentRightHolder');
-
+import { Array } from 'simpleutils';
 import { Component } from './../component/component';
 import { ComponentCenterHolder } from './centerHolder/componentCenterHolder';
 import { ComponentLeftHolder } from './leftHolder/componentLeftHolder';

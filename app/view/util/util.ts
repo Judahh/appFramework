@@ -1,3 +1,5 @@
+import { Array } from 'simpleutils';
+// import * as $ from 'jquery';
 // import { JQueryPromise } from "@types/jquery"
 // declare let $: any;
 // declare let JQueryPromise: any;
@@ -180,28 +182,28 @@ export class Util {
 
 }
 
-interface Array<T> {
-  type: any;
-  getType(): string;
-}
-
-interface JQueryStatic {
-  cache;
-}
-
-// interface Object {
-//     getClassName(): string;
-//     getConstructor(): any;
+// interface Array<T> {
+//   type: any;
+//   getType(): string;
 // }
 
-Array.prototype.getType = function () {
-  return this.type;
-}
-
-// Object.prototype.getConstructor = function() {
-//   return this.constructor;
+// interface JQueryStatic {
+//   cache;
 // }
 
-// Object.prototype.getClassName = function() {
-//   return this.constructor.name;
+// // interface Object {
+// //     getClassName(): string;
+// //     getConstructor(): any;
+// // }
+
+// Array.prototype.getType = function () {
+//   return this.type;
 // }
+
+// // Object.prototype.getConstructor = function() {
+// //   return this.constructor;
+// // }
+
+// // Object.prototype.getClassName = function() {
+// //   return this.constructor.name;
+// // }

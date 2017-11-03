@@ -1,17 +1,4 @@
-importJS('app/view/util/util');
-importJS('app/view/common/component/component');
-
-importJS('app/view/common/sVG/circle/componentCircle');
-importJS('app/view/common/sVG/ellipse/componentEllipse');
-importJS('app/view/common/sVG/rectangle/componentRectangle');
-importJS('app/view/common/sVG/polygon/componentPolygon');
-importJS('app/view/common/sVG/polyline/componentPolyline');
-importJS('app/view/common/sVG/line/componentLine');
-importJS('app/view/common/sVG/path/componentPath');
-importJS('app/view/common/sVG/text/componentText');
-importJS('app/view/common/sVG/g/componentG');
-importJS('app/view/common/sVG/defs/componentDefs');
-
+import { Array } from 'simpleutils';
 import { Component } from './../../component/component';
 import { ComponentCircle } from './../circle/componentCircle';
 import { ComponentEllipse } from './../ellipse/componentEllipse';

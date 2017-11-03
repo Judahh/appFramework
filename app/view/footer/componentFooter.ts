@@ -1,7 +1,4 @@
-// importJS('app/view/util/util');
-// importJS('app/view/common/component/component');
-// importJS('app/view/common/menuHorizontal/componentMenuHorizontal');
-// importCSS('app/view/footer/componentFooter');
+import { Array } from 'simpleutils';
 import { Component } from './../common/component/component';
 import { ComponentMenuHorizontal } from './../common/menuHorizontal/componentMenuHorizontal';
 

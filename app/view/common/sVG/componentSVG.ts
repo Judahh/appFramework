@@ -9,7 +9,7 @@ import { ComponentPath } from './path/componentPath';
 import { ComponentText } from './text/componentText';
 import { ComponentG } from './g/componentG';
 import { ComponentDefs } from './defs/componentDefs';
-
+import { Array } from 'simpleutils';
 
 export class ComponentSVG extends Component {
   arrayCircle: Array<ComponentCircle>;

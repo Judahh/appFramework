@@ -1,7 +1,4 @@
-importJS('app/view/util/util');
-importJS('app/view/common/component/component');
-importJS('app/view/common/source/componentSource');
-
+import { Array } from 'simpleutils';
 import { Component } from './../../component/component';
 import { ComponentSource } from './../../source/componentSource';
 

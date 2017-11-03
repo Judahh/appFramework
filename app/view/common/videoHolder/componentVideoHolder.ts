@@ -1,8 +1,4 @@
-importJS('app/view/util/util');
-importJS('app/view/common/component/component');
-importJS('app/view/common/videoHolder/video/componentVideo');
-importJS('app/view/common/videoHolder/iframe/componentIframe');
-
+import { Array } from 'simpleutils';
 import { Component } from './../component/component';
 import { ComponentVideo } from './video/componentVideo';
 import { ComponentIframe } from './iframe/componentIframe';

@@ -1,9 +1,4 @@
-importJS('app/view/util/util');
-importJS('app/view/body/background/componentBackground');
-importJS('app/view/common/component/component');
-importJS('app/view/common/divisor/componentDivisor');
-
-// importCSS('app/view/body/componentPageBody');
+import { Array } from 'simpleutils';
 import { Util } from './../util/util';
 import { ComponentBackground } from './background/componentBackground';
 import { ComponentDivisor } from './../common/divisor/componentDivisor';

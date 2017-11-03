@@ -1,10 +1,4 @@
-// importJS('app/view/util/util');
-// importJS('app/view/common/component/component');
-// importJS('app/view/common/item/colorEffect/componentColorEffect');
-// importJS('app/view/common/menuHorizontal/componentMenuHorizontal');
-// importJS('app/view/common/menuVertical/componentMenuVertical');
-// importJS('app/view/common/divisor/componentDivisor');
-
+import { Array } from 'simpleutils';
 import { Component } from './../component/component';
 import { ComponentColorEffect } from './colorEffect/componentColorEffect';
 import { ComponentMenuHorizontal } from './../menuHorizontal/componentMenuHorizontal';

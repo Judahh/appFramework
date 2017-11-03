@@ -1,9 +1,4 @@
-importJS('app/view/util/util');
-importJS('app/view/common/component/component');
-importJS('app/view/common/sVG/defs/filter/componentFilter');
-importJS('app/view/common/sVG/defs/linearGradient/componentLinearGradient');
-importJS('app/view/common/sVG/defs/radialGradient/componentRadialGradient');
-
+import { Array } from 'simpleutils';
 import { Component } from './../../component/component';
 import { ComponentFilter } from './filter/componentFilter';
 import { ComponentLinearGradient } from './linearGradient/componentLinearGradient';

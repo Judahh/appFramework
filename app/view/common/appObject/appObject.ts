@@ -1,5 +1,5 @@
-importJS('app/view/common/component/component');
+import { Component } from './../component/component';
 
-interface AppObject extends Component{
+export interface AppObject extends Component{
   run();
 }

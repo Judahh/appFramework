@@ -1,6 +1,8 @@
 import { Component } from './../../../../../../../component/component';
 import { ComponentItem } from './../../../../../../componentItem';
 import { Util } from './../../../../../../../../util/util';
+import { AppObject } from './../../../../../../../appObject/appObject';
+
 
 export class ComponentInformation extends Component {
   code: string;

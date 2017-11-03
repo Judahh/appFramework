@@ -1,5 +1,6 @@
 import { Component } from './../../../../../component/component';
 import { ComponentAnimationSubEffectHolder } from './animationSubEffectHolder/componentAnimationSubEffectHolder';
+import { Array } from 'simpleutils';
 
 export class ComponentAnimationSubEffect extends Component{
   arrayAnimationSubEffectHolder: Array<ComponentAnimationSubEffectHolder>;
