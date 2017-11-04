@@ -1,5 +1,6 @@
-importJS('loader');
-// importJS('app/view/apiConnection/apiConnection');
+import { ImportScript } from './importScript';
+ImportScript.importJS('loader');
+ImportScript.importJS('app/view/apiConnection/apiConnection');
 
 import { App } from './app/app';
 

@@ -15,8 +15,7 @@ export class ComponentDivisor extends Component {
     arrayImage: Array<ComponentImage>;
     arrayVideoHolder: Array<ComponentVideoHolder>;
     // videoLink: ModelVideoLink;
-    arrayDataInput: Array<ComponentDataInput>;
-    
+    arrayDataInput: Array<ComponentDataInput>
     arrayChart: Array<ComponentChart>;
     arrayMap: Array<ComponentMap>;
     arrayProgressBar: Array<ComponentProgressBar>;
@@ -33,7 +32,6 @@ export class ComponentDivisor extends Component {
         this.arrayImage.type = ComponentImage;
         this.arrayVideoHolder = new Array<ComponentVideoHolder>();
         this.arrayVideoHolder.type = ComponentVideoHolder;
-        
         this.arrayChart = new Array<ComponentChart>();
         this.arrayChart.type = ComponentChart;
         this.arrayMap = new Array<ComponentMap>();

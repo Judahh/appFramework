@@ -1,80 +1,88 @@
-function importTS(path: string) {
-    importJS(path);
-}
+export class ImportScript {
 
-function importJS(path: string) {
-    importFile(path, 'js');
-}
-
-function importJSON(path: string) {
-    importFile(path, 'json');
-}
-
-function importCSS(path: string) {
-    importFile(path, 'css');
-}
-
-function type(format: string) {
-    switch (format) {
-        case 'css':
-            return 'link';
-
-        case 'js':
-            return 'script';
-
-        default:
-            return 'script';
+    public static importTS(path: string) {
+        this.importJS(path);
     }
-}
 
-function attributeSource(format: string) {
-    switch (format) {
-        case 'css':
-            return 'href';
+    public static importJS(path: string) {
+        this.importFile(path, 'js');
+    }
 
-        case 'js':
-            return 'src';
+    public static importJSON(path: string) {
+        this.importFile(path, 'json');
+    }
 
-        default:
-            return 'src';
+    public static importCSS(path: string) {
+        this.importFile(path, 'css');
     }
-}
 
-function importFile(path: string, format: string) {
-    importFileWithoutExtention(path + '.' + format, format, false, false);
-}
-function importFileWithoutExtention(path: string, format: string, async: boolean, defer: boolean) {
-    let importedScript = document.createElement(type(format));
-    let fullPath = path;
-    let source = attributeSource(format);
-    if (async) {
-        importedScript.setAttribute('async', '');
-    }
-    if (defer) {
-        importedScript.setAttribute('defer', '');
-    }
-    importedScript.setAttribute(source, fullPath);
-    if (format == 'css') {
-        importedScript.setAttribute('rel', 'stylesheet');
-        importedScript.setAttribute('type', 'text/css');
-    }
-    let nodes = document.head.children;
-    for (let index = 0; index < nodes.length; index++) {
-        let element = nodes[index];
-        if (element.getAttribute(source) == importedScript.getAttribute(source)) {
-            return;
+    public static type(format: string) {
+        switch (format) {
+            case 'css':
+                return 'link';
+
+            case 'js':
+                return 'script';
+
+            default:
+                return 'script';
         }
     }
-    document.head.appendChild(importedScript);
-}
 
-function callbacker() { }
-function importFileWithoutExtentionWithCallback(path, format, callback) {
-    // importFileWithoutExtention(path, format, true, true);
-    eval('callbacker = callbackerFunction.bind(null, callback);');
-    importFileWithoutExtention(path + '&callback=callbacker', format, true, true);
-    // importFileWithoutExtention(path, format, true, true);
-}
-function callbackerFunction(callback) {
-    callback();
+    public static attributeSource(format: string) {
+        switch (format) {
+            case 'css':
+                return 'href';
+
+            case 'js':
+                return 'src';
+
+            default:
+                return 'src';
+        }
+    }
+
+    public static importFile(path: string, format: string) {
+        this.importFileWithoutExtention(path + '.' + format, format, false, false);
+    }
+
+    public static importFileWithoutExtention(path: string, format: string, async: boolean, defer: boolean) {
+        let importedScript = document.createElement(this.type(format));
+        let fullPath = path;
+        let source = this.attributeSource(format);
+        if (async) {
+            importedScript.setAttribute('async', '');
+        }
+        if (defer) {
+            importedScript.setAttribute('defer', '');
+        }
+        importedScript.setAttribute(source, fullPath);
+        if (format === 'css') {
+            importedScript.setAttribute('rel', 'stylesheet');
+            importedScript.setAttribute('type', 'text/css');
+        }
+        let nodes = document.head.children;
+        for (let index = 0; index < nodes.length; index++) {
+            let element = nodes[index];
+            if (element.getAttribute(source) === importedScript.getAttribute(source)) {
+                return;
+            }
+        }
+        document.head.appendChild(importedScript);
+    }
+
+    public static importFileWithoutExtentionWithCallback(path, format, callback) {
+        // importFileWithoutExtention(path, format, true, true);
+        // tslint:disable-next-line:no-eval
+        eval('callbacker = callbackerFunction.bind(null, callback);');
+        this.importFileWithoutExtention(path + '&callback=callbacker', format, true, true);
+        // importFileWithoutExtention(path, format, true, true);
+    }
+
+    public static callbackerFunction(callback) {
+        callback();
+    }
+
+    // tslint:disable-next-line:no-empty
+    public static callbacker() { };
 }

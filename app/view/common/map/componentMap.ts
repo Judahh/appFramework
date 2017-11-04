@@ -1,4 +1,5 @@
 import { Component } from './../component/component';
+import { ImportScript } from './../../../../importScript';
 
 export class ComponentMap extends Component {
   options: any;
@@ -9,9 +10,9 @@ export class ComponentMap extends Component {
   map: any;
   key: any;
 
-  //IF DATALIST IT NEEDS A INPUT
-  //<input list='datalistID' name='inputNAME'>
-  //<datalist id='datalistID'>
+  // IF DATALIST IT NEEDS A INPUT
+  // <input list='datalistID' name='inputNAME'>
+  // <datalist id='datalistID'>
 
   constructor(father?: Component, tag?) {
     super(father, 'map');
@@ -19,25 +20,27 @@ export class ComponentMap extends Component {
   }
 
   renderAfterUpdateJSON() {
-    this.initMap();  
+    this.initMap();
   }
 
   initMap() {
-    if (this.key != undefined) {
+    if (this.key !== undefined) {
       let path = 'https://maps.googleapis.com/maps/api/js?key=' + this.key;
       let _self = this;
       let exists;
+      // tslint:disable-next-line:no-eval
       eval('exists = google.maps;');
-      if(exists==undefined){
-          importFileWithoutExtentionWithCallback(path, 'js', () => { _self.callback(); });
-      }else{
-          this.callback();
+      if (exists === undefined) {
+        ImportScript.importFileWithoutExtentionWithCallback(path, 'js', () => { _self.callback(); });
+      } else {
+        this.callback();
       }
-  }
+    }
   }
 
   callback() {
     // console.log('key:'+this.key);
+    // tslint:disable-next-line:no-eval
     eval('this.maps = google.maps;');
     this.map = new this.maps.Map(this.element, this.options);
     this.arrayMarkerPosition.forEach(markerPosition => {
@@ -47,6 +50,6 @@ export class ComponentMap extends Component {
       });
       this.arrayMarker.push(marker);
     });
-    super.renderAfterUpdateJSON();  
+    super.renderAfterUpdateJSON();
   }
 }
