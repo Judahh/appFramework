@@ -1,6 +1,6 @@
 import { Util } from './../util/util'
 export class ServiceModel {
-    private static uRL = '../frame/';
+    private static uRL = '../frame/'; // TODO: check
 
     public static getPromise(path: string): JQueryPromise<any> {
         // let internalJSON = require(this.internalURL+path+'.json');
