@@ -4,13 +4,13 @@ import * as webpack from 'webpack';
 const config: webpack.Configuration = {
     entry: './index.ts',
     output: {
-        path: path.resolve(__dirname, 'dist'),  
-        filename: 'bundle.js',
+        path: path.resolve(__dirname, 'dist'),
+        filename: 'backApp.js',
         publicPath: '/dist/'
     },
     resolve: {
         // Add `.ts` and `.tsx` as a resolvable extension.
-        extensions: ['.webpack.js', '.web.js', '.ts', '.tsx', '.js']
+        extensions: ['.webpack.ts', '.webpack.js', '.web.ts', '.web.js', '.ts', '.tsx', '.js']
     },
     module: {
         loaders: [
