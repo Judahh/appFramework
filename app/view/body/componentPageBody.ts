@@ -19,31 +19,31 @@ export class ComponentPageBody extends Component {
   }
 
   public goToPage(pageName?: string) {
-    // console.log("goToPage:"+pageName);
-    let cookie = Util.getCookie("page");
+    // console.log('goToPage:'+pageName);
+    let cookie = Util.getCookie('page');
     if (this.currentPageName == undefined ||
       this.currentPageName != pageName) {
       this.nextPageName = pageName;
-      // console.log("goToPage2:"+pageName);
+      // console.log('goToPage2:'+pageName);
       if (pageName) {
         this.getJSONPromise(pageName);
-      } else if (cookie != "") {
+      } else if (cookie != '') {
         this.goToPage(cookie);
       }
       else {
-        this.goToPage("home");
+        this.goToPage('home');
       }
     }
   }
 
   protected updateFailed(data) {
-    this.goToPage("unknown");
+    this.goToPage('unknown');
   }
 
   public renderAfterUpdateJSON() {
     super.renderAfterUpdateJSON();
     this.currentPageName = this.nextPageName;
-    window.history.pushState("", "", '/' + this.currentPageName);
-    Util.clearCookie("page");
+    window.history.pushState('', '', '/' + this.currentPageName);
+    Util.clearCookie('page');
   }
 }

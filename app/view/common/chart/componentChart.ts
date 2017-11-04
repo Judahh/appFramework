@@ -15,11 +15,11 @@ export class ComponentChart extends Component {
   language: any;
 
   //IF DATALIST IT NEEDS A INPUT
-  //<input list="datalistID" name="inputNAME">
-  //<datalist id="datalistID">
+  //<input list='datalistID' name='inputNAME'>
+  //<datalist id='datalistID'>
 
   constructor(father?: Component, tag?) {
-    super(father, "chart");
+    super(father, 'chart');
   }
 
   renderAfterUpdateJSON() {
@@ -28,7 +28,7 @@ export class ComponentChart extends Component {
     }
     // Load google charts
     let charts;
-    eval ("charts = google.charts;");
+    eval ('charts = google.charts;');
     charts.load('current', { 'packages': ['corechart'] });
     let _self = this;
     charts.setOnLoadCallback(() => { _self.drawChart(); });
@@ -44,13 +44,13 @@ export class ComponentChart extends Component {
           continue;
         }
 
-        if (jSON[property]["language"] == Util.getCurrentLanguage()) {
-          // console.log("LANG:"+jSON[property]["language"]);
+        if (jSON[property]['language'] == Util.getCurrentLanguage()) {
+          // console.log('LANG:'+jSON[property]['language']);
           break;
         }
       }
     }
-    // console.log("selected lan:"+property);
+    // console.log('selected lan:'+property);
     let subJSON = jSON[property];
     for (let languageProperty in subJSON) {
       if (languageProperty != undefined) {
@@ -62,40 +62,40 @@ export class ComponentChart extends Component {
         for (let index = 0; index < this.arrayData.length; index++) {
           if (languageProperty == this.arrayData[index]) {
             if (subJSON[languageProperty].constructor === Array) {
-              this.arrayData[index] = "";
+              this.arrayData[index] = '';
               subJSON[languageProperty].forEach(element => {
-                this.arrayData[index] += element + "<br/>";
+                this.arrayData[index] += element + '<br/>';
               });
             } else {
               this.arrayData[index] = subJSON[languageProperty];
             }
-            // console.log("INNER:"+subJSON[languageProperty]);
+            // console.log('INNER:'+subJSON[languageProperty]);
           }
           for (let index2 = 0; index2 < this.arrayData[index].length; index2++) {
             if (languageProperty == this.arrayData[index][index2]) {
               if (subJSON[languageProperty].constructor === Array) {
-                this.arrayData[index][index2] = "";
+                this.arrayData[index][index2] = '';
                 subJSON[languageProperty].forEach(element => {
-                  this.arrayData[index][index2] += element + "<br/>";
+                  this.arrayData[index][index2] += element + '<br/>';
                 });
               } else {
                 this.arrayData[index][index2] = subJSON[languageProperty];
               }
-              // console.log("INNER:"+subJSON[languageProperty]);
+              // console.log('INNER:'+subJSON[languageProperty]);
             }
           }
         }
 
         if (languageProperty == this.options.title) {
           if (subJSON[languageProperty].constructor === Array) {
-            this.options.title = "";
+            this.options.title = '';
             subJSON[languageProperty].forEach(element => {
-              this.options.title += element + "<br/>";
+              this.options.title += element + '<br/>';
             });
           } else {
             this.options.title = subJSON[languageProperty];
           }
-          // console.log("INNER:"+subJSON[languageProperty]);
+          // console.log('INNER:'+subJSON[languageProperty]);
         }
         
       }
@@ -104,12 +104,12 @@ export class ComponentChart extends Component {
 
   drawChart() {
     let visualization;
-    eval ("visualization = google.visualization;");
+    eval ('visualization = google.visualization;');
     let data = visualization.arrayToDataTable(this.arrayData);
-    // Display the chart inside the <div> element with id="piechart"
+    // Display the chart inside the <div> element with id='piechart'
     // console.log(this.element.id);
     let chart;
-    eval ("chart = new google.visualization."+this.chartType+"(this.element);");
+    eval ('chart = new google.visualization.'+this.chartType+'(this.element);');
     chart.draw(data, this.options);
     super.renderAfterUpdateJSON();
   }

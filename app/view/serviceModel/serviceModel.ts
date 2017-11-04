@@ -3,11 +3,11 @@ export class ServiceModel {
     private static uRL = '../frame/';
 
     public static getPromise(path: string): JQueryPromise<any> {
-        // let internalJSON = require(this.internalURL+path+".json");
+        // let internalJSON = require(this.internalURL+path+'.json');
         // console.log(internalJSON);
-        // console.log("A:");
-        return Util.getJsonPromise(this.uRL + path + ".json");
-        // this.http.get(this.URL+path+".json").toPromise().then(this.extractData).catch(this.handlePromiseError);
+        // console.log('A:');
+        return Util.getJsonPromise(this.uRL + path + '.json');
+        // this.http.get(this.URL+path+'.json').toPromise().then(this.extractData).catch(this.handlePromiseError);
     }
 
     // private handlePromiseError (error: Response | any) {
@@ -20,7 +20,7 @@ export class ServiceModel {
     //     } else {
     //         errorMessage = error.message ? error.message : error.toString();
     //     }
-    //     // console.log("E:");
+    //     // console.log('E:');
     //     console.error(errorMessage);
     //     return Promise.reject(errorMessage);
     // }

@@ -28,7 +28,7 @@ export class ComponentItem extends Component {
   }
 
   private getdivisor() {
-    this.divisor = <ComponentDivisor>this.seekFatherComponent("ComponentDivisor");
+    this.divisor = <ComponentDivisor>this.seekFatherComponent('ComponentDivisor');
   }
 
   public getPage() {
@@ -36,7 +36,7 @@ export class ComponentItem extends Component {
   }
 
   protected setForm() {
-    this.form = <ComponentForm>this.seekFatherComponent("ComponentForm");
+    this.form = <ComponentForm>this.seekFatherComponent('ComponentForm');
     this.formChecked = true;
   }
 

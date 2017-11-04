@@ -13,13 +13,13 @@ export class ComponentInformation extends Component {
 
 
   constructor(father?: Component) {
-    super(father, "a");
+    super(father, 'a');
     this.getItem();
     // this.item=new ComponentItem(this.element);
   }
 
   private getItem() {
-    this.item = <ComponentItem>this.seekFatherComponent("ComponentItem");
+    this.item = <ComponentItem>this.seekFatherComponent('ComponentItem');
   }
 
   public renderAfterUpdateJSON() {
@@ -41,13 +41,13 @@ export class ComponentInformation extends Component {
           continue;
         }
 
-        if (jSON[property]["language"] == Util.getCurrentLanguage()) {
-          // console.log("LANG:"+jSON[property]["language"]);
+        if (jSON[property]['language'] == Util.getCurrentLanguage()) {
+          // console.log('LANG:'+jSON[property]['language']);
           break;
         }
       }
     }
-    // console.log("selected lan:"+property);
+    // console.log('selected lan:'+property);
     let subJSON = jSON[property];
     for (let languageProperty in subJSON) {
       if (languageProperty != undefined) {
@@ -57,14 +57,14 @@ export class ComponentInformation extends Component {
 
         if (languageProperty == this.information) {
           if (subJSON[languageProperty].constructor === Array) {
-            this.element.innerHTML = "";
+            this.element.innerHTML = '';
             subJSON[languageProperty].forEach(element => {
-              this.element.innerHTML += element + "<br/>";
+              this.element.innerHTML += element + '<br/>';
             });
           } else {
             this.element.innerHTML = subJSON[languageProperty];
           }
-          // console.log("INNER:"+subJSON[languageProperty]);
+          // console.log('INNER:'+subJSON[languageProperty]);
         }
       }
     }

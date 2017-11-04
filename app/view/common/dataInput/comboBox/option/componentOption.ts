@@ -6,7 +6,7 @@ export class ComponentOption extends Component {
   language: string;
   
   constructor(father?: Component) {
-    super(father, "option");
+    super(father, 'option');
   }
 
   public renderAfterUpdateJSON() {
@@ -28,13 +28,13 @@ export class ComponentOption extends Component {
           continue;
         }
 
-        if (jSON[property]["language"] == Util.getCurrentLanguage()) {
-          // console.log("LANG:"+jSON[property]["language"]);
+        if (jSON[property]['language'] == Util.getCurrentLanguage()) {
+          // console.log('LANG:'+jSON[property]['language']);
           break;
         }
       }
     }
-    // console.log("selected lan:"+property);
+    // console.log('selected lan:'+property);
     let subJSON = jSON[property];
     for (let languageProperty in subJSON) {
       if (languageProperty != undefined) {
@@ -44,14 +44,14 @@ export class ComponentOption extends Component {
 
         if (languageProperty == this.information) {
           if(subJSON[languageProperty].constructor === Array){
-            this.element.innerHTML = "";
+            this.element.innerHTML = '';
             subJSON[languageProperty].forEach(element => {
-              this.element.innerHTML += element+"<br/>";
+              this.element.innerHTML += element+'<br/>';
             });
           }else{
             this.element.innerHTML = subJSON[languageProperty];
           }
-          // console.log("INNER:"+subJSON[languageProperty]);
+          // console.log('INNER:'+subJSON[languageProperty]);
         }
       }
     }

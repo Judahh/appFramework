@@ -24,8 +24,8 @@ export class ComponentDataInput extends Component {
   formChecked: boolean;
 
   //IF DATALIST IT NEEDS A INPUT
-  //<input list="datalistID" name="inputNAME">
-  //<datalist id="datalistID">
+  //<input list='datalistID' name='inputNAME'>
+  //<datalist id='datalistID'>
 
   constructor(father?: Component, tag?) {
     super(father, tag);
@@ -55,7 +55,7 @@ export class ComponentDataInput extends Component {
   }
 
   protected setForm() {
-    this.form = <ComponentForm>this.seekFatherComponent("ComponentForm");
+    this.form = <ComponentForm>this.seekFatherComponent('ComponentForm');
     this.formChecked = true;
   }
 

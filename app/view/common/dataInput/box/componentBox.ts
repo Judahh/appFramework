@@ -5,9 +5,9 @@ export class ComponentBox extends Component {
   boxLabel: ComponentLabel;
 
   constructor(father?: Component, tag?) {
-    super(father, "input");
+    super(father, 'input');
     this.boxLabel = new ComponentLabel(this.father);
-    this.boxLabel.getElement().setAttribute("for", this.element.id);
+    this.boxLabel.getElement().setAttribute('for', this.element.id);
   }
 
 }

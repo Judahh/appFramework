@@ -73,28 +73,28 @@ export class Component {
     }
     if (tag) {
       this.tag = tag;
-      if (tag == "body") {
+      if (tag == 'body') {
         this.element = document.body;
       } else {
         let nodes = document.getElementsByTagName(this.tag);
         let path = Util.getCurrentComponentPath();
 
         if (path) {
-          // console.log("importCSS:" + path);
+          // console.log('importCSS:' + path);
           importCSS(path);
         }
 
 
         if (this.sVG) {
-          // console.log("this.tag:" + this.tag);
+          // console.log('this.tag:' + this.tag);
           this.sVG = true;
-          this.element = document.createElementNS("http://www.w3.org/2000/svg", this.tag);
+          this.element = document.createElementNS('http://www.w3.org/2000/svg', this.tag);
         } else {
           this.sVG = false;
           this.element = document.createElement(this.tag);
         }
 
-        this.element.id = this.tag + "Id" + nodes.length;
+        this.element.id = this.tag + 'Id' + nodes.length;
       }
     } else {
       this.tag = Util.getTag(this.getClassName());
@@ -102,20 +102,20 @@ export class Component {
       let path = Util.getCurrentComponentPath();
 
       if (path) {
-        // console.log("importCSS2:" + path);
+        // console.log('importCSS2:' + path);
         importCSS(path);
       }
 
       if (this.sVG) {
-        // console.log("this.tag:" + this.tag);
+        // console.log('this.tag:' + this.tag);
         this.sVG = true;
-        this.element = document.createElementNS("http://www.w3.org/2000/svg", this.tag);
+        this.element = document.createElementNS('http://www.w3.org/2000/svg', this.tag);
       } else {
         this.sVG = false;
         this.element = document.createElement(this.tag);
       }
 
-      this.element.id = this.tag + "Id" + nodes.length;
+      this.element.id = this.tag + 'Id' + nodes.length;
     }
 
     if (father) {
@@ -143,43 +143,43 @@ export class Component {
 
 
   private setPageBody() {
-    this.pageBody = <ComponentPageBody>this.seekFatherComponent("ComponentPageBody");
+    this.pageBody = <ComponentPageBody>this.seekFatherComponent('ComponentPageBody');
     this.pageBodyChecked = true;
   }
 
   private setHeader() {
-    this.header = <ComponentHeader>this.seekFatherComponent("ComponentHeader");
+    this.header = <ComponentHeader>this.seekFatherComponent('ComponentHeader');
     this.headerChecked = true;
   }
 
   private setFooter() {
-    this.footer = <ComponentFooter>this.seekFatherComponent("ComponentFooter");
+    this.footer = <ComponentFooter>this.seekFatherComponent('ComponentFooter');
     this.footerChecked = true;
   }
 
   private setView() {
     if (this.getPageBody() != undefined) {
-      this.view = <ComponentView>this.pageBody.seekFatherComponent("ComponentView");
+      this.view = <ComponentView>this.pageBody.seekFatherComponent('ComponentView');
       if (this.view != undefined) {
         return;
       }
     }
 
     if (this.getHeader() != undefined) {
-      this.view = <ComponentView>this.header.seekFatherComponent("ComponentView");
+      this.view = <ComponentView>this.header.seekFatherComponent('ComponentView');
       if (this.view != undefined) {
         return;
       }
     }
 
     if (this.getFooter() != undefined) {
-      this.view = <ComponentView>this.footer.seekFatherComponent("ComponentView");
+      this.view = <ComponentView>this.footer.seekFatherComponent('ComponentView');
       if (this.view != undefined) {
         return;
       }
     }
 
-    this.view = <ComponentView>this.seekFatherComponent("ComponentView");
+    this.view = <ComponentView>this.seekFatherComponent('ComponentView');
   }
 
   private setPage() {
@@ -259,7 +259,7 @@ export class Component {
         }
       }
       this.appObject = appObject;
-      console.log("CODE:" + this.code);
+      console.log('CODE:' + this.code);
       this.appObject.run();
       this.running = true;
     }
@@ -281,16 +281,16 @@ export class Component {
         }
       }
       elementEvent.appObject = appObject;
-      // console.log("CODE:" + elementEvent.code);
+      // console.log('CODE:' + elementEvent.code);
       elementEvent.appObject.run();
     }
   }
 
   onClick() {
     if (this.routerLink != undefined) {
-      // console.log("CLICK:"+this.routerLink);
+      // console.log('CLICK:'+this.routerLink);
       this.getView().goToPage(this.routerLink);
-      // console.log("BODY:"+Util.getBrowserLanguage());
+      // console.log('BODY:'+Util.getBrowserLanguage());
     } else if (this.code != undefined && this.runOnClick) {
       // let age = new this.className();//window[this.className]();
       let appObject = AppObjectFactory.create(this.code, this);
@@ -300,7 +300,7 @@ export class Component {
         }
       }
       this.appObject = appObject;
-      // console.log("CODE:" + this.code);
+      // console.log('CODE:' + this.code);
       this.appObject.run();
     } else if (this.submit) {
       this.arrayForm.forEach(form => {
@@ -333,23 +333,23 @@ export class Component {
   }
 
   public getComponentNameFromArrayName(arrayName: string) {
-    return arrayName.split("array")[1];
+    return arrayName.split('array')[1];
   }
 
   private updateJSONWithType(jSON, property: any, type: number) {
-    // console.log("Prop2");
+    // console.log('Prop2');
     if (type == 2) {
-      // console.log("Prop3 is var");
+      // console.log('Prop3 is var');
       this.element.style[property] = jSON[property];
     } else {
-      if (property == "style") {
-        // console.log("Prop is style");
+      if (property == 'style') {
+        // console.log('Prop is style');
         this.updateJSON(jSON[property], 2);
-      } else if (property == "special") {
-        // console.log("Prop is special");
+      } else if (property == 'special') {
+        // console.log('Prop is special');
         this.updateJSONWithSpecialType(jSON, property, type);
       } else {
-        // console.log("Prop is not style or special");
+        // console.log('Prop is not style or special');
         this.element[property] = jSON[property];
       }
     }
@@ -357,21 +357,21 @@ export class Component {
 
   private updateJSONWithSpecialType(jSON, property: any, type: number) {
     for (let property2 in jSON[property]) {
-      // console.log("ValueSP:" + property2);
-      // console.log("ValueS:" + jSON[property][property2]);
+      // console.log('ValueSP:' + property2);
+      // console.log('ValueS:' + jSON[property][property2]);
       this.element.setAttribute(property2, jSON[property][property2]);
 
     }
   }
 
   private updateJSONWithObject(jSON, property: any) {
-    // console.log("Prop is object");
-    if (property == "element") {
-      // console.log("Prop is element");
+    // console.log('Prop is object');
+    if (property == 'element') {
+      // console.log('Prop is element');
       this.updateJSON(jSON[property], 1);
-      // // console.log("Prop is element OUT");
+      // // console.log('Prop is element OUT');
     } else {
-      // console.log("Prop is regular");
+      // console.log('Prop is regular');
       if (this[property] == undefined) {
         this[property] = jSON[property];
         // this[property].insert(this);
@@ -388,22 +388,22 @@ export class Component {
 
   protected updateJSON(jSON, type?: number) {
     this.renderBeforeUpdateJSON();
-    // console.log("UPDATE!");
+    // console.log('UPDATE!');
     for (let property in jSON) {
-      // console.log("Prop:" + property);
+      // console.log('Prop:' + property);
       if (property != undefined) {
-        // console.log("DEFINED!");
+        // console.log('DEFINED!');
         if (!jSON.hasOwnProperty(property)) {
           continue;
         }
-        // console.log("TYPE:"+type);
+        // console.log('TYPE:'+type);
         if (type) {
           this.updateJSONWithType(jSON, property, type);
         } else {
           if (typeof jSON[property] === 'object') {
             this.updateJSONWithObject(jSON, property);
           } else {
-            // console.log("Prop is var:" + jSON[property]);
+            // console.log('Prop is var:' + jSON[property]);
             this[property] = jSON[property];
           }
         }
@@ -414,13 +414,13 @@ export class Component {
 
   public insert(fatherElement: HTMLElement | SVGElement | SVGSVGElement) {
     // this.render();
-    // console.log("FATHER:" + fatherElement.tagName);
-    // console.log("this:" + this.getClassName());
+    // console.log('FATHER:' + fatherElement.tagName);
+    // console.log('this:' + this.getClassName());
     fatherElement.appendChild(this.element);
   }
 
   protected updateFailed(data) {
-    console.error("JSONT:" + data);
+    console.error('JSONT:' + data);
     // this.element.innerHTML = data;
   }
 
@@ -442,7 +442,7 @@ export class Component {
   }
 
   protected getJSONPromiseFromSize(file) {
-    ServiceModel.getPromise(file + "S").then((data) => this.updateFromSize(data)).fail((data) => this.updateFailed(data));
+    ServiceModel.getPromise(file + 'S').then((data) => this.updateFromSize(data)).fail((data) => this.updateFailed(data));
   }
 
   protected updateFromSize(jSON) {
@@ -456,12 +456,12 @@ export class Component {
   }
 
   public clear() {
-    this.element.innerHTML = "";
+    this.element.innerHTML = '';
   }
 
   public seekFatherComponent(className: string): Component {
     if (this.father != undefined) {
-      // console.log("FATHER NAME:" + this.father.getClassName());
+      // console.log('FATHER NAME:' + this.father.getClassName());
       if (this.father.getClassName() == className) {
         return this.father;
       } else {
@@ -473,13 +473,13 @@ export class Component {
 
   protected getLanguage() {
     if (this.getPage() != undefined) {
-      // console.log("PAGE:" + this.item.getPage());
-      this.getJSONLanguagePromise(this.getPage() + "L");
+      // console.log('PAGE:' + this.item.getPage());
+      this.getJSONLanguagePromise(this.getPage() + 'L');
     }
   }
 
   protected getJSONLanguagePromise(file) {
-    // console.log("lang is "+file);
+    // console.log('lang is '+file);
     ServiceModel.getPromise(file).then((data) => this.updateLanguage(data)).fail((data) => this.updateFailed(data));
   }
 

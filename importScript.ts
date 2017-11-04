@@ -1,62 +1,62 @@
-function importTS(path:string){
+function importTS(path: string) {
     importJS(path);
 }
 
-function importJS(path:string){
-    importFile(path,'js');
+function importJS(path: string) {
+    importFile(path, 'js');
 }
 
-function importJSON(path:string){
-    importFile(path,'json');
+function importJSON(path: string) {
+    importFile(path, 'json');
 }
 
-function importCSS(path:string){
-    importFile(path,'css');
+function importCSS(path: string) {
+    importFile(path, 'css');
 }
 
-function type(format:string){
+function type(format: string) {
     switch (format) {
-        case "css":
-            return "link";
+        case 'css':
+            return 'link';
 
-        case "js":
-            return "script";
-    
+        case 'js':
+            return 'script';
+
         default:
-            return "script";
+            return 'script';
     }
 }
 
-function attributeSource(format:string){
+function attributeSource(format: string) {
     switch (format) {
-        case "css":
-            return "href";
+        case 'css':
+            return 'href';
 
-        case "js":
-            return "src";
-    
+        case 'js':
+            return 'src';
+
         default:
-            return "src";
+            return 'src';
     }
 }
 
-function importFile(path:string, format:string) {
-    importFileWithoutExtention(path + "." + format, format, false, false);
+function importFile(path: string, format: string) {
+    importFileWithoutExtention(path + '.' + format, format, false, false);
 }
-function importFileWithoutExtention(path:string, format:string, async:boolean, defer:boolean) {
+function importFileWithoutExtention(path: string, format: string, async: boolean, defer: boolean) {
     let importedScript = document.createElement(type(format));
     let fullPath = path;
     let source = attributeSource(format);
-    if(async){
-        importedScript.setAttribute("async", '');
+    if (async) {
+        importedScript.setAttribute('async', '');
     }
-    if(defer){
-        importedScript.setAttribute("defer", '');
+    if (defer) {
+        importedScript.setAttribute('defer', '');
     }
     importedScript.setAttribute(source, fullPath);
     if (format == 'css') {
-        importedScript.setAttribute("rel", "stylesheet");
-        importedScript.setAttribute("type", "text/css");
+        importedScript.setAttribute('rel', 'stylesheet');
+        importedScript.setAttribute('type', 'text/css');
     }
     let nodes = document.head.children;
     for (let index = 0; index < nodes.length; index++) {
@@ -68,11 +68,11 @@ function importFileWithoutExtention(path:string, format:string, async:boolean, d
     document.head.appendChild(importedScript);
 }
 
-function callbacker(){}
+function callbacker() { }
 function importFileWithoutExtentionWithCallback(path, format, callback) {
     // importFileWithoutExtention(path, format, true, true);
-    eval ("callbacker = callbackerFunction.bind(null, callback);");
-    importFileWithoutExtention(path + "&callback=callbacker", format, true, true);
+    eval('callbacker = callbackerFunction.bind(null, callback);');
+    importFileWithoutExtention(path + '&callback=callbacker', format, true, true);
     // importFileWithoutExtention(path, format, true, true);
 }
 function callbackerFunction(callback) {

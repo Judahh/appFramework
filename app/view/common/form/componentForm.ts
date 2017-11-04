@@ -6,8 +6,8 @@ export class ComponentForm extends Component {
   arrayDataInput: Array<ComponentDataInput>;
 
   //IF DATALIST IT NEEDS A INPUT
-  //<input list="datalistID" name="inputNAME">
-  //<datalist id="datalistID">
+  //<input list='datalistID' name='inputNAME'>
+  //<datalist id='datalistID'>
 
   constructor(father?: Component, tag?) {
     super(father, tag);

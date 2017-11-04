@@ -1,6 +1,6 @@
 import { Array } from 'simpleutils';
 // import * as $ from 'jquery';
-// import { JQueryPromise } from "@types/jquery"
+// import { JQueryPromise } from '@types/jquery'
 // declare let $: any;
 // declare let JQueryPromise: any;
 
@@ -20,15 +20,15 @@ export class Util {
   static dataJSON: Array<any>;
 
   static elementHTML(name: string, id?: string, body?: string) {
-    console.log("Name: " + name);
-    let hTML = "<" + name;
+    console.log('Name: ' + name);
+    let hTML = '<' + name;
     if (id) {
-      hTML += " id=\"" + id;
+      hTML += ' id=\'' + id;
     }
     if (body) {
-      hTML += "\">" + body + "</" + name;
+      hTML += '\'>' + body + '</' + name;
     }
-    return hTML + ">";
+    return hTML + '>';
   }
 
   static getJsonPromise(path: string): JQueryPromise<any> {
@@ -39,14 +39,14 @@ export class Util {
       Util.dataJSON[path] = $.getJSON(path);
     }
     // else{
-    //   console.log("CACHE");
+    //   console.log('CACHE');
     // }
     return Util.dataJSON[path];
     // return $.getJSON(path);
   }
 
   static getTag(name: string) {
-    let names: string[] = name.split("Component");
+    let names: string[] = name.split('Component');
     return names[names.length - 1].toLowerCase();
   }
 
@@ -56,15 +56,15 @@ export class Util {
 
   static getCurrentComponentPath() {
     let error = new Error();
-    // console.log("test:"+(stack+"")+"end");
-    let stack = error.stack + "END";
-    // console.log("path:"+stack);    
+    // console.log('test:'+(stack+'')+'end');
+    let stack = error.stack + 'END';
+    // console.log('path:'+stack);    
     let link = stack.split('(')[3];
-    if (link == null || link == undefined || link == "") {
+    if (link == null || link == undefined || link == '') {
       link = stack.split('@')[3];
     }
     link = link.split('.js')[0].split(location.href)[1];
-    // console.log("path:"+link);
+    // console.log('path:'+link);
     return link;
   }
 
@@ -82,7 +82,7 @@ export class Util {
       i,
       language;
 
-    // support for HTML 5.1 "navigator.languages"
+    // support for HTML 5.1 'navigator.languages'
     if (Array.isArray(navigator.languages)) {
       for (i = 0; i < navigator.languages.length; i++) {
         language = navigator.languages[i];
@@ -102,7 +102,7 @@ export class Util {
       }
     }
 
-    Util.browserLanguage = "en-US";
+    Util.browserLanguage = 'en-US';
     return Util.browserLanguage;
   }
 
@@ -135,10 +135,10 @@ export class Util {
     if (expiresDays) {
       var d = new Date();
       d.setTime(d.getTime() + (expiresDays * 24 * 60 * 60 * 1000));
-      var expires = "expires=" + d.toUTCString();
-      document.cookie = name + "=" + value + ";" + expires + ";path=/";
+      var expires = 'expires=' + d.toUTCString();
+      document.cookie = name + '=' + value + ';' + expires + ';path=/';
     } else {
-      document.cookie = name + "=" + value + ";path=/";
+      document.cookie = name + '=' + value + ';path=/';
     }
   }
 
@@ -146,15 +146,15 @@ export class Util {
     if (expiresDays) {
       var d = new Date();
       d.setTime(d.getTime() + (expiresDays * 24 * 60 * 60 * 1000));
-      var expires = "expires=" + d.toUTCString();
-      document.cookie = name + "=" + "" + ";" + expires + ";path=/";
+      var expires = 'expires=' + d.toUTCString();
+      document.cookie = name + '=' + '' + ';' + expires + ';path=/';
     } else {
-      document.cookie = name + "=" + "" + ";path=/";
+      document.cookie = name + '=' + '' + ';path=/';
     }
   }
 
   static getCookie(name: string) {
-    name += "=";
+    name += '=';
     var ca = document.cookie.split(';');
     for (var i = 0; i < ca.length; i++) {
       var c = ca[i];
@@ -165,17 +165,17 @@ export class Util {
         return c.substring(name.length, c.length);
       }
     }
-    return "";
+    return '';
   }
 
   static checkCookie() {
-    var user = Util.getCookie("username");
-    if (user != "") {
-      alert("Welcome again " + user);
+    var user = Util.getCookie('username');
+    if (user != '') {
+      alert('Welcome again ' + user);
     } else {
-      user = prompt("Please enter your name:", "");
-      if (user != "" && user != null) {
-        Util.setCookie("username", user, 365);
+      user = prompt('Please enter your name:', '');
+      if (user != '' && user != null) {
+        Util.setCookie('username', user, 365);
       }
     }
   }

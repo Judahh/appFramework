@@ -13,7 +13,7 @@ export class ComponentButton extends Component {
   }
 
   protected setForm() {
-    this.form = <ComponentForm>this.seekFatherComponent("ComponentForm");
+    this.form = <ComponentForm>this.seekFatherComponent('ComponentForm');
     this.formChecked=true;
   }
   

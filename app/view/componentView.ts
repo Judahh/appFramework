@@ -10,7 +10,7 @@ export class ComponentView extends Component{//body
   footer:ComponentFooter;
 
   constructor(father?:Component) {
-    super(father,"body");
+    super(father,'body');
     this.header=new ComponentHeader(this);
     this.pageBody=new ComponentPageBody(this);
     this.footer=new ComponentFooter(this);
