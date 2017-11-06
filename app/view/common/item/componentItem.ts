@@ -1,10 +1,12 @@
 import { Array } from 'simpleutils';
 import { Component } from './../component/component';
-import { ComponentColorEffect } from './colorEffect/componentColorEffect';
+
 import { ComponentMenuHorizontal } from './../menuHorizontal/componentMenuHorizontal';
 import { ComponentMenuVertical } from './../menuVertical/componentMenuVertical';
 import { ComponentDivisor } from './../divisor/componentDivisor';
 import { ComponentForm } from './../form/componentForm';
+
+import { ComponentColorEffect } from './colorEffect/componentColorEffect';
 
 export class ComponentItem extends Component {
   routerLink: string;
