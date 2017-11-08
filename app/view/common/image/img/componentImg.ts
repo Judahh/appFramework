@@ -1,5 +1,5 @@
 import { Component } from './../../component/component';
-require('./componentImg.css');
+try { require('./componentImg.css'); } catch (e) { };
 
 export class ComponentImg extends Component {
 }

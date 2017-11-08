@@ -2,7 +2,7 @@
 import { Util } from './../../../util/util';
 import { Component } from './../../component/component';
 import { ComponentDivisor } from './../../divisor/componentDivisor';
-require('./componentLeftHolder.css');
+try { require('./componentLeftHolder.css'); } catch (e) { };
 
 export class ComponentLeftHolder extends Component{
   class: string;

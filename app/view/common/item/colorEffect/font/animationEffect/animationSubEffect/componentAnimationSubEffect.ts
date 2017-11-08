@@ -2,7 +2,7 @@ import { Component } from './../../../../../component/component';
 import { ComponentAnimationSubEffectHolder } from './animationSubEffectHolder/componentAnimationSubEffectHolder';
 // import { Array } from 'simpleutils';
 import { Util } from './../../../../../../util/util';
-require('./componentAnimationSubEffect.css');
+try { require('./componentAnimationSubEffect.css'); } catch (e) { };
 
 export class ComponentAnimationSubEffect extends Component{
   arrayAnimationSubEffectHolder: Array<ComponentAnimationSubEffectHolder>;

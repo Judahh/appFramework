@@ -1,5 +1,5 @@
 import { Component } from './../../component/component';
-require('./componentIframe.css');
+try { require('./componentIframe.css'); } catch (e) { };
 
 export class ComponentIframe extends Component {
 }

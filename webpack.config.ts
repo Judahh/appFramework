@@ -17,7 +17,9 @@ const config: webpack.Configuration = {
     module: {
         loaders: [
             // all files with a `.ts` or `.tsx` extension will be handled by `ts-loader`
-            { test: /\.ts$/, loader: 'ts-loader' }
+            { test: /\.ts$/, loader: 'ts-loader' },
+            // all files with a `.ts` or `.tsx` extension will be handled by `ts-loader`
+            { test: /\.css$/, loader: "style-loader!css-loader" }
         ],
         rules: [
             {

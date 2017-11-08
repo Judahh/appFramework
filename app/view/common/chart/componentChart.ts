@@ -1,6 +1,6 @@
 import { Component } from './../component/component';
 import { Util } from './../../util/util';
-require('./componentChart.css');
+try {require('./componentChart.css');}catch(e){};
 
 export class ComponentChart extends Component {
   arrayData: Array<any>;

@@ -2,7 +2,7 @@
 import { Util } from './../util/util';
 import { Component } from './../common/component/component';
 import { ComponentMenuHorizontal } from './../common/menuHorizontal/componentMenuHorizontal';
-require('./componentHeader.css');
+try { require('./componentHeader.css'); } catch (e) { };
 
 export class ComponentHeader extends Component{
   arrayMenuHorizontal: Array<ComponentMenuHorizontal>;

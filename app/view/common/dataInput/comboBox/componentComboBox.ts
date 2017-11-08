@@ -1,7 +1,8 @@
 import { Component } from './../../component/component';
 import { ComponentOption } from './option/componentOption';
 import { Util } from './../../../util/util';
-require('./componentComboBox.css');
+try {require('./componentComboBox.css');}catch(e){};
+
 // import { Array } from 'simpleutils';
 
 export class ComponentComboBox extends Component {

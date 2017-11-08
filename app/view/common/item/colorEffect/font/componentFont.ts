@@ -1,6 +1,7 @@
 import { Component } from './../../../component/component';
 import { ComponentAnimationEffect } from './animationEffect/componentAnimationEffect';
-require('./componentFont.css');
+try { require('./componentFont.css'); } catch (e) { };
+
 
 export class ComponentFont extends Component{
   animationEffect:ComponentAnimationEffect;
