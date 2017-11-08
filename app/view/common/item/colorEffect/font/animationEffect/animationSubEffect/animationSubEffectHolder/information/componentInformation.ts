@@ -9,7 +9,7 @@ export class ComponentInformation extends Component {
   appObject: AppObject;
   information: string;
   language: string;
-  item: any;
+  item: any; // ComponentItem
 
 
   constructor(father?: Component) {
@@ -67,7 +67,7 @@ export class ComponentInformation extends Component {
   }
 
   private getItem() {
-    this.item = <Component>this.seekFatherComponent('ComponentItem');
+    this.item = <Component/*ComponentItem*/>this.seekFatherComponent('ComponentItem');
   }
 
 }
