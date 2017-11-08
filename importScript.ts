@@ -1,3 +1,4 @@
+// export = 0;
 export class ImportScript {
 
     public static importTS(path: string) {

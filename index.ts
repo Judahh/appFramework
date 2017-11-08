@@ -1,3 +1,4 @@
+// export = 0;
 import { ImportScript } from './importScript';
 ImportScript.importJS('loader');
 // ImportScript.importJS('app/view/apiConnection/apiConnection');
@@ -8,6 +9,6 @@ function onLoad() {
     let app = new App();
 }
 
-window.onload = function(e){ 
+window.onload = function(e){
     onLoad();
 }

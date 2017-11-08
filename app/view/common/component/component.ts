@@ -12,6 +12,7 @@ import { ComponentHeader } from './../../header/componentHeader';
 import { ComponentFooter } from './../../footer/componentFooter';
 import { ComponentForm } from './../form/componentForm';
 
+// import './../elementEvent/componentElementEvent';
 import { ComponentElementEvent } from './../elementEvent/componentElementEvent';
 
 export class Component {
@@ -500,3 +501,4 @@ export class Component {
     }
   }
 }
+

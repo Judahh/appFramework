@@ -1,5 +1,5 @@
 import { Component } from './../component/component';
 
-export interface AppObject extends Component{
+export interface AppObject extends Component {
   run();
 }
