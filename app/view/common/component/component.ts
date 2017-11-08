@@ -2,9 +2,11 @@ import { Util } from './../../util/util';
 import { ServiceModel } from './../../serviceModel/serviceModel';
 import { ImportScript } from './../../../../importScript';
 
+import { Array } from 'simpleutils';
+
 import { AppObject } from './../appObject/appObject';
 import { AppObjectFactory } from './../appObject/appObjectFactory/appObjectFactory';
-import { Array } from 'simpleutils';
+
 
 import { ComponentView } from './../../componentView';
 import { ComponentPageBody } from './../../body/componentPageBody';
@@ -501,4 +503,3 @@ export class Component {
     }
   }
 }
-
