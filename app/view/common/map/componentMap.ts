@@ -1,5 +1,6 @@
 import { Component } from './../component/component';
 import { ImportScript } from './../../../../importScript';
+require('./componentMap.css');
 
 export class ComponentMap extends Component {
   options: any;

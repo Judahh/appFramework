@@ -1,5 +1,6 @@
 import { Component } from './../../../component/component';
 import { Util } from './../../../../util/util';
+require('./componentOption.css');
 
 export class ComponentOption extends Component {
   information: string;

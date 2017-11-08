@@ -1,5 +1,8 @@
 import { Component } from './../../component/component';
 import { ComponentLabel } from './../../label/componentLabel';
+
+require('./componentBox.css');
+
 export class ComponentBox extends Component {
   //type = radio or checkbox
   boxLabel: ComponentLabel;

@@ -2,6 +2,7 @@
 import { Util } from './../../../util/util';
 import { Component } from './../../component/component';
 import { ComponentDivisor } from './../../divisor/componentDivisor';
+require('./ComponentRightHolder.css');
 
 export class ComponentRightHolder extends Component{
   class: string;

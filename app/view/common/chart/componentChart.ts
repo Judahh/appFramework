@@ -1,5 +1,6 @@
 import { Component } from './../component/component';
 import { Util } from './../../util/util';
+require('./componentChart.css');
 
 export class ComponentChart extends Component {
   arrayData: Array<any>;

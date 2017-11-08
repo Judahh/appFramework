@@ -2,6 +2,7 @@ import { Component } from './../component/component';
 import { ComponentDataInput } from './../dataInput/componentDataInput';
 // import { Array } from 'simpleutils';
 import { Util } from './../../util/util';
+require('./componentForm.css');
 
 export class ComponentForm extends Component {
   arrayDataInput: Array<ComponentDataInput>;

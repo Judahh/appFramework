@@ -1,4 +1,5 @@
  import { Component } from './../component/component';
+ require('./componentElementEvent.css');
 
 export class ComponentElementEvent  extends Component{
   name: string;

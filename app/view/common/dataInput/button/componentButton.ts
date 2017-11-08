@@ -1,6 +1,7 @@
 import { Component } from './../../component/component';
 import { ComponentItem } from './../../item/componentItem';
 import { ComponentForm } from './../../form/componentForm';
+require('./componentButton.css');
 
 export class ComponentButton extends Component {
   item: ComponentItem;

@@ -1,5 +1,6 @@
 import { Component } from './../../component/component';
 import { ComponentFont } from './font/componentFont';
+require('./componentColorEffect.css');
 
 export class ComponentColorEffect extends Component{
   colorEffect: string;

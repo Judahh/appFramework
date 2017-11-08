@@ -9,6 +9,7 @@ import { ComponentChart } from './../chart/componentChart';
 import { ComponentMap } from './../map/componentMap';
 import { ComponentProgressBar } from './../progressBar/componentProgressBar';
 import { ComponentSVG } from './../sVG/componentSVG';
+require('./componentDivisor.css');
 
 
 export class ComponentDivisor extends Component {

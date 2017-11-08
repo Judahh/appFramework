@@ -3,6 +3,7 @@ import { Util } from './../../util/util';
 import { Component } from './../component/component';
 import { ComponentVideo } from './video/componentVideo';
 import { ComponentIframe } from './iframe/componentIframe';
+require('./componentVideoHolder.css');
 
 export class ComponentVideoHolder extends Component {
     arrayVideo:Array<ComponentVideo>;

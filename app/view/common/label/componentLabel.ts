@@ -1,4 +1,5 @@
 import { Component } from './../component/component';
+require('./componentLabel.css');
 
 export class ComponentLabel extends Component {
     constructor(father?: Component, tag?) {

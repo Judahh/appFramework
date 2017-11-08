@@ -2,6 +2,7 @@
 import { Util } from './../util/util';
 import { Component } from './../common/component/component';
 import { ComponentMenuHorizontal } from './../common/menuHorizontal/componentMenuHorizontal';
+require('./componentFooter.css');
 
 export class ComponentFooter extends Component{
   arrayMenuHorizontal: Array<ComponentMenuHorizontal>;

@@ -11,6 +11,7 @@ import { ComponentG } from './g/componentG';
 import { ComponentDefs } from './defs/componentDefs';
 // import { Array } from 'simpleutils';
 import { Util } from './../../util/util';
+require('./componentSVG.css');
 
 export class ComponentSVG extends Component {
   arrayCircle: Array<ComponentCircle>;

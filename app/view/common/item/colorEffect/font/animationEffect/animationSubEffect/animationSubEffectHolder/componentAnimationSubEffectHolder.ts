@@ -1,5 +1,6 @@
 import { Component } from './../../../../../../component/component';
 import { ComponentInformation } from './information/componentInformation';
+require('./componentAnimationSubEffectHolder.css');
 
 export class ComponentAnimationSubEffectHolder extends Component{
   information: ComponentInformation;
