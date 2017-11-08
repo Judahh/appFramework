@@ -1,6 +1,7 @@
 import { Util } from './../../util/util';
 import { ServiceModel } from './../../serviceModel/serviceModel';
 import { ImportScript } from './../../../../importScript';
+require('./component.css');
 
 // import { Array } from 'simpleutils';
 
@@ -73,10 +74,10 @@ export class Component {
         let nodes = document.getElementsByTagName(this.tag);
         let path = Util.getCurrentComponentPath();
 
-        if (path) {
-          // console.log('importCSS:' + path);
-          ImportScript.importCSS(path);
-        }
+        // if (path) {
+        //   // console.log('importCSS:' + path);
+        //   ImportScript.importCSS(path);
+        // }
 
 
         if (this.sVG) {
@@ -95,10 +96,10 @@ export class Component {
       let nodes = document.getElementsByTagName(this.tag);
       let path = Util.getCurrentComponentPath();
 
-      if (path) {
-        // console.log('importCSS2:' + path);
-        ImportScript.importCSS(path);
-      }
+      // if (path) {
+      //   // console.log('importCSS2:' + path);
+      //   ImportScript.importCSS(path);
+      // }
 
       if (this.sVG) {
         // console.log('this.tag:' + this.tag);

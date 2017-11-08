@@ -3,6 +3,7 @@ import { Util } from './../util/util';
 import { ComponentBackground } from './background/componentBackground';
 import { ComponentDivisor } from './../common/divisor/componentDivisor';
 import { Component } from './../common/component/component';
+require('./componentPageBody.css');
 
 export class ComponentPageBody extends Component {
   background: ComponentBackground;
