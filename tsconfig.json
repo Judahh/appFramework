@@ -9,7 +9,8 @@
     "removeComments": false,
     "noImplicitAny": false,
     "suppressImplicitAnyIndexErrors": true,
-    
+    "declaration": true,
+    "outDir": "lib",
     "typeRoots": [
       "../node_modules/@types"
     ],

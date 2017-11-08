@@ -2,16 +2,17 @@ import * as  path from 'path';
 import * as webpack from 'webpack';
 
 const config: webpack.Configuration = {
-    entry: './index.ts',
+    entry: './distStart.ts',
     output: {
         libraryTarget: 'commonjs',
         path: path.resolve(__dirname, 'dist'),
         filename: 'backApp.js',
         publicPath: '/dist/'
     },
+    devtool: 'eval-source-map',
     resolve: {
         // Add `.ts` and `.tsx` as a resolvable extension.
-        extensions: ['.webpack.ts', '.webpack.js', '.web.ts', '.web.js', '.ts', '.tsx', '.js']
+        extensions: ['.webpack.js', '.webpack.ts', '.web.js', '.web.ts', '.js', '.ts', '.tsx']
     },
     module: {
         loaders: [
