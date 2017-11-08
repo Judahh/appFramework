@@ -1,6 +1,7 @@
 import { Component } from './../../../component/component';
 import { ComponentOption } from './../../comboBox/option/componentOption';
-import { Array } from 'simpleutils';
+// import { Array } from 'simpleutils';
+import { Util } from './../../../../util/util';
 
 export class ComponentDataList extends Component {
   arrayOption: Array<ComponentOption>;

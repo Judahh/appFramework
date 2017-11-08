@@ -1,4 +1,5 @@
-import { Array } from 'simpleutils';
+// import { Array } from 'simpleutils';
+import { Util } from './../../util/util';
 import { Component } from './../component/component';
 import { ComponentItem } from './../item/componentItem';
 import { ComponentImage } from './../image/componentImage';

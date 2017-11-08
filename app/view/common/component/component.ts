@@ -2,20 +2,8 @@ import { Util } from './../../util/util';
 import { ServiceModel } from './../../serviceModel/serviceModel';
 import { ImportScript } from './../../../../importScript';
 
-import { Array } from 'simpleutils';
+// import { Array } from 'simpleutils';
 
-import { AppObject } from './../appObject/appObject';
-import { AppObjectFactory } from './../appObject/appObjectFactory/appObjectFactory';
-
-
-import { ComponentView } from './../../componentView';
-import { ComponentPageBody } from './../../body/componentPageBody';
-import { ComponentHeader } from './../../header/componentHeader';
-import { ComponentFooter } from './../../footer/componentFooter';
-import { ComponentForm } from './../form/componentForm';
-
-// import './../elementEvent/componentElementEvent';
-import { ComponentElementEvent } from './../elementEvent/componentElementEvent';
 
 export class Component {
   // protected fatherElement:Component;
@@ -503,3 +491,16 @@ export class Component {
     }
   }
 }
+
+import { AppObject } from './../appObject/appObject';
+import { AppObjectFactory } from './../appObject/appObjectFactory/appObjectFactory';
+
+
+import { ComponentView } from './../../componentView';
+import { ComponentPageBody } from './../../body/componentPageBody';
+import { ComponentHeader } from './../../header/componentHeader';
+import { ComponentFooter } from './../../footer/componentFooter';
+import { ComponentForm } from './../form/componentForm';
+
+// import './../elementEvent/componentElementEvent';
+import { ComponentElementEvent } from './../elementEvent/componentElementEvent';

@@ -1,6 +1,7 @@
 import { Component } from './../component/component';
 import { ComponentDataInput } from './../dataInput/componentDataInput';
-import { Array } from 'simpleutils';
+// import { Array } from 'simpleutils';
+import { Util } from './../../util/util';
 
 export class ComponentForm extends Component {
   arrayDataInput: Array<ComponentDataInput>;

@@ -1,6 +1,7 @@
 import { Component } from './../component/component';
 import { ComponentDivisor } from './../divisor/componentDivisor';
-import { Array } from 'simpleutils';
+// import { Array } from 'simpleutils';
+import { Util } from './../../util/util';
 
 export class ComponentMenuVertical extends Component{
   class: string;

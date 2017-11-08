@@ -1,4 +1,5 @@
-import { Array } from 'simpleutils';
+// import { Array } from 'simpleutils';
+import { Util } from './../util/util';
 import { Component } from './../common/component/component';
 import { ComponentMenuHorizontal } from './../common/menuHorizontal/componentMenuHorizontal';
 

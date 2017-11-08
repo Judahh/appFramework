@@ -1,4 +1,4 @@
-import { Array } from 'simpleutils';
+// import { Array } from 'simpleutils';
 import { Util } from './../util/util';
 import { ComponentBackground } from './background/componentBackground';
 import { ComponentDivisor } from './../common/divisor/componentDivisor';

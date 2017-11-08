@@ -8,7 +8,7 @@ import { ComponentBox } from './../dataInput/box/componentBox';
 import { ComponentForm } from './../form/componentForm';
 import { ComponentButton } from './../dataInput/button/componentButton';
 import { ComponentRangeSlider } from './../dataInput/rangeSlider/componentRangeSlider';
-import { Array } from 'simpleutils';
+// import { Array } from 'simpleutils';
 
 export class ComponentDataInput extends Component {
   arrayBeforeItem: Array<ComponentItem>;
