@@ -7,7 +7,7 @@ const config: webpack.Configuration = {
         libraryTarget: 'commonjs',
         path: path.resolve(__dirname, 'dist'),
         filename: 'backApp.js',
-        publicPath: '/dist/'
+        publicPath: './dist/'
     },
     devtool: 'eval-source-map',
     resolve: {

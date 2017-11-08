@@ -1,5 +1,5 @@
 import { Component } from './../component/component';
-require('./ComponentSource.css');
+require('./componentSource.css');
 
 export class ComponentSource extends Component {
 }

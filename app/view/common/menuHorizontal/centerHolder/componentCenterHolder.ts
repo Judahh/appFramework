@@ -2,7 +2,7 @@
 import { Util } from './../../../util/util';
 import { Component } from './../../component/component';
 import { ComponentDivisor } from './../../divisor/componentDivisor';
-require('./ComponentCenterHolder.css');
+require('./componentCenterHolder.css');
 
 export class ComponentCenterHolder extends Component{
   class: string;

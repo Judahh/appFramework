@@ -27,7 +27,7 @@
     "ntsc:w": "ntsc -w",
     "clean": "shx rm -Rf build/",
     "gulp": "gulp",
-    "webpack": "webpack --config lib/webpack.config.js"
+    "webpack": "webpack"
   },
   "dependencies": {
     "@types/jquery": "3.2.12",

@@ -1,5 +1,5 @@
 import { Component } from './../component/component';
-require('./ComponentProgressBar.css');
+require('./componentProgressBar.css');
 
 export class ComponentProgressBar extends Component {
 
