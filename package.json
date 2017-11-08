@@ -26,7 +26,8 @@
     "ntsc": "ntsc",
     "ntsc:w": "ntsc -w",
     "clean": "shx rm -Rf build/",
-    "gulp": "gulp"
+    "gulp": "gulp",
+    "webpack": "webpack"
   },
   "dependencies": {
     "@types/jquery": "3.2.12",
