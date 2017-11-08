@@ -4,6 +4,7 @@ import * as webpack from 'webpack';
 const config: webpack.Configuration = {
     entry: './index.ts',
     output: {
+        libraryTarget: 'commonjs',
         path: path.resolve(__dirname, 'dist'),
         filename: 'backApp.js',
         publicPath: '/dist/'
