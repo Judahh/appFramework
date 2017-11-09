@@ -1,5 +1,9 @@
 import { ImportScript } from './importScript';
-ImportScript.importJS('loader');
+if(window['offline']){
+    ImportScript.importJS('node_modules/backappjh/loader');
+}else{
+    ImportScript.importJS('loader');
+}
 import { App } from './app/app';
 
 function onLoad() {
@@ -7,6 +11,5 @@ function onLoad() {
 }
 
 window.onload = function(e){
-    
     onLoad();
 }

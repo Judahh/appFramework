@@ -1,12 +1,17 @@
 import { Util } from './../util/util'
 export class ServiceModel {
     private static uRL = '../frame/'; // TODO: check
+    private static uRLOffline = 'app/frame/'; // TODO: check
 
     public static getPromise(path: string): JQueryPromise<any> {
         // let internalJSON = require(this.internalURL+path+'.json');
         // console.log(internalJSON);
         // console.log('A:');
-        return Util.getJsonPromise(this.uRL + path + '.json');
+        if(window['offline']){
+            return Util.getJsonPromise(this.uRLOffline + path + '.json');
+        }else{
+            return Util.getJsonPromise(this.uRL + path + '.json');
+        }
         // this.http.get(this.URL+path+'.json').toPromise().then(this.extractData).catch(this.handlePromiseError);
     }
 
