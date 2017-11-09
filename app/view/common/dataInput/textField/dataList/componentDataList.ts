@@ -2,7 +2,7 @@ import { Component } from './../../../component/component';
 import { ComponentOption } from './../../comboBox/option/componentOption';
 // import { Array } from 'simpleutils';
 import { Util } from './../../../../util/util';
-require('./componentDataList.css');
+try {require('./componentDataList.css');}catch(e){};
 
 export class ComponentDataList extends Component {
   arrayOption: Array<ComponentOption>;

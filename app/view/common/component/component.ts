@@ -1,7 +1,7 @@
 import { Util } from './../../util/util';
 import { ServiceModel } from './../../serviceModel/serviceModel';
 import { ImportScript } from './../../../../importScript';
-require('./component.css');
+try {require('./component.css');}catch(e){};
 
 // import { Array } from 'simpleutils';
 

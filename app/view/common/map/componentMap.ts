@@ -1,6 +1,6 @@
 import { Component } from './../component/component';
 import { ImportScript } from './../../../../importScript';
-require('./componentMap.css');
+try { require('./componentMap.css'); } catch (e) { };
 
 export class ComponentMap extends Component {
   options: any;
@@ -32,7 +32,7 @@ export class ComponentMap extends Component {
       // tslint:disable-next-line:no-eval
       eval('exists = google.maps;');
       if (exists === undefined) {
-        ImportScript.importFileWithoutExtentionWithCallback(path, 'js', () => { _self.callback(); });
+        ImportScript.importFileWithoutExtentionWithCallback(path, 'js', 'map',() => { _self.callback(); });
       } else {
         this.callback();
       }

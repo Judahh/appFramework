@@ -1,7 +1,8 @@
 import { Component } from './../../component/component';
 import { ComponentItem } from './../../item/componentItem';
 import { ComponentForm } from './../../form/componentForm';
-require('./componentButton.css');
+try {require('./componentButton.css');}catch(e){};
+
 
 export class ComponentButton extends Component {
   item: ComponentItem;

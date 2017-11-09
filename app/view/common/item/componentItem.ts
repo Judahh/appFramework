@@ -8,7 +8,7 @@ import { ComponentDivisor } from './../divisor/componentDivisor';
 import { ComponentForm } from './../form/componentForm';
 
 import { ComponentColorEffect } from './colorEffect/componentColorEffect';
-require('./componentItem.css');
+try { require('./componentItem.css'); } catch (e) { };
 
 export class ComponentItem extends Component {
   routerLink: string;

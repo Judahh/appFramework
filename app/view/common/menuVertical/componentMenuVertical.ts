@@ -2,7 +2,7 @@ import { Component } from './../component/component';
 import { ComponentDivisor } from './../divisor/componentDivisor';
 // import { Array } from 'simpleutils';
 import { Util } from './../../util/util';
-require('./componentMenuVertical.css');
+try { require('./componentMenuVertical.css'); } catch (e) { };
 
 export class ComponentMenuVertical extends Component{
   class: string;

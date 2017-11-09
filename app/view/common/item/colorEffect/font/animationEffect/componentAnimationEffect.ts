@@ -1,6 +1,7 @@
 import { Component } from './../../../../component/component';
 import { ComponentAnimationSubEffect } from './animationSubEffect/componentAnimationSubEffect';
-require('./componentAnimationEffect.css');
+try { require('./componentAnimationEffect.css'); } catch (e) { };
+
 
 export class ComponentAnimationEffect extends Component{
   animationSubEffect: ComponentAnimationSubEffect;

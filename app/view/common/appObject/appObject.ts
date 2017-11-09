@@ -1,5 +1,11 @@
 import { Component } from './../component/component';
 
-export interface AppObject extends Component {
-  run();
+export class AppObject extends Component {
+  public run() {
+
+  }
+
+  public static getInstance(father?: Component) {
+    return new this(father);
+  }
 }

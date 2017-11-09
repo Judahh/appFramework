@@ -2,7 +2,7 @@
 import { Util } from './../../../util/util';
 import { Component } from './../../component/component';
 import { ComponentSource } from './../../source/componentSource';
-require('./componentVideo.css');
+try { require('./componentVideo.css'); } catch (e) { };
 
 export class ComponentVideo extends Component {
     arraySource: Array<ComponentSource>;

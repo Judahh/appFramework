@@ -2,7 +2,7 @@ import { Component } from './../../../../../../../component/component';
 // import { ComponentItem } from './../../../../../../componentItem';
 import { Util } from './../../../../../../../../util/util';
 import { AppObject } from './../../../../../../../appObject/appObject';
-require('./componentInformation.css');
+try { require('./componentInformation.css'); } catch (e) { };
 
 export class ComponentInformation extends Component {
   code: string;

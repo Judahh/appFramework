@@ -7,6 +7,7 @@ import { ComponentVideoHolder } from './app/view/common/videoHolder/componentVid
 import { ComponentIframe } from './app/view/common/videoHolder/iframe/componentIframe';
 import { ComponentVideo } from './app/view/common/videoHolder/video/componentVideo';
 import { ComponentOption } from './app/view/common/dataInput/comboBox/option/componentOption';
+<<<<<<< HEAD
 import { ComponentComboBox } from './app/view/common/dataInput/comboBox/componentComboBox';
 import { ComponentTextArea } from './app/view/common/dataInput/textArea/componentTextArea';
 import { ComponentDataList} from './app/view/common/dataInput/textField/dataList/componentDataList'
@@ -67,3 +68,9 @@ export { Component, ComponentPageBody, ComponentInformation, ComponentDataInput,
     ComponentPath, ComponentText, ComponentG, ComponentFilter, ComponentLinearGradient, ComponentRadialGradient,
     ComponentStop, ComponentDefs, ComponentFooter, ComponentHeader, ServiceModel, Util, ComponentView, App, ImportScript
 }
+=======
+import { AppObject } from './app/view/common/appObject/appObject';
+
+export { Component, ComponentPageBody, ComponentInformation, ComponentDataInput, ComponentOption,
+    ComponentDivisor, ComponentVideoHolder, ComponentIframe, ComponentVideo, AppObject }
+>>>>>>> abfe9846f679009b326881bf4a55f2f0b7a4c29a

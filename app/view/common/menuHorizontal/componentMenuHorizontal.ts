@@ -4,7 +4,7 @@ import { Component } from './../component/component';
 import { ComponentCenterHolder } from './centerHolder/componentCenterHolder';
 import { ComponentLeftHolder } from './leftHolder/componentLeftHolder';
 import { ComponentRightHolder } from './rightHolder/componentRightHolder';
-require('./componentMenuHorizontal.css');
+try { require('./componentMenuHorizontal.css'); } catch (e) { };
 
 export class ComponentMenuHorizontal extends Component{
   class: string;

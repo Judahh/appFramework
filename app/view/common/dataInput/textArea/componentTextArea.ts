@@ -1,5 +1,6 @@
 import { Component } from './../../component/component';
-require('./componentTextArea.css');
+try {require('./componentTextArea.css');}catch(e){};
+
 
 export class ComponentTextArea extends Component {
   //IF DATALIST IT NEEDS A INPUT

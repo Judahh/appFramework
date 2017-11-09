@@ -2,7 +2,8 @@ import { Component } from './../../component/component';
 import { ComponentDataList } from './../textField/dataList/componentDataList';
 // import { Array } from 'simpleutils';
 import { Util } from './../../../util/util';
-require('./componentTextField.css');
+try {require('./componentTextField.css');}catch(e){};
+
 
 export class ComponentTextField extends Component {
   //IF DATALIST IT NEEDS A INPUT

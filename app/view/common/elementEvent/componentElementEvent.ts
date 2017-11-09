@@ -1,7 +1,8 @@
- import { Component } from './../component/component';
- require('./componentElementEvent.css');
+import { Component } from './../component/component';
+try { require('./componentElementEvent.css'); } catch (e) { };
 
-export class ComponentElementEvent  extends Component{
+
+export class ComponentElementEvent extends Component {
   name: string;
   eventListener: boolean;
 

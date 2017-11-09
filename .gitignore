@@ -1,6 +1,7 @@
 typings
 dist
 lib
+*.d.ts
 *.js
 *.map
 jspm_packages
