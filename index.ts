@@ -56,9 +56,9 @@ import { App } from './app/app'
 import { ImportScript } from './importScript'
 import { AppObject } from './app/view/common/appObject/appObject';
 import { ComponentChart } from './app/view/common/chart/componentChart'
-import { AppObjectFactory } from '/home/ioct/Documentos/backApp/app/view/common/appObject/appObjectFactory/appObjectFactory'
-import { ComponentBackground } from '/home/ioct/Documentos/backApp/app/view/body/background/componentBackground'
-import { ApiConnection } from '/home/ioct/Documentos/backApp/app/view/apiConnection/apiConnection'
+import { AppObjectFactory } from './app/view/common/appObject/appObjectFactory/appObjectFactory'
+import { ComponentBackground } from './app/view/body/background/componentBackground'
+import { ApiConnection } from './app/view/apiConnection/apiConnection'
 
 
 export { Component, ComponentPageBody, ComponentInformation, ComponentDataInput, ComponentOption,
