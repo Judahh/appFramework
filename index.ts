@@ -7,7 +7,6 @@ import { ComponentVideoHolder } from './app/view/common/videoHolder/componentVid
 import { ComponentIframe } from './app/view/common/videoHolder/iframe/componentIframe';
 import { ComponentVideo } from './app/view/common/videoHolder/video/componentVideo';
 import { ComponentOption } from './app/view/common/dataInput/comboBox/option/componentOption';
-<<<<<<< HEAD
 import { ComponentComboBox } from './app/view/common/dataInput/comboBox/componentComboBox';
 import { ComponentTextArea } from './app/view/common/dataInput/textArea/componentTextArea';
 import { ComponentDataList} from './app/view/common/dataInput/textField/dataList/componentDataList'
@@ -55,7 +54,7 @@ import { Util } from './app/view/util/util'
 import { ComponentView } from './app/view/componentView'
 import { App } from './app/app'
 import { ImportScript } from './importScript'
-
+import { AppObject } from './app/view/common/appObject/appObject';
 
 export { Component, ComponentPageBody, ComponentInformation, ComponentDataInput, ComponentOption,
     ComponentDivisor, ComponentVideoHolder, ComponentIframe, ComponentVideo, ComponentComboBox,
@@ -66,11 +65,5 @@ export { Component, ComponentPageBody, ComponentInformation, ComponentDataInput,
     ComponentLeftHolder, ComponentRightHolder, ComponentMenuHorizontal, ComponentMenuVertical, ComponentProgressBar,
     ComponentSource, ComponentCircle, ComponentEllipse, ComponentRectangle, ComponentPolygon, ComponentLine,
     ComponentPath, ComponentText, ComponentG, ComponentFilter, ComponentLinearGradient, ComponentRadialGradient,
-    ComponentStop, ComponentDefs, ComponentFooter, ComponentHeader, ServiceModel, Util, ComponentView, App, ImportScript
+    ComponentStop, ComponentDefs, ComponentFooter, ComponentHeader, ServiceModel, Util, ComponentView, App, AppObject, ImportScript
 }
-=======
-import { AppObject } from './app/view/common/appObject/appObject';
-
-export { Component, ComponentPageBody, ComponentInformation, ComponentDataInput, ComponentOption,
-    ComponentDivisor, ComponentVideoHolder, ComponentIframe, ComponentVideo, AppObject }
->>>>>>> abfe9846f679009b326881bf4a55f2f0b7a4c29a
