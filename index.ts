@@ -55,6 +55,11 @@ import { ComponentView } from './app/view/componentView'
 import { App } from './app/app'
 import { ImportScript } from './importScript'
 import { AppObject } from './app/view/common/appObject/appObject';
+import { ComponentChart } from './app/view/common/chart/componentChart'
+import { AppObjectFactory } from '/home/ioct/Documentos/backApp/app/view/common/appObject/appObjectFactory/appObjectFactory'
+import { ComponentBackground } from '/home/ioct/Documentos/backApp/app/view/body/background/componentBackground'
+import { ApiConnection } from '/home/ioct/Documentos/backApp/app/view/apiConnection/apiConnection'
+
 
 export { Component, ComponentPageBody, ComponentInformation, ComponentDataInput, ComponentOption,
     ComponentDivisor, ComponentVideoHolder, ComponentIframe, ComponentVideo, ComponentComboBox,
@@ -65,5 +70,6 @@ export { Component, ComponentPageBody, ComponentInformation, ComponentDataInput,
     ComponentLeftHolder, ComponentRightHolder, ComponentMenuHorizontal, ComponentMenuVertical, ComponentProgressBar,
     ComponentSource, ComponentCircle, ComponentEllipse, ComponentRectangle, ComponentPolygon, ComponentLine,
     ComponentPath, ComponentText, ComponentG, ComponentFilter, ComponentLinearGradient, ComponentRadialGradient,
-    ComponentStop, ComponentDefs, ComponentFooter, ComponentHeader, ServiceModel, Util, ComponentView, App, AppObject, ImportScript
+    ComponentStop, ComponentDefs, ComponentFooter, ComponentHeader, ServiceModel, Util, ComponentView, App, AppObject, ImportScript,
+    ComponentChart, AppObjectFactory, ComponentBackground, ApiConnection
 }
