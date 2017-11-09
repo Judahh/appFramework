@@ -1,12 +1,4 @@
 // export = 0;
-
-// function callbackerFunction(callback) {
-//     callback();
-// }
-
-// // tslint:disable-next-line:no-empty
-// function callbacker() { };
-
 export class ImportScript {
 
     public static importTS(path: string) {
@@ -81,15 +73,9 @@ export class ImportScript {
     }
 
     public static importFileWithoutExtentionWithCallback(path, format, name, callback) {
-        // importFileWithoutExtention(path, format, true, true);
-        // tslint:disable-next-line:no-eval
-        // eval('callbacker = callbackerFunction.bind(null, callback);');
         this.importFileWithoutExtention(path + '&callback=callbacker' + name, format, true, true);
-        // importFileWithoutExtention(path, format, true, true);
         window['callbacker' + name] = callback;
     }
 }
 
-// window.callbackerFunction = callbackerFunction;
-// window.callbacker = callbacker;
 
