@@ -32,7 +32,7 @@ export class ComponentMap extends Component {
       // tslint:disable-next-line:no-eval
       eval('exists = google.maps;');
       if (exists === undefined) {
-        ImportScript.importFileWithoutExtentionWithCallback(path, 'js', () => { _self.callback(); });
+        ImportScript.importFileWithoutExtentionWithCallback(path, 'js', 'map',() => { _self.callback(); });
       } else {
         this.callback();
       }
