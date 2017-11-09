@@ -1,5 +1,6 @@
 // import { Array } from 'simpleutils';
-// import * as $ from 'jquery';
+import * as $ from 'jquery';
+// try { let $ = require('jquery'); } catch (e) { };
 // import { JQueryPromise } from '@types/jquery'
 // declare let $: any;
 // declare let JQueryPromise: any;
