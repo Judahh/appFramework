@@ -7,6 +7,7 @@ import { ComponentVideoHolder } from './app/view/common/videoHolder/componentVid
 import { ComponentIframe } from './app/view/common/videoHolder/iframe/componentIframe';
 import { ComponentVideo } from './app/view/common/videoHolder/video/componentVideo';
 import { ComponentOption } from './app/view/common/dataInput/comboBox/option/componentOption';
+import { AppObject } from './app/view/common/appObject/appObject';
 
 export { Component, ComponentPageBody, ComponentInformation, ComponentDataInput, ComponentOption,
-    ComponentDivisor, ComponentVideoHolder, ComponentIframe, ComponentVideo }
+    ComponentDivisor, ComponentVideoHolder, ComponentIframe, ComponentVideo, AppObject }
