@@ -73,14 +73,14 @@ export class Util {
   currentLanguage;
   dataJSON: Array<any>;
 
-  constructor() {}
+  constructor() { }
 
   public static getInstance(): Util {
     if (!Util.instance) {
       Util.instance = new Util();
     }
     return Util.instance;
-}
+  }
 
   elementHTML(name: string, id?: string, body?: string) {
     console.log('Name: ' + name);
@@ -92,6 +92,11 @@ export class Util {
       hTML += '\'>' + body + '</' + name;
     }
     return hTML + '>';
+  }
+
+  setLanguage(language: string) {
+    this.dataJSON = new Array();
+    this.currentLanguage = language;
   }
 
   getJsonPromise(path: string): JQueryPromise<any> {

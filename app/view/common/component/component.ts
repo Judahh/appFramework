@@ -300,6 +300,15 @@ export class Component {
     return this.father;
   }
 
+  public setCurrentLanguage(language: string) {
+    Util.getInstance().setLanguage(language);
+    this.getJSONPromise(this.getPage());
+  }
+
+  public getCurrentLanguage() {
+    return Util.getInstance().getCurrentLanguage();
+  }
+
   public setElementSource(source: string) {
     let tmp: any = this.element;
     tmp.src = source;

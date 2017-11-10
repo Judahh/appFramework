@@ -2,11 +2,11 @@ import { Component } from './../component/component';
 import { Util } from './../../util/util';
 
 export class AppObject extends Component {
-  protected util: Util;
+  // protected util: Util;
 
   constructor(father?: Component) {
     super(father);
-    this.util = Util.getInstance();
+    // this.util = Util.getInstance();
   }
 
   public run() {
