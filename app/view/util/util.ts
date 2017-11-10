@@ -20,13 +20,13 @@ declare global {
     type: any;
     getType(): string;
   }
-  
+
   interface JQueryStatic {
     cache;
   }
-  
+
   interface String {
-    replaceAll(search:string, replacement:string): string;
+    replaceAll(search: string, replacement: string): string;
   }
 }
 
@@ -40,12 +40,12 @@ declare interface JQueryStatic {
 }
 
 declare interface String {
-  replaceAll(search:string, replacement:string): string;
+  replaceAll(search: string, replacement: string): string;
 }
 
-String.prototype.replaceAll = function(search, replacement) {
-    let target = this;
-    return target.replace(new RegExp(search, 'g'), replacement);
+String.prototype.replaceAll = function (search, replacement) {
+  let target = this;
+  return target.replace(new RegExp(search, 'g'), replacement);
 };
 
 Array.prototype.getType = function () {
@@ -68,11 +68,21 @@ Array.prototype.getType = function () {
 export { Array, String }
 
 export class Util {
-  static browserLanguage;
-  static currentLanguage;
-  static dataJSON: Array<any>;
+  private static instance: Util;
+  browserLanguage;
+  currentLanguage;
+  dataJSON: Array<any>;
 
-  static elementHTML(name: string, id?: string, body?: string) {
+  constructor() {}
+
+  public static getInstance(): Util {
+    if (!Util.instance) {
+      Util.instance = new Util();
+    }
+    return Util.instance;
+}
+
+  elementHTML(name: string, id?: string, body?: string) {
     console.log('Name: ' + name);
     let hTML = '<' + name;
     if (id) {
@@ -84,30 +94,30 @@ export class Util {
     return hTML + '>';
   }
 
-  static getJsonPromise(path: string): JQueryPromise<any> {
-    if (Util.dataJSON == null) {
-      Util.dataJSON = new Array();
+  getJsonPromise(path: string): JQueryPromise<any> {
+    if (this.dataJSON == null) {
+      this.dataJSON = new Array();
     }
-    if (Util.dataJSON[path] == null) {
-      Util.dataJSON[path] = $.getJSON(path);
+    if (this.dataJSON[path] == null) {
+      this.dataJSON[path] = $.getJSON(path);
     }
     // else{
     //   console.log('CACHE');
     // }
-    return Util.dataJSON[path];
+    return this.dataJSON[path];
     // return $.getJSON(path);
   }
 
-  static getTag(name: string) {
+  getTag(name: string) {
     let names: string[] = name.split('Component');
     return names[names.length - 1].toLowerCase();
   }
 
-  static getFileName(name: string) {
+  getFileName(name: string) {
     return name.charAt(0).toLowerCase() + name.slice(1);
   }
 
-  static getCurrentComponentPath() {
+  getCurrentComponentPath() {
     let error = new Error();
     // console.log('test:'+(stack+'')+'end');
     let stack = error.stack + 'END';
@@ -121,15 +131,15 @@ export class Util {
     return link;
   }
 
-  static removeElements(elements: NodeListOf<Element>) {
+  removeElements(elements: NodeListOf<Element>) {
     while (elements[0]) {
       elements[0].parentNode.removeChild(elements[0]);
     }
   }
 
-  static getBrowserLanguage() {
-    if (Util.browserLanguage !== undefined) {
-      return Util.browserLanguage;
+  getBrowserLanguage() {
+    if (this.browserLanguage !== undefined) {
+      return this.browserLanguage;
     }
 
     let navigator = <any>window.navigator,
@@ -142,7 +152,7 @@ export class Util {
       for (i = 0; i < navigator.languages.length; i++) {
         language = navigator.languages[i];
         if (language && language.length) {
-          Util.browserLanguage = language;
+          this.browserLanguage = language;
           return language;
         }
       }
@@ -152,29 +162,29 @@ export class Util {
     for (i = 0; i < browserLanguagePropertyKeys.length; i++) {
       language = navigator[browserLanguagePropertyKeys[i]];
       if (language && language.length) {
-        Util.browserLanguage = language;
+        this.browserLanguage = language;
         return language;
       }
     }
 
-    Util.browserLanguage = 'en-US';
-    return Util.browserLanguage;
+    this.browserLanguage = 'en-US';
+    return this.browserLanguage;
   }
 
-  static getCurrentLanguage() {
-    if (Util.currentLanguage !== undefined) {
-      return Util.currentLanguage;
+  getCurrentLanguage() {
+    if (this.currentLanguage !== undefined) {
+      return this.currentLanguage;
     } else {
-      Util.currentLanguage = Util.getBrowserLanguage();
+      this.currentLanguage = this.getBrowserLanguage();
     }
-    return Util.currentLanguage;
+    return this.currentLanguage;
   }
 
-  static setCurrentLanguage(language: string) {
-    Util.currentLanguage = language;
+  setCurrentLanguage(language: string) {
+    this.currentLanguage = language;
   }
 
-  static publicApiRequest(methodType: string, apiURL: string, callback) {
+  publicApiRequest(methodType: string, apiURL: string, callback) {
     let xmlHttp = new XMLHttpRequest();
     xmlHttp.onreadystatechange = function () {
       if (xmlHttp.readyState === 4 && xmlHttp.status === 200) {
@@ -186,7 +196,7 @@ export class Util {
     xmlHttp.send(null);
   }
 
-  static setCookie(name: string, value: any, expiresDays?: number) {
+  setCookie(name: string, value: any, expiresDays?: number) {
     if (expiresDays) {
       let d = new Date();
       d.setTime(d.getTime() + (expiresDays * 24 * 60 * 60 * 1000));
@@ -197,7 +207,7 @@ export class Util {
     }
   }
 
-  static clearCookie(name: string, expiresDays?: number) {
+  clearCookie(name: string, expiresDays?: number) {
     if (expiresDays) {
       let d = new Date();
       d.setTime(d.getTime() + (expiresDays * 24 * 60 * 60 * 1000));
@@ -208,7 +218,7 @@ export class Util {
     }
   }
 
-  static getCookie(name: string) {
+  getCookie(name: string) {
     name += '=';
     let ca = document.cookie.split(';');
     for (let i = 0; i < ca.length; i++) {
@@ -223,14 +233,14 @@ export class Util {
     return '';
   }
 
-  static checkCookie() {
-    let user = Util.getCookie('username');
+  checkCookie() {
+    let user = this.getCookie('username');
     if (user !== '') {
       alert('Welcome again ' + user);
     } else {
       user = prompt('Please enter your name:', '');
       if (user !== '' && user != null) {
-        Util.setCookie('username', user, 365);
+        this.setCookie('username', user, 365);
       }
     }
   }

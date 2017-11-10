@@ -72,7 +72,7 @@ export class Component {
         this.element = document.body;
       } else {
         let nodes = document.getElementsByTagName(this.tag);
-        let path = Util.getCurrentComponentPath();
+        let path = Util.getInstance().getCurrentComponentPath();
 
         // if (path) {
         //   // console.log('importCSS:' + path);
@@ -92,9 +92,9 @@ export class Component {
         this.element.id = this.tag + 'Id' + nodes.length;
       }
     } else {
-      this.tag = Util.getTag(this.getClassName());
+      this.tag = Util.getInstance().getTag(this.getClassName());
       let nodes = document.getElementsByTagName(this.tag);
-      let path = Util.getCurrentComponentPath();
+      let path = Util.getInstance().getCurrentComponentPath();
 
       // if (path) {
       //   // console.log('importCSS2:' + path);
@@ -373,7 +373,7 @@ export class Component {
   private updateJSONWithArray(jSON, property: any) {
     if (this[property].length > 0) {
       let elements = this.element.getElementsByTagName(this.getComponentNameFromArrayName(property));
-      Util.removeElements(elements);
+      Util.getInstance().removeElements(elements);
       this[property].length = 0;
     }
 

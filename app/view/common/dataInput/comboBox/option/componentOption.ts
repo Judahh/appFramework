@@ -29,7 +29,7 @@ export class ComponentOption extends Component {
           continue;
         }
 
-        if (jSON[property]['language'] == Util.getCurrentLanguage()) {
+        if (jSON[property]['language'] == Util.getInstance().getCurrentLanguage()) {
           // console.log('LANG:'+jSON[property]['language']);
           break;
         }

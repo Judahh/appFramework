@@ -6,11 +6,11 @@ export class ApiConnection {
         let arrayURL = currentURL.split('/');
         arrayURL[arrayURL.length-1]='';
         let usableURL=arrayURL.join('/');
-        Util.publicApiRequest(methodType, usableURL + apiMethod, callback);
+        Util.getInstance().publicApiRequest(methodType, usableURL + apiMethod, callback);
     }
 
     static ExternalRequest(methodType: string, apiURL: string, apiMethod: string, callback) {
 
-        Util.publicApiRequest(methodType, apiURL + '/' + apiMethod, callback);
+        Util.getInstance().publicApiRequest(methodType, apiURL + '/' + apiMethod, callback);
     }
 }

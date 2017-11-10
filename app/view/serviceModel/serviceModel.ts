@@ -13,7 +13,7 @@ export class ServiceModel {
             // require([this.uRLOffline + path + '.json'], _self.test);
             return null;
         }else{
-            return Util.getJsonPromise(this.uRL + path + '.json');
+            return Util.getInstance().getJsonPromise(this.uRL + path + '.json');
         }
         // this.http.get(this.URL+path+'.json').toPromise().then(this.extractData).catch(this.handlePromiseError);
     }

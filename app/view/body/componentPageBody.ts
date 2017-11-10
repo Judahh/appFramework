@@ -23,7 +23,7 @@ export class ComponentPageBody extends Component {
 
   public goToPage(pageName?: string) {
     // console.log('goToPage:'+pageName);
-    let cookie = Util.getCookie('page');
+    let cookie = Util.getInstance().getCookie('page');
     if (this.currentPageName == undefined ||
       this.currentPageName != pageName) {
       this.nextPageName = pageName;
@@ -47,6 +47,6 @@ export class ComponentPageBody extends Component {
     super.renderAfterUpdateJSON();
     this.currentPageName = this.nextPageName;
     window.history.pushState('', '', '/' + this.currentPageName);
-    Util.clearCookie('page');
+    Util.getInstance().clearCookie('page');
   }
 }
