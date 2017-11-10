@@ -2,7 +2,7 @@ import { Component } from './../component/component';
 import { Util } from './../../util/util';
 
 export class AppObject extends Component {
-  private util: Util;
+  protected util: Util;
 
   constructor(father?: Component) {
     super(father);
