@@ -8,12 +8,19 @@ export class ServiceModel {
         // console.log(internalJSON);
         // console.log('A:');
         if(window['offline']){
-            return Util.getJsonPromise(this.uRLOffline + path + '.json');
+            // console.log();
+            // let _self = this;
+            // require([this.uRLOffline + path + '.json'], _self.test);
+            return null;
         }else{
             return Util.getJsonPromise(this.uRL + path + '.json');
         }
         // this.http.get(this.URL+path+'.json').toPromise().then(this.extractData).catch(this.handlePromiseError);
     }
+
+    // public static test(){
+
+    // }
 
     // private handlePromiseError (error: Response | any) {
     //     // In a real world app, we might use a remote logging infrastructure
