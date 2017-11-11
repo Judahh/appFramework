@@ -302,7 +302,6 @@ export class Component {
 
   public setCurrentLanguage(language: string) {
     Util.getInstance().setLanguage(language);
-    this.getJSONPromise(this.getPage());
   }
 
   public getCurrentLanguage() {
