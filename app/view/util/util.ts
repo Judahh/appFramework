@@ -99,7 +99,7 @@ export class Util {
     this.currentLanguage = language;
   }
 
-  getJsonPromise(path: string): JQueryPromise<any> {
+  getJsonPromise(path: string): JQueryPromise<any> {// add cache
     if (this.dataJSON == null) {
       this.dataJSON = new Array();
     }
@@ -179,7 +179,9 @@ export class Util {
   getCurrentLanguage() {
     if (this.currentLanguage !== undefined) {
       return this.currentLanguage;
-    } else if (this.getCookie('language') !== undefined) {
+    } else if (this.getCookie('language') !== undefined &&
+               this.getCookie('language') !== null      &&
+               this.getCookie('language') !== '') {
       this.currentLanguage = this.getCookie('language');
     } else {
       this.currentLanguage = this.getBrowserLanguage();
