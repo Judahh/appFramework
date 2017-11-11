@@ -38,6 +38,12 @@ export class ComponentPageBody extends Component {
     }
   }
 
+  public refreshPage() {
+    let page = this.currentPageName;
+    this.currentPageName = undefined;
+    this.goToPage(page);
+  }
+
   protected updateFailed(data) {
     this.goToPage('unknown');
   }
