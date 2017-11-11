@@ -179,6 +179,8 @@ export class Util {
   getCurrentLanguage() {
     if (this.currentLanguage !== undefined) {
       return this.currentLanguage;
+    } else if (this.getCookie('language') !== undefined) {
+      this.currentLanguage = this.getCookie('language');
     } else {
       this.currentLanguage = this.getBrowserLanguage();
     }
@@ -187,6 +189,7 @@ export class Util {
 
   setCurrentLanguage(language: string) {
     this.currentLanguage = language;
+    this.setCookie('language', language);
   }
 
   publicApiRequest(methodType: string, apiURL: string, callback) {
