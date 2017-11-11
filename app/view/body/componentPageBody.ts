@@ -4,7 +4,7 @@ import { ComponentBackground } from './background/componentBackground';
 import { ComponentDivisor } from './../common/divisor/componentDivisor';
 import { Component } from './../common/component/component';
 
-try {require('./componentPageBody.css');}catch(e){};
+try { require('./componentPageBody.css'); } catch (e) { };
 
 
 export class ComponentPageBody extends Component {
@@ -24,16 +24,15 @@ export class ComponentPageBody extends Component {
   public goToPage(pageName?: string) {
     // console.log('goToPage:'+pageName);
     let cookie = Util.getInstance().getCookie('page');
-    if (this.currentPageName == undefined ||
-      this.currentPageName != pageName) {
+    if (this.currentPageName === undefined ||
+      this.currentPageName !== pageName) {
       this.nextPageName = pageName;
       // console.log('goToPage2:'+pageName);
       if (pageName) {
         this.getJSONPromise(pageName);
-      } else if (cookie != '') {
+      } else if (cookie !== '') {
         this.goToPage(cookie);
-      }
-      else {
+      } else {
         this.goToPage('home');
       }
     }
