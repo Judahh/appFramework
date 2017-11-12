@@ -1,6 +1,7 @@
 import { Component } from './../component/component';
 import { Util } from './../../util/util';
-try {require('./componentChart.css');}catch(e){};
+// tslint:disable-next-line:no-empty
+try { require('./componentChart.css'); } catch (e) { };
 
 export class ComponentChart extends Component {
   arrayData: Array<any>;
@@ -15,21 +16,18 @@ export class ComponentChart extends Component {
 
   language: any;
 
-  //IF DATALIST IT NEEDS A INPUT
-  //<input list='datalistID' name='inputNAME'>
-  //<datalist id='datalistID'>
-
   constructor(father?: Component, tag?) {
     super(father, 'chart');
   }
 
   renderAfterUpdateJSON() {
-    if (this.language == undefined) {
+    if (this.language === undefined) {
       this.getLanguage();
     }
     // Load google charts
     let charts;
-    eval ('charts = google.charts;');
+    // tslint:disable-next-line:no-eval
+    eval('charts = google.charts;');
     charts.load('current', { 'packages': ['corechart'] });
     let _self = this;
     charts.setOnLoadCallback(() => { _self.drawChart(); });
@@ -40,12 +38,12 @@ export class ComponentChart extends Component {
   protected updateLanguage(jSON) {
     let property;
     for (property in jSON) {
-      if (property != undefined) {
+      if (property !== undefined) {
         if (!jSON.hasOwnProperty(property)) {
           continue;
         }
 
-        if (jSON[property]['language'] == Util.getInstance().getCurrentLanguage()) {
+        if (jSON[property]['language'] === Util.getInstance().getCurrentLanguage()) {
           // console.log('LANG:'+jSON[property]['language']);
           break;
         }
@@ -54,14 +52,14 @@ export class ComponentChart extends Component {
     // console.log('selected lan:'+property);
     let subJSON = jSON[property];
     for (let languageProperty in subJSON) {
-      if (languageProperty != undefined) {
+      if (languageProperty !== undefined) {
         if (!subJSON.hasOwnProperty(languageProperty)) {
           continue;
         }
-        
+
 
         for (let index = 0; index < this.arrayData.length; index++) {
-          if (languageProperty == this.arrayData[index]) {
+          if (languageProperty === this.arrayData[index]) {
             if (subJSON[languageProperty].constructor === Array) {
               this.arrayData[index] = '';
               subJSON[languageProperty].forEach(element => {
@@ -73,7 +71,7 @@ export class ComponentChart extends Component {
             // console.log('INNER:'+subJSON[languageProperty]);
           }
           for (let index2 = 0; index2 < this.arrayData[index].length; index2++) {
-            if (languageProperty == this.arrayData[index][index2]) {
+            if (languageProperty === this.arrayData[index][index2]) {
               if (subJSON[languageProperty].constructor === Array) {
                 this.arrayData[index][index2] = '';
                 subJSON[languageProperty].forEach(element => {
@@ -87,7 +85,7 @@ export class ComponentChart extends Component {
           }
         }
 
-        if (languageProperty == this.options.title) {
+        if (languageProperty === this.options.title) {
           if (subJSON[languageProperty].constructor === Array) {
             this.options.title = '';
             subJSON[languageProperty].forEach(element => {
@@ -98,19 +96,21 @@ export class ComponentChart extends Component {
           }
           // console.log('INNER:'+subJSON[languageProperty]);
         }
-        
+
       }
     }
   }
 
   drawChart() {
     let visualization;
-    eval ('visualization = google.visualization;');
+    // tslint:disable-next-line:no-eval
+    eval('visualization = google.visualization;');
     let data = visualization.arrayToDataTable(this.arrayData);
     // Display the chart inside the <div> element with id='piechart'
     // console.log(this.element.id);
     let chart;
-    eval ('chart = new google.visualization.'+this.chartType+'(this.element);');
+    // tslint:disable-next-line:no-eval
+    eval('chart = new google.visualization.' + this.chartType + '(this.element);');
     chart.draw(data, this.options);
     super.renderAfterUpdateJSON();
   }
