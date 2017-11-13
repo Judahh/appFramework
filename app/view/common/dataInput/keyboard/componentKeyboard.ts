@@ -27,8 +27,8 @@ export class ComponentKeyboard extends Component {
     console.log('_self.typing:',_self.typing)
     console.log('_self.extender:',_self.extender)
     eval('element = $(id);');
-    element.keyboard(_self.keyboardOptions)
-    .addTyping(_self.typing)
-    .addExtender(_self.extender);
+    element.keyboard(_self.keyboardOptions);
+    // .addTyping(_self.typing)
+    // .addExtender(_self.extender);
   }
 }
