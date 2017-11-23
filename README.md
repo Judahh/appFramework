@@ -1,4 +1,4 @@
-# backApp
+# backApp [![Build Status](https://travis-ci.org/Judahh/backApp.svg?branch=master)][3] [![backapp version]
 ## Installation
 
 ### Software
