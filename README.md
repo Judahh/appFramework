@@ -25,12 +25,10 @@ $ sudo apt-get install git git-all
 ### Project
 
 ```sh
-sudo apt-get install -y nodejs
-sudo apt-get install -y build-essential
-sudo apt-get install -y npm
-sudo npm install -g npm
-sudo npm install -g typescript
-sudo npm install -g concurrently	
+wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.33.6/install.sh | bash
+nvm install node
+npm install -g typescript
+npm install -g concurrently
 npm install backappjh
 ```
 
