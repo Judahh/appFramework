@@ -9,6 +9,7 @@ import { ComponentChart } from './../chart/componentChart';
 import { ComponentMap } from './../map/componentMap';
 import { ComponentProgressBar } from './../progressBar/componentProgressBar';
 import { ComponentSVG } from './../sVG/componentSVG';
+import { ComponentTable } from './../table/componentTable';
 try {require('./componentDivisor.css');}catch(e){};
 
 export class ComponentDivisor extends Component {
@@ -21,6 +22,7 @@ export class ComponentDivisor extends Component {
     arrayMap: Array<ComponentMap>;
     arrayProgressBar: Array<ComponentProgressBar>;
     arraySVG: Array<ComponentSVG>;
+    arrayTable: Array<ComponentTable>;
     arrayDivisor: Array<ComponentDivisor>;
 
     constructor(father?: Component) {
@@ -41,6 +43,8 @@ export class ComponentDivisor extends Component {
         this.arrayProgressBar.type = ComponentProgressBar;
         this.arraySVG = new Array<ComponentSVG>();
         this.arraySVG.type = ComponentSVG;
+        this.arrayTable = new Array<ComponentTable>();
+        this.arrayTable.type = ComponentTable;
         this.arrayDivisor = new Array<ComponentDivisor>();
         this.arrayDivisor.type = ComponentDivisor;
     }

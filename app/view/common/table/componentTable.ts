@@ -1,18 +1,18 @@
 import { Component } from './../component/component';
 import { Util } from './../../util/util';
 import { ComponentItem } from './../item/componentItem';
-import { ComponenTableLine } from './tableLine/componentTableLine';
-try { require('./componenTable.css'); } catch (e) { };
+import { ComponentTableLine } from './tableLine/componentTableLine';
+try { require('./componentTable.css'); } catch (e) { };
 
-export class ComponenTable extends Component {
+export class ComponentTable extends Component {
   arrayItem: Array<ComponentItem>;
-  arrayTableLine: Array<ComponenTableLine>;
+  arrayTableLine: Array<ComponentTableLine>;
 
 
   constructor(father?: Component, tag?: string) {
     super(father, tag);
-    this.arrayTableLine = new Array<ComponenTableLine>();
-    this.arrayTableLine.type = ComponenTableLine;
+    this.arrayTableLine = new Array<ComponentTableLine>();
+    this.arrayTableLine.type = ComponentTableLine;
     this.arrayItem = new Array<ComponentItem>();
     this.arrayItem.type = ComponentItem;
   }
