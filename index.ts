@@ -59,6 +59,7 @@ import { ComponentChart } from './app/view/common/chart/componentChart'
 import { AppObjectFactory } from './app/view/common/appObject/appObjectFactory/appObjectFactory'
 import { ComponentBackground } from './app/view/body/background/componentBackground'
 import { ApiConnection } from './app/view/apiConnection/apiConnection'
+import { Observer } from './app/observer/observer'
 
 
 export { Component, ComponentPageBody, ComponentInformation, ComponentDataInput, ComponentOption,
@@ -71,5 +72,5 @@ export { Component, ComponentPageBody, ComponentInformation, ComponentDataInput,
     ComponentSource, ComponentCircle, ComponentEllipse, ComponentRectangle, ComponentPolygon, ComponentLine,
     ComponentPath, ComponentText, ComponentG, ComponentFilter, ComponentLinearGradient, ComponentRadialGradient,
     ComponentStop, ComponentDefs, ComponentFooter, ComponentHeader, ServiceModel, Util, ComponentView, App, AppObject, ImportScript,
-    ComponentChart, AppObjectFactory, ComponentBackground, ApiConnection
+    ComponentChart, AppObjectFactory, ComponentBackground, ApiConnection, Observer
 }
