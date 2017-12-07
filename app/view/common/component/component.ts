@@ -18,8 +18,6 @@ export class Component {
 
   runOnBuild: boolean;
 
-  runOnClick: boolean;
-
   arrayElementEvent: Array<ComponentElementEvent>;
 
   arrayForm: Array<ComponentForm>;
@@ -125,7 +123,6 @@ export class Component {
     this.footerChecked = false;
     this.submit = false;
     this.running = false;
-    this.runOnClick = false;
     this.runOnBuild = false;
     // this.isToRenderBeforeUpdateJSON = true;
     // this.isToRenderAfterUpdateJSON = true;
@@ -183,7 +180,7 @@ export class Component {
   // }
 
   public renderAfterUpdateJSON() {
-    if (!this.clickListener && (this.routerLink !== undefined || (this.code !== undefined && this.runOnClick) || this.submit)) {
+    if (!this.clickListener && (this.routerLink !== undefined || this.submit)) {
       this.element.addEventListener('click', () => this.onClick());
       this.clickListener = true;
     }
@@ -232,21 +229,6 @@ export class Component {
       // console.log('CLICK:'+this.routerLink);
       this.getView().goToPage(this.routerLink);
       // console.log('BODY:'+Util.getBrowserLanguage());
-    } else if (this.code !== undefined && this.runOnClick) {
-      // let age = new this.className();//window[this.className]();
-      let appObject = AppObjectFactory.create(this.code, this);
-      for (let property in this.appObject) {
-        if (this.appObject.hasOwnProperty(property)) {
-          appObject[property] = this.appObject[property];
-        }
-      }
-
-      this.appObject = appObject;
-      // console.log('CODE:' + this.code);
-      if (this.runFunction) {
-        eval('this.appObject.' + this.runFunction + ';');
-      }
-
     } else if (this.submit) {
       this.arrayForm.forEach(form => {
         let currentForm: HTMLFormElement = <HTMLFormElement>form.getElement();
