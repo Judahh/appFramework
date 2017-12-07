@@ -1,7 +1,7 @@
 import { Util } from './../../util/util';
 import { ServiceModel } from './../../serviceModel/serviceModel';
 import { ImportScript } from './../../../../importScript';
-try {require('./component.css');}catch(e){};
+try { require('./component.css'); } catch (e) { };
 
 // import { Array } from 'simpleutils';
 
@@ -14,6 +14,7 @@ export class Component {
   routerLink: string;
 
   code: string;
+  runFunction: string;
 
   runOnBuild: boolean;
 
@@ -196,7 +197,11 @@ export class Component {
       }
       this.appObject = appObject;
       console.log('CODE:' + this.code);
-      this.appObject.run();
+      if (this.runFunction) {
+        eval('this.appObject.' + this.runFunction + ';');
+      } else {
+        this.appObject.run();
+      }
       this.running = true;
     }
     this.arrayElementEvent.forEach(elementEvent => {
@@ -218,7 +223,11 @@ export class Component {
       }
       elementEvent.appObject = appObject;
       // console.log('CODE:' + elementEvent.code);
-      elementEvent.appObject.run();
+      if (elementEvent.runFunction) {
+        eval('this.appObject.' + elementEvent.runFunction + ';');
+      } else {
+        elementEvent.appObject.run();
+      }
     }
   }
 
@@ -237,7 +246,11 @@ export class Component {
       }
       this.appObject = appObject;
       // console.log('CODE:' + this.code);
-      this.appObject.run();
+      if (this.runFunction) {
+        eval('this.appObject.' + this.runFunction + ';');
+      } else {
+        this.appObject.run();
+      }
     } else if (this.submit) {
       this.arrayForm.forEach(form => {
         let currentForm: HTMLFormElement = <HTMLFormElement>form.getElement();
@@ -290,7 +303,7 @@ export class Component {
   }
 
   // tslint:disable-next-line:no-empty
-  protected updateLanguage(jSON) {}
+  protected updateLanguage(jSON) { }
 
   public getElement() {
     return this.element;
