@@ -222,7 +222,7 @@ export class Component {
       elementEvent.appObject = appObject;
       // console.log('CODE:' + elementEvent.code);
       if (elementEvent.runFunction) {
-        eval('this.appObject.' + elementEvent.runFunction + ';');
+        eval('elementEvent.appObject.' + elementEvent.runFunction + ';');
       }
     }
   }
