@@ -199,8 +199,6 @@ export class Component {
       console.log('CODE:' + this.code);
       if (this.runFunction) {
         eval('this.appObject.' + this.runFunction + ';');
-      } else {
-        this.appObject.run();
       }
       this.running = true;
     }
@@ -225,8 +223,6 @@ export class Component {
       // console.log('CODE:' + elementEvent.code);
       if (elementEvent.runFunction) {
         eval('this.appObject.' + elementEvent.runFunction + ';');
-      } else {
-        elementEvent.appObject.run();
       }
     }
   }
@@ -244,13 +240,13 @@ export class Component {
           appObject[property] = this.appObject[property];
         }
       }
+
       this.appObject = appObject;
       // console.log('CODE:' + this.code);
       if (this.runFunction) {
         eval('this.appObject.' + this.runFunction + ';');
-      } else {
-        this.appObject.run();
       }
+
     } else if (this.submit) {
       this.arrayForm.forEach(form => {
         let currentForm: HTMLFormElement = <HTMLFormElement>form.getElement();
