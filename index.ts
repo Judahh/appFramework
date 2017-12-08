@@ -61,6 +61,7 @@ import { ComponentBackground } from './app/view/body/background/componentBackgro
 import { ApiConnection } from './app/view/apiConnection/apiConnection';
 import { Observer } from './app/observer/observer';
 import { Socket } from './app/socket/socket';
+import { OnLoad } from './app/onLoad/onLoad';
 
 export { Component, ComponentPageBody, ComponentInformation, ComponentDataInput, ComponentOption,
     ComponentDivisor, ComponentVideoHolder, ComponentIframe, ComponentVideo, ComponentComboBox,
@@ -72,5 +73,5 @@ export { Component, ComponentPageBody, ComponentInformation, ComponentDataInput,
     ComponentSource, ComponentCircle, ComponentEllipse, ComponentRectangle, ComponentPolygon, ComponentLine,
     ComponentPath, ComponentText, ComponentG, ComponentFilter, ComponentLinearGradient, ComponentRadialGradient,
     ComponentStop, ComponentDefs, ComponentFooter, ComponentHeader, ServiceModel, Util, ComponentView, App, AppObject, ImportScript,
-    ComponentChart, AppObjectFactory, ComponentBackground, ApiConnection, Observer, Socket
+    ComponentChart, AppObjectFactory, ComponentBackground, ApiConnection, Observer, Socket, OnLoad
 }
