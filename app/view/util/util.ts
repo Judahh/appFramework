@@ -1,19 +1,4 @@
-// import { Array } from 'simpleutils';
 import * as $ from 'jquery';
-// try { let $ = require('jquery'); } catch (e) { };
-// import { JQueryPromise } from '@types/jquery'
-// declare let $: any;
-// declare let JQueryPromise: any;
-
-// declare module '$' {
-//   let _$: any;
-//   export = _$;
-// }
-
-// declare module 'JQueryPromise' {
-//   let _JQueryPromise: any;
-//   export = _JQueryPromise;
-// }
 
 declare global {
   interface Array<T> {
