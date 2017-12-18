@@ -3,9 +3,10 @@ import { App } from './../app';
 
 export class OnLoad {
     constructor() {
-        let socket = Socket.getInstance().getSocket();
+        let socket = Socket.getInstance();
         let app;
-        socket.on('getIdentification', () => {
+        socket.on('getIdentification', (key) => {
+            socket.setKey(key);
             socket.emit('identification', { type: 'app' });
             if (app == undefined) {
                 app = new App();
