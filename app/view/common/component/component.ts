@@ -18,6 +18,8 @@ export class Component {
 
   runOnBuild: boolean;
 
+  arrayRouter: Array<ComponentRouter>;
+
   arrayElementEvent: Array<ComponentElementEvent>;
 
   arrayForm: Array<ComponentForm>;
@@ -127,6 +129,8 @@ export class Component {
     // this.isToRenderBeforeUpdateJSON = true;
     // this.isToRenderAfterUpdateJSON = true;
     this.clickListener = false;
+    this.arrayRouter = new Array<ComponentRouter>();
+    this.arrayRouter.type = ComponentRouter;
     this.arrayElementEvent = new Array<ComponentElementEvent>();
     this.arrayElementEvent.type = ComponentElementEvent;
     this.arrayForm = new Array<ComponentForm>();
@@ -180,7 +184,7 @@ export class Component {
   // }
 
   public renderAfterUpdateJSON() {
-    if (!this.clickListener && (this.routerLink !== undefined || this.submit)) {
+    if (!this.clickListener && (this.routerLink !== undefined || this.arrayRouter.length > 0 || this.submit)) {
       this.element.addEventListener('click', () => this.onClick());
       this.clickListener = true;
     }
@@ -225,7 +229,16 @@ export class Component {
   }
 
   public onClick() {
-    if (this.routerLink !== undefined) {
+    if (this.arrayRouter.length > 0) {
+      for (let index = 0; index < this.arrayRouter.length; index++) {
+        let router = this.arrayRouter[index];
+        let appObject = AppObjectFactory.create(router.code, this);
+        let routerLink = router.checkRouterLink(eval('appObject.' + router.runFunction));
+        if(routerLink != undefined && routerLink != null){
+          this.getView().goToPage(routerLink);
+        }
+      }
+    } else if (this.routerLink !== undefined) {
       // console.log('CLICK:'+this.routerLink);
       this.getView().goToPage(this.routerLink);
       // console.log('BODY:'+Util.getBrowserLanguage());
@@ -494,6 +507,9 @@ export class Component {
 
 import { AppObject } from './../appObject/appObject';
 import { AppObjectFactory } from './../appObject/appObjectFactory/appObjectFactory';
+
+
+import { ComponentRouter } from './../router/componentRouter';
 
 
 import { ComponentView } from './../../componentView';

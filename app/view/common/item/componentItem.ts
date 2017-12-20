@@ -11,7 +11,6 @@ import { ComponentColorEffect } from './colorEffect/componentColorEffect';
 try { require('./componentItem.css'); } catch (e) { };
 
 export class ComponentItem extends Component {
-  routerLink: string;
   colorEffect: ComponentColorEffect;
   arrayMenuHorizontal: Array<ComponentMenuHorizontal>;
   arrayMenuVertical: Array<ComponentMenuVertical>;
