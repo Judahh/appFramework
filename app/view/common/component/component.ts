@@ -11,7 +11,7 @@ export class Component {
   protected element: HTMLElement | SVGElement | SVGSVGElement;
   protected father: Component;
   protected tag: string;
-  routerLink: string;
+  // routerLink: string;
 
   code: string;
   runFunction: string;
@@ -184,7 +184,7 @@ export class Component {
   // }
 
   public renderAfterUpdateJSON() {
-    if (!this.clickListener && (this.routerLink !== undefined || this.arrayRouter.length > 0 || this.submit)) {
+    if (!this.clickListener && (this.arrayRouter.length > 0 || this.submit)) {
       this.element.addEventListener('click', () => this.onClick());
       this.clickListener = true;
     }
@@ -232,16 +232,20 @@ export class Component {
     if (this.arrayRouter.length > 0) {
       for (let index = 0; index < this.arrayRouter.length; index++) {
         let router = this.arrayRouter[index];
-        let appObject = AppObjectFactory.create(router.code, this);
-        let routerLink = router.checkRouterLink(eval('appObject.' + router.runFunction));
-        if(routerLink != undefined && routerLink != null){
-          this.getView().goToPage(routerLink);
+        if (router.code != undefined && router.code != null && router.runFunction != undefined && router.runFunction != null) {
+          let appObject = AppObjectFactory.create(router.code, this);
+          let routerLink = router.checkRouterLink(eval('appObject.' + router.runFunction));
+          if (routerLink != undefined && routerLink != null) {
+            this.getView().goToPage(routerLink);
+          }
+        }else{
+          this.getView().goToPage(router.link);
         }
       }
-    } else if (this.routerLink !== undefined) {
-      // console.log('CLICK:'+this.routerLink);
-      this.getView().goToPage(this.routerLink);
-      // console.log('BODY:'+Util.getBrowserLanguage());
+    // } else if (this.routerLink !== undefined) {
+    //   // console.log('CLICK:'+this.routerLink);
+    //   this.getView().goToPage(this.routerLink);
+    //   // console.log('BODY:'+Util.getBrowserLanguage());
     } else if (this.submit) {
       this.arrayForm.forEach(form => {
         let currentForm: HTMLFormElement = <HTMLFormElement>form.getElement();
