@@ -231,6 +231,12 @@ export class Component {
     }
   }
 
+  public runObjectFunction(object){
+    let appObject = AppObjectFactory.create(object.code, this);
+    let result = eval('appObject.' + object.runFunction);
+    return result;
+  }
+
   public onClick() {
     if (this.arrayRouter.length > 0) {
       for (let index = 0; index < this.arrayRouter.length; index++) {

@@ -8,8 +8,12 @@ export class ComponentAuthorization extends Component {
         super(father, tag);
     }
 
-    checkAuthorization(runFunction) {
-        if (!runFunction()) {
+    renderAfterUpdateJSON(){
+        this.checkAuthorization();
+    }
+
+    checkAuthorization() {
+        if (!this.father.runObjectFunction(this)) {
             this.father.destroyElement();
             delete this.father;
         }
