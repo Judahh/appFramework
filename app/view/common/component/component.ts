@@ -237,9 +237,11 @@ export class Component {
           let routerLink = router.checkRouterLink(eval('appObject.' + router.runFunction));
           if (routerLink != undefined && routerLink != null) {
             this.getView().goToPage(routerLink);
+            return;
           }
         }else{
           this.getView().goToPage(router.link);
+          return;
         }
       }
     // } else if (this.routerLink !== undefined) {
