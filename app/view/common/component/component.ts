@@ -19,6 +19,7 @@ export class Component {
   runOnBuild: boolean;
 
   arrayRouter: Array<ComponentRouter>;
+  arrayAuthorization: Array<ComponentAuthorization>;
 
   arrayElementEvent: Array<ComponentElementEvent>;
 
@@ -129,6 +130,8 @@ export class Component {
     // this.isToRenderBeforeUpdateJSON = true;
     // this.isToRenderAfterUpdateJSON = true;
     this.clickListener = false;
+    this.arrayAuthorization = new Array<ComponentAuthorization>();
+    this.arrayAuthorization.type = ComponentAuthorization;
     this.arrayRouter = new Array<ComponentRouter>();
     this.arrayRouter.type = ComponentRouter;
     this.arrayElementEvent = new Array<ComponentElementEvent>();
@@ -516,6 +519,7 @@ import { AppObjectFactory } from './../appObject/appObjectFactory/appObjectFacto
 
 
 import { ComponentRouter } from './../router/componentRouter';
+import { ComponentAuthorization } from './../authorization/componentAuthorization';
 
 
 import { ComponentView } from './../../componentView';
