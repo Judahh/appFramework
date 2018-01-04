@@ -8,7 +8,7 @@ try { require('./component.css'); } catch (e) { };
 
 export class Component {
   // protected fatherElement:Component;
-  protected element: HTMLElement | SVGElement | SVGSVGElement | HTMLInputElement;
+  protected element: HTMLElement | SVGElement | SVGSVGElement | HTMLInputElement | HTMLTextAreaElement;
   protected father: Component;
   protected tag: string;
   // routerLink: string;
