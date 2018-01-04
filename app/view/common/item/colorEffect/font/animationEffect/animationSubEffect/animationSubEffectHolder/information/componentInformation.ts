@@ -5,8 +5,6 @@ import { AppObject } from './../../../../../../../appObject/appObject';
 try { require('./componentInformation.css'); } catch (e) { };
 
 export class ComponentInformation extends Component {
-  code: string;
-  appObject: AppObject;
   information: string;
   language: string;
   item: any; // ComponentItem
@@ -28,6 +26,7 @@ export class ComponentInformation extends Component {
     }
 
   }
+
   protected updateLanguage(jSON) {
     let property;
     for (property in jSON) {
