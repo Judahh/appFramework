@@ -231,7 +231,7 @@ export class Component {
     }
   }
 
-  public runObjectFunction(object){
+  public runObjectFunction(object) {
     let appObject = AppObjectFactory.create(object.code, this);
     let result = eval('appObject.' + object.runFunction);
     return result;
@@ -248,15 +248,15 @@ export class Component {
             this.getView().goToPage(routerLink);
             return;
           }
-        }else{
+        } else {
           this.getView().goToPage(router.link);
           return;
         }
       }
-    // } else if (this.routerLink !== undefined) {
-    //   // console.log('CLICK:'+this.routerLink);
-    //   this.getView().goToPage(this.routerLink);
-    //   // console.log('BODY:'+Util.getBrowserLanguage());
+      // } else if (this.routerLink !== undefined) {
+      //   // console.log('CLICK:'+this.routerLink);
+      //   this.getView().goToPage(this.routerLink);
+      //   // console.log('BODY:'+Util.getBrowserLanguage());
     } else if (this.submit) {
       this.arrayForm.forEach(form => {
         let currentForm: HTMLFormElement = <HTMLFormElement>form.getElement();
