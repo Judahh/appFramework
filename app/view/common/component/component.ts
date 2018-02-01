@@ -45,6 +45,8 @@ export class Component {
 
   page: string;
 
+  arrayDisabled: Array<Component>;
+
   // isToRenderBeforeUpdateJSON: boolean;
 
   // isToRenderAfterUpdateJSON: boolean;
@@ -138,6 +140,8 @@ export class Component {
     this.arrayElementEvent.type = ComponentElementEvent;
     this.arrayForm = new Array<ComponentForm>();
     this.arrayForm.type = ComponentForm;
+    this.arrayDisabled = new Array<Component>();
+    this.arrayDisabled.type = Component;
   }
 
   public getView() {
