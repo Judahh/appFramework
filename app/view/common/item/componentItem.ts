@@ -28,6 +28,8 @@ export class ComponentItem extends Component {
     this.arrayMenuHorizontal.type = ComponentMenuHorizontal;
     this.arrayMenuVertical = new Array<ComponentMenuVertical>();
     this.arrayMenuVertical.type = ComponentMenuVertical;
+    this.arrayDivisor = new Array<ComponentDivisor>();
+    this.arrayDivisor.type = ComponentDivisor;
   }
 
   private getdivisor() {

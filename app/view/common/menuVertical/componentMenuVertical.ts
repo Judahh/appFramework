@@ -6,7 +6,6 @@ try { require('./componentMenuVertical.css'); } catch (e) { };
 
 export class ComponentMenuVertical extends Component{
   class: string;
-  arrayDivisor: Array<ComponentDivisor>;
   
   constructor(father?: Component) {
       super(father);

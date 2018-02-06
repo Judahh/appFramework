@@ -23,7 +23,6 @@ export class ComponentDivisor extends Component {
     arrayProgressBar: Array<ComponentProgressBar>;
     arraySVG: Array<ComponentSVG>;
     arrayTable: Array<ComponentTable>;
-    arrayDivisor: Array<ComponentDivisor>;
 
     constructor(father?: Component) {
         super(father);

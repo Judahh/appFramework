@@ -6,7 +6,6 @@ try { require('./componentLeftHolder.css'); } catch (e) { };
 
 export class ComponentLeftHolder extends Component{
   class: string;
-  arrayDivisor: Array<ComponentDivisor>;
   
   constructor(father?: Component) {
       super(father);

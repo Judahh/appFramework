@@ -13,6 +13,8 @@ export class Component {
   protected tag: string;
   // routerLink: string;
 
+  arrayDivisor: Array<ComponentDivisor>;
+
   code: string;
   runFunction: string;
 
@@ -142,6 +144,8 @@ export class Component {
     this.arrayForm.type = ComponentForm;
     this.arrayDisabled = new Array<Component>();
     this.arrayDisabled.type = Component;
+    this.arrayDivisor = new Array<ComponentDivisor>();
+    this.arrayDivisor.type = ComponentDivisor;
   }
 
   public getView() {
@@ -537,6 +541,7 @@ import { ComponentPageBody } from './../../body/componentPageBody';
 import { ComponentHeader } from './../../header/componentHeader';
 import { ComponentFooter } from './../../footer/componentFooter';
 import { ComponentForm } from './../form/componentForm';
+import { ComponentDivisor } from './../divisor/componentDivisor';
 
 // import './../elementEvent/componentElementEvent';
 import { ComponentElementEvent } from './../elementEvent/componentElementEvent';

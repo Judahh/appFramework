@@ -6,7 +6,6 @@ try { require('./componentRightHolder.css'); } catch (e) { };
 
 export class ComponentRightHolder extends Component{
   class: string;
-  arrayDivisor: Array<ComponentDivisor>;
   
   constructor(father?: Component) {
       super(father);

@@ -9,7 +9,6 @@ try { require('./componentPageBody.css'); } catch (e) { };
 
 export class ComponentPageBody extends Component {
   background: ComponentBackground;
-  arrayDivisor: Array<ComponentDivisor>;
   currentPageName: string;
   nextPageName: string;
 

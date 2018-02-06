@@ -6,7 +6,6 @@ try { require('./componentCenterHolder.css'); } catch (e) { };
 
 export class ComponentCenterHolder extends Component{
   class: string;
-  arrayDivisor: Array<ComponentDivisor>;
   
   constructor(father?: Component) {
       super(father);
