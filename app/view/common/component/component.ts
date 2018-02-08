@@ -327,6 +327,10 @@ export class Component {
     return this.father;
   }
 
+  public setFather(father) {
+    this.father = father;
+  }
+
   public setCurrentLanguage(language: string) {
     Util.getInstance().setLanguage(language);
   }
