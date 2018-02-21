@@ -1,28 +1,32 @@
-import * as io from 'socket.io-client';
 import * as  uuidv4 from 'uuid/v4';
 import * as  crypto from 'crypto';
 const IV_LENGTH = 16; // For AES, this is always 16
 
-export class Socket {
-    private static instance: Socket;
-    private socket;
+export class BasicSocket {
+    protected identification: any;
+    protected socket: any;
     private key;
     // private subscribers: Array<any>;
 
-    constructor() {
-        this.socket = io();
+    constructor(socket) {
+        this.socket = socket;
         // this.subscribers = new Array<any>();
     }
 
-    public static getInstance(): Socket {
-        if (!Socket.instance) {
-            Socket.instance = new Socket();
-        }
-        return Socket.instance;
+    public getIdentification() {
+        return this.identification;
     }
 
-    public static generateKey(size: number){
+    public static generateKey(size: number) {
         return crypto.randomBytes(size);
+    }
+
+    public setIdentification(identification) {
+        this.identification = identification;
+    }
+
+    public setSocket(socket) {
+        this.socket = socket;
     }
 
     public setKey(key) {
@@ -31,6 +35,7 @@ export class Socket {
     }
 
     public encrypt(object: Object) {
+        // console.log("encrypt");
         let objectText: string = JSON.stringify(object);
         let objectBuffer: Buffer = new Buffer(objectText);
         let iv = crypto.randomBytes(IV_LENGTH);
@@ -43,6 +48,7 @@ export class Socket {
     }
 
     public decrypt(objectText: string) {
+        // console.log("decrypt");
         let textParts = objectText.split(':');
         let iv = new Buffer(textParts.shift(), 'hex');
         let encryptedText = new Buffer(textParts.join(':'), 'hex');
@@ -57,27 +63,29 @@ export class Socket {
 
     public emit(messageName, message) {
         let _self = this;
-        if (_self.key == undefined){
-            // _self.subscribe(() => {
-            //     _self.socket.emit(messageName, _self.encrypt(message));
-            // });
+        if (_self.key === undefined || messageName === 'disconnect') {
             _self.socket.emit(messageName, message);
-        }else{
+        } else {
             _self.socket.emit(messageName, _self.encrypt(message));
         }
-
     }
 
     public on(messageName, callback) {
         let _self = this;
         this.socket.on(messageName, (message) => {
-            if (_self.key == undefined){
+            if (!this.isFunction(message.split)) {
+                _self.key = undefined;
+            }
+            if (_self.key === undefined || messageName === 'disconnect') {
                 callback(message);
-            }else{
+            } else {
                 callback(_self.decrypt(message));
             }
-            
         });
+    }
+
+    public isFunction(functionToCheck) { //temp
+        return functionToCheck && {}.toString.call(functionToCheck) === '[object Function]';
     }
 
     // public subscribe(callback) {
