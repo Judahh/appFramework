@@ -1,4 +1,4 @@
-import { UniqueSocket } from './../socket/uniqueSocket';
+import { UniqueSocket } from 'basicsocket';
 import { App } from './../app';
 
 export class OnLoad {
@@ -10,13 +10,13 @@ export class OnLoad {
         socket.on('getIdentification', (key) => {
             socket.setKey(key);
             socket.emit('identification', socket.getIdentification());
-            if (app == undefined) {
+            if (app === undefined) {
                 app = new App();
             }
         });
         socket.on('reconnect_attempt', () => {
             console.log('Reconnect Attempt');
-            if (app == undefined) {
+            if (app === undefined) {
                 app = new App();
             }
         });

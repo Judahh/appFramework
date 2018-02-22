@@ -60,8 +60,7 @@ import { AppObjectFactory } from './app/view/common/appObject/appObjectFactory/a
 import { ComponentBackground } from './app/view/body/background/componentBackground';
 import { ApiConnection } from './app/view/apiConnection/apiConnection';
 import { Observer } from './app/observer/observer';
-import { BasicSocket } from './app/socket/basicSocket';
-import { UniqueSocket } from './app/socket/uniqueSocket';
+import { BasicSocket, UniqueSocket } from 'basicSocket';
 import { OnLoad } from './app/onLoad/onLoad';
 
 export { Component, ComponentPageBody, ComponentInformation, ComponentDataInput, ComponentOption,
