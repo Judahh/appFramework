@@ -5,3 +5,4 @@ export class ComponentCircle extends Component {
     super(father, 'circle', true);
   }
 }
+ComponentCircle.addConstructor(ComponentCircle.name, ComponentCircle);

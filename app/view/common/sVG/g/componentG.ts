@@ -23,7 +23,7 @@ export class ComponentG extends Component {
   arrayLine: Array<ComponentLine>;
 
   arrayPath: Array<ComponentPath>;
-  
+
   arrayText: Array<ComponentText>;
 
   arrayG: Array<ComponentG>;
@@ -62,3 +62,4 @@ export class ComponentG extends Component {
     this.arrayDefs.type = ComponentDefs;
   }
 }
+ComponentG.addConstructor(ComponentG.name, ComponentG);

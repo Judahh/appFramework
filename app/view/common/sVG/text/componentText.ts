@@ -2,7 +2,7 @@ import { Component } from './../../component/component';
 import { Util } from './../../../util/util';
 
 export class ComponentText extends Component {
-  text:string;
+  text: string;
   language: string;
 
   constructor(father?: Component, tag?, sVG?) {
@@ -10,7 +10,7 @@ export class ComponentText extends Component {
   }
 
   public renderAfterUpdateJSON() {
-    if (this.language == undefined) {
+    if (this.language === undefined) {
       this.getLanguage();
     }
     super.renderAfterUpdateJSON();
@@ -24,12 +24,12 @@ export class ComponentText extends Component {
   protected updateLanguage(jSON) {
     let property;
     for (property in jSON) {
-      if (property != undefined) {
+      if (property !== undefined) {
         if (!jSON.hasOwnProperty(property)) {
           continue;
         }
 
-        if (jSON[property]['language'] == Util.getInstance().getCurrentLanguage()) {
+        if (jSON[property]['language'] === Util.getInstance().getCurrentLanguage()) {
           // console.log('LANG:'+jSON[property]['language']);
           break;
         }
@@ -38,12 +38,12 @@ export class ComponentText extends Component {
     // console.log('selected lan:'+property);
     let subJSON = jSON[property];
     for (let languageProperty in subJSON) {
-      if (languageProperty != undefined) {
+      if (languageProperty !== undefined) {
         if (!subJSON.hasOwnProperty(languageProperty)) {
           continue;
         }
 
-        if (languageProperty == this.text) {
+        if (languageProperty === this.text) {
           if (subJSON[languageProperty].constructor === Array) {
             this.element.innerHTML = '';
             subJSON[languageProperty].forEach(element => {
@@ -58,3 +58,4 @@ export class ComponentText extends Component {
     }
   }
 }
+ComponentText.addConstructor(ComponentText.name, ComponentText);

@@ -10,7 +10,8 @@ import { ComponentMap } from './../map/componentMap';
 import { ComponentProgressBar } from './../progressBar/componentProgressBar';
 import { ComponentSVG } from './../sVG/componentSVG';
 import { ComponentTable } from './../table/componentTable';
-try {require('./componentDivisor.css');}catch(e){};
+// tslint:disable-next-line:no-empty
+try { require('./componentDivisor.css'); } catch (e) { };
 
 export class ComponentDivisor extends Component {
     arrayItem: Array<ComponentItem>;
@@ -48,3 +49,4 @@ export class ComponentDivisor extends Component {
         this.arrayDivisor.type = ComponentDivisor;
     }
 }
+ComponentDivisor.addConstructor(ComponentDivisor.name, ComponentDivisor);

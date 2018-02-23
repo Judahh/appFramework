@@ -1,7 +1,7 @@
 import { Component } from './../../component/component';
 import * as $ from 'jquery';
-// import { Util } from './../../../util/util';
 import { KeyboardOptions, Typing, Extender } from 'virtual-keyboard';
+// tslint:disable-next-line:no-empty
 try { require('./componentKeyboard.css'); } catch (e) { };
 
 export class ComponentKeyboard extends Component {
@@ -20,3 +20,4 @@ export class ComponentKeyboard extends Component {
     element.keyboard(_self.keyboardOptions);
   }
 }
+ComponentKeyboard.addConstructor(ComponentKeyboard.name, ComponentKeyboard);

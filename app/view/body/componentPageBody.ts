@@ -1,11 +1,9 @@
-// import { Array } from 'simpleutils';
 import { Util } from './../util/util';
 import { ComponentBackground } from './background/componentBackground';
 import { ComponentDivisor } from './../common/divisor/componentDivisor';
 import { Component } from './../common/component/component';
-
+// tslint:disable-next-line:no-empty
 try { require('./componentPageBody.css'); } catch (e) { };
-
 
 export class ComponentPageBody extends Component {
   background: ComponentBackground;
@@ -54,3 +52,4 @@ export class ComponentPageBody extends Component {
     Util.getInstance().clearCookie('page');
   }
 }
+ComponentPageBody.addConstructor(ComponentPageBody.name, ComponentPageBody);

@@ -6,3 +6,4 @@ export class ComponentPolyline extends Component {
     super(father, 'polyline', true);
   }
 }
+ComponentPolyline.addConstructor(ComponentPolyline.name, ComponentPolyline);

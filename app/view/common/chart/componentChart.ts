@@ -120,3 +120,4 @@ export class ComponentChart extends Component {
     super.renderAfterUpdateJSON();
   }
 }
+ComponentChart.addConstructor(ComponentChart.name, ComponentChart);

@@ -6,3 +6,4 @@ export class ComponentRectangle extends Component {
     super(father, 'rect', true);
   }
 }
+ComponentRectangle.addConstructor(ComponentRectangle.name, ComponentRectangle);

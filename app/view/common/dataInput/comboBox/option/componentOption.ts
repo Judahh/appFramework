@@ -1,35 +1,36 @@
 import { Component } from './../../../component/component';
 import { Util } from './../../../../util/util';
-try {require('./componentOption.css');}catch(e){};
+// tslint:disable-next-line:no-empty
+try { require('./componentOption.css'); } catch (e) { };
 
 export class ComponentOption extends Component {
   information: string;
   language: string;
-  
+
   constructor(father?: Component) {
     super(father, 'option');
   }
 
   public renderAfterUpdateJSON() {
-    if (this.language == undefined) {
+    if (this.language === undefined) {
       this.getLanguage();
     }
     super.renderAfterUpdateJSON();
-    if(!this.element.innerHTML){
+    if (!this.element.innerHTML) {
       this.element.innerHTML = this.information;
     }
-    
+
   }
 
   protected updateLanguage(jSON) {
     let property;
     for (property in jSON) {
-      if (property != undefined) {
+      if (property !== undefined) {
         if (!jSON.hasOwnProperty(property)) {
           continue;
         }
 
-        if (jSON[property]['language'] == Util.getInstance().getCurrentLanguage()) {
+        if (jSON[property]['language'] === Util.getInstance().getCurrentLanguage()) {
           // console.log('LANG:'+jSON[property]['language']);
           break;
         }
@@ -38,18 +39,18 @@ export class ComponentOption extends Component {
     // console.log('selected lan:'+property);
     let subJSON = jSON[property];
     for (let languageProperty in subJSON) {
-      if (languageProperty != undefined) {
+      if (languageProperty !== undefined) {
         if (!subJSON.hasOwnProperty(languageProperty)) {
           continue;
         }
 
-        if (languageProperty == this.information) {
-          if(subJSON[languageProperty].constructor === Array){
+        if (languageProperty === this.information) {
+          if (subJSON[languageProperty].constructor === Array) {
             this.element.innerHTML = '';
             subJSON[languageProperty].forEach(element => {
-              this.element.innerHTML += element+'<br/>';
+              this.element.innerHTML += element + '<br/>';
             });
-          }else{
+          } else {
             this.element.innerHTML = subJSON[languageProperty];
           }
           // console.log('INNER:'+subJSON[languageProperty]);
@@ -58,3 +59,4 @@ export class ComponentOption extends Component {
     }
   }
 }
+ComponentOption.addConstructor(ComponentOption.name, ComponentOption);

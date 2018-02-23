@@ -19,3 +19,4 @@ export class ComponentAuthorization extends Component {
         }
     }
 }
+ComponentAuthorization.addConstructor(ComponentAuthorization.name, ComponentAuthorization);

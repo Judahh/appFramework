@@ -6,5 +6,5 @@ export class ComponentRangeSlider extends Component {
     super(father, 'input');
     this.element.setAttribute('type', 'range');
   }
-
 }
+ComponentRangeSlider.addConstructor(ComponentRangeSlider.name, ComponentRangeSlider);

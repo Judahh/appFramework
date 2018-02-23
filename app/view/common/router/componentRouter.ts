@@ -16,3 +16,4 @@ export class ComponentRouter extends Component {
         return null
     }
 }
+ComponentRouter.addConstructor(ComponentRouter.name, ComponentRouter);

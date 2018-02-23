@@ -1,9 +1,10 @@
 import { Component } from './../../component/component';
 import { ComponentLabel } from './../../label/componentLabel';
-try {require('./componentBox.css');}catch(e){};
+// tslint:disable-next-line:no-empty
+try { require('./componentBox.css'); } catch (e) { };
 
 export class ComponentBox extends Component {
-  //type = radio or checkbox
+  // type = radio or checkbox
   boxLabel: ComponentLabel;
 
   constructor(father?: Component, tag?) {
@@ -13,3 +14,4 @@ export class ComponentBox extends Component {
   }
 
 }
+ComponentBox.addConstructor(ComponentBox.name, ComponentBox);

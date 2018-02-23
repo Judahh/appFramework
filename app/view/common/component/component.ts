@@ -199,3 +199,5 @@ import { ComponentAuthorization } from './../authorization/componentAuthorizatio
 
 import { ComponentForm } from './../form/componentForm';
 import { ComponentDivisor } from './../divisor/componentDivisor';
+
+Component.addConstructor(Component.name, Component);

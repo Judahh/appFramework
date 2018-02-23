@@ -24,3 +24,4 @@ export class ComponentDefs extends Component {
     this.arrayRadialGradient.type = ComponentRadialGradient;
   }
 }
+ComponentDefs.addConstructor(ComponentDefs.name, ComponentDefs);

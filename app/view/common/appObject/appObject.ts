@@ -5,6 +5,7 @@ import { ServiceModel } from './../../serviceModel/serviceModel';
 export class AppObject {
   private static types: any;
   protected father: any;
+  // temp = AppObject.addType(this);
   arrayAppObject: Array<AppObject>;
   arrayAppObjectEvent: Array<AppObjectEvent>;
   running: boolean;
@@ -25,11 +26,15 @@ export class AppObject {
   }
 
   public static addType(type) {
+    AppObject.addConstructor(type.getClassName(), type.getConstructor());
+  }
+
+  public static addConstructor(name, constructor) {
     if (AppObject.types === undefined) {
       AppObject.types = {};
     }
-    if (AppObject.types[type.getClassName()] === undefined) {
-      AppObject.types[type.getClassName()] = type.getConstructor();
+    if (AppObject.types[name] === undefined) {
+      AppObject.types[name] = constructor;
     }
   }
 
@@ -45,7 +50,7 @@ export class AppObject {
     this.arrayAppObject = new Array<AppObject>();
     this.arrayAppObjectEvent = new Array<AppObjectEvent>();
     this.arrayAppObjectEvent.type = AppObjectEvent;
-    AppObject.addType(this);
+    // AppObject.addType(this);
   }
 
   protected getConstructor() {
@@ -383,3 +388,4 @@ import { ComponentView } from './../../componentView';
 import { ComponentPageBody } from './../../body/componentPageBody';
 import { ComponentHeader } from './../../header/componentHeader';
 import { ComponentFooter } from './../../footer/componentFooter';
+AppObject.addConstructor(AppObject.name, AppObject);

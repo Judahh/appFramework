@@ -4,15 +4,16 @@ import { Component } from './../component/component';
 import { ComponentCenterHolder } from './centerHolder/componentCenterHolder';
 import { ComponentLeftHolder } from './leftHolder/componentLeftHolder';
 import { ComponentRightHolder } from './rightHolder/componentRightHolder';
+// tslint:disable-next-line:no-empty
 try { require('./componentMenuHorizontal.css'); } catch (e) { };
 
-export class ComponentMenuHorizontal extends Component{
+export class ComponentMenuHorizontal extends Component {
   class: string;
   arrayCenterHolder: Array<ComponentCenterHolder>;
   arrayLeftHolder: Array<ComponentLeftHolder>;
   arrayRightHolder: Array<ComponentRightHolder>;
 
-  constructor(father?: Component){
+  constructor(father?: Component) {
     super(father);
     this.arrayLeftHolder = new Array<ComponentLeftHolder>();
     this.arrayLeftHolder.type = ComponentLeftHolder;
@@ -22,3 +23,4 @@ export class ComponentMenuHorizontal extends Component{
     this.arrayRightHolder.type = ComponentRightHolder;
   }
 }
+ComponentMenuHorizontal.addConstructor(ComponentMenuHorizontal.name, ComponentMenuHorizontal);

@@ -2,6 +2,7 @@ import { Component } from './../../component/component';
 import { ComponentDataList } from './../textField/dataList/componentDataList';
 import { ComponentKeyboard } from './../keyboard/componentKeyboard';
 import { Util } from './../../../util/util';
+// tslint:disable-next-line:no-empty
 try { require('./componentTextField.css'); } catch (e) { };
 
 
@@ -67,3 +68,4 @@ export class ComponentTextField extends Component {
     }
   }
 }
+ComponentTextField.addConstructor(ComponentTextField.name, ComponentTextField);

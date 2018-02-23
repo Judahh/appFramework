@@ -1,6 +1,6 @@
 import { Component } from './../../../component/component';
 
-export class ComponentFilter extends Component {//TODO
+export class ComponentFilter extends Component {// TODO
   // arrayFEBlend: Array<ComponentFEBlend>;
   // arrayFEColorMatrix: Array<ComponentFEColorMatrix>;
   // arrayFEComponentTransfer: Array<ComponentFEComponentTransfer>;
@@ -27,3 +27,4 @@ export class ComponentFilter extends Component {//TODO
     // this.arrayFEBlend.type = ComponentFEBlend;
   }
 }
+ComponentFilter.addConstructor(ComponentFilter.name, ComponentFilter);

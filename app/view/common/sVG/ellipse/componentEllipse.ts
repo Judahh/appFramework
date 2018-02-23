@@ -6,3 +6,4 @@ export class ComponentEllipse extends Component {
     super(father, 'ellipse', true);
   }
 }
+ComponentEllipse.addConstructor(ComponentEllipse.name, ComponentEllipse);

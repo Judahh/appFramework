@@ -6,3 +6,4 @@ export class ComponentStop extends Component {
     super(father, 'stop', true);
   }
 }
+ComponentStop.addConstructor(ComponentStop.name, ComponentStop);

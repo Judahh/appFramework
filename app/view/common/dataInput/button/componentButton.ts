@@ -27,3 +27,4 @@ export class ComponentButton extends Component {
     return this.form;
   }
 }
+ComponentButton.addConstructor(ComponentButton.name, ComponentButton);

@@ -6,3 +6,4 @@ export class ComponentLine extends Component {
     super(father, 'line', true);
   }
 }
+ComponentLine.addConstructor(ComponentLine.name, ComponentLine);

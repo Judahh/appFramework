@@ -2,14 +2,16 @@
 import { Util } from './../../../util/util';
 import { Component } from './../../component/component';
 import { ComponentSource } from './../../source/componentSource';
+// tslint:disable-next-line:no-empty
 try { require('./componentVideo.css'); } catch (e) { };
 
 export class ComponentVideo extends Component {
     arraySource: Array<ComponentSource>;
-    
-    constructor(father?: Component){
+
+    constructor(father?: Component) {
         super(father);
         this.arraySource = new Array<ComponentSource>();
         this.arraySource.type = ComponentSource;
     }
 }
+ComponentVideo.addConstructor(ComponentVideo.name, ComponentVideo);

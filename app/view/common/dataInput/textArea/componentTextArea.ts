@@ -1,6 +1,7 @@
 import { Component } from './../../component/component';
 import { ComponentKeyboard } from './../keyboard/componentKeyboard';
 import { Util } from './../../../util/util';
+// tslint:disable-next-line:no-empty
 try { require('./componentTextArea.css'); } catch (e) { };
 
 
@@ -62,3 +63,4 @@ export class ComponentTextArea extends Component {
     }
   }
 }
+ComponentTextArea.addConstructor(ComponentTextArea.name, ComponentTextArea);

@@ -8,6 +8,7 @@ import { ComponentDivisor } from './../divisor/componentDivisor';
 import { ComponentForm } from './../form/componentForm';
 
 import { ComponentColorEffect } from './colorEffect/componentColorEffect';
+// tslint:disable-next-line:no-empty
 try { require('./componentItem.css'); } catch (e) { };
 
 export class ComponentItem extends Component {
@@ -32,17 +33,8 @@ export class ComponentItem extends Component {
     this.arrayDivisor.type = ComponentDivisor;
   }
 
-  private getdivisor() {
-    this.divisor = <ComponentDivisor>this.seekFather('ComponentDivisor');
-  }
-
   public getPage() {
     return this.divisor.getPage();
-  }
-
-  protected setForm() {
-    this.form = <ComponentForm>this.seekFather('ComponentForm');
-    this.formChecked = true;
   }
 
   public getForm() {
@@ -51,4 +43,14 @@ export class ComponentItem extends Component {
     }
     return this.form;
   }
+
+  protected setForm() {
+    this.form = <ComponentForm>this.seekFather('ComponentForm');
+    this.formChecked = true;
+  }
+
+  private getdivisor() {
+    this.divisor = <ComponentDivisor>this.seekFather('ComponentDivisor');
+  }
 }
+ComponentItem.addConstructor(ComponentItem.name, ComponentItem);

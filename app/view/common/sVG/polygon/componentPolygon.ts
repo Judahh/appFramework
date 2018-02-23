@@ -6,3 +6,4 @@ export class ComponentPolygon extends Component {
     super(father, 'polygon', true);
   }
 }
+ComponentPolygon.addConstructor(ComponentPolygon.name, ComponentPolygon);

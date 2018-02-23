@@ -11,3 +11,4 @@ export class AppObjectEvent extends AppObject {
     this.eventListener = false;
   }
 }
+AppObjectEvent.addConstructor(AppObjectEvent.name, AppObjectEvent);

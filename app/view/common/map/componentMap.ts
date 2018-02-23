@@ -55,3 +55,4 @@ export class ComponentMap extends Component {
     super.renderAfterUpdateJSON();
   }
 }
+ComponentMap.addConstructor(ComponentMap.name, ComponentMap);

@@ -12,3 +12,4 @@ export class ComponentLinearGradient extends Component {
     this.arrayStop.type = ComponentStop;
   }
 }
+ComponentLinearGradient.addConstructor(ComponentLinearGradient.name, ComponentLinearGradient);

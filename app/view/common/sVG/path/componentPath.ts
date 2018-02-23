@@ -6,3 +6,4 @@ export class ComponentPath extends Component {
     super(father, 'path', true);
   }
 }
+ComponentPath.addConstructor(ComponentPath.name, ComponentPath);

@@ -70,3 +70,4 @@ export class ComponentInformation extends Component {
   }
 
 }
+ComponentInformation.addConstructor(ComponentInformation.name, ComponentInformation);

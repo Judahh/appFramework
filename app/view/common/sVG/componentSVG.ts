@@ -9,8 +9,8 @@ import { ComponentPath } from './path/componentPath';
 import { ComponentText } from './text/componentText';
 import { ComponentG } from './g/componentG';
 import { ComponentDefs } from './defs/componentDefs';
-// import { Array } from 'simpleutils';
 import { Util } from './../../util/util';
+// tslint:disable-next-line:no-empty
 try { require('./componentSVG.css'); } catch (e) { };
 
 export class ComponentSVG extends Component {
@@ -24,7 +24,7 @@ export class ComponentSVG extends Component {
   arrayLine: Array<ComponentLine>;
 
   arrayPath: Array<ComponentPath>;
-  
+
   arrayText: Array<ComponentText>;
 
   arrayG: Array<ComponentG>;
@@ -63,3 +63,4 @@ export class ComponentSVG extends Component {
     this.arrayDefs.type = ComponentDefs;
   }
 }
+ComponentSVG.addConstructor(ComponentSVG.name, ComponentSVG);
