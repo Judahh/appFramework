@@ -2,7 +2,7 @@ import { Util } from './../../util/util';
 import { ServiceModel } from './../../serviceModel/serviceModel';
 import { ImportScript } from './../../../../importScript';
 import { AppObject } from './../appObject/appObject';
-import { AppObjectEvent } from './../appObject/appObjectEvent/appObjectEvent';
+import { AppObjectEvent } from './../appObject/event/appObjectEvent';
 // tslint:disable-next-line:no-empty
 try { require('./component.css'); } catch (e) { };
 
@@ -195,7 +195,6 @@ export class Component extends AppObject {
 }
 
 import { ComponentRouter } from './../router/componentRouter';
-import { ComponentAuthorization } from './../authorization/componentAuthorization';
 
 import { ComponentForm } from './../form/componentForm';
 import { ComponentDivisor } from './../divisor/componentDivisor';

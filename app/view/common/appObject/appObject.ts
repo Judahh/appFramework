@@ -1,5 +1,5 @@
 import { Util } from './../../util/util';
-import { AppObjectFactory } from './appObjectFactory/appObjectFactory';
+import { AppObjectFactory } from './factory/appObjectFactory';
 import { ServiceModel } from './../../serviceModel/serviceModel';
 
 export class AppObject {
@@ -65,16 +65,21 @@ export class AppObject {
   public renderBeforeUpdateJSON() { }
 
   public renderAfterUpdateJSON() {
-    this.arrayAppObjectEvent.forEach(appObjectEvent => {
-      if (appObjectEvent.name !== undefined) {
-        if (appObjectEvent.name === 'build') {
-          this.onEvent(appObjectEvent);
-          this.running = true;
-        } else if (!appObjectEvent.eventListener) {
-          this.addEventListener(appObjectEvent);
-        }
-      }
-    });
+    // console.log('renderAfterUpdateJSON', this);
+    // this.arrayAppObjectEvent.forEach(appObjectEvent => {
+    //   if (appObjectEvent.name !== undefined) {
+    //     if (appObjectEvent.name === 'build') {
+    //       this.onEvent(appObjectEvent);
+    //       this.running = true;
+    //     } else if (appObjectEvent.name === 'authorization') {
+    //       if (!this.onEvent(appObjectEvent)) {
+    //         appObjectEvent.destroyFather();
+    //       }
+    //     } else if (!appObjectEvent.eventListener) {
+    //       this.addEventListener(appObjectEvent);
+    //     }
+    //   }
+    // });
     // this.isToRenderAfterUpdateJSON = false;
   }
 
@@ -383,7 +388,7 @@ export class AppObject {
   }
 }
 
-import { AppObjectEvent } from './appObjectEvent/appObjectEvent';
+import { AppObjectEvent } from './event/appObjectEvent';
 import { ComponentView } from './../../componentView';
 import { ComponentPageBody } from './../../body/componentPageBody';
 import { ComponentHeader } from './../../header/componentHeader';
