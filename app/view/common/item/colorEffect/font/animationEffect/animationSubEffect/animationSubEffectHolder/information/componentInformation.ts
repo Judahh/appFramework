@@ -66,7 +66,7 @@ export class ComponentInformation extends Component {
   }
 
   private getItem() {
-    this.item = <Component/*ComponentItem*/>this.seekFatherComponent('ComponentItem');
+    this.item = <Component/*ComponentItem*/>this.seekFather('ComponentItem');
   }
 
 }

@@ -25,7 +25,7 @@ export class ComponentDivisor extends Component {
     arrayTable: Array<ComponentTable>;
 
     constructor(father?: Component) {
-        super(father);
+        super(father, 'div');
         this.arrayItem = new Array<ComponentItem>();
         this.arrayItem.type = ComponentItem;
         this.arrayDataInput = new Array<ComponentDataInput>();

@@ -56,7 +56,7 @@ export class ComponentDataInput extends Component {
   }
 
   protected setForm() {
-    this.form = <ComponentForm>this.seekFatherComponent('ComponentForm');
+    this.form = <ComponentForm>this.seekFather('ComponentForm');
     this.formChecked = true;
   }
 

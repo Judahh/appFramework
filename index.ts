@@ -14,7 +14,6 @@ import { ComponentTextField } from './app/view/common/dataInput/textField/compon
 import { ComponentButton } from './app/view/common/dataInput/button/componentButton';
 import { ComponentBox } from './app/view/common/dataInput/box/componentBox';
 import { ComponentRangeSlider } from './app/view/common/dataInput/rangeSlider/componentRangeSlider';
-import { ComponentElementEvent } from './app/view/common/elementEvent/componentElementEvent';
 import { ComponentForm } from './app/view/common/form/componentForm';
 import { ComponentImg } from './app/view/common/image/img/componentImg';
 import { ComponentImage } from './app/view/common/image/componentImage';
@@ -57,6 +56,7 @@ import { ImportScript } from './importScript';
 import { AppObject } from './app/view/common/appObject/appObject';
 import { ComponentChart } from './app/view/common/chart/componentChart';
 import { AppObjectFactory } from './app/view/common/appObject/appObjectFactory/appObjectFactory';
+import { AppObjectEvent } from './app/view/common/appObject/appObjectEvent/appObjectEvent';
 import { ComponentBackground } from './app/view/body/background/componentBackground';
 import { ApiConnection } from './app/view/apiConnection/apiConnection';
 import { Observer } from './app/observer/observer';
@@ -65,11 +65,11 @@ import { OnLoad } from './app/onLoad/onLoad';
 export { Component, ComponentPageBody, ComponentInformation, ComponentDataInput, ComponentOption,
     ComponentDivisor, ComponentVideoHolder, ComponentIframe, ComponentVideo, ComponentComboBox,
     ComponentTextArea, ComponentDataList, ComponentTextField, ComponentButton, ComponentBox,
-    ComponentRangeSlider, ComponentElementEvent, ComponentForm, ComponentImg, ComponentImage,
+    ComponentRangeSlider, ComponentForm, ComponentImg, ComponentImage,
     ComponentAnimationSubEffectHolder, ComponentAnimationSubEffect, ComponentAnimationEffect,
     ComponentFont, ComponentColorEffect, ComponentItem, ComponentLabel, ComponentMap, ComponentCenterHolder,
     ComponentLeftHolder, ComponentRightHolder, ComponentMenuHorizontal, ComponentMenuVertical, ComponentProgressBar,
     ComponentSource, ComponentCircle, ComponentEllipse, ComponentRectangle, ComponentPolygon, ComponentLine,
     ComponentPath, ComponentText, ComponentG, ComponentFilter, ComponentLinearGradient, ComponentRadialGradient,
     ComponentStop, ComponentDefs, ComponentFooter, ComponentHeader, ServiceModel, Util, ComponentView, App, AppObject, ImportScript,
-    ComponentChart, AppObjectFactory, ComponentBackground, ApiConnection, Observer, OnLoad }
+    ComponentChart, AppObjectFactory, AppObjectEvent, ComponentBackground, ApiConnection, Observer, OnLoad }

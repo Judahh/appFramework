@@ -1,6 +1,7 @@
-divisor{
+div{
     width: 100%;
     position: relative;
     box-sizing: border-box;
+    display: initial;
     /*border-bottom: solid black; mover para o codigo*/
 }

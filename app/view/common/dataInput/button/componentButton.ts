@@ -1,7 +1,8 @@
 import { Component } from './../../component/component';
 import { ComponentItem } from './../../item/componentItem';
 import { ComponentForm } from './../../form/componentForm';
-try {require('./componentButton.css');}catch(e){};
+// tslint:disable-next-line:no-empty
+try { require('./componentButton.css'); } catch (e) { };
 
 
 export class ComponentButton extends Component {
@@ -15,12 +16,12 @@ export class ComponentButton extends Component {
   }
 
   protected setForm() {
-    this.form = <ComponentForm>this.seekFatherComponent('ComponentForm');
-    this.formChecked=true;
+    this.form = <ComponentForm>this.seekFather('ComponentForm');
+    this.formChecked = true;
   }
-  
+
   public getForm() {
-    if (!this.formChecked){
+    if (!this.formChecked) {
       this.setForm();
     }
     return this.form;
