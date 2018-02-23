@@ -29,7 +29,7 @@ export class ComponentChart extends Component {
     let charts;
     // tslint:disable-next-line:no-eval
     eval('charts = google.charts;');
-    if (this.arrayPackages != undefined && this.arrayPackages != null && this.arrayPackages.length > 0) {
+    if (this.arrayPackages !== undefined && this.arrayPackages != null && this.arrayPackages.length > 0) {
       charts.load('current', { 'packages': this.arrayPackages });
     } else {
       charts.load('current', { 'packages': ['corechart'] });

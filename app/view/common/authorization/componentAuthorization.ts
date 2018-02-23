@@ -8,7 +8,7 @@ export class ComponentAuthorization extends Component {
         super(father, tag);
     }
 
-    renderAfterUpdateJSON(){
+    renderAfterUpdateJSON() {
         this.checkAuthorization();
     }
 

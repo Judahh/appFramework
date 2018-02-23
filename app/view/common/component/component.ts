@@ -11,29 +11,29 @@ export class Component extends AppObject {
   protected tag: string;
   protected father: Component;
 
-  arrayDivisor: Array<ComponentDivisor>;
+  // arrayDivisor: Array<ComponentDivisor>;
 
-  code: string;
-  runFunction: string;
+  // code: string;
+  // runFunction: string;
 
-  runOnBuild: boolean;
+  // runOnBuild: boolean;
 
-  arrayRouter: Array<ComponentRouter>;
-  arrayAuthorization: Array<ComponentAuthorization>;
-  arrayComponent: Array<Component>;
+  // arrayRouter: Array<ComponentRouter>;
+  // arrayAuthorization: Array<ComponentAuthorization>;
+  // arrayComponent: Array<Component>;
 
-  arrayForm: Array<ComponentForm>;
+  // arrayForm: Array<ComponentForm>;
 
-  submit: boolean;
+  // submit: boolean;
 
-  running: boolean;
+  // running: boolean;
 
-  appObject: AppObject;
+  // appObject: AppObject;
   // protected style: ComponentStyle;: CSSStyleDeclaration
 
   sVG: boolean;
 
-  arrayDisabled: Array<Component>;
+  // arrayDisabled: Array<Component>;
 
   // isToRenderBeforeUpdateJSON: boolean;
 
@@ -103,20 +103,20 @@ export class Component extends AppObject {
     }
 
     this.clear();
-    this.submit = false;
-    this.runOnBuild = false;
+    // this.submit = false;
+    // this.runOnBuild = false;
     this.clickListener = false;
-    this.arrayAuthorization = new Array<ComponentAuthorization>();
-    this.arrayAuthorization.type = ComponentAuthorization;
-    this.arrayRouter = new Array<ComponentRouter>();
-    this.arrayRouter.type = ComponentRouter;
-    this.arrayForm = new Array<ComponentForm>();
-    this.arrayForm.type = ComponentForm;
-    this.arrayDisabled = new Array<Component>();
-    this.arrayDisabled.type = Component;
-    this.arrayDivisor = new Array<ComponentDivisor>();
-    this.arrayDivisor.type = ComponentDivisor;
-    this.arrayComponent = new Array<Component>();
+    // this.arrayAuthorization = new Array<ComponentAuthorization>();
+    // this.arrayAuthorization.type = ComponentAuthorization;
+    // this.arrayRouter = new Array<ComponentRouter>();
+    // this.arrayRouter.type = ComponentRouter;
+    // this.arrayForm = new Array<ComponentForm>();
+    // this.arrayForm.type = ComponentForm;
+    // this.arrayDisabled = new Array<Component>();
+    // this.arrayDisabled.type = Component;
+    // this.arrayDivisor = new Array<ComponentDivisor>();
+    // this.arrayDivisor.type = ComponentDivisor;
+    // this.arrayComponent = new Array<Component>();
   }
 
   public addEventListener(appObjectEvent: AppObjectEvent) {

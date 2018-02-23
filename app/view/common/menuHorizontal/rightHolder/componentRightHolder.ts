@@ -10,8 +10,8 @@ export class ComponentRightHolder extends Component {
 
   constructor(father?: Component) {
     super(father);
-    this.arrayDivisor = new Array<ComponentDivisor>();
-    this.arrayDivisor.type = ComponentDivisor;
+    // this.arrayDivisor = new Array<ComponentDivisor>();
+    // this.arrayDivisor.type = ComponentDivisor;
   }
 }
 ComponentRightHolder.addConstructor(ComponentRightHolder.name, ComponentRightHolder);

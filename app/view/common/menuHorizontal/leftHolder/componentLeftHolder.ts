@@ -10,8 +10,8 @@ export class ComponentLeftHolder extends Component {
 
   constructor(father?: Component) {
     super(father);
-    this.arrayDivisor = new Array<ComponentDivisor>();
-    this.arrayDivisor.type = ComponentDivisor;
+    // this.arrayDivisor = new Array<ComponentDivisor>();
+    // this.arrayDivisor.type = ComponentDivisor;
   }
 }
 ComponentLeftHolder.addConstructor(ComponentLeftHolder.name, ComponentLeftHolder);

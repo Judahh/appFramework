@@ -13,8 +13,8 @@ export class ComponentPageBody extends Component {
   constructor(father?: Component, pageName?: string) {
     super(father);
     this.background = new ComponentBackground(this);
-    this.arrayDivisor = new Array<ComponentDivisor>();
-    this.arrayDivisor.type = ComponentDivisor;
+    // this.arrayDivisor = new Array<ComponentDivisor>();
+    // this.arrayDivisor.type = ComponentDivisor;
     this.goToPage(pageName);
   }
 

@@ -1,16 +1,16 @@
 import { Component } from './../../../../../component/component';
-import { ComponentAnimationSubEffectHolder } from './animationSubEffectHolder/componentAnimationSubEffectHolder';
+// import { ComponentAnimationSubEffectHolder } from './animationSubEffectHolder/componentAnimationSubEffectHolder';
 import { Util } from './../../../../../../util/util';
 // tslint:disable-next-line:no-empty
 try { require('./componentAnimationSubEffect.css'); } catch (e) { };
 
 export class ComponentAnimationSubEffect extends Component {
-  arrayAnimationSubEffectHolder: Array<ComponentAnimationSubEffectHolder>;
+  // arrayAnimationSubEffectHolder: Array<ComponentAnimationSubEffectHolder>;
 
   constructor(father?: Component) {
     super(father);
-    this.arrayAnimationSubEffectHolder = new Array<ComponentAnimationSubEffectHolder>();
-    this.arrayAnimationSubEffectHolder.type = ComponentAnimationSubEffectHolder;
+    // this.arrayAnimationSubEffectHolder = new Array<ComponentAnimationSubEffectHolder>();
+    // this.arrayAnimationSubEffectHolder.type = ComponentAnimationSubEffectHolder;
   }
 }
 ComponentAnimationSubEffect.addConstructor(ComponentAnimationSubEffect.name, ComponentAnimationSubEffect);

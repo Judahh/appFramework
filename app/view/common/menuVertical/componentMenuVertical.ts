@@ -10,8 +10,8 @@ export class ComponentMenuVertical extends Component {
 
   constructor(father?: Component) {
     super(father);
-    this.arrayDivisor = new Array<ComponentDivisor>();
-    this.arrayDivisor.type = ComponentDivisor;
+    // this.arrayDivisor = new Array<ComponentDivisor>();
+    // this.arrayDivisor.type = ComponentDivisor;
   }
 }
 ComponentMenuVertical.addConstructor(ComponentMenuVertical.name, ComponentMenuVertical);
