@@ -1,19 +1,17 @@
 import { Util } from './../util/util';
-import { ComponentBackground } from './background/componentBackground';
 import { Component } from './../common/component/component';
+import { ComponentGeneric } from '../common/component/generic/componentGeneric';
 // tslint:disable-next-line:no-empty
 try { require('./componentPageBody.css'); } catch (e) { };
 
 export class ComponentPageBody extends Component {
-  background: ComponentBackground;
+  background: ComponentGeneric;
   currentPageName: string;
   nextPageName: string;
 
   constructor(father?: Component, pageName?: string) {
     super(father);
-    this.background = new ComponentBackground(this);
-    // this.arrayDivisor = new Array<ComponentDivisor>();
-    // this.arrayDivisor.type = ComponentDivisor;
+    this.background = new ComponentGeneric(this, 'ComponentBackground');
     this.goToPage(pageName);
   }
 

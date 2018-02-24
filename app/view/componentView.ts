@@ -1,19 +1,18 @@
 import { Component } from './common/component/component';
-import { ComponentHeader } from './header/componentHeader';
+import { ComponentGeneric } from './common/component/generic/componentGeneric';
 import { ComponentPageBody } from './body/componentPageBody';
-import { ComponentFooter } from './footer/componentFooter';
 
 export class ComponentView extends Component { // body
 
-  header: ComponentHeader;
+  header: ComponentGeneric;
   pageBody: ComponentPageBody;
-  footer: ComponentFooter;
+  footer: ComponentGeneric;
 
   constructor(father?: Component) {
     super(father, 'body');
-    this.header = new ComponentHeader(this);
+    this.header = new ComponentGeneric(this, 'ComponentHeader');
     this.pageBody = new ComponentPageBody(this);
-    this.footer = new ComponentFooter(this);
+    this.footer = new ComponentGeneric(this, 'ComponentFooter');
   }
 
   public goToPage(pageName?: string) {

@@ -12,8 +12,8 @@ export class AppObject {
   page: string;
   view: ComponentView;
   pageBody: ComponentPageBody;
-  header: ComponentHeader;
-  footer: ComponentFooter;
+  header: ComponentGeneric;
+  footer: ComponentGeneric;
 
   pageBodyChecked: boolean;
   headerChecked: boolean;
@@ -340,12 +340,12 @@ export class AppObject {
   }
 
   private setHeader() {
-    this.header = <ComponentHeader>this.seekFather('ComponentHeader');
+    this.header = <ComponentGeneric>this.seekFather('ComponentHeader');
     this.headerChecked = true;
   }
 
   private setFooter() {
-    this.footer = <ComponentFooter>this.seekFather('ComponentFooter');
+    this.footer = <ComponentGeneric>this.seekFather('ComponentFooter');
     this.footerChecked = true;
   }
 
@@ -395,6 +395,5 @@ export class AppObject {
 import { AppObjectEvent } from './event/appObjectEvent';
 import { ComponentView } from './../../componentView';
 import { ComponentPageBody } from './../../body/componentPageBody';
-import { ComponentHeader } from './../../header/componentHeader';
-import { ComponentFooter } from './../../footer/componentFooter';
+import { ComponentGeneric } from '../component/generic/componentGeneric';
 AppObject.addConstructor(AppObject.name, AppObject);

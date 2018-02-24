@@ -7,14 +7,27 @@ export class ComponentGeneric extends Component {
     private static map: { [key: string]: string; } = {
         'ComponentDivisor': 'div',
         'ComponentDiv': 'div',
-        'ComponentForm' : 'form',
-        'ComponentAnimationSubEffectHolder' : 'animationSubEffectHolder',
-        'ComponentLabel' : 'label',
-        'ComponentSource' : 'source',
-        'ComponentSrc' : 'src',
-        'ComponentVideo' : 'video',
-        'ComponentIframe' : 'iframe',
-        'ComponentVideoHolder' : 'videoHolder'
+        'ComponentForm': 'form',
+        'ComponentAnimationSubEffectHolder': 'animationSubEffectHolder',
+        'ComponentLabel': 'label',
+        'ComponentSource': 'source',
+        'ComponentSrc': 'src',
+        'ComponentVideo': 'video',
+        'ComponentIframe': 'iframe',
+        'ComponentVideoHolder': 'videoHolder',
+        'ComponentImage': 'image',
+        'ComponentImg': 'img',
+        'ComponentTable': 'table',
+        'ComponentTableLine': 'tr',
+        'ComponentTableCell': 'th',
+        'ComponentMenuHorizontal': 'menuHorizontal',
+        'ComponentLeftHolder': 'leftHolder',
+        'ComponentCenterHolder': 'centerHolder',
+        'ComponentRightHolder': 'rightHolder',
+        'ComponentMenuVertical': 'menuVertical',
+        'ComponentBackground': 'background',
+        'ComponentHeader': 'header',
+        'ComponentFooter': 'footer',
     };
 
     private static generateTag(name?: string) {
@@ -27,6 +40,9 @@ export class ComponentGeneric extends Component {
 
     constructor(father?: any, name?: string) {
         super(father, ComponentGeneric.generateTag(name));
+        if (this.tag === 'header' || this.tag === 'footer') {
+            this.getJSONPromise(this.tag);
+        }
     }
 
     public generateTag(name?: string) {
