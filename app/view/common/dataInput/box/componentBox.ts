@@ -1,7 +1,5 @@
 import { Component } from './../../component/component';
 import { ComponentLabel } from './../../label/componentLabel';
-// tslint:disable-next-line:no-empty
-try { require('./componentBox.css'); } catch (e) { };
 
 export class ComponentBox extends Component {
   // type = radio or checkbox

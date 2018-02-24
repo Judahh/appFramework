@@ -1,7 +1,4 @@
 import { Component } from './../../../../../../component/component';
-// import { ComponentInformation } from './information/componentInformation';
-// tslint:disable-next-line:no-empty
-try { require('./componentAnimationSubEffectHolder.css'); } catch (e) { };
 
 export class ComponentAnimationSubEffectHolder extends Component {
   // information: ComponentInformation;

@@ -263,13 +263,16 @@ export class AppObject {
       });
     } else {
       jSON[property].forEach(element => {
-        // console.log(element.type);
-        // console.log(AppObject.types);
         let object = AppObject.types[element.type];
-        // console.log(object);
-        let properElement = new object(this);
+        let properElement;
+        if (object !== null && object !== undefined) {
+          properElement = new object(this);
+        } else {
+          properElement = new ComponentGeneric(this, element.type);
+        }
         properElement.updateJSON(element);
         this[property].push(properElement);
+
       });
     }
   }
@@ -383,6 +386,7 @@ export class AppObject {
 }
 
 import { AppObjectEvent } from './event/appObjectEvent';
+import { ComponentGeneric } from './../component/generic/componentGeneric';
 import { ComponentView } from './../../componentView';
 import { ComponentPageBody } from './../../body/componentPageBody';
 import { ComponentHeader } from './../../header/componentHeader';

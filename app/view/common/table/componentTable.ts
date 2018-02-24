@@ -2,8 +2,6 @@ import { Component } from './../component/component';
 import { Util } from './../../util/util';
 import { ComponentItem } from './../item/componentItem';
 import { ComponentTableLine } from './tableLine/componentTableLine';
-// tslint:disable-next-line:no-empty
-try { require('./componentTable.css'); } catch (e) { };
 
 export class ComponentTable extends Component {
   arrayItem: Array<ComponentItem>;

@@ -1,7 +1,5 @@
 import { Component } from './../../../component/component';
 import { Util } from './../../../../util/util';
-// tslint:disable-next-line:no-empty
-try { require('./componentOption.css'); } catch (e) { };
 
 export class ComponentOption extends Component {
   information: string;

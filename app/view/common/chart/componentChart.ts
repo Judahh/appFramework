@@ -1,7 +1,5 @@
 import { Component } from './../component/component';
 import { Util } from './../../util/util';
-// tslint:disable-next-line:no-empty
-try { require('./componentChart.css'); } catch (e) { };
 
 export class ComponentChart extends Component {
   arrayData: Array<any>;

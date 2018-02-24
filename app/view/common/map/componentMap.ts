@@ -1,7 +1,5 @@
 import { Component } from './../component/component';
 import { ImportScript } from './../../../../importScript';
-// tslint:disable-next-line:no-empty
-try { require('./componentMap.css'); } catch (e) { };
 
 export class ComponentMap extends Component {
   options: any;

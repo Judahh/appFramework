@@ -1,8 +1,5 @@
 import { Component } from './../../../../../../../component/component';
-// import { ComponentItem } from './../../../../../../componentItem';
 import { Util } from './../../../../../../../../util/util';
-// tslint:disable-next-line:no-empty
-try { require('./componentInformation.css'); } catch (e) { };
 
 export class ComponentInformation extends Component {
   information: string;

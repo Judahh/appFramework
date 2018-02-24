@@ -3,8 +3,6 @@ import { ServiceModel } from './../../serviceModel/serviceModel';
 import { ImportScript } from './../../../../importScript';
 import { AppObject } from './../appObject/appObject';
 import { AppObjectEvent } from './../appObject/event/appObjectEvent';
-// tslint:disable-next-line:no-empty
-try { require('./component.css'); } catch (e) { };
 
 export class Component extends AppObject {
   protected element: HTMLElement | SVGElement | SVGSVGElement | HTMLInputElement | HTMLTextAreaElement;

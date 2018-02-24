@@ -10,8 +10,6 @@ import { ComponentText } from './text/componentText';
 import { ComponentG } from './g/componentG';
 import { ComponentDefs } from './defs/componentDefs';
 import { Util } from './../../util/util';
-// tslint:disable-next-line:no-empty
-try { require('./componentSVG.css'); } catch (e) { };
 
 export class ComponentSVG extends Component {
   arrayCircle: Array<ComponentCircle>;

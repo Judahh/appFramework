@@ -1,8 +1,6 @@
 import { Component } from './../../component/component';
 import { ComponentOption } from './option/componentOption';
 import { Util } from './../../../util/util';
-// tslint:disable-next-line:no-empty
-try { require('./componentComboBox.css'); } catch (e) { };
 
 export class ComponentComboBox extends Component {
   arrayOption: Array<ComponentOption>;

@@ -8,9 +8,6 @@ import { ComponentBox } from './../dataInput/box/componentBox';
 import { ComponentForm } from './../form/componentForm';
 import { ComponentButton } from './../dataInput/button/componentButton';
 import { ComponentRangeSlider } from './../dataInput/rangeSlider/componentRangeSlider';
-// tslint:disable-next-line:no-empty
-try { require('./componentDataInput.css'); } catch (e) { };
-// import { Array } from 'simpleutils';
 
 export class ComponentDataInput extends Component {
   arrayBeforeItem: Array<ComponentItem>;

@@ -1,8 +1,6 @@
 import { Component } from './../../component/component';
 import { ComponentItem } from './../../item/componentItem';
 import { ComponentForm } from './../../form/componentForm';
-// tslint:disable-next-line:no-empty
-try { require('./componentButton.css'); } catch (e) { };
 
 
 export class ComponentButton extends Component {
