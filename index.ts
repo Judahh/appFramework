@@ -3,9 +3,6 @@ import { ComponentPageBody } from './app/view/body/componentPageBody';
 import { ComponentInformation } from
 './app/view/common/item/colorEffect/font/animationEffect/animationSubEffect/information/componentInformation';
 import { ComponentDataInput } from './app/view/common/dataInput/componentDataInput'
-import { ComponentVideoHolder } from './app/view/common/videoHolder/componentVideoHolder';
-import { ComponentIframe } from './app/view/common/videoHolder/iframe/componentIframe';
-import { ComponentVideo } from './app/view/common/videoHolder/video/componentVideo';
 import { ComponentOption } from './app/view/common/dataInput/comboBox/option/componentOption';
 import { ComponentComboBox } from './app/view/common/dataInput/comboBox/componentComboBox';
 import { ComponentTextArea } from './app/view/common/dataInput/textArea/componentTextArea';
@@ -61,8 +58,7 @@ import { OnLoad } from './app/onLoad/onLoad';
 
 export {
     Component, ComponentPageBody, ComponentInformation, ComponentDataInput, ComponentOption,
-    ComponentVideoHolder, ComponentIframe, ComponentVideo, ComponentComboBox,
-    ComponentTextArea, ComponentDataList, ComponentTextField, ComponentButton, ComponentBox,
+    ComponentComboBox,  ComponentTextArea, ComponentDataList, ComponentTextField, ComponentButton, ComponentBox,
     ComponentRangeSlider, ComponentImg, ComponentImage,
     ComponentAnimationSubEffect, ComponentAnimationEffect,
     ComponentFont, ComponentColorEffect, ComponentItem, ComponentMap, ComponentCenterHolder,
