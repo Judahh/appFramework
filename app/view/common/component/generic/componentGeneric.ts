@@ -1,14 +1,20 @@
 import { Util } from './../../../util/util';
 import { Component } from './../../component/component';
+// tslint:disable-next-line:no-empty
+try { require('./componentGeneric.css'); } catch (e) { };
 
 export class ComponentGeneric extends Component {
     private static map: { [key: string]: string; } = {
         'ComponentDivisor': 'div',
+        'ComponentDiv': 'div',
         'ComponentForm' : 'form',
         'ComponentAnimationSubEffectHolder' : 'animationSubEffectHolder',
         'ComponentLabel' : 'label',
         'ComponentSource' : 'source',
-        'ComponentSrc' : 'src'
+        'ComponentSrc' : 'src',
+        'ComponentVideo' : 'video',
+        'ComponentIframe' : 'iframe',
+        'ComponentVideoHolder' : 'videoHolder'
     };
 
     private static generateTag(name?: string) {
