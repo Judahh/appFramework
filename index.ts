@@ -1,6 +1,7 @@
 import { Component } from './app/view/common/component/component';
 import { ComponentPageBody } from './app/view/body/componentPageBody';
-import { ComponentInformation } from './app/view/common/item/colorEffect/font/animationEffect/animationSubEffect/information/componentInformation';
+import { ComponentInformation } from
+'./app/view/common/item/colorEffect/font/animationEffect/animationSubEffect/information/componentInformation';
 import { ComponentDataInput } from './app/view/common/dataInput/componentDataInput'
 import { ComponentVideoHolder } from './app/view/common/videoHolder/componentVideoHolder';
 import { ComponentIframe } from './app/view/common/videoHolder/iframe/componentIframe';
@@ -15,7 +16,8 @@ import { ComponentBox } from './app/view/common/dataInput/box/componentBox';
 import { ComponentRangeSlider } from './app/view/common/dataInput/rangeSlider/componentRangeSlider';
 import { ComponentImg } from './app/view/common/image/img/componentImg';
 import { ComponentImage } from './app/view/common/image/componentImage';
-import { ComponentAnimationSubEffect } from './app/view/common/item/colorEffect/font/animationEffect/animationSubEffect/componentAnimationSubEffect';
+import { ComponentAnimationSubEffect } from
+'./app/view/common/item/colorEffect/font/animationEffect/animationSubEffect/componentAnimationSubEffect';
 import { ComponentAnimationEffect } from './app/view/common/item/colorEffect/font/animationEffect/componentAnimationEffect';
 import { ComponentFont } from './app/view/common/item/colorEffect/font/componentFont';
 import { ComponentColorEffect } from './app/view/common/item/colorEffect/componentColorEffect';
