@@ -1,7 +1,6 @@
 import { Component } from './app/view/common/component/component';
 import { ComponentPageBody } from './app/view/body/componentPageBody';
-import { ComponentInformation } from
-'./app/view/common/item/colorEffect/font/animationEffect/animationSubEffect/information/componentInformation';
+import { ComponentInformation } from './app/view/common/item/information/componentInformation';
 import { ComponentDataInput } from './app/view/common/dataInput/componentDataInput'
 import { ComponentOption } from './app/view/common/dataInput/comboBox/option/componentOption';
 import { ComponentComboBox } from './app/view/common/dataInput/comboBox/componentComboBox';
@@ -11,11 +10,6 @@ import { ComponentTextField } from './app/view/common/dataInput/textField/compon
 import { ComponentButton } from './app/view/common/dataInput/button/componentButton';
 import { ComponentBox } from './app/view/common/dataInput/box/componentBox';
 import { ComponentRangeSlider } from './app/view/common/dataInput/rangeSlider/componentRangeSlider';
-import { ComponentAnimationSubEffect } from
-'./app/view/common/item/colorEffect/font/animationEffect/animationSubEffect/componentAnimationSubEffect';
-import { ComponentAnimationEffect } from './app/view/common/item/colorEffect/font/animationEffect/componentAnimationEffect';
-import { ComponentFont } from './app/view/common/item/colorEffect/font/componentFont';
-import { ComponentColorEffect } from './app/view/common/item/colorEffect/componentColorEffect';
 import { ComponentItem } from './app/view/common/item/componentItem';
 import { ComponentMap } from './app/view/common/map/componentMap';
 import { ComponentProgressBar } from './app/view/common/progressBar/componentProgressBar';
@@ -47,9 +41,8 @@ import { Observer } from './app/observer/observer';
 import { OnLoad } from './app/onLoad/onLoad';
 
 export {
-    Component, ComponentPageBody, ComponentInformation, ComponentDataInput, ComponentOption,
+    Component, ComponentPageBody, ComponentItem, ComponentMap, ComponentInformation, ComponentDataInput, ComponentOption,
     ComponentComboBox,  ComponentTextArea, ComponentDataList, ComponentTextField, ComponentButton, ComponentBox, ComponentRangeSlider,
-    ComponentAnimationSubEffect, ComponentAnimationEffect, ComponentFont, ComponentColorEffect, ComponentItem, ComponentMap,
     ComponentProgressBar, ComponentCircle, ComponentEllipse, ComponentRectangle, ComponentPolygon, ComponentLine,
     ComponentPath, ComponentText, ComponentG, ComponentFilter, ComponentLinearGradient, ComponentRadialGradient,
     ComponentStop, ComponentDefs, ServiceModel, Util, ComponentView, App, AppObject, ImportScript,

@@ -9,6 +9,10 @@ export class ComponentGeneric extends Component {
         'ComponentDiv': 'div',
         'ComponentForm': 'form',
         'ComponentAnimationSubEffectHolder': 'animationSubEffectHolder',
+        'ComponentAnimationSubEffect': 'animationSubEffect',
+        'ComponentAnimationEffect': 'animationEffect',
+        'ComponentFont': 'font',
+        'ComponentColorEffect': 'colorEffect',
         'ComponentLabel': 'label',
         'ComponentSource': 'source',
         'ComponentSrc': 'src',
@@ -27,7 +31,7 @@ export class ComponentGeneric extends Component {
         'ComponentMenuVertical': 'menuVertical',
         'ComponentBackground': 'background',
         'ComponentHeader': 'header',
-        'ComponentFooter': 'footer',
+        'ComponentFooter': 'footer'
     };
 
     private static generateTag(name?: string) {

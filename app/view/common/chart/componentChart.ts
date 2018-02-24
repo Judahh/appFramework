@@ -6,13 +6,6 @@ export class ComponentChart extends Component {
   options: any;
   chartType: string;
   arrayPackages: Array<string>;
-
-  pageBodyChecked: boolean;
-  headerChecked: boolean;
-  footerChecked: boolean;
-
-  page: string;
-
   language: any;
 
   constructor(father?: Component, tag?) {
