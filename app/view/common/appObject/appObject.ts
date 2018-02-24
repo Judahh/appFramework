@@ -5,11 +5,9 @@ import { ServiceModel } from './../../serviceModel/serviceModel';
 export class AppObject {
   private static types: any;
   protected father: any;
-  // temp = AppObject.addType(this);
   arrayAppObject: Array<AppObject>;
   arrayAppObjectEvent: Array<AppObjectEvent>;
   running: boolean;
-  appObject: AppObject;
 
   page: string;
   view: ComponentView;
@@ -64,27 +62,11 @@ export class AppObject {
   // tslint:disable-next-line:no-empty
   public renderBeforeUpdateJSON() { }
 
-  public renderAfterUpdateJSON() {
-    // console.log('renderAfterUpdateJSON', this);
-    // this.arrayAppObjectEvent.forEach(appObjectEvent => {
-    //   if (appObjectEvent.name !== undefined) {
-    //     if (appObjectEvent.name === 'build') {
-    //       this.onEvent(appObjectEvent);
-    //       this.running = true;
-    //     } else if (appObjectEvent.name === 'authorization') {
-    //       if (!this.onEvent(appObjectEvent)) {
-    //         appObjectEvent.destroyFather();
-    //       }
-    //     } else if (!appObjectEvent.eventListener) {
-    //       this.addEventListener(appObjectEvent);
-    //     }
-    //   }
-    // });
-    // this.isToRenderAfterUpdateJSON = false;
-  }
+  // tslint:disable-next-line:no-empty
+  public renderAfterUpdateJSON() { }
 
   // tslint:disable-next-line:no-empty
-  public addEventListener(appObjectEvent: AppObjectEvent) { }
+  public addEventListener(appObjectEvent: AppObjectEvent, event?: string) { }
 
   public onEvent(elementEvent: AppObjectEvent) {
     if (elementEvent.code !== undefined) {
@@ -96,9 +78,21 @@ export class AppObject {
       }
       elementEvent.appObject = appObject;
       // console.log('CODE:' + elementEvent.code);
-      if (elementEvent.runFunction) {
-        // tslint:disable-next-line:no-eval
-        eval('elementEvent.appObject.' + elementEvent.runFunction + ';');
+      if (elementEvent.runFunction !== undefined) {
+        if (elementEvent.link !== undefined) {
+          // tslint:disable-next-line:no-eval
+          let link = elementEvent.checkLink(eval('appObject.' + elementEvent.runFunction));
+          if (link !== undefined && link !== null) {
+            this.getView().goToPage(link);
+          }
+        } else {
+          // tslint:disable-next-line:no-eval
+          eval('elementEvent.appObject.' + elementEvent.runFunction + ';');
+        }
+      } else {
+        if (elementEvent.link !== undefined) {
+          this.getView().goToPage(elementEvent.link);
+        }
       }
     }
   }

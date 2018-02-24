@@ -2,8 +2,10 @@ import { AppObject } from './../appObject';
 
 export class AppObjectEvent extends AppObject {
   name: string;
+  link: string;
   code: string;
   runFunction: string;
+  appObject: AppObject;
   eventListener: boolean;
 
   constructor(father?: any /*AppObject*/) {
@@ -17,6 +19,8 @@ export class AppObjectEvent extends AppObject {
       if (this.name === 'build') {
         this.onEvent(this);
         this.running = true;
+      } else if (this.name === 'router') {
+        this.getFather().addEventListener(this, 'click');
       } else if (this.name === 'authorization') {
         if (!this.onEvent(this)) {
           this.destroyFather();
@@ -33,6 +37,13 @@ export class AppObjectEvent extends AppObject {
       this.father.destroyElement();
       delete this.father;
     }
+  }
+
+  public checkLink(runFunction) {
+    if (runFunction(this.link)) {
+      return this.link;
+    }
+    return null
   }
 }
 AppObjectEvent.addConstructor(AppObjectEvent.name, AppObjectEvent);

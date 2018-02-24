@@ -9,35 +9,7 @@ try { require('./component.css'); } catch (e) { };
 export class Component extends AppObject {
   protected element: HTMLElement | SVGElement | SVGSVGElement | HTMLInputElement | HTMLTextAreaElement;
   protected tag: string;
-  protected father: Component;
-
-  // arrayDivisor: Array<ComponentDivisor>;
-
-  // code: string;
-  // runFunction: string;
-
-  // runOnBuild: boolean;
-
-  // arrayRouter: Array<ComponentRouter>;
-  // arrayAuthorization: Array<ComponentAuthorization>;
-  // arrayComponent: Array<Component>;
-
-  // arrayForm: Array<ComponentForm>;
-
-  // submit: boolean;
-
-  // running: boolean;
-
-  // appObject: AppObject;
-  // protected style: ComponentStyle;: CSSStyleDeclaration
-
   sVG: boolean;
-
-  // arrayDisabled: Array<Component>;
-
-  // isToRenderBeforeUpdateJSON: boolean;
-
-  // isToRenderAfterUpdateJSON: boolean;
   private clickListener: boolean;
 
   public getTag() {
@@ -103,24 +75,15 @@ export class Component extends AppObject {
     }
 
     this.clear();
-    // this.submit = false;
-    // this.runOnBuild = false;
     this.clickListener = false;
-    // this.arrayAuthorization = new Array<ComponentAuthorization>();
-    // this.arrayAuthorization.type = ComponentAuthorization;
-    // this.arrayRouter = new Array<ComponentRouter>();
-    // this.arrayRouter.type = ComponentRouter;
-    // this.arrayForm = new Array<ComponentForm>();
-    // this.arrayForm.type = ComponentForm;
-    // this.arrayDisabled = new Array<Component>();
-    // this.arrayDisabled.type = Component;
-    // this.arrayDivisor = new Array<ComponentDivisor>();
-    // this.arrayDivisor.type = ComponentDivisor;
-    // this.arrayComponent = new Array<Component>();
   }
 
-  public addEventListener(appObjectEvent: AppObjectEvent) {
-    this.element.addEventListener(appObjectEvent.name, () => this.onEvent(appObjectEvent));
+  public addEventListener(appObjectEvent: AppObjectEvent, event?: string) {
+    if (event === undefined) {
+      this.element.addEventListener(appObjectEvent.name, () => this.onEvent(appObjectEvent));
+    } else {
+      this.element.addEventListener(event, () => this.onEvent(appObjectEvent));
+    }
     appObjectEvent.eventListener = true;
   }
 
@@ -193,10 +156,4 @@ export class Component extends AppObject {
     this.element.setAttribute(property2, jSON[property][property2]);
   }
 }
-
-import { ComponentRouter } from './../router/componentRouter';
-
-import { ComponentForm } from './../form/componentForm';
-import { ComponentDivisor } from './../divisor/componentDivisor';
-
 Component.addConstructor(Component.name, Component);
