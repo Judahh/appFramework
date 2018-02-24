@@ -7,6 +7,8 @@ export class ComponentGeneric extends Component {
         'ComponentForm' : 'form',
         'ComponentAnimationSubEffectHolder' : 'animationSubEffectHolder',
         'ComponentLabel' : 'label',
+        'ComponentSource' : 'source',
+        'ComponentSrc' : 'src'
     };
 
     private static generateTag(name?: string) {

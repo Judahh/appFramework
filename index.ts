@@ -29,7 +29,6 @@ import { ComponentRightHolder } from './app/view/common/menuHorizontal/rightHold
 import { ComponentMenuHorizontal } from './app/view/common/menuHorizontal/componentMenuHorizontal';
 import { ComponentMenuVertical } from './app/view/common/menuVertical/componentMenuVertical';
 import { ComponentProgressBar } from './app/view/common/progressBar/componentProgressBar';
-import { ComponentSource } from './app/view/common/source/componentSource';
 import { ComponentCircle } from './app/view/common/sVG/circle/componentCircle';
 import { ComponentEllipse } from './app/view/common/sVG/ellipse/componentEllipse';
 import { ComponentRectangle } from './app/view/common/sVG/rectangle/componentRectangle';
@@ -68,7 +67,7 @@ export {
     ComponentAnimationSubEffect, ComponentAnimationEffect,
     ComponentFont, ComponentColorEffect, ComponentItem, ComponentMap, ComponentCenterHolder,
     ComponentLeftHolder, ComponentRightHolder, ComponentMenuHorizontal, ComponentMenuVertical, ComponentProgressBar,
-    ComponentSource, ComponentCircle, ComponentEllipse, ComponentRectangle, ComponentPolygon, ComponentLine,
+    ComponentCircle, ComponentEllipse, ComponentRectangle, ComponentPolygon, ComponentLine,
     ComponentPath, ComponentText, ComponentG, ComponentFilter, ComponentLinearGradient, ComponentRadialGradient,
     ComponentStop, ComponentDefs, ComponentFooter, ComponentHeader, ServiceModel, Util, ComponentView, App, AppObject, ImportScript,
     ComponentChart, AppObjectFactory, AppObjectEvent, ComponentBackground, ApiConnection, Observer, OnLoad
