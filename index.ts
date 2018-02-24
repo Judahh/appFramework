@@ -1,29 +1,25 @@
 import { Component } from './app/view/common/component/component';
 import { ComponentPageBody } from './app/view/body/componentPageBody';
-import { ComponentInformation } from './app/view/common/item/colorEffect/font/animationEffect/animationSubEffect/animationSubEffectHolder/information/componentInformation';
-import { ComponentDataInput } from './app/view/common/dataInput/componentDataInput';
-import { ComponentDivisor } from './app/view/common/divisor/componentDivisor';
+import { ComponentInformation } from './app/view/common/item/colorEffect/font/animationEffect/animationSubEffect/information/componentInformation';
+import { ComponentDataInput } from './app/view/common/dataInput/componentDataInput'
 import { ComponentVideoHolder } from './app/view/common/videoHolder/componentVideoHolder';
 import { ComponentIframe } from './app/view/common/videoHolder/iframe/componentIframe';
 import { ComponentVideo } from './app/view/common/videoHolder/video/componentVideo';
 import { ComponentOption } from './app/view/common/dataInput/comboBox/option/componentOption';
 import { ComponentComboBox } from './app/view/common/dataInput/comboBox/componentComboBox';
 import { ComponentTextArea } from './app/view/common/dataInput/textArea/componentTextArea';
-import { ComponentDataList} from './app/view/common/dataInput/textField/dataList/componentDataList';
+import { ComponentDataList } from './app/view/common/dataInput/textField/dataList/componentDataList';
 import { ComponentTextField } from './app/view/common/dataInput/textField/componentTextField';
 import { ComponentButton } from './app/view/common/dataInput/button/componentButton';
 import { ComponentBox } from './app/view/common/dataInput/box/componentBox';
 import { ComponentRangeSlider } from './app/view/common/dataInput/rangeSlider/componentRangeSlider';
-import { ComponentForm } from './app/view/common/form/componentForm';
 import { ComponentImg } from './app/view/common/image/img/componentImg';
 import { ComponentImage } from './app/view/common/image/componentImage';
-import { ComponentAnimationSubEffectHolder } from './app/view/common/item/colorEffect/font/animationEffect/animationSubEffect/animationSubEffectHolder/componentAnimationSubEffectHolder';
 import { ComponentAnimationSubEffect } from './app/view/common/item/colorEffect/font/animationEffect/animationSubEffect/componentAnimationSubEffect';
 import { ComponentAnimationEffect } from './app/view/common/item/colorEffect/font/animationEffect/componentAnimationEffect';
 import { ComponentFont } from './app/view/common/item/colorEffect/font/componentFont';
 import { ComponentColorEffect } from './app/view/common/item/colorEffect/componentColorEffect';
 import { ComponentItem } from './app/view/common/item/componentItem';
-import { ComponentLabel } from './app/view/common/label/componentLabel';
 import { ComponentMap } from './app/view/common/map/componentMap';
 import { ComponentCenterHolder } from './app/view/common/menuHorizontal/centerHolder/componentCenterHolder';
 import { ComponentLeftHolder } from './app/view/common/menuHorizontal/leftHolder/componentLeftHolder';
@@ -62,14 +58,16 @@ import { ApiConnection } from './app/view/apiConnection/apiConnection';
 import { Observer } from './app/observer/observer';
 import { OnLoad } from './app/onLoad/onLoad';
 
-export { Component, ComponentPageBody, ComponentInformation, ComponentDataInput, ComponentOption,
-    ComponentDivisor, ComponentVideoHolder, ComponentIframe, ComponentVideo, ComponentComboBox,
+export {
+    Component, ComponentPageBody, ComponentInformation, ComponentDataInput, ComponentOption,
+    ComponentVideoHolder, ComponentIframe, ComponentVideo, ComponentComboBox,
     ComponentTextArea, ComponentDataList, ComponentTextField, ComponentButton, ComponentBox,
-    ComponentRangeSlider, ComponentForm, ComponentImg, ComponentImage,
-    ComponentAnimationSubEffectHolder, ComponentAnimationSubEffect, ComponentAnimationEffect,
-    ComponentFont, ComponentColorEffect, ComponentItem, ComponentLabel, ComponentMap, ComponentCenterHolder,
+    ComponentRangeSlider, ComponentImg, ComponentImage,
+    ComponentAnimationSubEffect, ComponentAnimationEffect,
+    ComponentFont, ComponentColorEffect, ComponentItem, ComponentMap, ComponentCenterHolder,
     ComponentLeftHolder, ComponentRightHolder, ComponentMenuHorizontal, ComponentMenuVertical, ComponentProgressBar,
     ComponentSource, ComponentCircle, ComponentEllipse, ComponentRectangle, ComponentPolygon, ComponentLine,
     ComponentPath, ComponentText, ComponentG, ComponentFilter, ComponentLinearGradient, ComponentRadialGradient,
     ComponentStop, ComponentDefs, ComponentFooter, ComponentHeader, ServiceModel, Util, ComponentView, App, AppObject, ImportScript,
-    ComponentChart, AppObjectFactory, AppObjectEvent, ComponentBackground, ApiConnection, Observer, OnLoad }
+    ComponentChart, AppObjectFactory, AppObjectEvent, ComponentBackground, ApiConnection, Observer, OnLoad
+}

@@ -1,10 +1,12 @@
-// import { Array } from 'simpleutils';
 import { Util } from './../../../util/util';
 import { Component } from './../../component/component';
 
 export class ComponentGeneric extends Component {
     private static map: { [key: string]: string; } = {
-        'ComponentDivisor': 'div'
+        'ComponentDivisor': 'div',
+        'ComponentForm' : 'form',
+        'ComponentAnimationSubEffectHolder' : 'animationSubEffectHolder',
+        'ComponentLabel' : 'label',
     };
 
     private static generateTag(name?: string) {
@@ -19,6 +21,8 @@ export class ComponentGeneric extends Component {
         super(father, ComponentGeneric.generateTag(name));
     }
 
-
+    public generateTag(name?: string) {
+        return ComponentGeneric.generateTag(name);
+    }
 }
 ComponentGeneric.addConstructor(ComponentGeneric.name, ComponentGeneric);

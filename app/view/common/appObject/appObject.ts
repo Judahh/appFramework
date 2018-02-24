@@ -178,7 +178,13 @@ export class AppObject {
   public seekFather(className: string): AppObject {
     if (this.father !== undefined) {
       // console.log('FATHER NAME:' + this.father.getClassName());
-      if (this.father.getClassName() === className) {
+      if (this.father.getClassName() === 'ComponentGeneric') {
+        if (this.father.generateTag(className) === this.father.getTag()) {
+          return this.father;
+        } else {
+          return this.father.seekFather(className);
+        }
+      } else if (this.father.getClassName() === className) {
         return this.father;
       } else {
         return this.father.seekFather(className);
@@ -268,7 +274,8 @@ export class AppObject {
         if (object !== null && object !== undefined) {
           properElement = new object(this);
         } else {
-          properElement = new ComponentGeneric(this, element.type);
+          object = AppObject.types['ComponentGeneric'];
+          properElement = new object(this, element.type);
         }
         properElement.updateJSON(element);
         this[property].push(properElement);
@@ -386,7 +393,6 @@ export class AppObject {
 }
 
 import { AppObjectEvent } from './event/appObjectEvent';
-import { ComponentGeneric } from './../component/generic/componentGeneric';
 import { ComponentView } from './../../componentView';
 import { ComponentPageBody } from './../../body/componentPageBody';
 import { ComponentHeader } from './../../header/componentHeader';

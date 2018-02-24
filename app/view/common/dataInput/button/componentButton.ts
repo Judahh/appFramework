@@ -1,11 +1,10 @@
 import { Component } from './../../component/component';
 import { ComponentItem } from './../../item/componentItem';
-import { ComponentForm } from './../../form/componentForm';
-
+import { ComponentGeneric } from './../../component/generic/ComponentGeneric';
 
 export class ComponentButton extends Component {
   item: ComponentItem;
-  form: ComponentForm;
+  form: ComponentGeneric;
   formChecked: boolean;
 
   constructor(father?: Component, tag?) {
@@ -14,7 +13,7 @@ export class ComponentButton extends Component {
   }
 
   protected setForm() {
-    this.form = <ComponentForm>this.seekFather('ComponentForm');
+    this.form = <ComponentGeneric>this.seekFather('ComponentForm');
     this.formChecked = true;
   }
 

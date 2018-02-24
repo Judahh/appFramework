@@ -1,5 +1,5 @@
-import { Component } from './../../../../../../../component/component';
-import { Util } from './../../../../../../../../util/util';
+import { Component } from './../../../../../../component/component';
+import { Util } from './../../../../../../../util/util';
 
 export class ComponentInformation extends Component {
   information: string;

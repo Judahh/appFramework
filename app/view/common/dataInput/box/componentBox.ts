@@ -1,13 +1,13 @@
 import { Component } from './../../component/component';
-import { ComponentLabel } from './../../label/componentLabel';
+import { ComponentGeneric } from './../../component/generic/ComponentGeneric';
 
 export class ComponentBox extends Component {
   // type = radio or checkbox
-  boxLabel: ComponentLabel;
+  boxLabel: ComponentGeneric;
 
   constructor(father?: Component, tag?) {
     super(father, 'input');
-    this.boxLabel = new ComponentLabel(this.father);
+    this.boxLabel = new ComponentGeneric(this.father, 'ComponentLabel');
     this.boxLabel.getElement().setAttribute('for', this.element.id);
   }
 

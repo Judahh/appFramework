@@ -1,5 +1,4 @@
 import { Component } from './../component/component';
-import { ComponentDivisor } from './../divisor/componentDivisor';
 import { Util } from './../../util/util';
 // tslint:disable-next-line:no-empty
 try { require('./componentMenuVertical.css'); } catch (e) { };

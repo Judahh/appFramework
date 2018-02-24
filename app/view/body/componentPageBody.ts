@@ -1,6 +1,5 @@
 import { Util } from './../util/util';
 import { ComponentBackground } from './background/componentBackground';
-import { ComponentDivisor } from './../common/divisor/componentDivisor';
 import { Component } from './../common/component/component';
 // tslint:disable-next-line:no-empty
 try { require('./componentPageBody.css'); } catch (e) { };

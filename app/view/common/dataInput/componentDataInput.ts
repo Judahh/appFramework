@@ -5,7 +5,7 @@ import { ComponentTextField } from './../dataInput/textField/componentTextField'
 import { ComponentTextArea } from './../dataInput/textArea/componentTextArea';
 import { ComponentComboBox } from './../dataInput/comboBox/componentComboBox';
 import { ComponentBox } from './../dataInput/box/componentBox';
-import { ComponentForm } from './../form/componentForm';
+import { ComponentGeneric } from './../component/generic/ComponentGeneric';
 import { ComponentButton } from './../dataInput/button/componentButton';
 import { ComponentRangeSlider } from './../dataInput/rangeSlider/componentRangeSlider';
 
@@ -19,7 +19,7 @@ export class ComponentDataInput extends Component {
   arrayRangeSlider: Array<ComponentRangeSlider>;
   arrayAfterItem: Array<ComponentItem>;
 
-  form: ComponentForm;
+  form: ComponentGeneric;
   formChecked: boolean;
 
   // IF DATALIST IT NEEDS A INPUT
@@ -54,7 +54,7 @@ export class ComponentDataInput extends Component {
   }
 
   protected setForm() {
-    this.form = <ComponentForm>this.seekFather('ComponentForm');
+    this.form = <ComponentGeneric>this.seekFather('ComponentForm');
     this.formChecked = true;
   }
 

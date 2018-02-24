@@ -1,7 +1,6 @@
 // import { Array } from 'simpleutils';
 import { Util } from './../../../util/util';
 import { Component } from './../../component/component';
-import { ComponentDivisor } from './../../divisor/componentDivisor';
 // tslint:disable-next-line:no-empty
 try { require('./componentRightHolder.css'); } catch (e) { };
 
