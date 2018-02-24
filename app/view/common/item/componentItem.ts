@@ -1,6 +1,6 @@
 import { Util } from './../../util/util';
 import { Component } from './../component/component';
-import { ComponentGeneric } from './../component/generic/ComponentGeneric';
+import { ComponentGeneric } from './../component/generic/componentGeneric';
 
 export class ComponentItem extends Component {
   form: ComponentGeneric;

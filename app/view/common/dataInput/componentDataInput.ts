@@ -5,7 +5,7 @@ import { ComponentTextField } from './../dataInput/textField/componentTextField'
 import { ComponentTextArea } from './../dataInput/textArea/componentTextArea';
 import { ComponentComboBox } from './../dataInput/comboBox/componentComboBox';
 import { ComponentBox } from './../dataInput/box/componentBox';
-import { ComponentGeneric } from './../component/generic/ComponentGeneric';
+import { ComponentGeneric } from './../component/generic/componentGeneric';
 import { ComponentButton } from './../dataInput/button/componentButton';
 import { ComponentRangeSlider } from './../dataInput/rangeSlider/componentRangeSlider';
 

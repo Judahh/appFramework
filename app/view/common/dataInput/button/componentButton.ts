@@ -1,6 +1,6 @@
 import { Component } from './../../component/component';
 import { ComponentItem } from './../../item/componentItem';
-import { ComponentGeneric } from './../../component/generic/ComponentGeneric';
+import { ComponentGeneric } from './../../component/generic/componentGeneric';
 
 export class ComponentButton extends Component {
   item: ComponentItem;

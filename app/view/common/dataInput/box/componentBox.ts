@@ -1,5 +1,5 @@
 import { Component } from './../../component/component';
-import { ComponentGeneric } from './../../component/generic/ComponentGeneric';
+import { ComponentGeneric } from './../../component/generic/componentGeneric';
 
 export class ComponentBox extends Component {
   // type = radio or checkbox
