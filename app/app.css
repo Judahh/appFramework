@@ -2,7 +2,7 @@
     font-family: "FontIcon";
     src: url("view/common/fonts/BlueLionIcons.otf");
     src: url("view/common/fonts/BlueLionIcons.woff") format('woff');
-    /*src: url("../../../../../../fonts/BlueLionIcons.ttf")  format(‘truetype’);*/
+    /*src: url("../../../../../../fonts/BlueLionIcons.ttf")  format('truetype');*/
     font-weight: normal;
     font-style: normal;
 }
@@ -11,7 +11,7 @@
     font-family: "Companies";
     src: url("view/common/fonts/Brands/Companies.otf");
     src: url("view/common/fonts/Brands/Companies.woff") format('woff');
-    /*src: url("../../../../../../fonts/Brands/Companies.ttf")  format(‘truetype’);*/
+    /*src: url("../../../../../../fonts/Brands/Companies.ttf")  format('truetype');*/
     font-weight: normal;
     font-style: normal;
 }
@@ -20,7 +20,7 @@
     font-family: "FontIconSocialMedia";
     src: url("view/common/fonts/Brands/Socialico.otf");
     /*src: url("../../../../../../fonts/Socialico.woff") format('woff');
-    src: url("../../../../../../fonts/Socialico.ttf")  format(‘truetype’);*/
+    src: url("../../../../../../fonts/Socialico.ttf")  format('truetype');*/
     font-weight: normal;
     font-style: normal;
 }
@@ -29,7 +29,7 @@
     font-family: "FontIconSocialMedia2";
     src: url("view/common/fonts/Brands/SocialicoPlus.otf");
     /*src: url("../../../../../../fonts/SocialicoPlus.woff") format('woff');
-    src: url("../../../../../../fonts/SocialicoPlus.ttf")  format(‘truetype’);*/
+    src: url("../../../../../../fonts/SocialicoPlus.ttf")  format('truetype');*/
     font-weight: normal;
     font-style: normal;
 }
@@ -38,7 +38,7 @@
     font-family: "FontIconSocialMedia3";
     src: url("view/common/fonts/Brands/MonoSocialIconsFont-1.10.otf");
     src: url("view/common/fonts/Brands/MonoSocialIconsFont-1.10.woff") format('woff');
-    /*src: url("../../../../../../fonts/SocialicoPlus.ttf")  format(‘truetype’);*/
+    /*src: url("../../../../../../fonts/SocialicoPlus.ttf")  format('truetype');*/
     font-weight: normal;
     font-style: normal;
 }
@@ -47,7 +47,7 @@
     font-family: "FontIconSocialMedia4";
     src: url("view/common/fonts/Brands/pictonic.ttf");
     src: url("view/common/fonts/Brands/pictonic.woff") format('woff');
-    /*src: url("../../../../../../fonts/SocialicoPlus.ttf")  format(‘truetype’);*/
+    /*src: url("../../../../../../fonts/SocialicoPlus.ttf")  format('truetype');*/
     font-weight: normal;
     font-style: normal;
 }
@@ -62,45 +62,45 @@
 
 @font-face {
   font-family: "NewIcons0";
-  src: url("view/common/fonts/NewIcons/newIcons0.otf");
+  /* src: url("view/common/fonts/NewIcons/newIcons0.otf"); */
   src: url("view/common/fonts/NewIcons/newIcons0.woff") format('woff');
-  /*src: url("../../../../../../fonts/newIcons.ttf")  format(‘truetype’);*/
+  /*src: url("../../../../../../fonts/newIcons.ttf")  format('truetype');*/
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "NewIcons1";
-  src: url("view/common/fonts/NewIcons/newIcons1.otf");
+  /* src: url("view/common/fonts/NewIcons/newIcons1.otf"); */
   src: url("view/common/fonts/NewIcons/newIcons1.woff") format('woff');
-  /*src: url("../../../../../../fonts/newIcons.ttf")  format(‘truetype’);*/
+  /*src: url("../../../../../../fonts/newIcons.ttf")  format('truetype');*/
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "NewIcons";
-  src: url("view/common/fonts/NewIcons/newIcons.otf");
+  /* src: url("view/common/fonts/NewIcons/newIcons.otf"); */
   src: url("view/common/fonts/NewIcons/newIcons.woff") format('woff');
-  /*src: url("../../../../../../fonts/newIcons.ttf")  format(‘truetype’);*/
+  /*src: url("../../../../../../fonts/newIcons.ttf")  format('truetype');*/
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "MaterialWifi";
-  src: url("view/common/fonts/material-wifi.ttf") format(‘truetype’);
+  src: url("view/common/fonts/material-wifi.ttf") format('truetype');
   src: url("view/common/fonts/material-wifi.woff") format('woff');
-  /*src: url("../../../../../../fonts/newIcons.ttf")  format(‘truetype’);*/
+  /*src: url("../../../../../../fonts/newIcons.ttf")  format('truetype');*/
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "MaterialDesign";
-  src: url("view/common/fonts/Material-Design-Iconic-Font.ttf") format(‘truetype’);
+  src: url("view/common/fonts/Material-Design-Iconic-Font.ttf") format('truetype');
   src: url("view/common/fonts/Material-Design-Iconic-Font.woff") format('woff');
-  /*src: url("../../../../../../fonts/newIcons.ttf")  format(‘truetype’);*/
+  /*src: url("../../../../../../fonts/newIcons.ttf")  format('truetype');*/
   font-weight: normal;
   font-style: normal;
 }
@@ -109,7 +109,7 @@
     font-family: "FontFuturisticI";
     src: url("view/common/fonts/Letters/FuturisticFontI.otf");
     src: url("view/common/fonts/Letters/FuturisticFontI.woff") format('woff');
-    /*src: url("../../../../../../fonts/FuturisticFontI.ttf")  format(‘truetype’);*/
+    /*src: url("../../../../../../fonts/FuturisticFontI.ttf")  format('truetype');*/
     font-weight: normal;
     font-style: normal;
 }
@@ -118,7 +118,7 @@
     font-family: "FontFuturisticII";
     src: url("view/common/fonts/Letters/FuturisticFontII.otf");
     src: url("view/common/fonts/Letters/FuturisticFontII.woff") format('woff');
-    /*src: url("../../../../../../fonts/FuturisticFontII.ttf")  format(‘truetype’);*/
+    /*src: url("../../../../../../fonts/FuturisticFontII.ttf")  format('truetype');*/
     font-weight: normal;
     font-style: normal;
 }
@@ -662,8 +662,8 @@
 
 @font-face {
   font-family: 'Facebook'; 
-  src: url(‘https://www.mediafont.com/storage/contents/11/font.eot’); /* IE */ 
-  src: local(‘Facebook Letter Faces’), url(‘https://www.mediafont.com/storage/contents/11/FACEBOLF.OTF’); /* non-IE */ 
+  src: url('https://www.mediafont.com/storage/contents/11/font.eot'); /* IE */ 
+  src: local('Facebook Letter Faces'), url('https://www.mediafont.com/storage/contents/11/FACEBOLF.OTF'); /* non-IE */ 
 }
 
 body {
