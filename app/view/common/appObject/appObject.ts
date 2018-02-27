@@ -272,20 +272,18 @@ export class AppObject {
       });
     } else {
       jSON[property].forEach(element => {
-        console.log('START');
+        // console.log('START');
         console.log('type', element.type);
         let object = AppObject.types[element.type];
         let properElement;
-        console.log('object', object);
         if (object !== null && object !== undefined) {
           properElement = new object(this);
         } else {
           object = AppObject.types['ComponentGeneric'];
-          console.log('object G', object);
           properElement = new object(this, element.type);
         }
-        console.log('object', object);
-        console.log('properElement', properElement);
+        // console.log('object', object);
+        // console.log('properElement', properElement);
         properElement.updateJSON(element);
         this[property].push(properElement);
 

@@ -30,13 +30,14 @@ export class Component extends AppObject {
       this.element = document.createElementNS('http://www.w3.org/2000/svg', this.tag);
     } else {
       this.sVG = false;
-      console.log('this.tag:' + this.tag);
       this.element = document.createElement(this.tag);
     }
 
+    console.log('this.tag:' + this.tag);
     this.element.id = this.tag + 'Id' + nodes.length;
 
     if (this.father) {
+      console.log('this.father.tag:' + this.father.tag);
       this.insert((<Component>father).getElement());
     }
 
