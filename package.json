@@ -30,7 +30,6 @@
     "webpack": "webpack"
   },
   "dependencies": {
-    "font-awesome": "4.7.0",
     "jquery": "3.3.1",
     "jsdom": "^11.6.2",
     "path": "0.12.7",
