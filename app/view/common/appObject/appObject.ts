@@ -34,8 +34,8 @@ export class AppObject {
     }
     if (AppObject.types[name] === undefined) {
       AppObject.types[name] = constructor;
-      console.log('name', name);
-      console.log('constructor', constructor);
+      // console.log('name', name);
+      // console.log('constructor', constructor);
     }
   }
 

@@ -1,15 +1,18 @@
 import * as $ from 'jquery';
 
 declare global {
+  // tslint:disable-next-line:no-shadowed-variable
   interface Array<T> {
     type: any;
     getType(): string;
   }
 
+  // tslint:disable-next-line:no-shadowed-variable
   interface JQueryStatic {
     cache;
   }
 
+  // tslint:disable-next-line:no-shadowed-variable
   interface String {
     replaceAll(search: string, replacement: string): string;
   }
@@ -66,7 +69,7 @@ export class Util {
   }
 
   // tslint:disable-next-line:no-empty
-  constructor() {}
+  constructor() { }
 
   elementHTML(name: string, id?: string, body?: string) {
     console.log('Name: ' + name);
@@ -161,8 +164,8 @@ export class Util {
     if (this.currentLanguage !== undefined) {
       return this.currentLanguage;
     } else if (this.getCookie('language') !== undefined &&
-               this.getCookie('language') !== null      &&
-               this.getCookie('language') !== '') {
+      this.getCookie('language') !== null &&
+      this.getCookie('language') !== '') {
       this.currentLanguage = this.getCookie('language');
     } else {
       this.currentLanguage = this.getBrowserLanguage();

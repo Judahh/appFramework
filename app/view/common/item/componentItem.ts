@@ -7,7 +7,7 @@ export class ComponentItem extends Component {
   formChecked: boolean;
 
   constructor(father?: Component, tag?: string) {
-    super(father, tag);
+    super(father, 'item');
     this.className = 'ComponentItem';
   }
 

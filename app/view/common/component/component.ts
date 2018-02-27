@@ -22,52 +22,34 @@ export class Component extends AppObject {
     } else {
       this.sVG = false;
     }
-    if (tag) {
+
+    let nodes;
+
+    if (tag && tag !== '') {
       this.tag = tag;
-      if (tag === 'body') {
-        this.element = document.body;
-      } else {
-        let nodes = document.getElementsByTagName(this.tag);
-        let path = Util.getInstance().getCurrentComponentPath();
-
-        // if (path) {
-        //   // console.log('importCSS:' + path);
-        //   ImportScript.importCSS(path);
-        // }
-
-
-        if (this.sVG) {
-          // console.log('this.tag:' + this.tag);
-          this.sVG = true;
-          this.element = document.createElementNS('http://www.w3.org/2000/svg', this.tag);
-        } else {
-          this.sVG = false;
-          this.element = document.createElement(this.tag);
-        }
-
-        this.element.id = this.tag + 'Id' + nodes.length;
-      }
+      nodes = document.getElementsByTagName(this.tag);
+      let path = Util.getInstance().getCurrentComponentPath();
     } else {
       this.tag = Util.getInstance().getTag(this.getClassName());
-      let nodes = document.getElementsByTagName(this.tag);
+      console.log('NAME:' + this.getClassName());
+      console.log('NEW TAG:' + this.tag);
+      nodes = document.getElementsByTagName(this.tag);
       let path = Util.getInstance().getCurrentComponentPath();
-
-      // if (path) {
-      //   // console.log('importCSS2:' + path);
-      //   ImportScript.importCSS(path);
-      // }
-
-      if (this.sVG) {
-        // console.log('this.tag:' + this.tag);
-        this.sVG = true;
-        this.element = document.createElementNS('http://www.w3.org/2000/svg', this.tag);
-      } else {
-        this.sVG = false;
-        this.element = document.createElement(this.tag);
-      }
-
-      this.element.id = this.tag + 'Id' + nodes.length;
     }
+
+    if (tag === 'body') {
+      this.element = document.body;
+    } else if (this.sVG) {
+      // console.log('this.tag:' + this.tag);
+      this.sVG = true;
+      this.element = document.createElementNS('http://www.w3.org/2000/svg', this.tag);
+    } else {
+      this.sVG = false;
+      console.log('this.tag:' + this.tag);
+      this.element = document.createElement(this.tag);
+    }
+
+    this.element.id = this.tag + 'Id' + nodes.length;
 
     if (this.father) {
       this.insert((<Component>father).getElement());

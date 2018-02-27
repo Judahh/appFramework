@@ -10,7 +10,7 @@ export class ComponentPageBody extends Component {
   nextPageName: string;
 
   constructor(father?: Component, pageName?: string) {
-    super(father);
+    super(father, 'body');
     this.className = 'ComponentPageBody';
     this.background = new ComponentGeneric(this, 'ComponentBackground');
     this.goToPage(pageName);
