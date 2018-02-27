@@ -7,8 +7,9 @@ export class ComponentDataList extends Component {
 
   constructor(father?: Component, tag?) {
     super(father, 'datalist');
+    this.className = 'ComponentDataList';
     this.arrayOption = new Array<ComponentOption>();
     this.arrayOption.type = ComponentOption;
   }
 }
-ComponentDataList.addConstructor(ComponentDataList.name, ComponentDataList);
+ComponentDataList.addConstructor('ComponentDataList', ComponentDataList);

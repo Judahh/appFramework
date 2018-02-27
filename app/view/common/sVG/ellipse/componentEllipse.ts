@@ -4,6 +4,7 @@ export class ComponentEllipse extends Component {
 
   constructor(father?: Component, tag?, sVG?) {
     super(father, 'ellipse', true);
+    this.className = 'ComponentEllipse';
   }
 }
-ComponentEllipse.addConstructor(ComponentEllipse.name, ComponentEllipse);
+ComponentEllipse.addConstructor('ComponentEllipse', ComponentEllipse);

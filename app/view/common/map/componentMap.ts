@@ -16,6 +16,7 @@ export class ComponentMap extends Component {
 
   constructor(father?: Component, tag?) {
     super(father, 'map');
+    this.className = 'ComponentMap';
     this.arrayMarker = new Array<any>();
   }
 
@@ -53,4 +54,4 @@ export class ComponentMap extends Component {
     super.renderAfterUpdateJSON();
   }
 }
-ComponentMap.addConstructor(ComponentMap.name, ComponentMap);
+ComponentMap.addConstructor('ComponentMap', ComponentMap);

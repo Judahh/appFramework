@@ -10,6 +10,7 @@ export class AppObjectEvent extends AppObject {
 
   constructor(father?: any /*AppObject*/) {
     super(father);
+    this.className = 'AppObjectEvent';
     console.log('FATHER:', this.father, this);
     this.eventListener = false;
   }
@@ -46,4 +47,4 @@ export class AppObjectEvent extends AppObject {
     return null
   }
 }
-AppObjectEvent.addConstructor(AppObjectEvent.name, AppObjectEvent);
+AppObjectEvent.addConstructor('AppObjectEvent', AppObjectEvent);

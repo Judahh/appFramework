@@ -8,6 +8,7 @@ export class ComponentTextArea extends Component {
 
   constructor(father?: Component, tag?) {
     super(father, 'textarea');
+    this.className = 'ComponentTextArea';
     this.arrayKeyboard = new Array<ComponentKeyboard>();
     this.arrayKeyboard.type = ComponentKeyboard;
   }
@@ -60,4 +61,4 @@ export class ComponentTextArea extends Component {
     }
   }
 }
-ComponentTextArea.addConstructor(ComponentTextArea.name, ComponentTextArea);
+ComponentTextArea.addConstructor('ComponentTextArea', ComponentTextArea);

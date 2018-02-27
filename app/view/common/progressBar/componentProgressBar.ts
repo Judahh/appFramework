@@ -6,6 +6,7 @@ export class ComponentProgressBar extends Component {
 
   constructor(father?: Component, tag?) {
     super(father, 'progress');
+    this.className = 'ComponentProgressBar';
   }
 }
-ComponentProgressBar.addConstructor(ComponentProgressBar.name, ComponentProgressBar);
+ComponentProgressBar.addConstructor('ComponentProgressBar', ComponentProgressBar);

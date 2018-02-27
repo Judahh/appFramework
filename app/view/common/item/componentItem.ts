@@ -8,6 +8,7 @@ export class ComponentItem extends Component {
 
   constructor(father?: Component, tag?: string) {
     super(father, tag);
+    this.className = 'ComponentItem';
   }
 
   public getForm() {
@@ -22,4 +23,4 @@ export class ComponentItem extends Component {
     this.formChecked = true;
   }
 }
-ComponentItem.addConstructor(ComponentItem.name, ComponentItem);
+ComponentItem.addConstructor('ComponentItem', ComponentItem);

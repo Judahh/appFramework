@@ -31,6 +31,7 @@ export class ComponentG extends Component {
 
   constructor(father?: Component, tag?, sVG?) {
     super(father, 'g', true);
+    this.className = 'ComponentG';
     this.arrayCircle = new Array<ComponentCircle>();
     this.arrayCircle.type = ComponentCircle;
 
@@ -62,4 +63,4 @@ export class ComponentG extends Component {
     this.arrayDefs.type = ComponentDefs;
   }
 }
-ComponentG.addConstructor(ComponentG.name, ComponentG);
+ComponentG.addConstructor('ComponentG', ComponentG);

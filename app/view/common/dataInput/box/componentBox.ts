@@ -7,9 +7,10 @@ export class ComponentBox extends Component {
 
   constructor(father?: Component, tag?) {
     super(father, 'input');
+    this.className = 'ComponentBox';
     this.boxLabel = new ComponentGeneric(this.father, 'ComponentLabel');
     this.boxLabel.getElement().setAttribute('for', this.element.id);
   }
 
 }
-ComponentBox.addConstructor(ComponentBox.name, ComponentBox);
+ComponentBox.addConstructor('ComponentBox', ComponentBox);

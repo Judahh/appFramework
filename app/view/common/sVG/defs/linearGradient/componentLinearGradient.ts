@@ -8,8 +8,9 @@ export class ComponentLinearGradient extends Component {
 
   constructor(father?: Component, tag?, sVG?) {
     super(father, 'linearGradient', true);
+    this.className = 'ComponentLinearGradient';
     this.arrayStop = new Array<ComponentStop>();
     this.arrayStop.type = ComponentStop;
   }
 }
-ComponentLinearGradient.addConstructor(ComponentLinearGradient.name, ComponentLinearGradient);
+ComponentLinearGradient.addConstructor('ComponentLinearGradient', ComponentLinearGradient);

@@ -7,8 +7,9 @@ export class ComponentComboBox extends Component {
 
   constructor(father?: Component, tag?) {
     super(father, 'select');
+    this.className = 'ComponentComboBox';
     this.arrayOption = new Array<ComponentOption>();
     this.arrayOption.type = ComponentOption;
   }
 }
-ComponentComboBox.addConstructor(ComponentComboBox.name, ComponentComboBox);
+ComponentComboBox.addConstructor('ComponentComboBox', ComponentComboBox);

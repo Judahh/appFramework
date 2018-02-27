@@ -11,6 +11,7 @@ export class ComponentKeyboard extends Component {
 
   constructor(father?: Component, tag?) {
     super(father, 'virtualKeyboard');
+    this.className = 'ComponentKeyboard';
     let keyboardOptionsB = KeyboardOptions;
   }
 
@@ -20,4 +21,4 @@ export class ComponentKeyboard extends Component {
     element.keyboard(_self.keyboardOptions);
   }
 }
-ComponentKeyboard.addConstructor(ComponentKeyboard.name, ComponentKeyboard);
+ComponentKeyboard.addConstructor('ComponentKeyboard', ComponentKeyboard);

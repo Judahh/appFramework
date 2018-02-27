@@ -9,6 +9,7 @@ export class ComponentInformation extends Component {
 
   constructor(father?: Component) {
     super(father, 'a');
+    this.className = 'ComponentInformation';
     this.getItem();
     // this.item=new ComponentItem(this.element);
   }
@@ -67,4 +68,4 @@ export class ComponentInformation extends Component {
   }
 
 }
-ComponentInformation.addConstructor(ComponentInformation.name, ComponentInformation);
+ComponentInformation.addConstructor('ComponentInformation', ComponentInformation);

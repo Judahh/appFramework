@@ -10,6 +10,7 @@ export class ComponentChart extends Component {
 
   constructor(father?: Component, tag?) {
     super(father, 'chart');
+    this.className = 'ComponentChart';
   }
 
   renderAfterUpdateJSON() {
@@ -111,4 +112,4 @@ export class ComponentChart extends Component {
     super.renderAfterUpdateJSON();
   }
 }
-ComponentChart.addConstructor(ComponentChart.name, ComponentChart);
+ComponentChart.addConstructor('ComponentChart', ComponentChart);

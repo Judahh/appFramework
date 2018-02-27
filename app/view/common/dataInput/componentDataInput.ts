@@ -28,6 +28,7 @@ export class ComponentDataInput extends Component {
 
   constructor(father?: Component, tag?) {
     super(father, tag);
+    this.className = 'ComponentDataInput';
     this.arrayBeforeItem = new Array<ComponentItem>();
     this.arrayBeforeItem.type = ComponentItem;
 
@@ -65,4 +66,4 @@ export class ComponentDataInput extends Component {
     return this.form;
   }
 }
-ComponentDataInput.addConstructor(ComponentDataInput.name, ComponentDataInput);
+ComponentDataInput.addConstructor('ComponentDataInput', ComponentDataInput);

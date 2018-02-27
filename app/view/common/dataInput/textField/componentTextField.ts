@@ -11,6 +11,7 @@ export class ComponentTextField extends Component {
 
   constructor(father?: Component, tag?) {
     super(father, 'input');
+    this.className = 'ComponentTextField';
     this.arrayDataList = new Array<ComponentDataList>();
     this.arrayDataList.type = ComponentDataList;
     this.arrayKeyboard = new Array<ComponentKeyboard>();
@@ -66,4 +67,4 @@ export class ComponentTextField extends Component {
     }
   }
 }
-ComponentTextField.addConstructor(ComponentTextField.name, ComponentTextField);
+ComponentTextField.addConstructor('ComponentTextField', ComponentTextField);

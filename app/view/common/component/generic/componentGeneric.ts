@@ -44,6 +44,7 @@ export class ComponentGeneric extends Component {
 
     constructor(father?: any, name?: string) {
         super(father, ComponentGeneric.generateTag(name));
+        this.className = 'ComponentGeneric';
         if (this.tag === 'header' || this.tag === 'footer') {
             this.getJSONPromise(this.tag);
         }
@@ -53,4 +54,4 @@ export class ComponentGeneric extends Component {
         return ComponentGeneric.generateTag(name);
     }
 }
-ComponentGeneric.addConstructor(ComponentGeneric.name, ComponentGeneric);
+ComponentGeneric.addConstructor('ComponentGeneric', ComponentGeneric);

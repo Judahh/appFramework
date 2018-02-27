@@ -10,6 +10,7 @@ export class ComponentView extends Component { // body
 
   constructor(father?: Component) {
     super(father, 'body');
+    this.className = 'ComponentView';
     this.header = new ComponentGeneric(this, 'ComponentHeader');
     this.pageBody = new ComponentPageBody(this);
     this.footer = new ComponentGeneric(this, 'ComponentFooter');
@@ -19,4 +20,4 @@ export class ComponentView extends Component { // body
     this.pageBody.goToPage(pageName);
   }
 }
-ComponentView.addConstructor(ComponentView.name, ComponentView);
+ComponentView.addConstructor('ComponentView', ComponentView);

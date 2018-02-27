@@ -16,6 +16,7 @@ export class Component extends AppObject {
 
   public constructor(father?: Component, tag?: string, sVG?: boolean) {
     super(father);
+    this.className = 'Component';
     if (sVG) {
       this.sVG = sVG;
     } else {
@@ -154,4 +155,4 @@ export class Component extends AppObject {
     this.element.setAttribute(property2, jSON[property][property2]);
   }
 }
-Component.addConstructor(Component.name, Component);
+Component.addConstructor('Component', Component);

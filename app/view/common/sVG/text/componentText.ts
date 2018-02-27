@@ -7,6 +7,7 @@ export class ComponentText extends Component {
 
   constructor(father?: Component, tag?, sVG?) {
     super(father, 'text', true);
+    this.className = 'ComponentText';
   }
 
   public renderAfterUpdateJSON() {
@@ -58,4 +59,4 @@ export class ComponentText extends Component {
     }
   }
 }
-ComponentText.addConstructor(ComponentText.name, ComponentText);
+ComponentText.addConstructor('ComponentText', ComponentText);

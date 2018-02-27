@@ -11,6 +11,7 @@ export class ComponentPageBody extends Component {
 
   constructor(father?: Component, pageName?: string) {
     super(father);
+    this.className = 'ComponentPageBody';
     this.background = new ComponentGeneric(this, 'ComponentBackground');
     this.goToPage(pageName);
   }
@@ -49,4 +50,4 @@ export class ComponentPageBody extends Component {
     Util.getInstance().clearCookie('page');
   }
 }
-ComponentPageBody.addConstructor(ComponentPageBody.name, ComponentPageBody);
+ComponentPageBody.addConstructor('ComponentPageBody', ComponentPageBody);

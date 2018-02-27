@@ -14,6 +14,7 @@ export class ComponentDefs extends Component {
 
   constructor(father?: Component, tag?, sVG?) {
     super(father, 'defs', true);
+    this.className = 'ComponentDefs';
     this.arrayFilter = new Array<ComponentFilter>();
     this.arrayFilter.type = ComponentFilter;
 
@@ -24,4 +25,4 @@ export class ComponentDefs extends Component {
     this.arrayRadialGradient.type = ComponentRadialGradient;
   }
 }
-ComponentDefs.addConstructor(ComponentDefs.name, ComponentDefs);
+ComponentDefs.addConstructor('ComponentDefs', ComponentDefs);

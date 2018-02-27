@@ -9,6 +9,7 @@ export class ComponentButton extends Component {
 
   constructor(father?: Component, tag?) {
     super(father);
+    this.className = 'ComponentButton';
     this.item = new ComponentItem(this);
   }
 
@@ -24,4 +25,4 @@ export class ComponentButton extends Component {
     return this.form;
   }
 }
-ComponentButton.addConstructor(ComponentButton.name, ComponentButton);
+ComponentButton.addConstructor('ComponentButton', ComponentButton);

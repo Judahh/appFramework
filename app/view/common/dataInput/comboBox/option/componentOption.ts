@@ -7,6 +7,7 @@ export class ComponentOption extends Component {
 
   constructor(father?: Component) {
     super(father, 'option');
+    this.className = 'ComponentOption';
   }
 
   public renderAfterUpdateJSON() {
@@ -57,4 +58,4 @@ export class ComponentOption extends Component {
     }
   }
 }
-ComponentOption.addConstructor(ComponentOption.name, ComponentOption);
+ComponentOption.addConstructor('ComponentOption', ComponentOption);

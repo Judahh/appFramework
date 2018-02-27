@@ -23,8 +23,9 @@ export class ComponentFilter extends Component {// TODO
 
   constructor(father?: Component, tag?, sVG?) {
     super(father, 'filter', true);
+    this.className = 'ComponentFilter';
     // this.arrayFEBlend = new Array<ComponentFEBlend>();
     // this.arrayFEBlend.type = ComponentFEBlend;
   }
 }
-ComponentFilter.addConstructor(ComponentFilter.name, ComponentFilter);
+ComponentFilter.addConstructor('ComponentFilter', ComponentFilter);

@@ -5,6 +5,7 @@ import { ServiceModel } from './../../serviceModel/serviceModel';
 export class AppObject {
   private static types: any;
   protected father: any;
+  protected className: string;
   arrayAppObject: Array<AppObject>;
   arrayAppObjectEvent: Array<AppObjectEvent>;
   running: boolean;
@@ -33,6 +34,8 @@ export class AppObject {
     }
     if (AppObject.types[name] === undefined) {
       AppObject.types[name] = constructor;
+      console.log('name', name);
+      console.log('constructor', constructor);
     }
   }
 
@@ -48,7 +51,7 @@ export class AppObject {
     this.arrayAppObject = new Array<AppObject>();
     this.arrayAppObjectEvent = new Array<AppObjectEvent>();
     this.arrayAppObjectEvent.type = AppObjectEvent;
-    // AppObject.addType(this);
+    this.className = 'AppObject';
   }
 
   protected getConstructor() {
@@ -56,7 +59,7 @@ export class AppObject {
   }
 
   public getClassName() {
-    return this.getConstructor().name;
+    return this.className;
   }
 
   // tslint:disable-next-line:no-empty
@@ -263,20 +266,26 @@ export class AppObject {
     if (this[property].type !== undefined) {
       jSON[property].forEach(element => {
         let properElement = new this[property].type(this);
-        // console.log(properElement)
+        console.log(properElement);
         properElement.updateJSON(element);
         this[property].push(properElement);
       });
     } else {
       jSON[property].forEach(element => {
+        console.log('START');
+        console.log('type', element.type);
         let object = AppObject.types[element.type];
         let properElement;
+        console.log('object', object);
         if (object !== null && object !== undefined) {
           properElement = new object(this);
         } else {
           object = AppObject.types['ComponentGeneric'];
+          console.log('object G', object);
           properElement = new object(this, element.type);
         }
+        console.log('object', object);
+        console.log('properElement', properElement);
         properElement.updateJSON(element);
         this[property].push(properElement);
 
@@ -396,4 +405,4 @@ import { AppObjectEvent } from './event/appObjectEvent';
 import { ComponentView } from './../../componentView';
 import { ComponentPageBody } from './../../body/componentPageBody';
 import { ComponentGeneric } from '../component/generic/componentGeneric';
-AppObject.addConstructor(AppObject.name, AppObject);
+AppObject.addConstructor('AppObject', AppObject);
