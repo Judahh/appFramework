@@ -9,7 +9,7 @@ export class ComponentView extends Component { // body
   footer: ComponentGeneric;
 
   constructor(father?: Component) {
-    super(father, 'body');
+    super('body', father);
     this.className = 'ComponentView';
     this.header = new ComponentGeneric(this, 'ComponentHeader');
     this.pageBody = new ComponentPageBody(this);

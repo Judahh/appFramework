@@ -9,8 +9,8 @@ export class ComponentKeyboard extends Component {
   private typing;
   private extender;
 
-  constructor(father?: Component, tag?) {
-    super(father, 'virtualKeyboard');
+  constructor(father?: Component) {
+    super('virtualKeyboard', father);
     this.className = 'ComponentKeyboard';
     let keyboardOptionsB = KeyboardOptions;
   }

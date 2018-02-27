@@ -26,8 +26,8 @@ export class ComponentDataInput extends Component {
   // <input list='datalistID' name='inputNAME'>
   // <datalist id='datalistID'>
 
-  constructor(father?: Component, tag?) {
-    super(father, 'dataInput');
+  constructor(father?: Component) {
+    super('dataInput', father);
     this.className = 'ComponentDataInput';
     this.arrayBeforeItem = new Array<ComponentItem>();
     this.arrayBeforeItem.type = ComponentItem;

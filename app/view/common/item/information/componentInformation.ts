@@ -8,7 +8,7 @@ export class ComponentInformation extends Component {
 
 
   constructor(father?: Component) {
-    super(father, 'a');
+    super('a', father);
     this.className = 'ComponentInformation';
     this.getItem();
     // this.item=new ComponentItem(this.element);

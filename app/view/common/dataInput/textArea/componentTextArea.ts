@@ -6,8 +6,8 @@ export class ComponentTextArea extends Component {
   arrayKeyboard: Array<ComponentKeyboard>;
   language: string;
 
-  constructor(father?: Component, tag?) {
-    super(father, 'textarea');
+  constructor(father?: Component) {
+    super('textarea', father);
     this.className = 'ComponentTextArea';
     this.arrayKeyboard = new Array<ComponentKeyboard>();
     this.arrayKeyboard.type = ComponentKeyboard;

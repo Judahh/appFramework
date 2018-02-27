@@ -5,8 +5,8 @@ export class ComponentText extends Component {
   text: string;
   language: string;
 
-  constructor(father?: Component, tag?, sVG?) {
-    super(father, 'text', true);
+  constructor(father?: Component) {
+    super('text', father, true);
     this.className = 'ComponentText';
   }
 

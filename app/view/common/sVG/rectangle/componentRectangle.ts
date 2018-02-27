@@ -2,8 +2,8 @@ import { Component } from './../../component/component';
 
 export class ComponentRectangle extends Component {
 
-  constructor(father?: Component, tag?, sVG?) {
-    super(father, 'rect', true);
+  constructor(father?: Component) {
+    super('rect', father, true);
     this.className = 'ComponentRectangle';
   }
 }

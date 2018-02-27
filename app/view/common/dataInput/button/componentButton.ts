@@ -7,8 +7,8 @@ export class ComponentButton extends Component {
   form: ComponentGeneric;
   formChecked: boolean;
 
-  constructor(father?: Component, tag?) {
-    super(father, 'button');
+  constructor(father?: Component) {
+    super('button', father);
     this.className = 'ComponentButton';
     this.item = new ComponentItem(this);
   }

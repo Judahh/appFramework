@@ -14,8 +14,8 @@ export class ComponentMap extends Component {
   // <input list='datalistID' name='inputNAME'>
   // <datalist id='datalistID'>
 
-  constructor(father?: Component, tag?) {
-    super(father, 'map');
+  constructor(father?: Component) {
+    super('map', father);
     this.className = 'ComponentMap';
     this.arrayMarker = new Array<any>();
   }

@@ -6,7 +6,7 @@ export class ComponentOption extends Component {
   language: string;
 
   constructor(father?: Component) {
-    super(father, 'option');
+    super('option', father);
     this.className = 'ComponentOption';
   }
 

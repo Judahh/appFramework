@@ -6,8 +6,8 @@ export class ComponentItem extends Component {
   form: ComponentGeneric;
   formChecked: boolean;
 
-  constructor(father?: Component, tag?: string) {
-    super(father, 'item');
+  constructor(father?: Component) {
+    super('item', father);
     this.className = 'ComponentItem';
   }
 

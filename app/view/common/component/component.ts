@@ -14,28 +14,13 @@ export class Component extends AppObject {
     return this.tag;
   }
 
-  public constructor(father?: Component, tag?: string, sVG?: boolean) {
+  public constructor(tag: string, father?: Component, sVG?: boolean) {
     super(father);
     this.className = 'Component';
-    if (sVG) {
-      this.sVG = sVG;
-    } else {
-      this.sVG = false;
-    }
 
-    let nodes;
-
-    if (tag && tag !== '') {
-      this.tag = tag;
-      nodes = document.getElementsByTagName(this.tag);
-      let path = Util.getInstance().getCurrentComponentPath();
-    } else {
-      this.tag = Util.getInstance().getTag(this.getClassName());
-      console.log('NAME:' + this.getClassName());
-      console.log('NEW TAG:' + this.tag);
-      nodes = document.getElementsByTagName(this.tag);
-      let path = Util.getInstance().getCurrentComponentPath();
-    }
+    this.tag = tag;
+    let nodes = document.getElementsByTagName(this.tag);
+    let path = Util.getInstance().getCurrentComponentPath();
 
     if (tag === 'body') {
       this.element = document.body;

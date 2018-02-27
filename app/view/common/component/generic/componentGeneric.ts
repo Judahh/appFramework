@@ -43,7 +43,7 @@ export class ComponentGeneric extends Component {
     }
 
     constructor(father?: any, name?: string) {
-        super(father, ComponentGeneric.generateTag(name));
+        super(ComponentGeneric.generateTag(name), father);
         this.className = 'ComponentGeneric';
         if (this.tag === 'header' || this.tag === 'footer') {
             this.getJSONPromise(this.tag);

@@ -28,8 +28,8 @@ export class ComponentSVG extends Component {
   arrayG: Array<ComponentG>;
   arrayDefs: Array<ComponentDefs>;
 
-  constructor(father?: Component, tag?, sVG?) {
-    super(father, 'svg', true);
+  constructor(father?: Component) {
+    super('svg', father, true);
     this.className = 'ComponentSVG';
     this.arrayCircle = new Array<ComponentCircle>();
     this.arrayCircle.type = ComponentCircle;

@@ -2,8 +2,8 @@ import { Component } from './../../../component/component';
 
 export class ComponentStop extends Component {
 
-  constructor(father?: Component, tag?, sVG?) {
-    super(father, 'stop', true);
+  constructor(father?: Component) {
+    super('stop', father, true);
     this.className = 'ComponentStop';
   }
 }

@@ -21,8 +21,8 @@ export class ComponentFilter extends Component {// TODO
   // arrayFEPointLight: Array<ComponentFEPointLight>;
   // arrayFESpotLight: Array<ComponentFESpotLight>;
 
-  constructor(father?: Component, tag?, sVG?) {
-    super(father, 'filter', true);
+  constructor(father?: Component) {
+    super('filter', father, true);
     this.className = 'ComponentFilter';
     // this.arrayFEBlend = new Array<ComponentFEBlend>();
     // this.arrayFEBlend.type = ComponentFEBlend;

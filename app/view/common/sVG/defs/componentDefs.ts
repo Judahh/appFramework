@@ -12,8 +12,8 @@ export class ComponentDefs extends Component {
   arrayLinearGradient: Array<ComponentLinearGradient>;
   arrayRadialGradient: Array<ComponentRadialGradient>;
 
-  constructor(father?: Component, tag?, sVG?) {
-    super(father, 'defs', true);
+  constructor(father?: Component) {
+    super('defs', father, true);
     this.className = 'ComponentDefs';
     this.arrayFilter = new Array<ComponentFilter>();
     this.arrayFilter.type = ComponentFilter;
