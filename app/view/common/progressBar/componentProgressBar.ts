@@ -4,8 +4,8 @@ try { require('./componentProgressBar.css'); } catch (e) { };
 
 export class ComponentProgressBar extends Component {
 
-  constructor(father?: Component, tag?) {
-    super(father, 'progress');
+  constructor(father?: Component) {
+    super('progress', father);
     this.className = 'ComponentProgressBar';
   }
 }
