@@ -31,7 +31,9 @@ export class ComponentGeneric extends Component {
         'ComponentMenuVertical': 'menuVertical',
         'ComponentBackground': 'background',
         'ComponentHeader': 'header',
-        'ComponentFooter': 'footer'
+        'ComponentFooter': 'footer',
+        'ComponentItalic': 'i',
+        'ComponentFontAwesome': 'i'
     };
 
     private static generateTag(name?: string) {

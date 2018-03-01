@@ -2,7 +2,7 @@
   "name": "backappjh",
   "productName": "backApp",
   "author": "Judah Holanda Correia Lima <judahholanda7@gmail.com> (https://judahh.com)",
-  "version": "0.2.26",
+  "version": "0.2.27",
   "private": false,
   "description": "Judahh APP project",
   "main": "index.js",
