@@ -78,7 +78,7 @@ menuVertical{
     transition: all 1s;
 }
 
-item:hover menuVertical{
+.ClassMenu:hover menuVertical{
     width: auto;
     height: auto;
     top: 0px;
