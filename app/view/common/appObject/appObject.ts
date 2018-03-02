@@ -97,6 +97,10 @@ export class AppObject {
           this.getView().goToPage(elementEvent.link);
         }
       }
+    } else {
+      if (elementEvent.link !== undefined) {
+        this.getView().goToPage(elementEvent.link);
+      }
     }
   }
 
@@ -266,14 +270,14 @@ export class AppObject {
     if (this[property].type !== undefined) {
       jSON[property].forEach(element => {
         let properElement = new this[property].type(this);
-        console.log(properElement);
+        // console.log(properElement);
         properElement.updateJSON(element);
         this[property].push(properElement);
       });
     } else {
       jSON[property].forEach(element => {
         // console.log('START');
-        console.log('type', element.type);
+        // console.log('type', element.type);
         let object = AppObject.types[element.type];
         let properElement;
         if (object !== null && object !== undefined) {

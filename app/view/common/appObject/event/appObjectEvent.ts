@@ -11,7 +11,7 @@ export class AppObjectEvent extends AppObject {
   constructor(father?: any /*AppObject*/) {
     super(father);
     this.className = 'AppObjectEvent';
-    console.log('FATHER:', this.father, this);
+    // console.log('FATHER:', this.father, this);
     this.eventListener = false;
   }
 
@@ -33,7 +33,7 @@ export class AppObjectEvent extends AppObject {
   }
 
   public destroyFather() {
-    console.log('FATHER DESTROY:', this.father, this);
+    // console.log('FATHER DESTROY:', this.father, this);
     if (this.father !== undefined) {
       this.father.destroyElement();
       delete this.father;

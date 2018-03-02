@@ -72,7 +72,7 @@ export class Util {
   constructor() { }
 
   elementHTML(name: string, id?: string, body?: string) {
-    console.log('Name: ' + name);
+    // console.log('Name: ' + name);
     let hTML = '<' + name;
     if (id) {
       hTML += ' id=\'' + id;

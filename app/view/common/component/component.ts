@@ -33,11 +33,11 @@ export class Component extends AppObject {
       this.element = document.createElement(this.tag);
     }
 
-    console.log('this.tag:' + this.tag);
+    // console.log('this.tag:' + this.tag);
     this.element.id = this.tag + 'Id' + nodes.length;
 
     if (this.father) {
-      console.log('this.father.tag:' + this.father.tag);
+      // console.log('this.father.tag:' + this.father.tag);
       this.insert((<Component>father).getElement());
     }
 
@@ -61,7 +61,7 @@ export class Component extends AppObject {
   protected updateFromSize(jSON) {
     for (let property in jSON) {
       if (document.body.clientWidth <= parseInt(property, 10)) {
-        console.log(jSON[property]);
+        // console.log(jSON[property]);
         this.getJSONPromise(jSON[property]);
         return;
       }
@@ -102,9 +102,9 @@ export class Component extends AppObject {
 
   protected clearProperty(property) {
     if (this[property].length > 0) {
-      console.log('CLEAR');
-      console.log(property);
-      console.log(this[property][0].getTag());
+      // console.log('CLEAR');
+      // console.log(property);
+      // console.log(this[property][0].getTag());
       let elements = this.element.getElementsByTagName(this[property][0].getTag());
       Util.getInstance().removeElements(elements);
       this[property].length = 0;
