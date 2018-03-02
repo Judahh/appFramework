@@ -19,7 +19,7 @@ export class ComponentInformation extends Component {
       this.getLanguage();
     }
     super.renderAfterUpdateJSON();
-    if (!this.element.innerHTML) {
+    if (!this.element.innerHTML || this.element.innerHTML === undefined || this.element.innerHTML === 'undefined') {
       this.element.innerHTML = this.information;
     }
 
