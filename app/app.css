@@ -109,8 +109,8 @@ input{
     border-bottom: 1px solid black;
     color: black;
     background-color: transparent;
-    padding: 2px;
-    margin: 2px;
+    padding: 0px;
+    margin: 0px;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     -ms-box-sizing: border-box;
