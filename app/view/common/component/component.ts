@@ -2,13 +2,11 @@ import { Util } from './../../util/util';
 import { ServiceModel } from './../../serviceModel/serviceModel';
 import { ImportScript } from './../../../../importScript';
 import { AppObject } from './../appObject/appObject';
-import { AppObjectEvent } from './../appObject/event/appObjectEvent';
 
 export class Component extends AppObject {
   protected element: HTMLElement | SVGElement | SVGSVGElement | HTMLInputElement | HTMLTextAreaElement;
   protected tag: string;
   sVG: boolean;
-  private clickListener: boolean;
 
   public getTag() {
     return this.tag;
@@ -42,16 +40,6 @@ export class Component extends AppObject {
     }
 
     this.clear();
-    this.clickListener = false;
-  }
-
-  public addEventListener(appObjectEvent: AppObjectEvent, event?: string) {
-    if (event === undefined) {
-      this.element.addEventListener(appObjectEvent.name, () => this.onEvent(appObjectEvent));
-    } else {
-      this.element.addEventListener(event, () => this.onEvent(appObjectEvent));
-    }
-    appObjectEvent.eventListener = true;
   }
 
   protected getJSONPromiseFromSize(file) {

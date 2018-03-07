@@ -6,13 +6,11 @@ export class AppObjectEvent extends AppObject {
   code: string;
   runFunction: string;
   appObject: AppObject;
-  eventListener: boolean;
+  running: boolean;
 
   constructor(father?: any /*AppObject*/) {
     super(father);
     this.className = 'AppObjectEvent';
-    // console.log('FATHER:', this.father, this);
-    this.eventListener = false;
   }
 
   public renderAfterUpdateJSON() {
@@ -21,13 +19,13 @@ export class AppObjectEvent extends AppObject {
         this.onEvent(this);
         this.running = true;
       } else if (this.name === 'router') {
-        this.getFather().addEventListener(this, 'click');
+        this.addEventListener('click');
       } else if (this.name === 'authorization') {
         if (!this.onEvent(this)) {
           this.destroyFather();
         }
-      } else if (!this.eventListener) {
-        this.getFather().addEventListener(this);
+      } else {
+        this.addEventListener(this.name);
       }
     }
   }
@@ -45,6 +43,12 @@ export class AppObjectEvent extends AppObject {
       return this.link;
     }
     return null
+  }
+
+  private addEventListener(event?: string) {
+    let father = this.getFather();
+    let element = father.getElement();
+    element.addEventListener(event, () => father.onEvent(this));
   }
 }
 AppObjectEvent.addConstructor('AppObjectEvent', AppObjectEvent);

@@ -8,7 +8,6 @@ export class AppObject {
   protected className: string;
   arrayAppObject: Array<AppObject>;
   arrayAppObjectEvent: Array<AppObjectEvent>;
-  running: boolean;
 
   page: string;
   view: ComponentView;
@@ -47,7 +46,6 @@ export class AppObject {
     this.pageBodyChecked = false;
     this.headerChecked = false;
     this.footerChecked = false;
-    this.running = false;
     this.arrayAppObject = new Array<AppObject>();
     this.arrayAppObjectEvent = new Array<AppObjectEvent>();
     this.arrayAppObjectEvent.type = AppObjectEvent;
@@ -67,9 +65,6 @@ export class AppObject {
 
   // tslint:disable-next-line:no-empty
   public renderAfterUpdateJSON() { }
-
-  // tslint:disable-next-line:no-empty
-  public addEventListener(appObjectEvent: AppObjectEvent, event?: string) { }
 
   public onEvent(elementEvent: AppObjectEvent) {
     if (elementEvent.code !== undefined) {
