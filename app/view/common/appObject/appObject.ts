@@ -1,5 +1,5 @@
 import { Util } from './../../util/util';
-import { AppObjectFactory } from './factory/appObjectFactory';
+// import { AppObjectFactory } from './factory/appObjectFactory';
 import { ServiceModel } from './../../serviceModel/serviceModel';
 
 export class AppObject {
@@ -65,46 +65,6 @@ export class AppObject {
 
   // tslint:disable-next-line:no-empty
   public renderAfterUpdateJSON() { }
-
-  public onEvent(elementEvent: AppObjectEvent) {
-    if (elementEvent.code !== undefined) {
-      let appObject = AppObjectFactory.create(elementEvent.code, this);
-      for (let property in elementEvent.appObject) {
-        if (elementEvent.appObject.hasOwnProperty(property)) {
-          appObject[property] = elementEvent.appObject[property];
-        }
-      }
-      elementEvent.appObject = appObject;
-      // console.log('CODE:' + elementEvent.code);
-      if (elementEvent.runFunction !== undefined) {
-        if (elementEvent.link !== undefined) {
-          // tslint:disable-next-line:no-eval
-          let link = elementEvent.checkLink(eval('appObject.' + elementEvent.runFunction));
-          if (link !== undefined && link !== null) {
-            this.getView().goToPage(link);
-          }
-        } else {
-          // tslint:disable-next-line:no-eval
-          eval('elementEvent.appObject.' + elementEvent.runFunction + ';');
-        }
-      } else {
-        if (elementEvent.link !== undefined) {
-          this.getView().goToPage(elementEvent.link);
-        }
-      }
-    } else {
-      if (elementEvent.link !== undefined) {
-        this.getView().goToPage(elementEvent.link);
-      }
-    }
-  }
-
-  public runObjectFunction(object) {
-    let appObject = AppObjectFactory.create(object.code, this);
-    // tslint:disable-next-line:no-eval
-    let result = eval('appObject.' + object.runFunction);
-    return result;
-  }
 
   public getView() {
     if (this.view === undefined) {
