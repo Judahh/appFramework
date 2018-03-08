@@ -34,6 +34,7 @@ import { App } from './app/app';
 import { ImportScript } from './importScript';
 import { AppObject } from './app/view/common/appObject/appObject';
 import { ComponentChart } from './app/view/common/chart/componentChart';
+import { ComponentNotification } from './app/view/common/notification/componentNotification';
 import { ComponentGeneric } from './app/view/common/component/generic/componentGeneric';
 import { AppObjectFactory } from './app/view/common/appObject/factory/appObjectFactory';
 import { AppObjectEvent } from './app/view/common/appObject/event/appObjectEvent';
@@ -44,7 +45,7 @@ import { OnLoad } from './app/onLoad/onLoad';
 export {
     Component, ComponentGeneric, ComponentPageBody, ComponentItem, ComponentMap, ComponentInformation, ComponentDataInput, ComponentOption,
     ComponentComboBox,  ComponentTextArea, ComponentDataList, ComponentTextField, ComponentButton, ComponentBox, ComponentRangeSlider,
-    ComponentProgressBar, ComponentCircle, ComponentEllipse, ComponentRectangle, ComponentPolygon, ComponentLine,
+    ComponentProgressBar, ComponentCircle, ComponentEllipse, ComponentRectangle, ComponentPolygon, ComponentLine, ComponentNotification,
     ComponentPath, ComponentText, ComponentG, ComponentFilter, ComponentLinearGradient, ComponentRadialGradient,
     ComponentStop, ComponentDefs, ServiceModel, Util, ComponentView, App, AppObject, ImportScript,
     ComponentChart, AppObjectFactory, AppObjectEvent, ApiConnection, Observer, OnLoad

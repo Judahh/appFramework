@@ -3,11 +3,6 @@ import { ComponentGeneric } from './common/component/generic/componentGeneric';
 import { ComponentPageBody } from './body/componentPageBody';
 
 export class ComponentView extends Component { // body
-
-  header: ComponentGeneric;
-  pageBody: ComponentPageBody;
-  footer: ComponentGeneric;
-
   constructor(father?: Component) {
     super('body', father);
     this.className = 'ComponentView';

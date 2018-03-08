@@ -10,14 +10,16 @@ export class AppObject {
   arrayAppObjectEvent: Array<AppObjectEvent>;
 
   page: string;
+  notificationName: string;
+
   view: ComponentView;
   pageBody: ComponentPageBody;
   header: ComponentGeneric;
+  notification: ComponentNotification;
   footer: ComponentGeneric;
 
-  pageBodyChecked: boolean;
-  headerChecked: boolean;
-  footerChecked: boolean;
+  checkView: boolean;
+  checkNotification: boolean;
 
   public static getInstance(father?: AppObject) {
     return new this(father);
@@ -43,9 +45,8 @@ export class AppObject {
       this.father = father;
     }
 
-    this.pageBodyChecked = false;
-    this.headerChecked = false;
-    this.footerChecked = false;
+    this.checkView = false;
+    this.checkNotification = false;
     this.arrayAppObject = new Array<AppObject>();
     this.arrayAppObjectEvent = new Array<AppObjectEvent>();
     this.arrayAppObjectEvent.type = AppObjectEvent;
@@ -67,7 +68,7 @@ export class AppObject {
   public renderAfterUpdateJSON() { }
 
   public getView() {
-    if (this.view === undefined) {
+    if (!this.checkView) {
       this.setView();
     }
     return this.view;
@@ -81,24 +82,38 @@ export class AppObject {
   }
 
   public getPageBody() {
-    if (!this.pageBodyChecked) {
+    if (this.pageBody === undefined) {
       this.setPageBody();
     }
     return this.pageBody;
   }
 
   public getHeader() {
-    if (!this.headerChecked) {
+    if (this.header === undefined) {
       this.setHeader();
     }
     return this.header;
   }
 
   public getFooter() {
-    if (!this.footerChecked) {
+    if (this.footer === undefined) {
       this.setFooter();
     }
     return this.footer;
+  }
+
+  public getNotification() {
+    if (!this.checkNotification) {
+      this.setNotification();
+    }
+    return this.notification;
+  }
+
+  public getNotificationName() {
+    if (this.notificationName === undefined) {
+      this.setNotificationName();
+    }
+    return this.notificationName;
   }
 
   protected updateFromSize(jSON) {
@@ -163,6 +178,27 @@ export class AppObject {
     return arrayName.split('array')[1];
   }
 
+  public getAppObject(className) {
+    for (let index = 0; index < this.arrayAppObject.length; index++) {
+      const appObject = this.arrayAppObject[index];
+      if (appObject.className === className) {
+        return appObject;
+      }
+    }
+    return undefined;
+  }
+
+  public getAllAppObject(className) {
+    let array = new Array<AppObject>();
+    for (let index = 0; index < this.arrayAppObject.length; index++) {
+      const appObject = this.arrayAppObject[index];
+      if (appObject.className === className) {
+        array.push(appObject);
+      }
+    }
+    return array;
+  }
+
   protected update(jSON) {
     this.updateJSON(jSON);
   }
@@ -206,8 +242,9 @@ export class AppObject {
   protected elementSpecial(jSON, property, property2) { }
 
   protected getLanguage() {
-    if (this.getPage() !== undefined) {
-      // console.log('PAGE:' + this.item.getPage());
+    if (this.getNotificationName() !== undefined) {
+      this.getJSONLanguagePromise(this.getNotificationName() + 'L');
+    } else if (this.getPage() !== undefined) {
       this.getJSONLanguagePromise(this.getPage() + 'L');
     }
   }
@@ -300,60 +337,36 @@ export class AppObject {
       }
     }
   }
+
   private setPageBody() {
-    this.pageBody = <ComponentPageBody>this.seekFather('ComponentPageBody');
-    this.pageBodyChecked = true;
+    this.pageBody = this.getView().pageBody;
   }
 
   private setHeader() {
-    this.header = <ComponentGeneric>this.seekFather('ComponentHeader');
-    this.headerChecked = true;
+    this.header = this.getView().header;
   }
 
   private setFooter() {
-    this.footer = <ComponentGeneric>this.seekFather('ComponentFooter');
-    this.footerChecked = true;
+    this.footer = this.getView().footer;
   }
 
   private setView() {
-    if (this.getPageBody() !== undefined) {
-      this.view = <ComponentView>this.pageBody.seekFather('ComponentView');
-      if (this.view !== undefined) {
-        return;
-      }
-    }
-
-    if (this.getHeader() !== undefined) {
-      this.view = <ComponentView>this.header.seekFather('ComponentView');
-      if (this.view !== undefined) {
-        return;
-      }
-    }
-
-    if (this.getFooter() !== undefined) {
-      this.view = <ComponentView>this.footer.seekFather('ComponentView');
-      if (this.view !== undefined) {
-        return;
-      }
-    }
-
+    this.checkView = true;
     this.view = <ComponentView>this.seekFather('ComponentView');
   }
 
+  private setNotification() {
+    this.checkNotification = true;
+    this.notification = <ComponentNotification>this.seekFather('ComponentNotification');
+  }
+
   private setPage() {
-    if (this.getPageBody() !== undefined) {
-      this.page = this.pageBody.nextPageName;
-      return;
-    }
+    this.page = this.getPageBody().nextPageName;
+  }
 
-    if (this.getHeader() !== undefined) {
-      this.page = this.header.getTag();
-      return;
-    }
-
-    if (this.getFooter() !== undefined) {
-      this.page = this.footer.getTag();
-      return;
+  private setNotificationName() {
+    if (this.getNotification() !== undefined) {
+      this.notificationName = this.getNotification().nextNotificationName;
     }
   }
 }
@@ -362,4 +375,5 @@ import { AppObjectEvent } from './event/appObjectEvent';
 import { ComponentView } from './../../componentView';
 import { ComponentPageBody } from './../../body/componentPageBody';
 import { ComponentGeneric } from '../component/generic/componentGeneric';
+import { ComponentNotification } from '../notification/componentNotification';
 AppObject.addConstructor('AppObject', AppObject);
