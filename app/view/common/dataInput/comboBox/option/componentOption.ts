@@ -15,7 +15,7 @@ export class ComponentOption extends Component {
       this.getLanguage();
     }
     super.renderAfterUpdateJSON();
-    if (!this.element.innerHTML) {
+    if (!this.element.innerHTML || this.element.innerHTML === undefined || this.element.innerHTML === 'undefined') {
       this.element.innerHTML = this.information;
     }
 
@@ -35,6 +35,7 @@ export class ComponentOption extends Component {
         }
       }
     }
+
     // console.log('selected lan:'+property);
     let subJSON = jSON[property];
     for (let languageProperty in subJSON) {

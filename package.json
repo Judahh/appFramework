@@ -2,7 +2,7 @@
   "name": "backappjh",
   "productName": "backApp",
   "author": "Judah Holanda Correia Lima <judahholanda7@gmail.com> (https://judahh.com)",
-  "version": "0.2.31",
+  "version": "0.2.32",
   "private": false,
   "description": "Judahh APP project",
   "main": "index.js",
@@ -37,10 +37,10 @@
     "virtual-keyboard": "1.28.0"
   },
   "devDependencies": {
-    "@types/jquery": "3.3.0",
-    "@types/node": "^9.4.6",
-    "@types/webpack": "^3.8.8",
-    "ts-node": "^5.0.0",
+    "@types/jquery": "3.3.1",
+    "@types/node": "^9.4.7",
+    "@types/webpack": "^4.1.0",
+    "ts-node": "^5.0.1",
     "typescript": "^2.7.2"
   }
 }
