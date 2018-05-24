@@ -2,6 +2,11 @@ import { Util } from './../../../util/util';
 import { Component } from './../../component/component';
 // tslint:disable-next-line:no-empty
 try { require('./componentGeneric.css'); } catch (e) { };
+try { require('./componentGeneric2.css'); } catch (e) { };
+try { require('./componentGeneric3.css'); } catch (e) { };
+try { require('./componentGeneric4.css'); } catch (e) { };
+try { require('./componentGeneric5.css'); } catch (e) { };
+try { require('./componentGeneric6.css'); } catch (e) { };
 
 export class ComponentGeneric extends Component {
     private static map: { [key: string]: string; } = {

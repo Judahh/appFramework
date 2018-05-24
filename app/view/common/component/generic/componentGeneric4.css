@@ -1,0 +1,191 @@
+@-o-keyframes webOn {
+    0% {
+        visibility: hidden;
+    }
+    75% {
+        visibility: hidden;
+    }
+    100% {
+        visibility: visible;
+    }
+}
+
+@-ms-keyframes webOn {
+    0% {
+        visibility: hidden;
+    }
+    75% {
+        visibility: hidden;
+    }
+    100% {
+        visibility: visible;
+    }
+}
+
+@-moz-keyframes webOn {
+    0% {
+        visibility: hidden;
+    }
+    75% {
+        visibility: hidden;
+    }
+    100% {
+        visibility: visible;
+    }
+}
+
+@-webkit-keyframes webOn {
+    0% {
+        visibility: hidden;
+    }
+    75% {
+        visibility: hidden;
+    }
+    100% {
+        visibility: visible;
+    }
+}
+
+@keyframes webOn {
+    0% {
+        visibility: hidden;
+    }
+    75% {
+        visibility: hidden;
+    }
+    100% {
+        visibility: visible;
+    }
+}
+
+/*
+@-webkit-keyframes neon {
+    from {
+        text-shadow: 0 0 1px white,
+        0 0 2px lightgrey,
+        0 0 3px lightgrey,
+        0 0 4px lightgrey,
+        0 0 5px lightgrey,
+        0 0 6px lightgrey,
+        0 0 7px lightgrey,
+        0 0 8px lightgrey,
+        0 0 9px lightgrey,
+        0 0 10px grey;
+    }
+    to {
+        text-shadow: 0 0 2px white,
+        0 0 4px  lightgrey,
+        0 0 6px  lightgrey,
+        0 0 8px  lightgrey,
+        0 0 10px  lightgrey,
+        0 0 12px  lightgrey,
+        0 0 14px  lightgrey,
+        0 0 16px  lightgrey,
+        0 0 18px  lightgrey,
+        0 0 20px  grey;
+    }
+}
+@-moz-keyframes neon {
+    from {
+        text-shadow: 0 0 1px white,
+        0 0 2px lightgrey,
+        0 0 3px lightgrey,
+        0 0 4px lightgrey,
+        0 0 5px lightgrey,
+        0 0 6px lightgrey,
+        0 0 7px lightgrey,
+        0 0 8px lightgrey,
+        0 0 9px lightgrey,
+        0 0 10px grey;
+    }
+    to {
+        text-shadow: 0 0 2px white,
+        0 0 4px  lightgrey,
+        0 0 6px  lightgrey,
+        0 0 8px  lightgrey,
+        0 0 10px  lightgrey,
+        0 0 12px  lightgrey,
+        0 0 14px  lightgrey,
+        0 0 16px  lightgrey,
+        0 0 18px  lightgrey,
+        0 0 20px  grey;
+    }
+}
+@-ms-keyframes neon {
+    from {
+        text-shadow: 0 0 1px white,
+        0 0 2px lightgrey,
+        0 0 3px lightgrey,
+        0 0 4px lightgrey,
+        0 0 5px lightgrey,
+        0 0 6px lightgrey,
+        0 0 7px lightgrey,
+        0 0 8px lightgrey,
+        0 0 9px lightgrey,
+        0 0 10px grey;
+    }
+    to {
+        text-shadow: 0 0 2px white,
+        0 0 4px  lightgrey,
+        0 0 6px  lightgrey,
+        0 0 8px  lightgrey,
+        0 0 10px  lightgrey,
+        0 0 12px  lightgrey,
+        0 0 14px  lightgrey,
+        0 0 16px  lightgrey,
+        0 0 18px  lightgrey,
+        0 0 20px  grey;
+    }
+}
+@-o-keyframes neon {
+    from {
+        text-shadow: 0 0 1px white,
+        0 0 2px lightgrey,
+        0 0 3px lightgrey,
+        0 0 4px lightgrey,
+        0 0 5px lightgrey,
+        0 0 6px lightgrey,
+        0 0 7px lightgrey,
+        0 0 8px lightgrey,
+        0 0 9px lightgrey,
+        0 0 10px grey;
+    }
+    to {
+        text-shadow: 0 0 2px white,
+        0 0 4px  lightgrey,
+        0 0 6px  lightgrey,
+        0 0 8px  lightgrey,
+        0 0 10px  lightgrey,
+        0 0 12px  lightgrey,
+        0 0 14px  lightgrey,
+        0 0 16px  lightgrey,
+        0 0 18px  lightgrey,
+        0 0 20px  grey;
+    }
+}
+@keyframes neon {
+    from {
+        text-shadow: 0 0 1px lightgrey,
+        0 0 2px lightgrey,
+        0 0 3px lightgrey,
+        0 0 4px lightgrey,
+        0 0 5px lightgrey,
+        0 0 6px lightgrey,
+        0 0 7px lightgrey,
+        0 0 8px lightgrey,
+        0 0 9px lightgrey,
+        0 0 10px grey;
+    }
+    to {
+        text-shadow: 0 0 2px lightgrey,
+        0 0 4px  lightgrey,
+        0 0 6px  lightgrey,
+        0 0 8px  lightgrey,
+        0 0 10px  lightgrey,
+        0 0 12px  lightgrey,
+        0 0 14px  lightgrey,
+        0 0 16px  lightgrey,
+        0 0 18px  lightgrey,
+        0 0 20px  grey;
+    }
+}*/
