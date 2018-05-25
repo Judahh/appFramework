@@ -88,6 +88,11 @@ export class Component extends AppObject {
     range.deleteContents();
   }
 
+  // protected updateJSON(jSON, type?: number) {
+  //   this.destroyChildElements();
+  //   super.updateJSON(jSON,type);
+  // }
+
   protected clearProperty(property) {
     if (this[property].length > 0) {
       // console.log('CLEAR');
