@@ -244,6 +244,10 @@ export class AppObject {
   protected getLanguage() {
     if (this.getNotificationName() !== undefined) {
       this.getJSONLanguagePromise(this.getNotificationName() + 'L');
+    } else if (this.getHeader() !== undefined) {
+      this.getJSONLanguagePromise('headerL');
+    } else if (this.getFooter() !== undefined) {
+      this.getJSONLanguagePromise('footerL');
     } else if (this.getPage() !== undefined) {
       this.getJSONLanguagePromise(this.getPage() + 'L');
     }
