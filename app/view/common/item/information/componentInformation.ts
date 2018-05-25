@@ -22,7 +22,9 @@ export class ComponentInformation extends Component {
     if (!this.element.innerHTML || this.element.innerHTML === undefined || this.element.innerHTML === 'undefined') {
       this.element.innerHTML = this.information;
     }
-
+    if (this.element.innerHTML === undefined || this.element.innerHTML === 'undefined') {
+      this.element.innerHTML = '';
+    }
   }
 
   protected updateLanguage(jSON) {
