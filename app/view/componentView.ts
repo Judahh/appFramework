@@ -14,5 +14,20 @@ export class ComponentView extends Component { // body
   public goToPage(pageName?: string) {
     this.pageBody.goToPage(pageName);
   }
+
+  public resetHeader() {
+    this.header.destroyElement();
+    this.header = new ComponentGeneric(this, 'ComponentHeader');
+  }
+
+  public resetPageBody() {
+    this.pageBody.destroyElement();
+    this.pageBody = new ComponentPageBody(this);
+  }
+
+  public resetFooter() {
+    this.footer.destroyElement();
+    this.footer = new ComponentGeneric(this, 'ComponentFooter');
+  }
 }
 ComponentView.addConstructor('ComponentView', ComponentView);
