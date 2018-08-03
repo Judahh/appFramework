@@ -1,5 +1,4 @@
 import { Util } from './../../util/util';
-// import { AppObjectFactory } from './factory/appObjectFactory';
 import { ServiceModel } from './../../serviceModel/serviceModel';
 
 export class AppObject {

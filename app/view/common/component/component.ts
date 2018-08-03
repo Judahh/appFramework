@@ -1,7 +1,7 @@
 import { Util } from './../../util/util';
 import { ServiceModel } from './../../serviceModel/serviceModel';
-import { ImportScript } from './../../../../importScript';
 import { AppObject } from './../appObject/appObject';
+import { AppObjectFactory } from './../appObject/factory/appObjectFactory';
 
 export class Component extends AppObject {
   protected element: HTMLElement | SVGElement | SVGSVGElement | HTMLInputElement | HTMLTextAreaElement;
@@ -17,8 +17,10 @@ export class Component extends AppObject {
     this.className = 'Component';
 
     this.tag = tag;
-    let nodes = document.getElementsByTagName(this.tag);
-    let path = Util.getInstance().getCurrentComponentPath();
+    if(AppObjectFactory.numberOfElements(this.tag) === 0 && document.getElementsByTagName(this.tag).length>0){
+      AppObjectFactory.addElements(this.tag, document.getElementsByTagName(this.tag).length);
+    }
+    let nodes = AppObjectFactory.numberOfElements(this.tag);
 
     if (tag === 'body') {
       this.element = document.body;
@@ -31,12 +33,14 @@ export class Component extends AppObject {
       this.element = document.createElement(this.tag);
     }
 
-    // console.log('this.tag:' + this.tag);
-    this.element.id = this.tag + 'Id' + nodes.length;
+    console.log('this.tag:', this.tag);
+    console.log('nodes:', nodes);
+    this.element.id = this.tag + 'Id' + nodes;
 
     if (this.father) {
       // console.log('this.father.tag:' + this.father.tag);
       this.insert((<Component>father).getElement());
+      AppObjectFactory.addElement(this.tag);
     }
 
     this.clear();
