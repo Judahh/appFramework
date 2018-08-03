@@ -33,8 +33,8 @@ export class Component extends AppObject {
       this.element = document.createElement(this.tag);
     }
 
-    console.log('this.tag:', this.tag);
-    console.log('nodes:', nodes);
+    // console.log('this.tag:', this.tag);
+    // console.log('nodes:', nodes);
     this.element.id = this.tag + 'Id' + nodes;
 
     if (this.father) {
