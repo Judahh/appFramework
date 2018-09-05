@@ -1,5 +1,6 @@
 import { Component } from './../../component/component';
-import * as $ from 'jquery';
+// import * as $ from 'jquery';
+var $ = require('jquery');
 import { KeyboardOptions, Typing, Extender } from 'virtual-keyboard';
 // tslint:disable-next-line:no-empty
 try { require('./componentKeyboard.css'); } catch (e) { };
