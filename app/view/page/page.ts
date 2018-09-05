@@ -37,18 +37,21 @@ export class Page {
                 ServiceModel.getPromise(jSON[index]['file']).then((data) => this.checkFrame(data, fJSON)).fail((data) => this.checkFailed(data));
             }
         } else {
-            this.arrayFrame.push(new ComponentPageFrame(this, jSON));
+            let frame = new ComponentPageFrame(this);
+            frame.init(jSON);
+            this.arrayFrame.push(frame);
             this.setPage();
         }
     }
 
     protected checkFrame(jSON, fJSON) {
         // jSON = JSON.parse(jSON);
-        let frame = new ComponentPageFrame(this, jSON);
+        let frame = new ComponentPageFrame(this);
         frame.setMinWidth(fJSON.minWidth);
         frame.setMaxWidth(fJSON.maxWidth);
         frame.setMinHeight(fJSON.minHeight);
         frame.setMaxHeight(fJSON.maxHeight);
+        frame.init(jSON);
         this.arrayFrame.push(frame);
         this.setPage();
     }
@@ -82,6 +85,6 @@ export class Page {
         this.father.destroyChildElements();
         frame.setFather(this.father);
         frame.insert(this.father);
-        this.currentFrame.renderAfterFullUpdate();
+        this.currentFrame.renderAfterFullUpdate(this.currentFrame);
     }
 }

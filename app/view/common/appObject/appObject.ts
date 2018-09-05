@@ -233,17 +233,17 @@ export class AppObject {
   }
 
   // tslint:disable-next-line:no-empty
-  public renderBeforeUpdate() { }
+  public renderBeforeUpdate() {
+
+  }
 
   // tslint:disable-next-line:no-empty
   public renderAfterUpdate() {
+    this.updateLanguage((<ComponentPageFrame>this.seekFather('ComponentPageFrame')).getFullPage().getLanguage());
   }
 
-  public renderAfterFullUpdate() {
-    let pageFrame = <ComponentPageFrame>this.seekFather('ComponentPageFrame');
-    console.log('MMM');
-    console.log(pageFrame);
-    this.updateLanguage(pageFrame.getFullPage().getLanguage());
+  public renderAfterFullUpdate(language) {
+    // this.updateLanguage(language);
   }
 
   // tslint:disable-next-line:no-empty
