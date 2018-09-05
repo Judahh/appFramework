@@ -11,15 +11,17 @@ export class Page {
     constructor(father: Component, file) {
         this.arrayFrame = new Array<ComponentFrame>();
         this.father = father;  
-        ServiceModel.getPromise(file).then((data) => this.checkLanguage(file, data)).fail((data) => this.checkFailed(data));
+        ServiceModel.getPromise(file+'L').then((data) => this.checkLanguage(file, data)).fail((data) => this.checkFailed(data));
     }
 
     protected checkLanguage(file, jSON) {
+        jSON = JSON.parse(jSON);
         this.language = jSON;
         ServiceModel.getPromise(file).then((data) => this.checkArray(data)).fail((data) => this.checkFailed(data));
     }
 
     protected checkArray(jSON) {
+        jSON = JSON.parse(jSON);
         if (jSON.constructor === Array) {
             for (let index = 0; index < jSON.length; index++) {
                 let fJSON = {
@@ -31,18 +33,20 @@ export class Page {
                 ServiceModel.getPromise(jSON[index]['file']).then((data) => this.checkFrame(data, fJSON)).fail((data) => this.checkFailed(data));
             }
         } else {
-            this.arrayFrame.push(new ComponentFrame(jSON));
+            this.arrayFrame.push(new ComponentFrame(this, jSON));
+            this.setPage();
         }
     }
 
     protected checkFrame(jSON, fJSON) {
-        let frame = new ComponentFrame(jSON);
+        jSON = JSON.parse(jSON);
+        let frame = new ComponentFrame(this, jSON);
         frame.setMinWidth(fJSON.minWidth);
         frame.setMaxWidth(fJSON.maxWidth);
         frame.setMinHeight(fJSON.minHeight);
         frame.setMaxHeight(fJSON.maxHeight);
         this.arrayFrame.push(frame);
-
+        this.setPage();
     }
 
     protected checkFailed(data) {
@@ -72,12 +76,12 @@ export class Page {
     private refreshFrame(frame: ComponentFrame) {
         this.father.destroyChildElements();
         frame.setFather(this.father);
+        this.father.renderAfterUpdate();
     }
 
     // tslint:disable-next-line:no-empty
     public renderBeforeUpdate() { }
 
     public renderAfterUpdate() { 
-        this.father.renderAfterUpdate();
     }
 }

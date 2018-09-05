@@ -39,10 +39,12 @@ export class Component extends AppObject {
 
     if (this.father) {
       // console.log('this.father.tag:' + this.father.tag);
-      this.insert((<Component>father).getElement());
-      AppObjectFactory.addElement(this.tag);
+      this.insert(father);
+      
     }
 
+    AppObjectFactory.addElement(this.tag);
+    
     this.clear();
   }
 
@@ -55,7 +57,11 @@ export class Component extends AppObject {
     tmp.src = source;
   }
 
-  public insert(fatherElement: HTMLElement | SVGElement | SVGSVGElement) {
+  public insert(father: Component) {
+    this.insertElement(father.getElement());
+  }
+
+  public insertElement(fatherElement: HTMLElement | SVGElement | SVGSVGElement) {
     // this.render();
     // console.log('FATHER:' + fatherElement.tagName);
     // console.log('this:' + this.getClassName());

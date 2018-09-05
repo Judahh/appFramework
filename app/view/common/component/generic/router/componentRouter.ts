@@ -18,6 +18,7 @@ export class ComponentRouter extends ComponentGeneric {
         this.suffix = suffix;
         this.main = main;
         this.goTo(nextName);
+        console.log(father, name, routerName, nextName, suffix, main);
     }
 
     public getNextName() {
@@ -47,8 +48,9 @@ export class ComponentRouter extends ComponentGeneric {
     public initPage(pageName: string) {
         if (this.pages[pageName] === undefined) {
             this.pages[pageName] = new Page(this, pageName);
+        }else{
+            this.pages[pageName].setPage();
         }
-        this.pages[pageName].setPage();
     }
 
     public refresh() {
