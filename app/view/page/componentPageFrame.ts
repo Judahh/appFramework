@@ -3,7 +3,7 @@ import { Component } from '../common/component/component';
 import { ComponentGeneric } from '../common/component/generic/componentGeneric';
 import { Page } from './page';
 
-export class ComponentFrame extends Component {
+export class ComponentPageFrame extends Component {
     background: ComponentGeneric;
     private minWidth: number;
     private maxWidth: number;
@@ -12,9 +12,9 @@ export class ComponentFrame extends Component {
     private fullPage: Page;
 
     constructor(page: Page, jSON?) {
-        super('frame');
+        super('pageFrame');
         this.fullPage = page;
-        this.className = 'ComponentFrame';
+        this.className = 'ComponentPageFrame';
         this.background = new ComponentGeneric(this, 'ComponentBackground');
         if (jSON !== undefined) {
             this.updateJSON(jSON);
@@ -37,6 +37,10 @@ export class ComponentFrame extends Component {
         return this.maxHeight;
     }
 
+    public getFullPage() {
+        return this.fullPage;
+    }
+
     public getMinWidth() {
         return this.minWidth;
     }
@@ -53,4 +57,4 @@ export class ComponentFrame extends Component {
         return this.maxHeight;
     }
 }
-ComponentFrame.addConstructor('ComponentFrame', ComponentFrame);
+ComponentPageFrame.addConstructor('ComponentPageFrame', ComponentPageFrame);

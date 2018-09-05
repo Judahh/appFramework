@@ -1,17 +1,21 @@
-import { ComponentFrame } from './componentFrame';
+import { ComponentPageFrame } from './componentPageFrame';
 import { ServiceModel } from '../serviceModel/serviceModel';
 import { Component } from '../common/component/component';
 
 export class Page {
-    private arrayFrame: Array<ComponentFrame>;
-    private currentFrame: ComponentFrame;
+    private arrayFrame: Array<ComponentPageFrame>;
+    private currentFrame: ComponentPageFrame;
     private father: Component;
     private language: any;
 
     constructor(father: Component, file) {
-        this.arrayFrame = new Array<ComponentFrame>();
+        this.arrayFrame = new Array<ComponentPageFrame>();
         this.father = father;
         ServiceModel.getPromise(file + 'L').then((data) => this.checkLanguage(file, data)).fail((data) => this.checkFailed(data));
+    }
+
+    public getLanguage(){
+        return this.language;
     }
 
     protected checkLanguage(file, jSON) {
@@ -33,14 +37,14 @@ export class Page {
                 ServiceModel.getPromise(jSON[index]['file']).then((data) => this.checkFrame(data, fJSON)).fail((data) => this.checkFailed(data));
             }
         } else {
-            this.arrayFrame.push(new ComponentFrame(this, jSON));
+            this.arrayFrame.push(new ComponentPageFrame(this, jSON));
             this.setPage();
         }
     }
 
     protected checkFrame(jSON, fJSON) {
         // jSON = JSON.parse(jSON);
-        let frame = new ComponentFrame(this, jSON);
+        let frame = new ComponentPageFrame(this, jSON);
         frame.setMinWidth(fJSON.minWidth);
         frame.setMaxWidth(fJSON.maxWidth);
         frame.setMinHeight(fJSON.minHeight);
@@ -73,9 +77,10 @@ export class Page {
         }
     }
 
-    private refreshFrame(frame: ComponentFrame) {
+    private refreshFrame(frame: ComponentPageFrame) {
         this.father.destroyChildElements();
         frame.setFather(this.father);
+        frame.insert(this.father);
         this.father.renderAfterUpdate();
     }
 }

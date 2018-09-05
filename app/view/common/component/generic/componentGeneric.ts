@@ -44,6 +44,7 @@ export class ComponentGeneric extends Component {
         'ComponentFooter': 'footer',
         'ComponentItalic': 'i',
         'ComponentPageBody': 'pageBody',
+        'ComponentNotification': 'notification',
         'ComponentFontAwesome': 'i'
     };
 

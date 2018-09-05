@@ -40,7 +40,6 @@ export class Component extends AppObject {
     if (this.father) {
       // console.log('this.father.tag:' + this.father.tag);
       this.insert(father);
-      
     }
 
     AppObjectFactory.addElement(this.tag);

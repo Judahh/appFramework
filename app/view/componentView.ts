@@ -23,7 +23,7 @@ export class ComponentView extends Component { // body
 
   public resetNotification() {
     this.notification.destroyElement();
-    this.notification = new ComponentRouter(this, 'ComponentNotification','notification','','Notification','none');
+    this.notification = new ComponentRouter(this, 'ComponentNotification','notification','none','Notification','none');
   }
 
   public resetPageBody() {

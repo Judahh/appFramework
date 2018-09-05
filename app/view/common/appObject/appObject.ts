@@ -234,9 +234,15 @@ export class AppObject {
 
   // tslint:disable-next-line:no-empty
   public renderBeforeUpdate() { }
-å
-  // tslint:disable-next-line:no-empty
-  public renderAfterUpdate() { }
+
+  
+  public renderAfterUpdate() { 
+    let pageFrame = <ComponentPageFrame>this.seekFather('ComponentPageFrame');
+    this.updateLanguage(pageFrame.getFullPage().getLanguage());
+  }
+
+// tslint:disable-next-line:no-empty
+  protected updateLanguage(jSON) { }
 
   public getFather() {
     return this.father;
@@ -339,4 +345,5 @@ import { ComponentView } from './../../componentView';
 import { ComponentPageBody } from './../../body/componentPageBody';
 import { ComponentGeneric } from '../component/generic/componentGeneric';
 import { ComponentRouter } from '../component/generic/router/componentRouter';
+import { ComponentPageFrame } from '../../page/componentPageFrame';
 AppObject.addConstructor('AppObject', AppObject);
