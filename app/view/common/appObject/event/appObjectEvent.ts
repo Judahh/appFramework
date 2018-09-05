@@ -18,7 +18,7 @@ export class AppObjectEvent extends AppObject {
     this.verified = true;
   }
 
-  public renderAfterUpdateJSON() {
+  public renderAfterUpdate() {
     if (this.name !== undefined) {
       switch (this.name) {
         case 'build':

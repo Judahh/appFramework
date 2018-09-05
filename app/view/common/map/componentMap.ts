@@ -20,7 +20,7 @@ export class ComponentMap extends Component {
     this.arrayMarker = new Array<any>();
   }
 
-  renderAfterUpdateJSON() {
+  renderAfterUpdate() {
     this.initMap();
   }
 
@@ -51,7 +51,7 @@ export class ComponentMap extends Component {
       });
       this.arrayMarker.push(marker);
     });
-    super.renderAfterUpdateJSON();
+    super.renderAfterUpdate();
   }
 }
 ComponentMap.addConstructor('ComponentMap', ComponentMap);

@@ -10,11 +10,11 @@ export class ComponentOption extends Component {
     this.className = 'ComponentOption';
   }
 
-  public renderAfterUpdateJSON() {
+  public renderAfterUpdate() {
     if (this.language === undefined) {
-      this.getLanguage();
+      // this.getLanguage();
     }
-    super.renderAfterUpdateJSON();
+    super.renderAfterUpdate();
     if (!this.element.innerHTML || this.element.innerHTML === undefined || this.element.innerHTML === 'undefined') {
       this.element.innerHTML = this.information;
     }

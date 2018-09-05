@@ -46,20 +46,6 @@ export class Component extends AppObject {
     this.clear();
   }
 
-  protected getJSONPromiseFromSize(file) {
-    ServiceModel.getPromise(file + 'S').then((data) => this.updateFromSize(data)).fail((data) => this.updateFailed(data));
-  }
-
-  protected updateFromSize(jSON) {
-    for (let property in jSON) {
-      if (document.body.clientWidth <= parseInt(property, 10)) {
-        // console.log(jSON[property]);
-        this.getJSONPromise(jSON[property]);
-        return;
-      }
-    }
-  }
-
   public getElement() {
     return this.element;
   }
@@ -119,5 +105,7 @@ export class Component extends AppObject {
   protected elementSpecial(jSON, property, property2) {
     this.element.setAttribute(property2, jSON[property][property2]);
   }
+
+  public renderAfterUpdate() {}
 }
 Component.addConstructor('Component', Component);

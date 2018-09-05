@@ -59,7 +59,7 @@ export class Util {
   private static instance: Util;
   browserLanguage;
   currentLanguage;
-  dataJSON: Array<any>;
+  // dataJSON: Array<any>;
 
   public static getInstance(): Util {
     if (!Util.instance) {
@@ -84,17 +84,15 @@ export class Util {
   }
 
   getJsonPromise(path: string): JQueryPromise<any> {// add cache
-    if (this.dataJSON == null) {
-      this.dataJSON = new Array();
-    }
-    if (this.dataJSON[path] == null) {
-      this.dataJSON[path] = $.getJSON(path);
-    }
-    // else{
-    //   console.log('CACHE');
+    // if (this.dataJSON == null) {
+    //   this.dataJSON = new Array();
     // }
-    return this.dataJSON[path];
-    // return $.getJSON(path);
+    // if (this.dataJSON[path] == null) {
+    //   this.dataJSON[path] = $.getJSON(path);
+    // }
+
+    // return this.dataJSON[path];
+    return $.getJSON(path);
   }
 
   getTag(name: string) {
@@ -174,7 +172,7 @@ export class Util {
   }
 
   setLanguage(language: string) {
-    this.dataJSON = new Array();
+    // this.dataJSON = new Array();
     this.currentLanguage = language;
     this.setCookie('language', language);
   }

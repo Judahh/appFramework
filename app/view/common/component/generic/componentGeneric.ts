@@ -43,6 +43,7 @@ export class ComponentGeneric extends Component {
         'ComponentHeader': 'header',
         'ComponentFooter': 'footer',
         'ComponentItalic': 'i',
+        'ComponentPageBody': 'pageBody',
         'ComponentFontAwesome': 'i'
     };
 
@@ -57,9 +58,6 @@ export class ComponentGeneric extends Component {
     constructor(father?: any, name?: string) {
         super(ComponentGeneric.generateTag(name), father);
         this.className = 'ComponentGeneric';
-        if (this.tag === 'header' || this.tag === 'footer') {
-            this.getJSONPromise(this.tag);
-        }
     }
 
     public generateTag(name?: string) {

@@ -18,11 +18,11 @@ export class ComponentTextField extends Component {
     this.arrayKeyboard.type = ComponentKeyboard;
   }
 
-  public renderAfterUpdateJSON() {
+  public renderAfterUpdate() {
     if (this.language === undefined) {
-      this.getLanguage();
+      // this.getLanguage();
     }
-    super.renderAfterUpdateJSON();
+    super.renderAfterUpdate();
     // if (!(<HTMLInputElement>this.element).placeholder) {
     //   (<HTMLInputElement>this.element).placeholder = this.information;
     // }

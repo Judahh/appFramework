@@ -10,11 +10,11 @@ export class ComponentText extends Component {
     this.className = 'ComponentText';
   }
 
-  public renderAfterUpdateJSON() {
+  public renderAfterUpdate() {
     if (this.language === undefined) {
-      this.getLanguage();
+      // this.getLanguage();
     }
-    super.renderAfterUpdateJSON();
+    super.renderAfterUpdate();
     if (!this.element.innerHTML) {
       // console.log(this.text);
       this.element.innerHTML = this.text;

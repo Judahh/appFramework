@@ -13,9 +13,9 @@ export class ComponentChart extends Component {
     this.className = 'ComponentChart';
   }
 
-  renderAfterUpdateJSON() {
+  renderAfterUpdate() {
     if (this.language === undefined) {
-      this.getLanguage();
+      // this.getLanguage();
     }
     // Load google charts
     let charts;
@@ -109,7 +109,7 @@ export class ComponentChart extends Component {
     // tslint:disable-next-line:no-eval
     eval('chart = new google.visualization.' + this.chartType + '(this.element);');
     chart.draw(data, this.options);
-    super.renderAfterUpdateJSON();
+    super.renderAfterUpdate();
   }
 }
 ComponentChart.addConstructor('ComponentChart', ComponentChart);
