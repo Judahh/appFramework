@@ -110,7 +110,5 @@ export class Component extends AppObject {
   protected elementSpecial(jSON, property, property2) {
     this.element.setAttribute(property2, jSON[property][property2]);
   }
-
-  public renderAfterUpdate() {}
 }
 Component.addConstructor('Component', Component);

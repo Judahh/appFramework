@@ -1,4 +1,3 @@
-import { AppObject } from '../common/appObject/appObject';
 import { Component } from '../common/component/component';
 import { ComponentGeneric } from '../common/component/generic/componentGeneric';
 import { Page } from './page';

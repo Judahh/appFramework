@@ -14,7 +14,7 @@ export class Page {
         ServiceModel.getPromise(file + 'L').then((data) => this.checkLanguage(file, data)).fail((data) => this.checkFailed(data));
     }
 
-    public getLanguage(){
+    public getLanguage() {
         return this.language;
     }
 
@@ -78,9 +78,10 @@ export class Page {
     }
 
     private refreshFrame(frame: ComponentPageFrame) {
+        this.currentFrame = frame;
         this.father.destroyChildElements();
         frame.setFather(this.father);
         frame.insert(this.father);
-        this.father.renderAfterUpdate();
+        this.currentFrame.renderAfterFullUpdate();
     }
 }

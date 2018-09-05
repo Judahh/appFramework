@@ -1,5 +1,6 @@
 import { Component } from './app/view/common/component/component';
 import { ComponentPageBody } from './app/view/body/componentPageBody';
+import { ComponentPageFrame } from './app/view/page/componentPageFrame';
 import { ComponentInformation } from './app/view/common/item/information/componentInformation';
 import { ComponentDataInput } from './app/view/common/dataInput/componentDataInput'
 import { ComponentOption } from './app/view/common/dataInput/comboBox/option/componentOption';
@@ -46,7 +47,7 @@ export {
     Component, ComponentGeneric, ComponentPageBody, ComponentItem, ComponentMap, ComponentInformation, ComponentDataInput, ComponentOption,
     ComponentComboBox,  ComponentTextArea, ComponentDataList, ComponentTextField, ComponentButton, ComponentBox, ComponentRangeSlider,
     ComponentProgressBar, ComponentCircle, ComponentEllipse, ComponentRectangle, ComponentPolygon, ComponentLine, ComponentRouter,
-    ComponentPath, ComponentText, ComponentG, ComponentFilter, ComponentLinearGradient, ComponentRadialGradient,
-    ComponentStop, ComponentDefs, ServiceModel, Util, ComponentView, App, AppObject, ImportScript,
+    ComponentPath, ComponentText, ComponentG, ComponentFilter, ComponentLinearGradient, ComponentRadialGradient, ComponentPageFrame,
+    ComponentPolyline, ComponentStop, ComponentDefs, ServiceModel, Util, ComponentView, App, AppObject, ImportScript,
     ComponentChart, AppObjectFactory, AppObjectEvent, ApiConnection, Observer, OnLoad
 }
