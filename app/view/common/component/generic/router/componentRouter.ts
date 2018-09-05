@@ -18,7 +18,7 @@ export class ComponentRouter extends ComponentGeneric {
         this.suffix = suffix;
         this.main = main;
         this.goTo(nextName);
-        console.log(father, name, routerName, nextName, suffix, main);
+        // console.log(father, name, routerName, nextName, suffix, main);
     }
 
     public getNextName() {

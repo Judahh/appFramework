@@ -7,7 +7,7 @@ export class ComponentView extends Component { // body
     super('body', father);
     this.className = 'ComponentView';
     this.header = new ComponentRouter(this, 'ComponentHeader','header','','','header');
-    this.notification = new ComponentRouter(this, 'ComponentNotification','notification','','Notification','none');
+    this.notification = new ComponentRouter(this, 'ComponentNotification','notification','none','Notification','none');
     this.pageBody = new ComponentPageBody(this);
     this.footer = new ComponentRouter(this, 'ComponentFooter','footer','','','footer');
   }
