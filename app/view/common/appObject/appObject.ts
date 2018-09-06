@@ -239,7 +239,13 @@ export class AppObject {
 
   // tslint:disable-next-line:no-empty
   public renderAfterUpdate() {
-    this.updateLanguage((<ComponentPageFrame>this.seekFather('ComponentPageFrame')).getFullPage().getLanguage());
+    let pageFrame = <ComponentPageFrame>this.seekFather('ComponentPageFrame');
+    if(pageFrame!== undefined){
+        // console.log('a');
+        // console.log(pageFrame.getFullPage().getLanguage());
+        this.updateLanguage(pageFrame.getFullPage().getLanguage());
+    }
+    // this.updateLanguage((<ComponentPageFrame>this.seekFather('ComponentPageFrame')).getFullPage().getLanguage());
   }
 
   public renderAfterFullUpdate(language) {

@@ -15,6 +15,7 @@ export class ComponentInformation extends Component {
   }
 
   public renderAfterUpdate() {
+    super.renderAfterUpdate();
     if (!this.element.innerHTML || this.element.innerHTML === undefined || this.element.innerHTML === 'undefined') {
       this.element.innerHTML = this.information;
     }

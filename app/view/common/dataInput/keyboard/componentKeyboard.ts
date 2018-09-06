@@ -17,6 +17,7 @@ export class ComponentKeyboard extends Component {
   }
 
   public renderAfterUpdate() {
+    super.renderAfterUpdate();
     let _self = this;
     let element = <any>$('#' + this.father.getElement().id);
     element.keyboard(_self.keyboardOptions);

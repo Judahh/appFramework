@@ -19,6 +19,7 @@ export class AppObjectEvent extends AppObject {
   }
 
   public renderAfterUpdate() {
+    super.renderAfterUpdate();
     if (this.name !== undefined) {
       switch (this.name) {
         case 'build':

@@ -60,7 +60,7 @@ export class ComponentRouter extends ComponentGeneric {
         this.goTo(name);
     }
 
-    protected updateFailed(data) {
+    public updateFailed(data) {
         // console.log('updateFailed:', data);
         this.goTo('unknown');
     }

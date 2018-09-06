@@ -1,14 +1,14 @@
 import { ComponentPageFrame } from './componentPageFrame';
 import { ServiceModel } from '../serviceModel/serviceModel';
-import { Component } from '../common/component/component';
+import { ComponentRouter } from '../common/component/generic/router/componentRouter';
 
 export class Page {
     private arrayFrame: Array<ComponentPageFrame>;
     private currentFrame: ComponentPageFrame;
-    private father: Component;
+    private father: ComponentRouter;
     private language: any;
 
-    constructor(father: Component, file) {
+    constructor(father: ComponentRouter, file) {
         this.arrayFrame = new Array<ComponentPageFrame>();
         this.father = father;
         ServiceModel.getPromise(file + 'L').then((data) => this.checkLanguage(file, data)).fail((data) => this.checkFailed(data));
@@ -57,7 +57,8 @@ export class Page {
     }
 
     protected checkFailed(data) {
-        console.error('JSONT:' + data);
+        // console.error('JSONT:' + data);
+        this.father.updateFailed(data)
         // this.element.innerHTML = data;
     }
 
