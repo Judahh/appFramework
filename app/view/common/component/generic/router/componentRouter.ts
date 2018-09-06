@@ -65,9 +65,10 @@ export class ComponentRouter extends ComponentGeneric {
             this.pages[pageName] = new Page(this, pageName);
         } else {
             if (this.pages[pageName].arrayFrame.length === 0) {
-                this.pages[this.pages[pageName].getUnknown()].setPage();
+                this.nextName = this.pages[pageName].getUnknown();
+                this.pages[this.nextName].setPage();
             }else{
-            this.pages[pageName].setPage();
+                this.pages[pageName].setPage();
             }
         }
     }
