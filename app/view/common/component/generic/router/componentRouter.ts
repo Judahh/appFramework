@@ -11,18 +11,29 @@ export class ComponentRouter extends ComponentGeneric {
     private suffix: string;//Notification,empty,empty,empty
     private main: string;//none,home,header,footer
 
+    private go: boolean;
+
     constructor(father?: any, name?: string, routerName?: string, nextName?: string, suffix?: string, main?: string) {
         super(father, name);
         this.pages = {};
         this.routerName = routerName;
         this.suffix = suffix;
         this.main = main;
+        this.go = false;
         this.goTo(nextName);
         // console.log(father, name, routerName, nextName, suffix, main);
     }
 
     public getNextName() {
         return this.nextName;
+    }
+
+    public toGo() {
+        return this.go;
+    }
+
+    public went() {
+        this.go = false;
     }
 
     public goTo(name?: string) {
@@ -46,9 +57,10 @@ export class ComponentRouter extends ComponentGeneric {
     }
 
     public initPage(pageName: string) {
+        this.go = true;
         if (this.pages[pageName] === undefined) {
             this.pages[pageName] = new Page(this, pageName);
-        }else{
+        } else {
             this.pages[pageName].setPage();
         }
     }

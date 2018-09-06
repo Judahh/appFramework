@@ -71,7 +71,8 @@ export class Page {
                 if (frame.getMinHeight() === undefined || frame.getMinHeight() <= height) {
                     if (frame.getMaxWidth() === undefined || frame.getMaxWidth() >= width) {
                         if (frame.getMinWidth() === undefined || frame.getMinWidth() <= width) {
-                            if (this.currentFrame === undefined || this.currentFrame !== frame) {
+                            if (this.currentFrame === undefined || this.currentFrame !== frame || this.father.toGo()) {
+                                this.father.went();
                                 this.refreshFrame(frame);
                             }
                         }
@@ -86,6 +87,7 @@ export class Page {
         this.father.destroyChildElements();
         frame.setFather(this.father);
         frame.insert(this.father);
+        this.father.renderAfterUpdate();
         this.currentFrame.renderAfterFullUpdate(this.currentFrame);
     }
 }
