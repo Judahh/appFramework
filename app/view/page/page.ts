@@ -7,6 +7,7 @@ export class Page {
     private currentFrame: ComponentPageFrame;
     private father: ComponentRouter;
     private language: any;
+    private unknown: any;
 
     constructor(father: ComponentRouter, file) {
         this.arrayFrame = new Array<ComponentPageFrame>();
@@ -16,6 +17,14 @@ export class Page {
 
     public getLanguage() {
         return this.language;
+    }
+
+    public getUnknown() {
+        return this.unknown;
+    }
+
+    public setUnknown(unknown) {
+        this.unknown = unknown;
     }
 
     protected checkLanguage(file, jSON) {
@@ -58,7 +67,7 @@ export class Page {
 
     protected checkFailed(data) {
         // console.error('JSONT:' + data);
-        this.father.updateFailed(data)
+        this.father.updateFailed(data, this);
         // this.element.innerHTML = data;
     }
 

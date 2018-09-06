@@ -36,10 +36,13 @@ export class ComponentRouter extends ComponentGeneric {
         this.go = false;
     }
 
-    public goTo(name?: string) {
+    public goTo(name?: string, page?) {
         if (name !== undefined &&
             (name.indexOf(this.suffix) === -1)) {
             name = name + this.suffix;
+        }
+        if (page !== undefined) {
+            page.setUnknown(name);
         }
 
         let cookie = Util.getInstance().getCookie(this.routerName);
@@ -61,7 +64,11 @@ export class ComponentRouter extends ComponentGeneric {
         if (this.pages[pageName] === undefined) {
             this.pages[pageName] = new Page(this, pageName);
         } else {
+            if (this.pages[pageName].arrayFrame.length === 0) {
+                this.pages[this.pages[pageName].getUnknown()].setPage();
+            }else{
             this.pages[pageName].setPage();
+            }
         }
     }
 
@@ -72,9 +79,9 @@ export class ComponentRouter extends ComponentGeneric {
         this.goTo(name);
     }
 
-    public updateFailed(data) {
+    public updateFailed(data, page) {
         // console.log('updateFailed:', data);
-        this.goTo('unknown');
+        this.goTo('unknown', page);
     }
 
     public renderAfterUpdate() {
