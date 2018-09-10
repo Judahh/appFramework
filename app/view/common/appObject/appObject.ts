@@ -352,7 +352,10 @@ export class AppObject {
 
   private setNotification() {
     this.checkNotification = true;
-    this.notification = <ComponentRouter>this.seekFather('ComponentNotification');
+    // this.notification = <ComponentRouter>this.seekFather('ComponentNotification');
+    // if (this.notification === undefined) {
+    this.notification = this.getView().getNotification();
+    // }
   }
 
   private setPage() {

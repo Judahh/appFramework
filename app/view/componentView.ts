@@ -16,6 +16,23 @@ export class ComponentView extends Component { // body
     this.pageBody.goTo(pageName);
   }
 
+  public getNotification() {
+    return this.notification;
+  }
+
+  public getHeader() {
+    return this.header;
+  }
+
+  public getFooter() {
+    return this.footer;
+  }
+
+  public getPageBody() {
+    return this.pageBody;
+  }
+
+
   public resetHeader() {
     this.header.destroyElement();
     this.header = new ComponentRouter(this, 'ComponentHeader','header','','','header');
