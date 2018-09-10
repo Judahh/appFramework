@@ -75,6 +75,7 @@ export class ComponentRouter extends ComponentGeneric {
 
     public refresh() {
         // console.log('refreshNotification:');
+        this.pages = {};
         let name = this.currentName;
         this.currentName = undefined;
         this.goTo(name);

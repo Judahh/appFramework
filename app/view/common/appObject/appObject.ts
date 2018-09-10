@@ -15,7 +15,9 @@ export class AppObject {
   header: ComponentGeneric;
   notification: ComponentRouter;
   footer: ComponentGeneric;
+  pageFrame: ComponentPageFrame;
 
+  checkPageFrame: boolean;
   checkView: boolean;
   checkNotification: boolean;
 
@@ -47,6 +49,7 @@ export class AppObject {
       this.father = father;
     }
 
+    this.checkPageFrame = false;
     this.checkView = false;
     this.checkNotification = false;
     this.arrayAppObject = new Array<AppObject>();
@@ -61,6 +64,13 @@ export class AppObject {
 
   public getClassName() {
     return this.className;
+  }
+
+  public getPageFrame() {
+    // if (!this.checkPageFrame) {
+      this.setPageFrame();
+    // }
+    return this.pageFrame;
   }
 
   public getView() {
@@ -333,6 +343,11 @@ export class AppObject {
   private setView() {
     this.checkView = true;
     this.view = <ComponentView>this.seekFather('ComponentView');
+  }
+
+  public setPageFrame(){
+    this.checkPageFrame = true;
+    this.pageFrame = <ComponentPageFrame>this.seekFather('ComponentPageFrame');
   }
 
   private setNotification() {
