@@ -12,9 +12,9 @@ export class AppObject {
 
   view: ComponentView;
   pageBody: ComponentPageBody;
-  header: ComponentGeneric;
+  header: ComponentRouter;
   notification: ComponentRouter;
-  footer: ComponentGeneric;
+  footer: ComponentRouter;
   pageFrame: ComponentPageFrame;
 
   checkPageFrame: boolean;
