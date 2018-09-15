@@ -74,12 +74,12 @@ export class Component extends AppObject {
   public destroyElement() {
     let element = document.getElementById(this.element.id);
     if (element === undefined || element === null) {
-      if (this.element !== undefined && element !== null) {
-        this.element.remove();//parentElement.removeChild(element);
+      if (this.element !== undefined && this.element !== null) {
+        this.element.remove(); //parentElement.removeChild(element);
         // this.element.outerHTML = "";
       }
     } else {
-      element.remove();//.parentElement.removeChild(element);
+      element.remove(); //.parentElement.removeChild(element);
       // element.outerHTML = "";
     }
   }
