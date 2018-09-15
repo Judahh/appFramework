@@ -23,7 +23,8 @@ export class AppObjectEvent extends AppObject {
     if (this.name !== undefined) {
       switch (this.name) {
         case 'build':
-          this.onEvent();
+          // this.onEvent();
+          this.addEventListener('load');
           this.running = true;
           break;
 

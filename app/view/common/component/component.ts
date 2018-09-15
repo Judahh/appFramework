@@ -17,7 +17,7 @@ export class Component extends AppObject {
     this.className = 'Component';
 
     this.tag = tag;
-    if(AppObjectFactory.numberOfElements(this.tag) === 0 && document.getElementsByTagName(this.tag).length>0){
+    if (AppObjectFactory.numberOfElements(this.tag) === 0 && document.getElementsByTagName(this.tag).length > 0) {
       AppObjectFactory.addElements(this.tag, document.getElementsByTagName(this.tag).length);
     }
     let nodes = AppObjectFactory.numberOfElements(this.tag);
@@ -43,7 +43,7 @@ export class Component extends AppObject {
     }
 
     AppObjectFactory.addElement(this.tag);
-    
+
     this.clear();
   }
 
@@ -73,8 +73,15 @@ export class Component extends AppObject {
 
   public destroyElement() {
     let element = document.getElementById(this.element.id);
-    // console.log(this.element.id);
-    element.parentElement.removeChild(element);
+    if (element === undefined || element === null) {
+      if (this.element !== undefined && element !== null) {
+        this.element.remove();//parentElement.removeChild(element);
+        // this.element.outerHTML = "";
+      }
+    } else {
+      element.remove();//.parentElement.removeChild(element);
+      // element.outerHTML = "";
+    }
   }
 
   public destroyChildElements() {
