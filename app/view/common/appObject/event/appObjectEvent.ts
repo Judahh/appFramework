@@ -23,9 +23,7 @@ export class AppObjectEvent extends AppObject {
     if (this.name !== undefined) {
       switch (this.name) {
         case 'build':
-          // this.onEvent();
-          this.addEventListener('load');
-          this.running = true;
+          this.onLoad();
           break;
 
         case 'router':
@@ -42,6 +40,15 @@ export class AppObjectEvent extends AppObject {
           break;
       }
     }
+  }
+
+  private onLoad() {
+    let _self = this;
+    let element = this.getFather().getElement();
+    element.onload = _self.onEvent();
+    // this.onEvent();
+    // this.addEventListener('load');
+    this.running = true;
   }
 
   private auth(verified: boolean) {
