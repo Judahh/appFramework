@@ -118,7 +118,7 @@ export class Util {
     return link;
   }
 
-  removeElements(elements: NodeListOf<Element>) {
+  removeElements(elements: NodeListOf<Element>|HTMLCollectionOf<Element>|HTMLCollectionOf<HTMLElement>) {
     while (elements[0]) {
       elements[0].parentNode.removeChild(elements[0]);
     }
@@ -237,5 +237,22 @@ export class Util {
       }
     }
   }
+
+  // NodeListOf HTMLCollectionOfToNodeListOf(collection: HTMLCollectionOf<HTMLElement>) {
+  //   let nodeListOf = [];
+
+  //   if (collection) {
+  //     for (let i = 0; i < collection.length; i++) {
+  //       let node: Node = collection[i];
+
+  //       // Make sure it's really an Element
+  //       if (node.nodeType == Node.ELEMENT_NODE) {
+  //         nodeListOf.push(node as HTMLElement);
+  //       }
+  //     }
+  //   }
+    
+  //   return (<NodeListOf<Element>> nodeListOf);
+  // }
 
 }

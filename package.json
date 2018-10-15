@@ -32,13 +32,13 @@
     "jquery": "3.3.1",
     "path": "0.12.7",
     "basicsocket": "0.1.5",
-    "virtual-keyboard": "1.28.4"
+    "virtual-keyboard": "1.28.7"
   },
   "devDependencies": {
-    "@types/jquery": "3.3.6",
-    "@types/node": "^10.9.4",
-    "@types/webpack": "^4.4.11",
+    "@types/jquery": "3.3.17",
+    "@types/node": "^10.11.7",
+    "@types/webpack": "^4.4.16",
     "ts-node": "^7.0.1",
-    "typescript": "^3.0.3"
+    "typescript": "^3.1.3"
   }
 }
