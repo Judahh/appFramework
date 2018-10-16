@@ -42,6 +42,7 @@ import { AppObjectEvent } from './app/view/common/appObject/event/appObjectEvent
 import { ApiConnection } from './app/view/apiConnection/apiConnection';
 import { Observer } from './app/observer/observer';
 import { OnLoad } from './app/onLoad/onLoad';
+import * as loader from './loader';
 
 export {
     Component, ComponentGeneric, ComponentPageBody, ComponentItem, ComponentMap, ComponentInformation, ComponentDataInput, ComponentOption,
@@ -49,5 +50,5 @@ export {
     ComponentProgressBar, ComponentCircle, ComponentEllipse, ComponentRectangle, ComponentPolygon, ComponentLine, ComponentRouter,
     ComponentPath, ComponentText, ComponentG, ComponentFilter, ComponentLinearGradient, ComponentRadialGradient, ComponentPageFrame,
     ComponentPolyline, ComponentStop, ComponentDefs, ServiceModel, Util, ComponentView, App, AppObject, ImportScript,
-    ComponentChart, AppObjectFactory, AppObjectEvent, ApiConnection, Observer, OnLoad
+    ComponentChart, AppObjectFactory, AppObjectEvent, ApiConnection, Observer, OnLoad, loader
 }
