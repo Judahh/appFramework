@@ -1,4 +1,4 @@
-import * as $ from 'jquery';
+import jQuery = require('jquery');
 
 declare global {
   // tslint:disable-next-line:no-shadowed-variable
@@ -87,11 +87,11 @@ export class Util {
     //   this.dataJSON = new Array();
     // }
     // if (this.dataJSON[path] == null) {
-    //   this.dataJSON[path] = $.getJSON(path);
+    //   this.dataJSON[path] = jQuery.getJSON(path);
     // }
 
     // return this.dataJSON[path];
-    return $.getJSON(path);
+    return jQuery.getJSON(path);
   }
 
   getTag(name: string) {
