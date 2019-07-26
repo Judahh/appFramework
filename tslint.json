@@ -65,7 +65,7 @@
       "single"
     ],
     "semicolon": [
-      "always"
+      true
     ],
     "triple-equals": [
       true,
