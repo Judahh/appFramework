@@ -10,9 +10,7 @@
     "noImplicitAny": false,
     "suppressImplicitAnyIndexErrors": true,
     "declaration": true,
-    "typeRoots": [
-      "../node_modules/@types"
-    ],
+    "typeRoots": [],
     "types": [
       "node",
       "jquery"
