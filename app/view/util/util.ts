@@ -1,5 +1,4 @@
-// import * as $ from 'jquery';
-import jQuery = require('jquery');
+import * as $ from 'jquery';
 
 declare global {
   // tslint:disable-next-line:no-shadowed-variable
@@ -18,7 +17,6 @@ declare global {
     replaceAll(search: string, replacement: string): string;
   }
 }
-
 declare interface Array<T> {
   type: any;
   getType(): string;
@@ -93,7 +91,7 @@ export class Util {
     // }
 
     // return this.dataJSON[path];
-    return jQuery.getJSON(path);
+    return $.getJSON(path);
   }
 
   getTag(name: string) {
