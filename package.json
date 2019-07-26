@@ -6,6 +6,10 @@
   "private": false,
   "description": "Judahh APP project",
   "main": "index.js",
+  "engines": {
+    "node": "10.9.0",
+    "npm": "6.10.2"
+  },
   "keywords": [
     "judahh",
     "app"
