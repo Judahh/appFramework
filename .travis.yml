@@ -6,4 +6,3 @@ before_install:
   - npm install -g typescript
 install:
   - npm install
-script: tsc
