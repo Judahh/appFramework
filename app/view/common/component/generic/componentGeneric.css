@@ -1,0 +1,165 @@
+video{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+iframe{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+videoHolder {
+    position: relative;
+    padding-top: 75%;
+    width: 100%;
+    /* display: block; */
+    /* visibility: hidden; */
+}
+
+image{
+    visibility: hidden;
+    width: 0px;
+    height: 0px;
+    max-height: 0px;
+    max-width: 0px;
+    float: left;
+}
+
+img{
+    width: 100%;
+    height: auto;
+    top: 0;
+    box-sizing: border-box;
+}
+
+leftHolder{
+    align-content: left;
+    align-items: left;
+    align-self: left;
+    text-align: left;
+    float: left;
+    width: 33%;
+}
+
+centerHolder{
+    align-content: center;
+    align-items: center;
+    align-self: center;
+    text-align: center;
+    float: left;
+    width: 34%;
+}
+
+rightHolder{
+    float: right;
+    width: 33%;
+    align-content: right;
+    align-items: right;
+    align-self: right;
+    text-align: right;
+}
+
+menuVertical{
+    width: 0px;
+    height: 0px;
+    top: -500px;
+    display: inline-flex;
+    visibility: hidden;
+    position: relative;
+    opacity: 0;
+    -webkit-transition: all 1s;
+    -moz-transition: all 1s;
+    -ms-transition: all 1s;
+    -o-transition: all 1s;
+    transition: all 1s;
+}
+
+.ClassMenu:hover menuVertical{
+    width: auto;
+    height: auto;
+    top: 0px;
+    visibility: visible;
+    opacity: 1;
+    -webkit-transition: all 1s;
+    -moz-transition: all 1s;
+    -ms-transition: all 1s;
+    -o-transition: all 1s;
+    transition: all 1s;
+}
+
+
+.DivClassNoWidth{
+    width: 0px;
+    height: 0px;
+}
+
+.DivClassHasWidth{
+}
+
+background{
+    z-index: -1000;
+}
+
+header{
+    /*background-color: red;*/
+    top: 0;
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+}
+
+footer{
+    /*background-color: blue;*/
+    bottom: 0;
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+}
+
+.ClassTextBackground{
+    height: 0px;
+    width: 0px;
+    z-index: -1;
+    float: left;
+}
+
+animationEffect{
+    display: table-row;
+}
+
+
+.ClassPulse:hover{
+    -webkit-animation: pulse 1.5s linear infinite;
+    -moz-animation: pulse 1.5s linear infinite;
+    -ms-animation: pulse 1.5s linear infinite;
+    -o-animation: pulse 1.5s linear infinite;
+    animation: pulse 1.5s linear infinite;
+}
+
+.ClassShake:hover{
+    -webkit-animation: shake 0.7s linear infinite;
+    -moz-animation: shake 0.7s linear infinite;
+    -ms-animation: shake 0.7s linear infinite;
+    -o-animation: shake 0.7s linear infinite;
+    animation: shake 0.7s linear infinite;
+}
+
+.ClassSpin:hover{
+    -webkit-animation: spin 2.5s linear infinite;
+    -moz-animation: spin 2.5s linear infinite;
+    -ms-animation: spin 2.5s linear infinite;
+    -o-animation: spin 2.5s linear infinite;
+    animation: spin 2.5s linear infinite;
+}
+
+.ClassSpin2:hover{
+    -webkit-animation: spin2 2.5s linear infinite;
+    -moz-animation: spin2 2.5s linear infinite;
+    -ms-animation: spin2 2.5s linear infinite;
+    -o-animation: spin2 2.5s linear infinite;
+    animation: spin2 2.5s linear infinite;
+}

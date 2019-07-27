@@ -1,0 +1,199 @@
+body {
+    margin: 0;
+    position: absolute;
+    width: calc(100% + 10px);
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+ background-color: rgba(255,255,255,0);
+}
+
+::-webkit-scrollbar-track {
+   background-color: rgba(255,255,255,0);
+}
+
+::-webkit-scrollbar-thumb {
+ background-color: rgba(0,0,0,0.5);
+ border-radius:10px;
+}
+
+::-webkit-input-placeholder { /* Chrome */
+  color: lightgrey;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color: lightgrey;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: lightgrey;
+  opacity: 1;
+}
+:-moz-placeholder { /* Firefox 4 - 18 */
+  color: lightgrey;
+  opacity: 1;
+}
+
+a {
+  /*cursor: pointer;*/
+  /*cursor: hand;*/
+  /*color: deepskyblue;*/
+  color: inherit;
+  cursor: default;
+  text-decoration: none;
+}
+
+a:visited {
+  /*cursor: pointer;*/
+  /*cursor: hand;*/
+  color: inherit;
+  cursor: default;
+  text-decoration: none;
+}
+
+datalist, option{
+    border: 1px solid white;
+    font-family: "OpenSans-Light";
+    font-size: 17px;
+}
+
+input,textarea{
+    font-smooth:always;
+    font-smoothing: antialiased;
+    -o-font-smoothing: antialiased;
+    -ms-font-smoothing: antialiased;
+    -moz-font-smoothing: antialiased;
+    -webkit-font-smoothing: antialiased;
+}
+
+textarea{
+    /* background-color: transparent; */
+    opacity: 0.6;
+    background-color: transparent;
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+    min-height: 250px;
+    height: auto;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+select{
+    opacity: 0.6;
+    /* width: 100%; */
+    border: none;
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: transparent;
+    color: black;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+input{
+    opacity: 0.6;
+    width: 100%;
+    border: none;
+    border: 1px solid transparent;
+    border-bottom: 1px solid black;
+    color: black;
+    background-color: transparent;
+    padding: 0px;
+    margin: 0px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+input:active,input:focus,textarea:active,textarea:focus,select:active,select:focus{
+    outline: 0;
+    border-radius: 5px;
+    background-color: deepskyblue;
+}
+
+::-moz-selection,::selection {
+    outline: 0;
+    background: deepskyblue;
+    border: none;
+}
+
+li{
+  display: block;
+  float: left;
+}
+
+ul,page,header,footer{
+    float: none;
+    display: block;
+    width: 100%;
+    padding: 0 0 0 0;
+    margin: 0 0 0 0;
+}
+
+
+label{
+  color: black;
+}
+
+input[type=checkbox] { display:none; } /* to hide the checkbox itself */
+input[type=checkbox] + label:before {
+  font-family: FontAwesome;
+  display: inline-block;
+}
+
+input[type=checkbox] + label:before { content: "\f096"; } /* unchecked icon */
+input[type=checkbox] + label:before { letter-spacing: 10px; } /* space between checkbox and label */
+
+input[type=checkbox]:checked + label:before { content: "\f046"; } /* checked icon */
+input[type=checkbox]:checked + label:before { letter-spacing: 5px; } /* allow space for check mark */
+
+input[type=range]{
+  -webkit-appearance: none;
+  border: none;
+  border-radius: 0px;
+  width: 100%;
+  height: 25px;
+  background-color: rgba(0, 0, 0, 0.1);
+  outline: none;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+input[type=range]:hover {
+  opacity: 1;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 10%;
+  height: 25px;
+  background: black;
+}
+
+input[type=range]::-moz-range-thumb {
+  width: 10%;
+  height: 25px;
+  background: black;
+}
+
+notification{
+  position: fixed;
+  display: block;
+  top: 35px;
+  width: 100%;
+  height: 25px;
+}
