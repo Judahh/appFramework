@@ -31,5 +31,19 @@
     "build": "gulp build",
     "clean": "shx rm -Rf build/",
     "webpack": "webpack"
+  },
+  "dependencies": {
+    "@types/jquery": "^3.3.30",
+    "basicsocket": "0.2.0",
+    "journaly": "0.0.3",
+    "jquery": "3.4.1",
+    "path": "0.12.7",
+    "virtual-keyboard": "1.30.1"
+  },
+  "devDependencies": {
+    "@types/node": "^12.6.8",
+    "@types/webpack": "^4.32.1",
+    "ts-node": "^8.3.0",
+    "typescript": "^3.5.3"
   }
 }
