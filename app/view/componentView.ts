@@ -6,10 +6,10 @@ export class ComponentView extends Component { // body
   constructor(father?: Component) {
     super('body', father);
     this.className = 'ComponentView';
-    this.header = new ComponentRouter(this, 'ComponentHeader','header','','','header');
-    this.notification = new ComponentRouter(this, 'ComponentNotification','notification','none','Notification','none');
+    this.header = new ComponentRouter(this, 'ComponentHeader', 'header', '', '', 'header');
+    this.notification = new ComponentRouter(this, 'ComponentNotification', 'notification', 'none', 'Notification', 'none');
     this.pageBody = new ComponentPageBody(this);
-    this.footer = new ComponentRouter(this, 'ComponentFooter','footer','','','footer');
+    this.footer = new ComponentRouter(this, 'ComponentFooter', 'footer', '', '', 'footer');
   }
 
   public goToPage(pageName?: string) {
@@ -35,12 +35,12 @@ export class ComponentView extends Component { // body
 
   public resetHeader() {
     this.header.destroyElement();
-    this.header = new ComponentRouter(this, 'ComponentHeader','header','','','header');
+    this.header = new ComponentRouter(this, 'ComponentHeader', 'header', '', '', 'header');
   }
 
   public resetNotification() {
     this.notification.destroyElement();
-    this.notification = new ComponentRouter(this, 'ComponentNotification','notification','none','Notification','none');
+    this.notification = new ComponentRouter(this, 'ComponentNotification', 'notification', 'none', 'Notification', 'none');
   }
 
   public resetPageBody() {
@@ -50,7 +50,7 @@ export class ComponentView extends Component { // body
 
   public resetFooter() {
     this.footer.destroyElement();
-    this.footer = new ComponentRouter(this, 'ComponentFooter','footer','','','footer');
+    this.footer = new ComponentRouter(this, 'ComponentFooter', 'footer', '', '', 'footer');
   }
 }
 ComponentView.addConstructor('ComponentView', ComponentView);

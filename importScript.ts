@@ -77,5 +77,3 @@ export class ImportScript {
         window['callbacker' + name] = callback;
     }
 }
-
-

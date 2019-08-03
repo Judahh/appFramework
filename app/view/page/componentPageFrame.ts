@@ -17,7 +17,7 @@ export class ComponentPageFrame extends Component {
         this.background = new ComponentGeneric(this, 'ComponentBackground');
     }
 
-    public init(jSON){
+    public init(jSON) {
         this.updateJSON(jSON);
     }
 

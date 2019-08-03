@@ -75,11 +75,11 @@ export class Component extends AppObject {
     let element = document.getElementById(this.element.id);
     if (element === undefined || element === null) {
       if (this.element !== undefined && this.element !== null) {
-        this.element.remove(); //parentElement.removeChild(element);
+        this.element.remove(); // parentElement.removeChild(element);
         // this.element.outerHTML = "";
       }
     } else {
-      element.remove(); //.parentElement.removeChild(element);
+      element.remove(); // .parentElement.removeChild(element);
       // element.outerHTML = "";
     }
   }

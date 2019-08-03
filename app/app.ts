@@ -1,5 +1,5 @@
 import { ComponentView } from './view/componentView';
-// tslint:disable-next-line:no-empty
+
 try { require('./app.css'); } catch (e) { };
 
 export class App {

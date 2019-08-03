@@ -1,7 +1,7 @@
 import { Component } from './../common/component/component';
 import { AppObject } from './../common/appObject/appObject';
 import { ComponentRouter } from '../common/component/generic/router/componentRouter';
-// tslint:disable-next-line:no-empty
+
 try { require('./componentPageBody.css'); } catch (e) { };
 
 export class ComponentPageBody extends ComponentRouter {

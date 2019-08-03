@@ -7,12 +7,12 @@ export class ServiceModel {
         // let internalJSON = require(this.internalURL+path+'.json');
         // console.log(internalJSON);
         // console.log('A:');
-        if(window['offline']){
+        if (window['offline']) {
             // console.log();
             // let _self = this;
             // require([this.uRLOffline + path + '.json'], _self.test);
             return null;
-        }else{
+        } else {
             return Util.getInstance().getJsonPromise(this.uRL + path + '.json');
         }
         // this.http.get(this.URL+path+'.json').toPromise().then(this.extractData).catch(this.handlePromiseError);

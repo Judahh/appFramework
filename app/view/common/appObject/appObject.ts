@@ -122,16 +122,16 @@ export class AppObject {
     return this.notificationName;
   }
 
-  // tslint:disable-next-line:no-empty
+
   protected clearProperty(property) { }
 
-  // tslint:disable-next-line:no-empty
+
   protected elementStyle(jSON, property) { }
 
-  // tslint:disable-next-line:no-empty
+
   protected elementVar(jSON, property) { }
 
-  // tslint:disable-next-line:no-empty
+
   protected elementSpecial(jSON, property, property2) { }
 
   protected updateJSONWithArray(jSON, property: any) {
@@ -242,15 +242,15 @@ export class AppObject {
     this.renderAfterUpdate();
   }
 
-  // tslint:disable-next-line:no-empty
+
   public renderBeforeUpdate() {
 
   }
 
-  // tslint:disable-next-line:no-empty
+
   public renderAfterUpdate() {
     let pageFrame = <ComponentPageFrame>this.seekFather('ComponentPageFrame');
-    if(pageFrame!== undefined){
+    if (pageFrame !== undefined) {
         // console.log('a');
         // console.log(pageFrame.getFullPage().getLanguage());
         this.updateLanguage(pageFrame.getFullPage().getLanguage());
@@ -262,7 +262,7 @@ export class AppObject {
     // this.updateLanguage(language);
   }
 
-  // tslint:disable-next-line:no-empty
+
   protected updateLanguage(jSON) { }
 
   public getFather() {
@@ -328,6 +328,11 @@ export class AppObject {
     return array;
   }
 
+  public setPageFrame() {
+    this.checkPageFrame = true;
+    this.pageFrame = <ComponentPageFrame>this.seekFather('ComponentPageFrame');
+  }
+
   private setPageBody() {
     this.pageBody = this.getView().pageBody;
   }
@@ -343,11 +348,6 @@ export class AppObject {
   private setView() {
     this.checkView = true;
     this.view = <ComponentView>this.seekFather('ComponentView');
-  }
-
-  public setPageFrame(){
-    this.checkPageFrame = true;
-    this.pageFrame = <ComponentPageFrame>this.seekFather('ComponentPageFrame');
   }
 
   private setNotification() {

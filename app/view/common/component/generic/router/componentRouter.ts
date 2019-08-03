@@ -1,15 +1,15 @@
 import { Util } from './../../../../util/util';
 import { Page } from '../../../../page/page';
 import { ComponentGeneric } from '../componentGeneric';
-// tslint:disable-next-line:no-empty
+
 
 export class ComponentRouter extends ComponentGeneric {
     private pages: any;
     private currentName: string;
     private nextName: string;
-    private routerName: string;//notification, page,header,footer
-    private suffix: string;//Notification,empty,empty,empty
-    private main: string;//none,home,header,footer
+    private routerName: string; // notification, page,header,footer
+    private suffix: string; // Notification,empty,empty,empty
+    private main: string; // none,home,header,footer
 
     private go: boolean;
 
@@ -64,10 +64,10 @@ export class ComponentRouter extends ComponentGeneric {
         if (this.pages[pageName] === undefined) {
             this.pages[pageName] = new Page(this, pageName);
         } else {
-            if (this.pages[pageName].arrayFrame.length === 0 && this.pages[pageName].getUnknown() != undefined) {
+            if (this.pages[pageName].arrayFrame.length === 0 && this.pages[pageName].getUnknown() !== undefined) {
                 this.nextName = this.pages[pageName].getUnknown();
                 this.pages[this.nextName].setPage();
-            }else{
+            } else {
                 this.pages[pageName].setPage();
             }
         }

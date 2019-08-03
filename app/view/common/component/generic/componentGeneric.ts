@@ -1,6 +1,6 @@
 import { Util } from './../../../util/util';
 import { Component } from './../../component/component';
-// tslint:disable-next-line:no-empty
+
 try { require('./componentGeneric.css'); } catch (e) { };
 try { require('./componentGeneric2.css'); } catch (e) { };
 try { require('./componentGeneric3.css'); } catch (e) { };

@@ -67,7 +67,7 @@ export class Util {
     return Util.instance;
   }
 
-  // tslint:disable-next-line:no-empty
+
   constructor() { }
 
   elementHTML(name: string, id?: string, body?: string) {
