@@ -1,4 +1,5 @@
-import { Util } from './../../../util/util';
+import 'simpleutils';
+import { Util } from 'basicutil';
 import { Component } from './../../component/component';
 
 try { require('./componentGeneric.css'); } catch (e) { };

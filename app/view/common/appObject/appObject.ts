@@ -1,4 +1,5 @@
-import { Util } from './../../util/util';
+import 'simpleutils';
+import { Util } from 'basicutil';
 
 export class AppObject {
   private static types: any;

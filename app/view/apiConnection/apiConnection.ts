@@ -1,4 +1,5 @@
-import { Util } from './../util/util';
+import 'simpleutils';
+import { Util } from 'basicutil';
 export class ApiConnection {
 
     static request(methodType: string, apiMethod: string, callback) {

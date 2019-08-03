@@ -1,6 +1,7 @@
 import { Component } from './../../component/component';
 import { ComponentOption } from './option/componentOption';
-import { Util } from './../../../util/util';
+import 'simpleutils';
+import { Util } from 'basicutil';
 
 export class ComponentComboBox extends Component {
   arrayOption: Array<ComponentOption>;

@@ -1,4 +1,5 @@
-import { Util } from './../../../../util/util';
+import 'simpleutils';
+import { Util } from 'basicutil';
 import { Page } from '../../../../page/page';
 import { ComponentGeneric } from '../componentGeneric';
 

@@ -1,6 +1,7 @@
+import 'simpleutils';
+import { Util } from 'basicutil';
 import { Component } from './../../component/component';
 import { ComponentKeyboard } from './../keyboard/componentKeyboard';
-import { Util } from './../../../util/util';
 
 export class ComponentTextArea extends Component {
   arrayKeyboard: Array<ComponentKeyboard>;

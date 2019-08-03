@@ -1,5 +1,6 @@
+import 'simpleutils';
+import { Util } from 'basicutil';
 import { Component } from './../../component/component';
-import { Util } from './../../../util/util';
 
 export class ComponentText extends Component {
   text: string;

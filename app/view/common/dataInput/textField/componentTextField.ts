@@ -1,7 +1,8 @@
+import 'simpleutils';
+import { Util } from 'basicutil';
 import { Component } from './../../component/component';
 import { ComponentDataList } from './../textField/dataList/componentDataList';
 import { ComponentKeyboard } from './../keyboard/componentKeyboard';
-import { Util } from './../../../util/util';
 
 
 export class ComponentTextField extends Component {

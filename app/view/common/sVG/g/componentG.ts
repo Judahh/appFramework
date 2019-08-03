@@ -1,5 +1,5 @@
-// import { Array } from 'simpleutils';
-import { Util } from './../../../util/util';
+import 'simpleutils';
+import { Util } from 'basicutil';
 import { Component } from './../../component/component';
 import { ComponentCircle } from './../circle/componentCircle';
 import { ComponentEllipse } from './../ellipse/componentEllipse';

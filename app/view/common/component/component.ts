@@ -1,4 +1,5 @@
-import { Util } from './../../util/util';
+import 'simpleutils';
+import { Util } from 'basicutil';
 import { ServiceModel } from './../../serviceModel/serviceModel';
 import { AppObject } from './../appObject/appObject';
 import { AppObjectFactory } from './../appObject/factory/appObjectFactory';

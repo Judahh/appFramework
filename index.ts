@@ -29,7 +29,7 @@ import { ComponentRadialGradient } from './app/view/common/sVG/defs/radialGradie
 import { ComponentStop } from './app/view/common/sVG/defs/stop/componentStop';
 import { ComponentDefs } from './app/view/common/sVG/defs/componentDefs';
 import { ServiceModel } from './app/view/serviceModel/serviceModel';
-import { Util } from './app/view/util/util';
+import { Util } from 'basicutil';
 import { ComponentView } from './app/view/componentView';
 import { App } from './app/app';
 import { ImportScript } from './importScript';

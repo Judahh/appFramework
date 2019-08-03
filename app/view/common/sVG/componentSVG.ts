@@ -1,3 +1,5 @@
+import 'simpleutils';
+import { Util } from 'basicutil';
 import { Component } from './../component/component';
 import { ComponentCircle } from './circle/componentCircle';
 import { ComponentEllipse } from './ellipse/componentEllipse';
@@ -9,7 +11,6 @@ import { ComponentPath } from './path/componentPath';
 import { ComponentText } from './text/componentText';
 import { ComponentG } from './g/componentG';
 import { ComponentDefs } from './defs/componentDefs';
-import { Util } from './../../util/util';
 
 export class ComponentSVG extends Component {
   arrayCircle: Array<ComponentCircle>;
