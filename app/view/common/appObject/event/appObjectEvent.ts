@@ -1,5 +1,6 @@
 import { AppObject } from './../appObject';
 import { AppObjectFactory } from './../factory/appObjectFactory';
+import { Util } from 'basicutil';
 
 export class AppObjectEvent extends AppObject {
   name: string;
@@ -8,6 +9,8 @@ export class AppObjectEvent extends AppObject {
   runFunction: string;
   subscribeCode: string;
   subscribeFunction: string;
+  builder: string;
+  eventListener: boolean;
   appObject: AppObject;
   running: boolean;
   verified: boolean;
@@ -44,11 +47,28 @@ export class AppObjectEvent extends AppObject {
 
   private onLoad() {
     let _self = this;
-    let element = this.getFather().getElement();
-    element.onload = _self.onEvent();
-    // this.onEvent();
-    // this.addEventListener('load');
-    this.running = true;
+    if ( _self.builder === null || _self.builder === undefined || _self.builder === '' ) {
+      let element = _self.getFather().getElement();
+      element.onload = _self.onEvent();
+    } else {
+      switch (_self.builder) {
+        case 'window':
+          window.onload = _self.onEvent();
+          break;
+        case 'document':
+          $(document).ready = _self.onEvent();
+          break;
+        default:
+          if (_self.eventListener) {
+            _self.onEvent();
+            _self.addEventListener(_self.builder);
+          } else {
+            eval('_self.builder =' + _self.onEvent());
+            break;
+          }
+      }
+    }
+    _self.running = true;
   }
 
   private auth(verified: boolean) {
@@ -121,16 +141,16 @@ export class AppObjectEvent extends AppObject {
   private subscribe() {
     let appObject;
     let _self = this;
-    let code = this.code;
-    let runFunction = this.runFunction;
-    if (this.subscribeCode !== undefined) {
-      code = this.subscribeCode;
+    let code = _self.code;
+    let runFunction = _self.runFunction;
+    if (_self.subscribeCode !== undefined) {
+      code = _self.subscribeCode;
     }
-    if (this.subscribeFunction !== undefined) {
-      runFunction = this.subscribeFunction;
+    if (_self.subscribeFunction !== undefined) {
+      runFunction = _self.subscribeFunction;
     }
 
-    appObject = AppObjectFactory.create(code, this);
+    appObject = AppObjectFactory.create(code, _self);
     // tslint:disable-next-line:no-eval
     eval('appObject.' + runFunction + '((data) => { _self.auth(data); });');
   }
