@@ -1,6 +1,6 @@
 import { AppObject } from './../appObject';
 import { AppObjectFactory } from './../factory/appObjectFactory';
-import { Util } from 'basicutil';
+import * as $ from 'jquery';
 
 export class AppObjectEvent extends AppObject {
   name: string;

@@ -1,5 +1,5 @@
 import { Component } from './../../component/component';
-import { Util } from 'basicutil';
+import * as $ from 'jquery';
 import { KeyboardOptions, Typing, Extender } from 'virtual-keyboard';
 
 try { require('./componentKeyboard.css'); } catch (e) { };
