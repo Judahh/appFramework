@@ -1,5 +1,4 @@
 import 'simpleutils';
-import { Util } from 'basicutil';
 import { Component } from './../component/component';
 import { ComponentCircle } from './circle/componentCircle';
 import { ComponentEllipse } from './ellipse/componentEllipse';

@@ -1,5 +1,4 @@
 import 'simpleutils';
-import { Util } from 'basicutil';
 import { Component } from './../../component/component';
 import { ComponentFilter } from './filter/componentFilter';
 import { ComponentLinearGradient } from './linearGradient/componentLinearGradient';

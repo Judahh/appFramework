@@ -1,5 +1,4 @@
 import 'simpleutils';
-import { Util } from 'basicutil';
 import { Component } from './../component/component';
 import { ComponentItem } from './../item/componentItem';
 import { ComponentTextField } from './../dataInput/textField/componentTextField';
