@@ -43,6 +43,7 @@ export class ComponentGeneric extends Component {
         'ComponentHeader': 'header',
         'ComponentFooter': 'footer',
         'ComponentItalic': 'i',
+        'ComponentTemplate': 'template',
         'ComponentPageBody': 'pageBody',
         'ComponentNotification': 'notification',
         'ComponentFontAwesome': 'i'
