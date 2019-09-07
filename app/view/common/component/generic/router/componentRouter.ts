@@ -21,8 +21,12 @@ export class ComponentRouter extends ComponentGeneric {
         this.suffix = suffix;
         this.main = main;
         this.go = false;
-        this.goTo(nextName);
+        this.init(nextName);
         // console.log(father, name, routerName, nextName, suffix, main);
+    }
+
+    protected init(nextName?: string) {
+        this.name = nextName;
     }
 
     public getNextName() {
@@ -37,27 +41,28 @@ export class ComponentRouter extends ComponentGeneric {
         this.go = false;
     }
 
-    public goTo(name?: string, page?) {
-        if (name !== undefined &&
-            (name.indexOf(this.suffix) === -1)) {
-            name = name + this.suffix;
-        }
-        if (page !== undefined) {
-            page.setUnknown(name);
+    public set name(newName: string) {
+        if (newName !== undefined &&
+            (newName.indexOf(this.suffix) === -1)) {
+                newName = newName + this.suffix;
         }
 
         let cookie = Util.getInstance().getCookie(this.routerName);
         if (this.currentName === undefined ||
-            this.currentName !== name) {
-            this.nextName = name;
-            if (name) {
-                this.initPage(name);
+            this.currentName !== newName) {
+            this.nextName = newName;
+            if (newName) {
+                this.initPage(newName);
             } else if (cookie !== '') {
-                this.goTo(cookie);
+                this.name = cookie;
             } else {
-                this.goTo(this.main);
+                this.name = this.main;
             }
         }
+    }
+
+    public get name() {
+        return this.currentName;
     }
 
     public initPage(pageName: string) {
@@ -65,8 +70,8 @@ export class ComponentRouter extends ComponentGeneric {
         if (this.pages[pageName] === undefined) {
             this.pages[pageName] = new Page(this, pageName);
         } else {
-            if (this.pages[pageName].arrayFrame.length === 0 && this.pages[pageName].getUnknown() !== undefined) {
-                this.nextName = this.pages[pageName].getUnknown();
+            if (this.pages[pageName].arrayFrame.length === 0 && this.pages[pageName].getUnknown() === true) {
+                this.nextName = 'unknown';
                 this.pages[this.nextName].setPage();
             } else {
                 this.pages[pageName].setPage();
@@ -79,12 +84,13 @@ export class ComponentRouter extends ComponentGeneric {
         this.pages = {};
         let name = this.currentName;
         this.currentName = undefined;
-        this.goTo(name);
+        this.name = name;
     }
 
     public updateFailed(data, page) {
         // console.log('updateFailed:', data);
-        this.goTo('unknown', page);
+        page.setUnknown(true);
+        this.name = 'unknown';
     }
 
     public renderAfterUpdate() {

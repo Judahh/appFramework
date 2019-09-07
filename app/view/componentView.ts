@@ -13,7 +13,7 @@ export class ComponentView extends Component { // body
   }
 
   public goToPage(pageName?: string) {
-    this.pageBody.goTo(pageName);
+    this.pageBody.name = pageName;
   }
 
   public getNotification() {

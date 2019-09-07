@@ -23,7 +23,7 @@ export class ComponentPageBody extends ComponentRouter {
   }
 
   public goToNotificationNone(notification: ComponentRouter) {
-    notification.goTo('none');
+    notification.name = 'none';
   }
 
   public goAllToNotificationNone(arrayNotification: Array<ComponentRouter>) {

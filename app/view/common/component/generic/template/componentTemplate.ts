@@ -1,5 +1,4 @@
 import { ComponentRouter } from '../router/componentRouter';
-import { AppObject } from '../../../appObject/appObject';
 import { Component } from '../../component';
 
 
@@ -10,6 +9,10 @@ export class ComponentTemplate extends ComponentRouter {
   constructor(father?: Component, pageName?: string) {
     super(father, 'ComponentTemplate', 'template', pageName, 'Template', '');
     this.className = 'ComponentTemplate';
+  }
+
+  protected init(nextName?: string) {
+    // this.name = nextName;
   }
 }
 ComponentTemplate.addConstructor('ComponentTemplate', ComponentTemplate);

@@ -7,11 +7,12 @@ export class Page {
     private currentFrame: ComponentPageFrame;
     private father: ComponentRouter;
     private language: any;
-    private unknown: any;
+    private unknown: boolean;
 
     constructor(father: ComponentRouter, file) {
         this.arrayFrame = new Array<ComponentPageFrame>();
         this.father = father;
+        this.unknown = false;
         ServiceModel.getPromise(file + 'L').then((data) => this.checkLanguage(file, data)).fail((data) => this.checkFailed(data));
     }
 
