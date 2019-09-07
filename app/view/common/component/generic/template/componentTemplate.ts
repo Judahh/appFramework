@@ -1,7 +1,6 @@
 import { ComponentRouter } from '../router/componentRouter';
 import { Component } from '../../component';
 
-
 try { require('./ComponentTemplate.css'); } catch (e) { };
 
 export class ComponentTemplate extends ComponentRouter {
