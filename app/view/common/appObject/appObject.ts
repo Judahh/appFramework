@@ -163,15 +163,15 @@ export class AppObject {
     }
   }
 
-  protected updateJSONWithType(jSON, property: any, type: number) {
+  protected updateJSONWithType(jSON, property: any, type: JSONObjectType) {
     // console.log('Prop2');
-    if (type === 2) {
+    if (type === JSONObjectType.Style) {
       // console.log('Prop3 is var');
       this.elementStyle(jSON, property);
     } else {
       if (property === 'style') {
         // console.log('Prop is style');
-        this.updateJSON(jSON[property], 2);
+        this.updateJSON(jSON[property], JSONObjectType.Style);
       } else {
         // console.log('Prop is special');
         this.elementVar(jSON, property);
@@ -183,7 +183,7 @@ export class AppObject {
     // console.log('Prop is object');
     if (property === 'element') {
       // console.log('Prop is element');
-      this.updateJSON(jSON[property], 1);
+      this.updateJSON(jSON[property], JSONObjectType.Element);
       // // console.log('Prop is element OUT');
     } else {
       // console.log('Prop is regular');
@@ -201,7 +201,7 @@ export class AppObject {
     }
   }
 
-  protected updateJSON(jSON, type?: number) {
+  protected updateJSON(jSON, type?: JSONObjectType) {
     this.renderBeforeUpdate();
     // console.log('UPDATE!');
     for (let property in jSON) {
@@ -360,4 +360,5 @@ import { ComponentPageBody } from './../../body/componentPageBody';
 import { ComponentGeneric } from '../component/generic/componentGeneric';
 import { ComponentRouter } from '../component/generic/router/componentRouter';
 import { ComponentPageFrame } from '../../page/componentPageFrame';
+import { JSONObjectType } from './jSONObjectType';
 AppObject.addConstructor('AppObject', AppObject);
