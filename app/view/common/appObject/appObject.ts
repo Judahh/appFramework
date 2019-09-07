@@ -132,9 +132,6 @@ export class AppObject {
 
   protected elementVar(jSON, property) { }
 
-
-  protected elementSpecial(jSON, property, property2) { }
-
   protected updateJSONWithArray(jSON, property: any) {
     this.clearProperty(property);
 
@@ -175,22 +172,9 @@ export class AppObject {
       if (property === 'style') {
         // console.log('Prop is style');
         this.updateJSON(jSON[property], 2);
-      } else if (property === 'special') {
-        // console.log('Prop is special');
-        this.updateJSONWithSpecialType(jSON, property, type);
       } else {
-        // console.log('Prop is not style or special');
+        // console.log('Prop is special');
         this.elementVar(jSON, property);
-      }
-    }
-  }
-
-  protected updateJSONWithSpecialType(jSON, property: any, type: number) {
-    for (let property2 in jSON[property]) {
-      if (jSON[property].hasOwnProperty(property2)) {
-        // console.log('ValueSP:' + property2);
-        // console.log('ValueS:' + jSON[property][property2]);
-        this.elementSpecial(jSON, property, property2);
       }
     }
   }

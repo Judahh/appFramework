@@ -112,11 +112,8 @@ export class Component extends AppObject {
   }
 
   protected elementVar(jSON, property) {
-    this.element[property] = jSON[property];
-  }
-
-  protected elementSpecial(jSON, property, property2) {
-    this.element.setAttribute(property2, jSON[property][property2]);
+    // this.element[property] = jSON[property];
+    this.element.setAttribute(property, jSON[property]);
   }
 }
 Component.addConstructor('Component', Component);
