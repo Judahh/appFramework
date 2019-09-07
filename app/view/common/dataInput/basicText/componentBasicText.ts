@@ -1,33 +1,25 @@
 import 'simpleutils';
 import { Util } from 'basicutil';
-import { Component } from './../../component/component';
-import { ComponentDataList } from './../textField/dataList/componentDataList';
-import { ComponentKeyboard } from './../keyboard/componentKeyboard';
+import { Component } from '../../component/component';
+import { ComponentKeyboard } from '../keyboard/componentKeyboard';
+import { ComponentBasicInformation } from '../../item/information/componentBasicInformation';
 
 
-export class ComponentTextField extends Component {
-  arrayDataList: Array<ComponentDataList>;
+export class ComponentBasicText extends ComponentBasicInformation {
   arrayKeyboard: Array<ComponentKeyboard>;
-  language: string;
 
-  constructor(father?: Component) {
-    super('input', father);
-    this.className = 'ComponentTextField';
-    this.arrayDataList = new Array<ComponentDataList>();
-    this.arrayDataList.type = ComponentDataList;
+  constructor(tag?: string, father?: Component) {
+    super(tag, father);
+    this.className = 'ComponentBasicText';
     this.arrayKeyboard = new Array<ComponentKeyboard>();
     this.arrayKeyboard.type = ComponentKeyboard;
   }
 
   public renderAfterUpdate() {
-    if (this.language === undefined) {
-      // this.getLanguage();
-    }
     super.renderAfterUpdate();
     // if (!(<HTMLInputElement>this.element).placeholder) {
     //   (<HTMLInputElement>this.element).placeholder = this.information;
     // }
-
   }
 
   protected updateLanguage(jSON) {
@@ -53,14 +45,14 @@ export class ComponentTextField extends Component {
           continue;
         }
 
-        if (languageProperty === (<HTMLInputElement>this.element).placeholder) {
+        if (languageProperty === (<HTMLInputElement|HTMLTextAreaElement>this.element).placeholder) {
           if (subJSON[languageProperty].constructor === Array) {
-            (<HTMLInputElement>this.element).placeholder = '';
+            (<HTMLInputElement|HTMLTextAreaElement>this.element).placeholder = '';
             subJSON[languageProperty].forEach(element => {
-              (<HTMLInputElement>this.element).placeholder += element + '<br/>';
+              (<HTMLInputElement|HTMLTextAreaElement>this.element).placeholder += element + '<br/>';
             });
           } else {
-            (<HTMLInputElement>this.element).placeholder = subJSON[languageProperty];
+            (<HTMLInputElement|HTMLTextAreaElement>this.element).placeholder = subJSON[languageProperty];
           }
           // console.log('INNER:'+subJSON[languageProperty]);
         }
@@ -68,4 +60,4 @@ export class ComponentTextField extends Component {
     }
   }
 }
-ComponentTextField.addConstructor('ComponentTextField', ComponentTextField);
+ComponentBasicText.addConstructor('ComponentBasicText', ComponentBasicText);

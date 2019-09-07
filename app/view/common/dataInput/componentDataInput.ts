@@ -1,13 +1,13 @@
 import 'simpleutils';
 import { Component } from './../component/component';
 import { ComponentItem } from './../item/componentItem';
-import { ComponentTextField } from './../dataInput/textField/componentTextField';
-import { ComponentTextArea } from './../dataInput/textArea/componentTextArea';
+import { ComponentTextArea } from './basicText/textArea/componentTextArea';
 import { ComponentComboBox } from './../dataInput/comboBox/componentComboBox';
 import { ComponentBox } from './../dataInput/box/componentBox';
 import { ComponentGeneric } from './../component/generic/componentGeneric';
 import { ComponentButton } from './../dataInput/button/componentButton';
 import { ComponentRangeSlider } from './../dataInput/rangeSlider/componentRangeSlider';
+import { ComponentTextField } from '../../../..';
 
 export class ComponentDataInput extends Component {
   arrayBeforeItem: Array<ComponentItem>;

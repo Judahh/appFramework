@@ -1,63 +1,13 @@
 import 'simpleutils';
-import { Util } from 'basicutil';
 import { Component } from './../../../component/component';
+import { ComponentBasicInformation } from '../../../item/information/componentBasicInformation';
 
-export class ComponentOption extends Component {
-  information: string;
-  language: string;
+export class ComponentOption extends ComponentBasicInformation {
 
   constructor(father?: Component) {
     super('option', father);
     this.className = 'ComponentOption';
   }
 
-  public renderAfterUpdate() {
-    if (this.language === undefined) {
-      // this.getLanguage();
-    }
-    super.renderAfterUpdate();
-    if (!this.element.innerHTML || this.element.innerHTML === undefined || this.element.innerHTML === 'undefined') {
-      this.element.innerHTML = this.information;
-    }
-
-  }
-
-  protected updateLanguage(jSON) {
-    let property;
-    for (property in jSON) {
-      if (property !== undefined) {
-        if (!jSON.hasOwnProperty(property)) {
-          continue;
-        }
-
-        if (jSON[property]['language'] === Util.getInstance().getCurrentLanguage()) {
-          // console.log('LANG:'+jSON[property]['language']);
-          break;
-        }
-      }
-    }
-
-    // console.log('selected lan:'+property);
-    let subJSON = jSON[property];
-    for (let languageProperty in subJSON) {
-      if (languageProperty !== undefined) {
-        if (!subJSON.hasOwnProperty(languageProperty)) {
-          continue;
-        }
-
-        if (languageProperty === this.information) {
-          if (subJSON[languageProperty].constructor === Array) {
-            this.element.innerHTML = '';
-            subJSON[languageProperty].forEach(element => {
-              this.element.innerHTML += element + '<br/>';
-            });
-          } else {
-            this.element.innerHTML = subJSON[languageProperty];
-          }
-          // console.log('INNER:'+subJSON[languageProperty]);
-        }
-      }
-    }
-  }
 }
 ComponentOption.addConstructor('ComponentOption', ComponentOption);

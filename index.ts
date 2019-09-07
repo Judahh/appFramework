@@ -3,12 +3,14 @@ import { ComponentPageBody } from './app/view/body/componentPageBody';
 import { ComponentTemplate } from './app/view/common/component/generic/template/componentTemplate';
 import { ComponentPageFrame } from './app/view/page/componentPageFrame';
 import { ComponentInformation } from './app/view/common/item/information/componentInformation';
+import { ComponentBasicInformation } from './app/view/common/item/information/componentBasicInformation';
 import { ComponentDataInput } from './app/view/common/dataInput/componentDataInput'
 import { ComponentOption } from './app/view/common/dataInput/comboBox/option/componentOption';
 import { ComponentComboBox } from './app/view/common/dataInput/comboBox/componentComboBox';
-import { ComponentTextArea } from './app/view/common/dataInput/textArea/componentTextArea';
-import { ComponentDataList } from './app/view/common/dataInput/textField/dataList/componentDataList';
-import { ComponentTextField } from './app/view/common/dataInput/textField/componentTextField';
+import { ComponentTextArea } from './app/view/common/dataInput/basicText/textArea/componentTextArea';
+import { ComponentDataList } from './app/view/common/dataInput/basicText/textField/dataList/componentDataList';
+import { ComponentTextField } from './app/view/common/dataInput/basicText/textField/componentTextField';
+import { ComponentBasicText } from './app/view/common/dataInput/basicText/componentBasicText';
 import { ComponentButton } from './app/view/common/dataInput/button/componentButton';
 import { ComponentBox } from './app/view/common/dataInput/box/componentBox';
 import { ComponentRangeSlider } from './app/view/common/dataInput/rangeSlider/componentRangeSlider';
@@ -50,5 +52,6 @@ export {
     ComponentProgressBar, ComponentCircle, ComponentEllipse, ComponentRectangle, ComponentPolygon, ComponentLine, ComponentRouter,
     ComponentPath, ComponentText, ComponentG, ComponentFilter, ComponentLinearGradient, ComponentRadialGradient, ComponentPageFrame,
     ComponentPolyline, ComponentStop, ComponentDefs, ServiceModel, Util, ComponentView, App, AppObject, ImportScript,
-    ComponentChart, AppObjectFactory, AppObjectEvent, ApiConnection, ComponentTemplate, OnLoad, loader
+    ComponentChart, AppObjectFactory, AppObjectEvent, ApiConnection, ComponentTemplate, ComponentBasicText, ComponentBasicInformation,
+    OnLoad, loader
 }

@@ -1,6 +1,6 @@
 import 'simpleutils';
-import { Component } from './../../../component/component';
-import { ComponentOption } from './../../comboBox/option/componentOption';
+import { Component } from './../../../../component/component';
+import { ComponentOption } from '../../../comboBox/option/componentOption';
 
 export class ComponentDataList extends Component {
   arrayOption: Array<ComponentOption>;

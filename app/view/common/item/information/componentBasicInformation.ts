@@ -1,22 +1,24 @@
 import 'simpleutils';
 import { Util } from 'basicutil';
-import { Component } from './../../component/component';
+import { Component } from '../../component/component';
 
-export class ComponentText extends Component {
-  text: string;
+export class ComponentBasicInformation extends Component {
+  public information: string;
 
-  constructor(father?: Component) {
-    super('text', father, true);
-    this.className = 'ComponentText';
+
+  constructor(tag?: string, father?: Component) {
+    super(tag, father);
+    this.className = 'ComponentBasicInformation';
   }
 
   public renderAfterUpdate() {
     super.renderAfterUpdate();
-    if (!this.element.innerHTML) {
-      // console.log(this.text);
-      this.element.innerHTML = this.text;
+    if (!this.element.innerHTML || this.element.innerHTML === undefined || this.element.innerHTML === 'undefined') {
+      this.element.innerHTML = this.information;
     }
-
+    if (this.element.innerHTML === undefined || this.element.innerHTML === 'undefined') {
+      this.element.innerHTML = '';
+    }
   }
 
   protected updateLanguage(jSON) {
@@ -33,6 +35,7 @@ export class ComponentText extends Component {
         }
       }
     }
+
     // console.log('selected lan:'+property);
     let subJSON = jSON[property];
     for (let languageProperty in subJSON) {
@@ -41,7 +44,7 @@ export class ComponentText extends Component {
           continue;
         }
 
-        if (languageProperty === this.text) {
+        if (languageProperty === this.information) {
           if (subJSON[languageProperty].constructor === Array) {
             this.element.innerHTML = '';
             subJSON[languageProperty].forEach(element => {
@@ -56,4 +59,4 @@ export class ComponentText extends Component {
     }
   }
 }
-ComponentText.addConstructor('ComponentText', ComponentText);
+ComponentBasicInformation.addConstructor('ComponentBasicInformation', ComponentBasicInformation);
