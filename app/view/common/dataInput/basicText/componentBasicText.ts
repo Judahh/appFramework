@@ -3,8 +3,6 @@ import { Util } from 'basicutil';
 import { Component } from '../../component/component';
 import { ComponentKeyboard } from '../keyboard/componentKeyboard';
 import { ComponentBasicInformation } from '../../item/information/componentBasicInformation';
-import * as ko from 'knockout'
-import { BasicViewModel } from '../../basicViewModel/basicViewModel';
 
 export class ComponentBasicText extends ComponentBasicInformation {
   arrayKeyboard: Array<ComponentKeyboard>;
@@ -15,7 +13,7 @@ export class ComponentBasicText extends ComponentBasicInformation {
     _self.className = 'ComponentBasicText';
     _self.arrayKeyboard = new Array<ComponentKeyboard>();
     _self.arrayKeyboard.type = ComponentKeyboard;
-    ko.applyBindings(new BasicViewModel('text', _self.element, ko)); // receive BasicModel in cosntructo and save
+    
   }
 
   public renderAfterUpdate() {

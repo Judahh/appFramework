@@ -1,6 +1,8 @@
 import 'simpleutils';
 import { Util } from 'basicutil';
 import { Component } from '../../component/component';
+import { BasicViewModel } from '../../basicViewModel/basicViewModel';
+import * as ko from 'knockout'
 
 export class ComponentBasicInformation extends Component {
   public information: string;
@@ -8,7 +10,9 @@ export class ComponentBasicInformation extends Component {
 
   constructor(tag?: string, father?: Component) {
     super(tag, father);
-    this.className = 'ComponentBasicInformation';
+    let _self = this;
+    _self.className = 'ComponentBasicInformation';
+    ko.applyBindings(new BasicViewModel('text', _self.element, ko)); // receive BasicModel in cosntructo and save
   }
 
   public renderAfterUpdate() {
