@@ -4,6 +4,7 @@ import { Component } from '../../component/component';
 import { ComponentKeyboard } from '../keyboard/componentKeyboard';
 import { ComponentBasicInformation } from '../../item/information/componentBasicInformation';
 import * as ko from 'knockout'
+import { BasicViewModel } from '../../basicViewModel/basicViewModel';
 
 export class ComponentBasicText extends ComponentBasicInformation {
   arrayKeyboard: Array<ComponentKeyboard>;
@@ -14,14 +15,7 @@ export class ComponentBasicText extends ComponentBasicInformation {
     _self.className = 'ComponentBasicText';
     _self.arrayKeyboard = new Array<ComponentKeyboard>();
     _self.arrayKeyboard.type = ComponentKeyboard;
-    class BasicTextViewModel {
-      constructor() {
-        let varName =  'text' + _self.element.id;
-        eval('this.' + varName + ' = ko.observable("")');
-        _self.element.setAttribute('data-bind', 'text: ' + varName);
-      }
-    }
-    ko.applyBindings(new BasicTextViewModel());
+    ko.applyBindings(new BasicViewModel('text', _self.element, ko));
   }
 
   public renderAfterUpdate() {
