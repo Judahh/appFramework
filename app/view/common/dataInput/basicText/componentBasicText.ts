@@ -15,7 +15,7 @@ export class ComponentBasicText extends ComponentBasicInformation {
     _self.className = 'ComponentBasicText';
     _self.arrayKeyboard = new Array<ComponentKeyboard>();
     _self.arrayKeyboard.type = ComponentKeyboard;
-    ko.applyBindings(new BasicViewModel('text', _self.element, ko));
+    ko.applyBindings(new BasicViewModel('text', _self.element, ko)); // receive BasicModel in cosntructo and save
   }
 
   public renderAfterUpdate() {
