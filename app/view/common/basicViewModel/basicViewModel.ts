@@ -1,7 +1,14 @@
-export class BasicViewModel{
+export class BasicViewModel {
+
+    protected varName: string;
+
     constructor(type: string, element: HTMLElement | SVGElement | SVGSVGElement | HTMLInputElement | HTMLTextAreaElement, ko) {
-        let varName =  type + element.id;
-        eval('this.' + varName + ' = ko.observable("")');
-        element.setAttribute('data-bind', type + ':' + varName);
-      }
+        this.varName =  type + element.id;
+        this.init();
+        element.setAttribute('data-bind', type + ':' + this.varName);
+    }
+
+    init() {
+        eval('this.' + this.varName + ' = ko.observable("")');
+    }
 }
