@@ -3,7 +3,7 @@ import { Util } from 'basicutil';
 import { Component } from '../../component/component';
 import { ComponentKeyboard } from '../keyboard/componentKeyboard';
 import { ComponentBasicInformation } from '../../item/information/componentBasicInformation';
-import { ko } from 'knockout'
+import * as ko from 'knockout'
 
 export class ComponentBasicText extends ComponentBasicInformation {
   arrayKeyboard: Array<ComponentKeyboard>;
@@ -16,8 +16,9 @@ export class ComponentBasicText extends ComponentBasicInformation {
     _self.arrayKeyboard.type = ComponentKeyboard;
     class BasicTextViewModel {
       constructor() {
-        eval('this.text' + _self.element.id + ' = ko.observable("")');
-        // TODO: Add data-bind="text: 'text' + _self.element.id" to HTML
+        let varName =  'text' + _self.element.id;
+        eval('this.' + varName + ' = ko.observable("")');
+        _self.element.setAttribute('data-bind', 'text: ' + varName);
       }
     }
     ko.applyBindings(new BasicTextViewModel());
