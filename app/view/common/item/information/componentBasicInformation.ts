@@ -12,7 +12,6 @@ export class ComponentBasicInformation extends ComponentValue {
     super(tag, father, 'text');
     let _self = this;
     _self.className = 'ComponentBasicInformation';
-    ko.applyBindings(new BasicViewModel('text', _self.element, ko), _self.element); // receive BasicModel in cosntructo and save
   }
 
   public renderAfterUpdate() {

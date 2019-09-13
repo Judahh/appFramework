@@ -10,7 +10,7 @@ export class ComponentValue extends Component {
       if (!type)
         type = 'text';
       _self.basicViewModel = new BasicViewModel(type, _self.element, ko);
-      ko.applyBindings(_self.basicViewModel); // receive BasicModel in constructor and save
+      ko.applyBindings(_self.basicViewModel, _self.element); // receive BasicModel in constructor and save
     }
 }
 ComponentValue.addConstructor('ComponentValue', ComponentValue);
