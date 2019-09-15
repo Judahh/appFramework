@@ -17,13 +17,31 @@ export class BasicViewModel {
         this.init();
     }
 
-    public init() {
+    public initAttributeValue(attribute: Attribute, value: string) {
+        eval('this.' + attribute.getValueName() + ' = ko.observable("' + value + '")');
+    }
+
+    public setAttributeValue(attribute: Attribute, value: string) {
+        eval('this.' + attribute.getValueName() + '("' + value + '")');
+    }
+
+    public applyBindings() {
+        let _self = this;
+        ko.applyBindings(_self, _self.element); // receive BasicModel in constructor and save
+    }
+
+    public resetAllAttributeValue() {
         let _self = this;
         for (let index = 0; index < this.arrayAttribute.length; index++) {
             const attribute = this.arrayAttribute[index];
-            eval('this.' + attribute.getValue() + ' = ko.observable("")');
+            _self.initAttributeValue(attribute, '');
         }
-        ko.applyBindings(_self, _self.element); // receive BasicModel in constructor and save
+    }
+
+    public init() {
+        let _self = this;
+        _self.resetAllAttributeValue();
+        _self.applyBindings();
     }
 
     private addBind(attribute: Attribute) {

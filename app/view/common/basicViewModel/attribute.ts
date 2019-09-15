@@ -1,15 +1,16 @@
 export class Attribute {
 
     protected name: string;
-    protected value: string;
+    protected valueName: string;
+    protected value: string; // TODO
 
-    constructor(name: string, value: string) {
+    constructor(name: string, valueName: string) {
         this.name =  name;
-        this.value = value;
+        this.valueName = valueName;
     }
 
-    public getValue(): string {
-        return this.value;
+    public getValueName(): string {
+        return this.valueName;
     }
 
     public getName(): string {
@@ -17,6 +18,6 @@ export class Attribute {
     }
 
     public toString = function() {
-        return this.name + ':' + this.value;
+        return this.name + ':' + this.valueName;
     }
 }
