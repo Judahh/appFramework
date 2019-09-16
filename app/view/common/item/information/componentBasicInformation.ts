@@ -1,9 +1,8 @@
 import 'simpleutils';
 import { Util } from 'basicutil';
 import { Component } from '../../component/component';
-import { BasicViewModel } from '../../basicViewModel/basicViewModel';
 import { ComponentValue } from '../../basicViewModel/componentValue';
-import * as ko from 'knockout'
+
 export class ComponentBasicInformation extends ComponentValue {
   public information: string;
 
