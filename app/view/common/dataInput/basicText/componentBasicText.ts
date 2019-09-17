@@ -13,7 +13,6 @@ export class ComponentBasicText extends ComponentBasicInformation {
     _self.className = 'ComponentBasicText';
     _self.arrayKeyboard = new Array<ComponentKeyboard>();
     _self.arrayKeyboard.type = ComponentKeyboard;
-    
   }
 
   public renderAfterUpdate() {

@@ -18,11 +18,11 @@ export class BasicViewModel {
     }
 
     public initAttributeValue(attribute: Attribute, value: string) {
-        eval('this.' + attribute.getValueName() + ' = ko.observable("' + value + '")');
+        eval(attribute.getInit());
     }
 
     public setAttributeValue(attribute: Attribute, value: string) {
-        eval('this.' + attribute.getValueName() + '("' + value + '")');
+        eval(attribute.getSet(value));
     }
 
     public applyBindings() {
@@ -47,8 +47,8 @@ export class BasicViewModel {
     private addBind(attribute: Attribute) {
         let dataBind: string = this.element.getAttribute('data-bind');
         if (dataBind)
-            this.element.setAttribute('data-bind', dataBind + ',' + attribute)
+            this.element.setAttribute('data-bind', dataBind + ',' + attribute.getLink());
         else
-        this.element.setAttribute('data-bind', '' + attribute)
+            this.element.setAttribute('data-bind', attribute.getLink());
     }
 }
