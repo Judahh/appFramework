@@ -1,5 +1,5 @@
 import { Component } from './../../component/component';
-import { ComponentOption } from './option/componentOption';
+import { ComponentOption } from '../comboBox/option/componentOption';
 import 'simpleutils';
 
 export class ComponentComboBox extends Component {

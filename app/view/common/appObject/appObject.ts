@@ -270,7 +270,7 @@ export class AppObject {
     if (this.father !== undefined) {
       // console.log('FATHER NAME:' + this.father.getClassName());
       if (this.father.getClassName() === 'ComponentGeneric') {
-        if (this.father.generateTag(className) === this.father.getTag()) {
+        if (this.father.generateTag(className).tag === this.father.getTag()) {
           return this.father;
         } else {
           return this.father.seekFather(className);

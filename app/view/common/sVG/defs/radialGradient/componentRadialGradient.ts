@@ -1,15 +1,15 @@
 import 'simpleutils';
 import { Component } from './../../../component/component';
-import { ComponentStop } from './../stop/componentStop';
+import { ComponentGeneric } from './../../../component/generic/componentGeneric';
 
 export class ComponentRadialGradient extends Component {
-  arrayStop: Array<ComponentStop>;
+  arrayStop: Array<ComponentGeneric>;
 
   constructor(father?: Component) {
     super('radialGradient', father, true);
     this.className = 'ComponentRadialGradient';
-    this.arrayStop = new Array<ComponentStop>();
-    this.arrayStop.type = ComponentStop;
+    this.arrayStop = new Array<ComponentGeneric>();
+    this.arrayStop.type = ComponentGeneric;
   }
 }
 ComponentRadialGradient.addConstructor('ComponentRadialGradient', ComponentRadialGradient);

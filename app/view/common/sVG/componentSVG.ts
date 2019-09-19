@@ -1,27 +1,21 @@
 import 'simpleutils';
 import { Component } from './../component/component';
-import { ComponentCircle } from './circle/componentCircle';
-import { ComponentEllipse } from './ellipse/componentEllipse';
-import { ComponentRectangle } from './rectangle/componentRectangle';
-import { ComponentPolygon } from './polygon/componentPolygon';
-import { ComponentPolyline } from './polyline/componentPolyline';
-import { ComponentLine } from './line/componentLine';
-import { ComponentPath } from './path/componentPath';
 import { ComponentText } from './text/componentText';
 import { ComponentG } from './g/componentG';
 import { ComponentDefs } from './defs/componentDefs';
+import { ComponentGeneric } from './../component/generic/componentGeneric';
 
 export class ComponentSVG extends Component {
-  arrayCircle: Array<ComponentCircle>;
-  arrayEllipse: Array<ComponentEllipse>;
+  arrayCircle: Array<ComponentGeneric>;
+  arrayEllipse: Array<ComponentGeneric>;
 
-  arrayRectangle: Array<ComponentRectangle>;
-  arrayPolygon: Array<ComponentPolygon>;
+  arrayRectangle: Array<ComponentGeneric>;
+  arrayPolygon: Array<ComponentGeneric>;
 
-  arrayPolyline: Array<ComponentPolyline>;
-  arrayLine: Array<ComponentLine>;
+  arrayPolyline: Array<ComponentGeneric>;
+  arrayLine: Array<ComponentGeneric>;
 
-  arrayPath: Array<ComponentPath>;
+  arrayPath: Array<ComponentGeneric>;
 
   arrayText: Array<ComponentText>;
 
@@ -31,26 +25,26 @@ export class ComponentSVG extends Component {
   constructor(father?: Component) {
     super('svg', father, true);
     this.className = 'ComponentSVG';
-    this.arrayCircle = new Array<ComponentCircle>();
-    this.arrayCircle.type = ComponentCircle;
+    this.arrayCircle = new Array<ComponentGeneric>();
+    this.arrayCircle.type = ComponentGeneric;
 
-    this.arrayEllipse = new Array<ComponentEllipse>();
-    this.arrayEllipse.type = ComponentEllipse;
+    this.arrayEllipse = new Array<ComponentGeneric>();
+    this.arrayEllipse.type = ComponentGeneric;
 
-    this.arrayRectangle = new Array<ComponentRectangle>();
-    this.arrayRectangle.type = ComponentRectangle;
+    this.arrayRectangle = new Array<ComponentGeneric>();
+    this.arrayRectangle.type = ComponentGeneric;
 
-    this.arrayPolygon = new Array<ComponentPolygon>();
-    this.arrayPolygon.type = ComponentPolygon;
+    this.arrayPolygon = new Array<ComponentGeneric>();
+    this.arrayPolygon.type = ComponentGeneric;
 
-    this.arrayPolyline = new Array<ComponentPolyline>();
-    this.arrayPolyline.type = ComponentPolyline;
+    this.arrayPolyline = new Array<ComponentGeneric>();
+    this.arrayPolyline.type = ComponentGeneric;
 
-    this.arrayLine = new Array<ComponentLine>();
-    this.arrayLine.type = ComponentLine;
+    this.arrayLine = new Array<ComponentGeneric>();
+    this.arrayLine.type = ComponentGeneric;
 
-    this.arrayPath = new Array<ComponentPath>();
-    this.arrayPath.type = ComponentPath;
+    this.arrayPath = new Array<ComponentGeneric>();
+    this.arrayPath.type = ComponentGeneric;
 
     this.arrayText = new Array<ComponentText>();
     this.arrayText.type = ComponentText;

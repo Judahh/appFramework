@@ -5,7 +5,7 @@ import { ComponentPageFrame } from './app/view/page/componentPageFrame';
 import { ComponentInformation } from './app/view/common/item/information/componentInformation';
 import { ComponentBasicInformation } from './app/view/common/item/information/componentBasicInformation';
 import { ComponentDataInput } from './app/view/common/dataInput/componentDataInput'
-import { ComponentOption } from './app/view/common/dataInput/comboBox/option/componentOption';
+import { ComponentOption } from './app/view/common/dataInput/comboBox/option/componentOption'
 import { ComponentComboBox } from './app/view/common/dataInput/comboBox/componentComboBox';
 import { ComponentTextArea } from './app/view/common/dataInput/basicText/textArea/componentTextArea';
 import { ComponentDataList } from './app/view/common/dataInput/basicText/textField/dataList/componentDataList';
@@ -16,20 +16,11 @@ import { ComponentBox } from './app/view/common/dataInput/box/componentBox';
 import { ComponentRangeSlider } from './app/view/common/dataInput/rangeSlider/componentRangeSlider';
 import { ComponentItem } from './app/view/common/item/componentItem';
 import { ComponentMap } from './app/view/common/map/componentMap';
-import { ComponentProgressBar } from './app/view/common/progressBar/componentProgressBar';
-import { ComponentCircle } from './app/view/common/sVG/circle/componentCircle';
-import { ComponentEllipse } from './app/view/common/sVG/ellipse/componentEllipse';
-import { ComponentRectangle } from './app/view/common/sVG/rectangle/componentRectangle';
-import { ComponentPolygon } from './app/view/common/sVG/polygon/componentPolygon';
-import { ComponentPolyline } from './app/view/common/sVG/polyline/componentPolyline';
-import { ComponentLine } from './app/view/common/sVG/line/componentLine';
-import { ComponentPath } from './app/view/common/sVG/path/componentPath';
 import { ComponentText } from './app/view/common/sVG/text/componentText';
 import { ComponentG } from './app/view/common/sVG/g/componentG';
 import { ComponentFilter } from './app/view/common/sVG/defs/filter/componentFilter';
 import { ComponentLinearGradient } from './app/view/common/sVG/defs/linearGradient/componentLinearGradient';
 import { ComponentRadialGradient } from './app/view/common/sVG/defs/radialGradient/componentRadialGradient';
-import { ComponentStop } from './app/view/common/sVG/defs/stop/componentStop';
 import { ComponentDefs } from './app/view/common/sVG/defs/componentDefs';
 import { ServiceModel } from './app/view/serviceModel/serviceModel';
 import { Util } from 'basicutil';
@@ -49,9 +40,7 @@ import * as loader from './loader';
 export {
     Component, ComponentGeneric, ComponentPageBody, ComponentItem, ComponentMap, ComponentInformation, ComponentDataInput, ComponentOption,
     ComponentComboBox,  ComponentTextArea, ComponentDataList, ComponentTextField, ComponentButton, ComponentBox, ComponentRangeSlider,
-    ComponentProgressBar, ComponentCircle, ComponentEllipse, ComponentRectangle, ComponentPolygon, ComponentLine, ComponentRouter,
-    ComponentPath, ComponentText, ComponentG, ComponentFilter, ComponentLinearGradient, ComponentRadialGradient, ComponentPageFrame,
-    ComponentPolyline, ComponentStop, ComponentDefs, ServiceModel, Util, ComponentView, App, AppObject, ImportScript,
-    ComponentChart, AppObjectFactory, AppObjectEvent, ApiConnection, ComponentTemplate, ComponentBasicText, ComponentBasicInformation,
-    OnLoad, loader
+    ComponentRouter, ComponentText, ComponentG, ComponentFilter, ComponentLinearGradient, ComponentRadialGradient, ComponentPageFrame,
+    ComponentDefs, ServiceModel, Util, ComponentView, App, AppObject, ImportScript, ComponentChart, AppObjectFactory, AppObjectEvent,
+    ApiConnection, ComponentTemplate, ComponentBasicText, ComponentBasicInformation, OnLoad, loader
 }
