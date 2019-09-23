@@ -1,12 +1,12 @@
 import 'simpleutils';
 import { Util } from 'basicutil';
-import { ServiceModel } from './../../serviceModel/serviceModel';
 import { AppObject } from './../appObject/appObject';
 import { AppObjectFactory } from './../appObject/factory/appObjectFactory';
 
 export class Component extends AppObject {
   protected element: HTMLElement | SVGElement | SVGSVGElement | HTMLInputElement | HTMLTextAreaElement;
   protected tag: string;
+  protected infoMap: { [key: string]: string };
   sVG: boolean;
 
   public getTag() {
@@ -50,6 +50,20 @@ export class Component extends AppObject {
 
   public getElement() {
     return this.element;
+  }
+
+  public isElementInnerHTMLEmpty() {
+    return (!this.element.innerHTML || this.element.innerHTML === undefined || this.element.innerHTML === 'undefined');
+  }
+
+  public cleanElementInnerHTML() {
+    if (this.element.innerHTML === undefined || this.element.innerHTML === 'undefined') {
+      this.clearElementInnerHTML();
+    }
+  }
+
+  public clearElementInnerHTML() {
+    this.element.innerHTML = '';
   }
 
   public setElementSource(source: string) {

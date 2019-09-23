@@ -15,12 +15,10 @@ export class ComponentBasicInformation extends ComponentValue {
 
   public renderAfterUpdate() {
     super.renderAfterUpdate();
-    if (!this.element.innerHTML || this.element.innerHTML === undefined || this.element.innerHTML === 'undefined') {
+    if (this.isElementInnerHTMLEmpty()) {
       this.element.innerHTML = this.information;
     }
-    if (this.element.innerHTML === undefined || this.element.innerHTML === 'undefined') {
-      this.element.innerHTML = '';
-    }
+    this.cleanElementInnerHTML();
   }
 
   protected updateLanguage(jSON) {
@@ -48,7 +46,7 @@ export class ComponentBasicInformation extends ComponentValue {
 
         if (languageProperty === this.information) {
           if (subJSON[languageProperty].constructor === Array) {
-            this.element.innerHTML = '';
+            this.clearElementInnerHTML();
             subJSON[languageProperty].forEach(element => {
               this.element.innerHTML += element + '<br/>';
             });
