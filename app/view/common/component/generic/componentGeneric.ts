@@ -55,14 +55,14 @@ export class ComponentGeneric extends Component {
         'ComponentNotification': { tag: 'notification', sVG: false },
         'ComponentFontAwesome': { tag: 'i', sVG: false },
         'ComponentCircle': { tag: 'circle', sVG: true },
-        'ComponentStop': { tag: 'stop', sVG: false },
-        'ComponentEllipse': { tag: 'ellipse', sVG: false },
-        'ComponentLine': { tag: 'line', sVG: false },
-        'ComponentPath': { tag: 'path', sVG: false },
-        'ComponentPolygon': { tag: 'polygon', sVG: false },
-        'ComponentPolyline': { tag: 'polyline', sVG: false },
-        'ComponentRectangle': { tag: 'rect', sVG: false },
-        'ComponentOption': { tag: 'option', sVG: false }
+        'ComponentStop': { tag: 'stop', sVG: true },
+        'ComponentEllipse': { tag: 'ellipse', sVG: true },
+        'ComponentLine': { tag: 'line', sVG: true },
+        'ComponentPath': { tag: 'path', sVG: true },
+        'ComponentPolygon': { tag: 'polygon', sVG: true },
+        'ComponentPolyline': { tag: 'polyline', sVG: true },
+        'ComponentRectangle': { tag: 'rect', sVG: true },
+        'ComponentOption': { tag: 'option', sVG: true }
     };
 
     private static generateTag(name?: string) {
