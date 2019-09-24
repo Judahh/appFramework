@@ -57,7 +57,7 @@ export class Component extends AppObject {
   }
 
   public cleanElementInnerHTML() {
-    if (this.element.innerHTML === undefined || this.element.innerHTML === 'undefined') {
+    if (this.isElementInnerHTMLEmpty()) {
       this.clearElementInnerHTML();
     }
   }
