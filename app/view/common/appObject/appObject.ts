@@ -69,7 +69,7 @@ export class AppObject {
 
   public getPageFrame() {
     // if (!this.checkPageFrame) {
-      this.setPageFrame();
+    this.setPageFrame();
     // }
     return this.pageFrame;
   }
@@ -236,9 +236,9 @@ export class AppObject {
   public renderAfterUpdate() {
     let pageFrame = <ComponentPageFrame>this.seekFather('ComponentPageFrame');
     if (pageFrame !== undefined) {
-        // console.log('a');
-        // console.log(pageFrame.getFullPage().getLanguage());
-        this.updateLanguage(pageFrame.getFullPage().getLanguage());
+      // console.log('a');
+      // console.log(pageFrame.getFullPage().getLanguage());
+      this.updateLanguage(pageFrame.getFullPage().getLanguage());
     }
     // this.updateLanguage((<ComponentPageFrame>this.seekFather('ComponentPageFrame')).getFullPage().getLanguage());
   }
@@ -270,19 +270,24 @@ export class AppObject {
     if (this.father !== undefined) {
       // console.log('FATHER NAME:' + this.father.getClassName());
       if (this.father.getClassName() === 'ComponentGeneric') {
-        if (this.father.generateTag(className).tag === this.father.getTag()) {
+        if (this.father.getClassName() === 'ComponentGeneric') {
+          if (this.father.getClassName() === 'ComponentGeneric') {
+            if (this.father.generateTag(className)) {
+              if (this.father.generateTag(className).tag === this.father.getTag()) {
+                return this.father;
+              }
+            } else {
+              return this.father.seekFather(className);
+            }
+          }
+        } else if (this.father.getClassName() === className) {
           return this.father;
         } else {
           return this.father.seekFather(className);
         }
-      } else if (this.father.getClassName() === className) {
-        return this.father;
-      } else {
-        return this.father.seekFather(className);
       }
+      return undefined;
     }
-    return undefined;
-  }
 
   public getArrayType(array: Array<any>) {
     return array.type;
