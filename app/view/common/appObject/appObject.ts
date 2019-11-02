@@ -271,23 +271,22 @@ export class AppObject {
       // console.log('FATHER NAME:' + this.father.getClassName());
       if (this.father.getClassName() === 'ComponentGeneric') {
         if (this.father.getClassName() === 'ComponentGeneric') {
-          if (this.father.getClassName() === 'ComponentGeneric') {
-            if (this.father.generateTag(className)) {
-              if (this.father.generateTag(className).tag === this.father.getTag()) {
-                return this.father;
-              }
-            } else {
-              return this.father.seekFather(className);
+          if (this.father.generateTag(className)) {
+            if (this.father.generateTag(className).tag === this.father.getTag()) {
+              return this.father;
             }
+          } else {
+            return this.father.seekFather(className);
           }
-        } else if (this.father.getClassName() === className) {
-          return this.father;
-        } else {
-          return this.father.seekFather(className);
         }
+      } else if (this.father.getClassName() === className) {
+        return this.father;
+      } else {
+        return this.father.seekFather(className);
       }
-      return undefined;
     }
+    return undefined;
+  }
 
   public getArrayType(array: Array<any>) {
     return array.type;
