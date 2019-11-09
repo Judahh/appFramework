@@ -72,6 +72,10 @@ export class Page {
         // this.element.innerHTML = data;
     }
 
+    public getFather() {
+        return this.father;
+    }
+
     public setPage() {// depois checar evento de resize e fazer esperar carregamento
         let width = document.documentElement.clientWidth;
         let height = document.documentElement.clientHeight;
