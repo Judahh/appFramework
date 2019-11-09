@@ -3,6 +3,7 @@ import { Util } from 'basicutil';
 
 export class AppObject {
   private static types: any;
+  public arrayVar: Array<Variable>;
   protected father: any;
   protected className: string;
   arrayAppObject: Array<AppObject>;
@@ -248,7 +249,33 @@ export class AppObject {
   }
 
 
-  protected updateLanguage(jSON) { }
+  protected updateLanguage(jSON) {
+    let property;
+    for (property in jSON) {
+      if (property !== undefined) {
+        if (!jSON.hasOwnProperty(property)) {
+          continue;
+        }
+
+        if (jSON[property]['language'] === Util.getInstance().getCurrentLanguage()) {
+          // console.log('LANG:'+jSON[property]['language']);
+          break;
+        }
+      }
+    }
+    // console.log('selected lan:'+property);
+    let subJSON = jSON[property];
+    for (let languageProperty in subJSON) {
+      if (languageProperty !== undefined) {
+        if (!subJSON.hasOwnProperty(languageProperty)) {
+          continue;
+        }
+        for (let index = 0; index < this.arrayVar.length; index++) {
+          this.arrayVar[index].set(languageProperty, subJSON[languageProperty]);
+        }
+      }
+    }
+  }
 
   public getFather() {
     return this.father;
@@ -365,4 +392,5 @@ import { ComponentGeneric } from '../component/generic/componentGeneric';
 import { ComponentRouter } from '../component/generic/router/componentRouter';
 import { ComponentPageFrame } from '../../page/componentPageFrame';
 import { JSONObjectType } from './jSONObjectType';
+import { Variable } from './variable';
 AppObject.addConstructor('AppObject', AppObject);
