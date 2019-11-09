@@ -4,11 +4,11 @@ import { Component } from '../../component/component';
 import { ComponentValue } from '../../basicViewModel/componentValue';
 
 export class ComponentBasicInformation extends ComponentValue {
-  public information: string;
+  public text: string;
 
 
-  constructor(tag?: string, father?: Component) {
-    super(tag, father, 'text');
+  constructor(tag?: string, father?: Component, sVG?: boolean) {
+    super(tag, father, 'text', sVG);
     let _self = this;
     _self.className = 'ComponentBasicInformation';
   }
@@ -16,47 +16,15 @@ export class ComponentBasicInformation extends ComponentValue {
   public renderAfterUpdate() {
     super.renderAfterUpdate();
     if (this.isElementInnerHTMLEmpty()) {
-      this.element.innerHTML = this.information;
+      this.element.innerHTML = this.text;
     }
     this.cleanElementInnerHTML();
   }
 
   protected updateLanguage(jSON) {
-    let property;
-    for (property in jSON) {
-      if (property !== undefined) {
-        if (!jSON.hasOwnProperty(property)) {
-          continue;
-        }
-
-        if (jSON[property]['language'] === Util.getInstance().getCurrentLanguage()) {
-          // console.log('LANG:'+jSON[property]['language']);
-          break;
-        }
-      }
-    }
-
-    // console.log('selected lan:'+property);
-    let subJSON = jSON[property];
-    for (let languageProperty in subJSON) {
-      if (languageProperty !== undefined) {
-        if (!subJSON.hasOwnProperty(languageProperty)) {
-          continue;
-        }
-
-        if (languageProperty === this.information) {
-          if (subJSON[languageProperty].constructor === Array) {
-            this.clearElementInnerHTML();
-            subJSON[languageProperty].forEach(element => {
-              this.element.innerHTML += element + '<br/>';
-            });
-          } else {
-            this.element.innerHTML = subJSON[languageProperty];
-          }
-          // console.log('INNER:'+subJSON[languageProperty]);
-        }
-      }
-    }
+    let variable = this.seekVariable(this.text);
+    super.updateLanguage(jSON);
+    this.element.innerHTML = variable.toString();
   }
 }
 ComponentBasicInformation.addConstructor('ComponentBasicInformation', ComponentBasicInformation);

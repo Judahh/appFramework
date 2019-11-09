@@ -1,6 +1,7 @@
 import { AppObject } from './../appObject';
 import { AppObjectFactory } from './../factory/appObjectFactory';
 import * as $ from 'jquery';
+import { Component } from '../../component/component';
 
 export class AppObjectEvent extends AppObject {
   name: string;
@@ -47,8 +48,8 @@ export class AppObjectEvent extends AppObject {
 
   private onLoad() {
     let _self = this;
-    if ( _self.builder === null || _self.builder === undefined || _self.builder === '' ) {
-      let element = _self.getFather().getElement();
+    if (_self.builder === null || _self.builder === undefined || _self.builder === '') {
+      let element = (<Component>_self.getFather()).getElement();
       element.onload = _self.onEvent();
     } else {
       switch (_self.builder) {
@@ -83,7 +84,7 @@ export class AppObjectEvent extends AppObject {
   private deactivateFather() {
     // console.log('FATHER DESTROY:', this.father, this);
     if (this.verified) {
-      this.father.destroyElement();
+      (<Component>this.father).destroyElement();
       // delete this.father;
     }
   }
@@ -91,7 +92,7 @@ export class AppObjectEvent extends AppObject {
   private activateFather() {
     // console.log('FATHER DESTROY:', this.father, this);
     if (!this.verified) {
-      this.father.insert(this.father.getFather());
+      (<Component>this.father).insert(<Component>(<Component>this.father).getFather());
     }
   }
 
@@ -104,7 +105,7 @@ export class AppObjectEvent extends AppObject {
 
   private addEventListener(event?: string) {
     let _self = this;
-    let element = this.getFather().getElement();
+    let element = (<Component>this.getFather()).getElement();
     element.addEventListener(event, () => _self.onEvent());
   }
 

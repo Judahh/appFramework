@@ -7,13 +7,43 @@ export class Variable {
         }
     }
 
-    public toString() {
-        return this.value;
+    public toString(): string {
+        let _self = this;
+        if (_self.value.constructor === Array)
+            return _self.toStringArray();
+        else
+            return <string>_self.value;
+    }
+
+    public toStringArray(): string {
+        let _self = this;
+        let tmp = '';
+        for (let index = 0; index < _self.value.length; index++) {
+            tmp += '<br/>' + _self.value[index].toString();
+        }
+        return tmp;
+    }
+
+    public getValue(value: string) {
+        let _self = this;
+        if (_self.value.constructor === Array)
+            return _self.getVariable(value);
+        else
+            if (_self.value === value)
+                return _self;
+    }
+
+    public hasValue(value: string) {
+        let _self = this;
+        if (_self.value.constructor === Array)
+            return _self.checkAll(value);
+        else
+            return (_self.value === value);
     }
 
     public addValue(value: string) {
         if (this.value.constructor === Array)
-            (<Array<Variable>> this.value).push(new Variable(value));
+            (<Array<Variable>>this.value).push(new Variable(value));
         else
             this.value = value;
     }
@@ -21,31 +51,46 @@ export class Variable {
     public set(name: string, value: Array<string> | string) {
         let _self = this;
         if (_self.value.constructor === Array)
-            _self.setAll(value);
+            _self.setAll(name, value);
         else
             _self.setSingle(name, value);
+    }
+
+    private getVariable(value: string) {
+        let _self = this;
+        for (let index = 0; index < _self.value.length; index++)
+            return (<Variable>_self.value[index]).getValue(value);
     }
 
     private setSingle(name: string, value: Array<string> | string) {
         let _self = this;
         if (_self.value === name) {
             if (value.constructor === Array) {
-                _self.value = new Array <Variable>();
+                _self.value = new Array<Variable>();
                 _self.setEach(<Array<string>>value);
             } else {
-                _self.addValue(<string> value);
+                _self.addValue(<string>value);
             }
         }
     }
 
-    private setAll(value: Array<string> | string) {
+    private checkAll(value: string) {
         let _self = this;
         for (let index = 0; index < _self.value.length; index++)
-                (<Variable> _self.value[index]).set(name, value);
+            if ((<Variable>_self.value[index]).hasValue(value))
+                return true;
+
+        return false;
+    }
+
+    private setAll(name: string, value: Array<string> | string) {
+        let _self = this;
+        for (let index = 0; index < _self.value.length; index++)
+            (<Variable>_self.value[index]).set(name, value);
     }
 
     private setEach(value: Array<string>) {
         let _self = this;
-        value.forEach((element) => {_self.addValue(element); });
+        value.forEach((element) => { _self.addValue(element); });
     }
 }

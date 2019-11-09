@@ -2,8 +2,8 @@ import { Component } from '../component/component';
 import { BasicViewModel } from './basicViewModel';
 export class ComponentValue extends Component {
     basicViewModel: BasicViewModel;
-    constructor(tag?: string, father?: Component, type?: string) {
-      super(tag, father);
+    constructor(tag?: string, father?: Component, type?: string, sVG?: boolean) {
+      super(tag, father, sVG);
       let _self = this;
       _self.className = 'ComponentValue';
       if (!type)

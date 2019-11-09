@@ -3,8 +3,8 @@ import { Util } from 'basicutil';
 
 export class AppObject {
   private static types: any;
-  public arrayVar: Array<Variable>;
-  protected father: any;
+  public variable: Variable;
+  protected father: AppObject;
   protected className: string;
   arrayAppObject: Array<AppObject>;
   arrayAppObjectEvent: Array<AppObjectEvent>;
@@ -248,6 +248,14 @@ export class AppObject {
     // this.updateLanguage(language);
   }
 
+  protected seekVariable(value: string) {
+    if (this.variable.hasValue(value))
+      return this.variable.getValue(value);
+    if (this.father !== undefined)
+      return this.father.seekVariable(value);
+    return undefined;
+  }
+
 
   protected updateLanguage(jSON) {
     let property;
@@ -270,9 +278,7 @@ export class AppObject {
         if (!subJSON.hasOwnProperty(languageProperty)) {
           continue;
         }
-        for (let index = 0; index < this.arrayVar.length; index++) {
-          this.arrayVar[index].set(languageProperty, subJSON[languageProperty]);
-        }
+        this.variable.set(languageProperty, subJSON[languageProperty]);
       }
     }
   }
@@ -298,8 +304,8 @@ export class AppObject {
       // console.log('FATHER NAME:' + this.father.getClassName());
       if (this.father.getClassName() === 'ComponentGeneric') {
         if (this.father.getClassName() === 'ComponentGeneric') {
-          if (this.father.generateTag(className)) {
-            if (this.father.generateTag(className).tag === this.father.getTag()) {
+          if ((<ComponentGeneric>this.father).generateTag(className)) {
+            if ((<ComponentGeneric>this.father).generateTag(className).tag === (<Component> this.father).getTag()) {
               return this.father;
             }
           } else {
@@ -393,4 +399,5 @@ import { ComponentRouter } from '../component/generic/router/componentRouter';
 import { ComponentPageFrame } from '../../page/componentPageFrame';
 import { JSONObjectType } from './jSONObjectType';
 import { Variable } from './variable';
+import { Component } from '../component/component';
 AppObject.addConstructor('AppObject', AppObject);
