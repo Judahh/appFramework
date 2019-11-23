@@ -9,12 +9,11 @@ export class Variable {
 
     public toString(): string {
         let _self = this;
-        if (_self.value.constructor === Array)
+        if (_self.isArray(_self.value))
             return _self.toStringArray();
         else
             return <string>_self.value;
     }
-
     public toStringArray(): string {
         let _self = this;
         let tmp = '';
@@ -26,7 +25,7 @@ export class Variable {
 
     public getValue(value: string) {
         let _self = this;
-        if (_self.value.constructor === Array)
+        if (_self.isArray(_self.value))
             return _self.getVariable(value);
         else
             if (_self.value === value)
@@ -35,14 +34,15 @@ export class Variable {
 
     public hasValue(value: string) {
         let _self = this;
-        if (_self.value.constructor === Array)
+        if (_self.isArray(_self.value))
             return _self.checkAll(value);
         else
             return (_self.value === value);
     }
 
     public addValue(value: string) {
-        if (this.value.constructor === Array)
+        let _self = this;
+        if (_self.isArray(this.value))
             (<Array<Variable>>this.value).push(new Variable(value));
         else
             this.value = value;
@@ -50,10 +50,13 @@ export class Variable {
 
     public set(name: string, value: Array<string> | string) {
         let _self = this;
-        if (_self.value.constructor === Array)
+        if (_self.isArray(_self.value))
             _self.setAll(name, value);
         else
             _self.setSingle(name, value);
+    }
+    private isArray(value) {
+        return (value !== undefined && value.constructor === Array);
     }
 
     private getVariable(value: string) {
@@ -65,7 +68,7 @@ export class Variable {
     private setSingle(name: string, value: Array<string> | string) {
         let _self = this;
         if (_self.value === name) {
-            if (value.constructor === Array) {
+            if (_self.isArray(value)) {
                 _self.value = new Array<Variable>();
                 _self.setEach(<Array<string>>value);
             } else {

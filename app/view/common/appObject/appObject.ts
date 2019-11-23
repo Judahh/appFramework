@@ -249,7 +249,7 @@ export class AppObject {
   }
 
   protected seekVariable(value: string) {
-    if (this.variable.hasValue(value))
+    if (this.variable !== undefined && this.variable.hasValue(value))
       return this.variable.getValue(value);
     if (this.father !== undefined)
       return this.father.seekVariable(value);
