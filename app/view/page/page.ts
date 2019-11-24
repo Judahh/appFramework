@@ -69,7 +69,6 @@ export class Page {
     protected checkFailed(data) {
         // console.error('JSONT:' + data);
         this.father.updateFailed(data, this);
-        // this.element.innerHTML = data;
     }
 
     public getFather() {
