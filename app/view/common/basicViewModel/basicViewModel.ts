@@ -17,7 +17,7 @@ export class BasicViewModel {
         this.init();
     }
 
-    public initAttributeValue(attribute: Attribute, value: string) {
+    public initAttributeValue(attribute: Attribute) {
         eval(attribute.getInit());
     }
 
@@ -34,7 +34,7 @@ export class BasicViewModel {
         let _self = this;
         for (let index = 0; index < this.arrayAttribute.length; index++) {
             const attribute = this.arrayAttribute[index];
-            _self.initAttributeValue(attribute, '');
+            _self.initAttributeValue(attribute);
         }
     }
 

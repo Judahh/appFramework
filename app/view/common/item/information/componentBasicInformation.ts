@@ -18,7 +18,8 @@ export class ComponentBasicInformation extends ComponentValue {
     super.renderAfterUpdate();
     if (this.isElementInnerHTMLEmpty()) {
       this.variable = new Variable(this.text);
-      // this.element.innerHTML = this.text;
+      // this.basicViewModel.
+      this.element.innerHTML = this.text;
     }
     this.cleanElementInnerHTML();
   }
