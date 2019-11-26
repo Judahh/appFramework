@@ -2,7 +2,6 @@ import 'simpleutils';
 import { Util } from 'basicutil';
 import { Component } from '../../component/component';
 import { ComponentValue } from '../../basicViewModel/componentValue';
-import { Variable } from '../../appObject/variable';
 
 export class ComponentBasicInformation extends ComponentValue {
   public text: string;
@@ -17,8 +16,6 @@ export class ComponentBasicInformation extends ComponentValue {
   public renderAfterUpdate() {
     super.renderAfterUpdate();
     if (this.isElementInnerHTMLEmpty()) {
-      this.variable = new Variable(this.text);
-      // this.basicViewModel.
       this.element.innerHTML = this.text;
     }
     this.cleanElementInnerHTML();
@@ -28,7 +25,7 @@ export class ComponentBasicInformation extends ComponentValue {
     let variable = this.seekVariable(this.text);
     super.updateLanguage(jSON);
     if (variable !== undefined)
-      this.element.innerHTML = variable.toString();
+      this.element.innerHTML = variable;
   }
 }
 ComponentBasicInformation.addConstructor('ComponentBasicInformation', ComponentBasicInformation);

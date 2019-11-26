@@ -2,6 +2,7 @@ import { AppObject } from './../appObject';
 import { AppObjectFactory } from './../factory/appObjectFactory';
 import * as $ from 'jquery';
 import { Component } from '../../component/component';
+import { Maker } from '../../../../maker';
 
 export class AppObjectEvent extends AppObject {
   name: string;
@@ -64,7 +65,7 @@ export class AppObjectEvent extends AppObject {
             _self.onEvent();
             _self.addEventListener(_self.builder);
           } else {
-            eval('_self.builder =' + _self.onEvent());
+            Maker.set('_self.builder', _self.onEvent());
             break;
           }
       }
@@ -121,15 +122,13 @@ export class AppObjectEvent extends AppObject {
       // console.log('CODE:' + this.code);
 
       if (this.link !== undefined) {
-        // tslint:disable-next-line:no-eval
-        let link = this.checkLink(eval('appObject.' + this.runFunction));
+        let link = this.checkLink(Maker.run('appObject', this.runFunction));
         if (link !== undefined && link !== null) {
           this.getView().goToPage(link);
         }
         return link;
       } else {
-        // tslint:disable-next-line:no-eval
-        return eval('appObject.' + this.runFunction + ';');
+        return Maker.run('appObject', this.runFunction);
       }
     } else {
       if (this.link !== undefined) {
@@ -152,8 +151,7 @@ export class AppObjectEvent extends AppObject {
     }
 
     appObject = AppObjectFactory.create(code, _self);
-    // tslint:disable-next-line:no-eval
-    eval('appObject.' + runFunction + '((data) => { _self.auth(data); });');
+    Maker.run('appObject', runFunction + '((data) => { _self.auth(data); });');
   }
 }
 AppObjectEvent.addConstructor('AppObjectEvent', AppObjectEvent);

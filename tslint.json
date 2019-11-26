@@ -40,7 +40,7 @@
     "no-duplicate-key": true,
     "no-duplicate-variable": true,
     "no-empty": false,
-    "no-eval": false,
+    "no-eval": true,
     "no-inferrable-types": true,
     "no-shadowed-variable": false,
     "no-string-literal": false,

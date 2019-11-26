@@ -1,6 +1,7 @@
 import 'simpleutils';
 import { Util } from 'basicutil';
 import { Component } from './../component/component';
+import { Maker } from '../../../maker';
 
 export class ComponentChart extends Component {
   arrayData: Array<any>;
@@ -17,9 +18,7 @@ export class ComponentChart extends Component {
   renderAfterUpdate() {
     super.renderAfterUpdate();
     // Load google charts
-    let charts;
-    // tslint:disable-next-line:no-eval
-    eval('charts = google.charts;');
+    let charts = Maker.run('google', 'charts');
     if (this.arrayPackages !== undefined && this.arrayPackages != null && this.arrayPackages.length > 0) {
       charts.load('current', { 'packages': this.arrayPackages });
     } else {
@@ -98,15 +97,11 @@ export class ComponentChart extends Component {
   }
 
   drawChart() {
-    let visualization;
-    // tslint:disable-next-line:no-eval
-    eval('visualization = google.visualization;');
+    let visualization = Maker.run('google', 'visualization');
     let data = visualization.arrayToDataTable(this.arrayData);
     // Display the chart inside the <div> element with id='piechart'
     // console.log(this.element.id);
-    let chart;
-    // tslint:disable-next-line:no-eval
-    eval('chart = new google.visualization.' + this.chartType + '(this.element);');
+    let chart = Maker.run('new google.visualization', this.chartType + '(this.element)');
     chart.draw(data, this.options);
     super.renderAfterUpdate();
   }

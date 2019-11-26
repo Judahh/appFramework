@@ -3,9 +3,9 @@ import { Util } from 'basicutil';
 
 export class AppObject {
   private static types: any;
-  public variable: Variable;
   protected father: AppObject;
   protected className: string;
+  protected arrayVariable: Array<String>;
   arrayAppObject: Array<AppObject>;
   arrayAppObjectEvent: Array<AppObjectEvent>;
 
@@ -58,6 +58,7 @@ export class AppObject {
     this.arrayAppObjectEvent = new Array<AppObjectEvent>();
     this.arrayAppObjectEvent.type = AppObjectEvent;
     this.className = 'AppObject';
+    this.arrayVariable = new Array<String>();
   }
 
   protected getConstructor() {
@@ -248,12 +249,11 @@ export class AppObject {
     // this.updateLanguage(language);
   }
 
-  protected seekVariable(value: string) {
-    if (this.variable !== undefined && this.variable.hasValue(value))
-      return this.variable.getValue(value);
-    if (this.father !== undefined)
-      return this.father.seekVariable(value);
-    return undefined;
+  protected seekVariable(name: string) {
+    for (let property in this.arrayVariable)
+      if (property === name)
+        return Maker.run('this', name);
+    return this.father.seekVariable(name);
   }
 
 
@@ -278,7 +278,8 @@ export class AppObject {
         if (!subJSON.hasOwnProperty(languageProperty)) {
           continue;
         }
-        this.variable.set(languageProperty, subJSON[languageProperty]);
+        this.arrayVariable.push(languageProperty);
+        Maker.set(languageProperty, subJSON[languageProperty])
       }
     }
   }
@@ -398,6 +399,6 @@ import { ComponentGeneric } from '../component/generic/componentGeneric';
 import { ComponentRouter } from '../component/generic/router/componentRouter';
 import { ComponentPageFrame } from '../../page/componentPageFrame';
 import { JSONObjectType } from './jSONObjectType';
-import { Variable } from './variable';
 import { Component } from '../component/component';
+import { Maker } from '../../../maker';
 AppObject.addConstructor('AppObject', AppObject);
