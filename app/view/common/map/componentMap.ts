@@ -1,6 +1,5 @@
 import { Component } from './../component/component';
 import { ImportScript } from './../../../../importScript';
-import { Maker } from '../../../maker';
 
 export class ComponentMap extends Component {
   options: any;
@@ -29,7 +28,7 @@ export class ComponentMap extends Component {
     if (this.key !== undefined) {
       let path = 'https://maps.googleapis.com/maps/api/js?key=' + this.key;
       let _self = this;
-      let exists = Maker.run('google', 'maps');
+      let exists = eval('google' + '.' + 'maps');
       if (exists === undefined) {
         ImportScript.importFileWithoutExtentionWithCallback(path, 'js', 'map', () => { _self.callback(); });
       } else {
@@ -40,7 +39,8 @@ export class ComponentMap extends Component {
 
   callback() {
     // console.log('key:'+this.key);
-    this.maps = Maker.run('google', 'maps');
+    // tslint:disable-next-line: no-eval
+    this.maps = eval('google' + '.' + 'maps');
     this.map = new this.maps.Map(this.element, this.options);
     this.arrayMarkerPosition.forEach(markerPosition => {
       let marker = new this.maps.Marker({

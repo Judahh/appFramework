@@ -1,6 +1,5 @@
 import { Attribute } from './attribute'
 import * as ko from 'knockout';
-import { Maker } from '../../../maker';
 export class BasicViewModel {
 
     protected arrayAttribute: Array<Attribute>;
@@ -19,11 +18,13 @@ export class BasicViewModel {
     }
 
     public initAttributeValue(attribute: Attribute) {
-        Maker.run(attribute.getInit());
+        // tslint:disable-next-line: no-eval
+        eval(attribute.getInit());
     }
 
     public setAttributeValue(attribute: Attribute, value: string) {
-        Maker.run(attribute.getSet(value));
+        // tslint:disable-next-line: no-eval
+        eval(attribute.getSet(value));
     }
 
     public applyBindings() {

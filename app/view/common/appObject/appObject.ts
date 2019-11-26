@@ -251,9 +251,13 @@ export class AppObject {
 
   protected seekVariable(name: string) {
     for (let property in this.arrayVariable)
-      if (property === name)
-        return Maker.run('this', name);
-    return this.father.seekVariable(name);
+      if (property === name){
+        // tslint:disable-next-line: no-eval
+        return eval('this' + '.' + name);
+      }
+    if (this.father !== undefined)
+      return this.father.seekVariable(name);
+    return undefined;
   }
 
 
@@ -279,7 +283,9 @@ export class AppObject {
           continue;
         }
         this.arrayVariable.push(languageProperty);
-        Maker.set(languageProperty, subJSON[languageProperty])
+        let variable = 'this.' + languageProperty;
+        // tslint:disable-next-line: no-eval
+        eval(variable + '="' + subJSON[languageProperty] + '";');
       }
     }
   }
@@ -400,5 +406,4 @@ import { ComponentRouter } from '../component/generic/router/componentRouter';
 import { ComponentPageFrame } from '../../page/componentPageFrame';
 import { JSONObjectType } from './jSONObjectType';
 import { Component } from '../component/component';
-import { Maker } from '../../../maker';
 AppObject.addConstructor('AppObject', AppObject);
