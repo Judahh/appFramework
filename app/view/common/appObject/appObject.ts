@@ -250,11 +250,8 @@ export class AppObject {
   }
 
   protected seekVariable(name: string) {
-    for (let property in this.arrayVariable)
-      if (property === name){
-        // tslint:disable-next-line: no-eval
-        return eval('this' + '.' + name);
-      }
+    if (this[name] !== undefined)
+      return this[name];
     if (this.father !== undefined)
       return this.father.seekVariable(name);
     return undefined;
@@ -312,7 +309,7 @@ export class AppObject {
       if (this.father.getClassName() === 'ComponentGeneric') {
         if (this.father.getClassName() === 'ComponentGeneric') {
           if ((<ComponentGeneric>this.father).generateTag(className)) {
-            if ((<ComponentGeneric>this.father).generateTag(className).tag === (<Component> this.father).getTag()) {
+            if ((<ComponentGeneric>this.father).generateTag(className).tag === (<Component>this.father).getTag()) {
               return this.father;
             }
           } else {

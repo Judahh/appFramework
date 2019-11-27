@@ -13,6 +13,5 @@ export class ComponentTextField extends ComponentBasicText {
     this.arrayDataList = new Array<ComponentDataList>();
     this.arrayDataList.type = ComponentDataList;
   }
-
 }
 ComponentTextField.addConstructor('ComponentTextField', ComponentTextField);

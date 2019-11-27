@@ -5,7 +5,8 @@ import { ComponentKeyboard } from '../keyboard/componentKeyboard';
 import { ComponentBasicInformation } from '../../item/information/componentBasicInformation';
 
 export class ComponentBasicText extends ComponentBasicInformation {
-  arrayKeyboard: Array<ComponentKeyboard>;
+  public arrayKeyboard: Array<ComponentKeyboard>;
+  public placeholder: string;
 
   constructor(tag?: string, father?: Component, sVG?: boolean) {
     super(tag, father, sVG);
@@ -17,9 +18,18 @@ export class ComponentBasicText extends ComponentBasicInformation {
 
   public renderAfterUpdate() {
     super.renderAfterUpdate();
-    // if (!(<HTMLInputElement>this.element).placeholder) {
-    //   (<HTMLInputElement>this.element).placeholder = this.information;
-    // }
+    if (this.isElementInnerHTMLEmpty()) {
+      (<HTMLInputElement>this.element).placeholder = this.placeholder;
+    }
+    this.cleanElementInnerHTML();
+  }
+
+  protected updateLanguage(jSON) {
+    super.updateLanguage(jSON);
+    let variable = this.seekVariable(this.placeholder);
+    if (variable !== undefined) {
+      (<HTMLInputElement>this.element).placeholder = variable;
+    }
   }
 }
 ComponentBasicText.addConstructor('ComponentBasicText', ComponentBasicText);
