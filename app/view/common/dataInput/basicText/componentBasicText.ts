@@ -16,7 +16,7 @@ export class ComponentBasicText extends ComponentBasicInformation {
     let attribute = new Attribute(type, type + this.element.id);
     this.basicViewModel.addBindHandler(type);
     this.basicViewModel.addBind(attribute);
-    this.basicViewModel.applyBindings();
+    this.basicViewModel.init();
     _self.className = 'ComponentBasicText';
     _self.arrayKeyboard = new Array<ComponentKeyboard>();
     _self.arrayKeyboard.type = ComponentKeyboard;

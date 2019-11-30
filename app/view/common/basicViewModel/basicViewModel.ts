@@ -13,7 +13,6 @@ export class BasicViewModel {
             const attribute = new Attribute(type, type + element.id);
             this.addBind(attribute);
         }
-        this.init();
     }
 
     public initAttributeValue(attribute: Attribute) {

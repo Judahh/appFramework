@@ -11,6 +11,7 @@ export class ComponentBasicInformation extends ComponentValue {
     super(tag, father, 'text', sVG);
     let _self = this;
     _self.className = 'ComponentBasicInformation';
+    this.basicViewModel.init();
   }
 
   public renderAfterUpdate() {
