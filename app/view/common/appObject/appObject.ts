@@ -236,6 +236,7 @@ export class AppObject {
 
 
   public renderAfterUpdate() {
+    this.beforeUpdateLanguage();
     let pageFrame = <ComponentPageFrame>this.seekFather('ComponentPageFrame');
     if (pageFrame !== undefined) {
       // console.log('a');
@@ -245,9 +246,9 @@ export class AppObject {
     // this.updateLanguage((<ComponentPageFrame>this.seekFather('ComponentPageFrame')).getFullPage().getLanguage());
   }
 
-  public renderAfterFullUpdate(language) {
-    // this.updateLanguage(language);
-  }
+  // public renderAfterFullUpdate(language) {
+  //   // this.updateLanguage(language);
+  // }
 
   protected seekVariable(name: string) {
     if (this[name] !== undefined)
@@ -257,6 +258,9 @@ export class AppObject {
     return undefined;
   }
 
+  public beforeUpdateLanguage() {
+    // this.updateLanguage(language);
+  }
 
   protected updateLanguage(jSON) {
     let property;

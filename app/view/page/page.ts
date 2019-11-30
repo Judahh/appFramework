@@ -101,6 +101,6 @@ export class Page {
         frame.setFather(this.father);
         frame.insert(this.father);
         this.father.renderAfterUpdate();
-        this.currentFrame.renderAfterFullUpdate(this.currentFrame);
+        // this.currentFrame.renderAfterFullUpdate(this.currentFrame);
     }
 }

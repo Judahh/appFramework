@@ -20,7 +20,7 @@ export class ComponentMap extends Component {
     this.arrayMarker = new Array<any>();
   }
 
-  renderAfterUpdate() {
+  beforeUpdateLanguage() {
     this.initMap();
   }
 

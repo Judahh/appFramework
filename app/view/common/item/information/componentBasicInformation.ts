@@ -14,8 +14,7 @@ export class ComponentBasicInformation extends ComponentValue {
     this.basicViewModel.init();
   }
 
-  public renderAfterUpdate() {
-    super.renderAfterUpdate();
+  public beforeUpdateLanguage() {
     if (this.isElementInnerHTMLEmpty())
       this.basicViewModel.setAttributeValue('text', this.text);
     this.cleanElementInnerHTML();

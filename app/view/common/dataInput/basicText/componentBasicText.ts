@@ -17,8 +17,7 @@ export class ComponentBasicText extends ComponentBasicInformation {
     _self.arrayKeyboard.type = ComponentKeyboard;
   }
 
-  public renderAfterUpdate() {
-    super.renderAfterUpdate();
+  public beforeUpdateLanguage() {
     if (this.isElementInnerHTMLEmpty())
       this.basicViewModel.setAttributeValue('placeholder', this.placeholder);
     this.cleanElementInnerHTML();

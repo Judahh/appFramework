@@ -14,8 +14,7 @@ export class ComponentChart extends Component {
     this.className = 'ComponentChart';
   }
 
-  renderAfterUpdate() {
-    super.renderAfterUpdate();
+  beforeUpdateLanguage() {
     // Load google charts
     // tslint:disable-next-line: no-eval
     let charts = eval('google' + '.' + 'charts');

@@ -93,14 +93,12 @@ export class ComponentRouter extends ComponentGeneric {
         this.name = 'unknown';
     }
 
-    public renderAfterUpdate() {
-        super.renderAfterUpdate();
+    public beforeUpdateLanguage() {
         this.currentName = this.nextName;
         if (this.routerName === 'page') {
             window.history.pushState('', '', '/' + this.currentName);
         }
         Util.getInstance().clearCookie(this.routerName);
-        // console.log('renderAfterUpdateJSON:');
     }
 }
 ComponentRouter.addConstructor('ComponentRouter', ComponentRouter);
