@@ -5,7 +5,10 @@ export class BasicViewModel {
     protected arrayAttribute: Array<Attribute>;
     protected element: HTMLElement | SVGElement | SVGSVGElement | HTMLInputElement | HTMLTextAreaElement;
 
-    constructor(arrayType: Array<string>, element: HTMLElement | SVGElement | SVGSVGElement | HTMLInputElement | HTMLTextAreaElement) {
+    constructor(arrayType: Array<string>, element: HTMLElement | SVGElement | SVGSVGElement | HTMLInputElement | HTMLTextAreaElement, arrayBindHandlers?: Array<string>) {
+        if (arrayBindHandlers)
+            for (let index = 0; index < arrayBindHandlers.length; index++)
+                this.addBindHandler(arrayBindHandlers[index]);
         this.arrayAttribute = new Array<Attribute>();
         this.element = element;
         for (let index = 0; index < arrayType.length; index++) {
@@ -53,9 +56,9 @@ export class BasicViewModel {
             this.element.setAttribute('data-bind', attribute.getLink());
     }
 
-    public addBindHandler(bindHandler: string) {
+    private addBindHandler(bindHandler: string) {
         let _self = this;
-        ko.bindingHandlers.placeholder = {
+        ko.bindingHandlers[bindHandler] = {
             init: function (element, valueAccessor, allBindingsAccessor) {
                 let underlyingObservable = valueAccessor();
                 let binding = { attr: {} };

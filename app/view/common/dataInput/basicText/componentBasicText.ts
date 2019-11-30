@@ -9,14 +9,9 @@ export class ComponentBasicText extends ComponentBasicInformation {
   public arrayKeyboard: Array<ComponentKeyboard>;
   public placeholder: string;
 
-  constructor(tag?: string, father?: Component, sVG?: boolean) {
-    super(tag, father, sVG);
+  constructor(tag?: string, father?: Component, sVG?: boolean, arrayType?: Array<string>, arrayBindHandlers?: Array<string>) {
+    super(tag, father, sVG, ComponentBasicText.cleanAdd(arrayType, 'placeholder'), ComponentBasicText.cleanAdd(arrayBindHandlers, 'placeholder'));
     let _self = this;
-    let type = 'placeholder';
-    let attribute = new Attribute(type, type + this.element.id);
-    this.basicViewModel.addBindHandler(type);
-    this.basicViewModel.addBind(attribute);
-    this.basicViewModel.init();
     _self.className = 'ComponentBasicText';
     _self.arrayKeyboard = new Array<ComponentKeyboard>();
     _self.arrayKeyboard.type = ComponentKeyboard;

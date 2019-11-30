@@ -7,8 +7,8 @@ export class ComponentBasicInformation extends ComponentValue {
   public text: string;
 
 
-  constructor(tag?: string, father?: Component, sVG?: boolean) {
-    super(tag, father, 'text', sVG);
+  constructor(tag?: string, father?: Component, sVG?: boolean, arrayType?: Array<string>, arrayBindHandlers?: Array<string>) {
+    super(tag, father, sVG, ComponentBasicInformation.cleanAdd(arrayType, 'text'), arrayBindHandlers);
     let _self = this;
     _self.className = 'ComponentBasicInformation';
     this.basicViewModel.init();
