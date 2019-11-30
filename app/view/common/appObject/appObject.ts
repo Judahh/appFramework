@@ -244,11 +244,12 @@ export class AppObject {
       this.updateLanguage(pageFrame.getFullPage().getLanguage());
     }
     // this.updateLanguage((<ComponentPageFrame>this.seekFather('ComponentPageFrame')).getFullPage().getLanguage());
+    this.afterUpdateLanguage();
   }
 
-  // public renderAfterFullUpdate(language) {
-  //   // this.updateLanguage(language);
-  // }
+  protected afterUpdateLanguage() {
+    // this.updateLanguage(language);
+  }
 
   protected seekVariable(name: string) {
     if (this[name] !== undefined)
@@ -258,7 +259,7 @@ export class AppObject {
     return undefined;
   }
 
-  public beforeUpdateLanguage() {
+  protected beforeUpdateLanguage() {
     // this.updateLanguage(language);
   }
 
