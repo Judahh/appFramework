@@ -14,6 +14,7 @@ export class ComponentBasicText extends ComponentBasicInformation {
     let _self = this;
     let type = 'placeholder';
     let attribute = new Attribute(type, type + this.element.id);
+    this.basicViewModel.addBindHandler(type);
     this.basicViewModel.addBind(attribute);
     this.basicViewModel.applyBindings();
     _self.className = 'ComponentBasicText';

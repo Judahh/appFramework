@@ -53,4 +53,16 @@ export class BasicViewModel {
         else
             this.element.setAttribute('data-bind', attribute.getLink());
     }
+
+    public addBindHandler(bindHandler: string) {
+        let _self = this;
+        ko.bindingHandlers.placeholder = {
+            init: function (element, valueAccessor, allBindingsAccessor) {
+                let underlyingObservable = valueAccessor();
+                let binding = { attr: {} };
+                binding.attr[bindHandler] = underlyingObservable;
+                ko.applyBindingsToNode(element, binding, _self);
+            }
+        };
+    }
 }
