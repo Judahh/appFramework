@@ -3,6 +3,7 @@ import { Util } from 'basicutil';
 import { Component } from '../../component/component';
 import { ComponentKeyboard } from '../keyboard/componentKeyboard';
 import { ComponentBasicInformation } from '../../item/information/componentBasicInformation';
+import { Attribute } from '../../basicViewModel/attribute';
 
 export class ComponentBasicText extends ComponentBasicInformation {
   public arrayKeyboard: Array<ComponentKeyboard>;
@@ -11,6 +12,10 @@ export class ComponentBasicText extends ComponentBasicInformation {
   constructor(tag?: string, father?: Component, sVG?: boolean) {
     super(tag, father, sVG);
     let _self = this;
+    let type = 'placeholder';
+    let attribute = new Attribute(type, type + this.element.id);
+    this.basicViewModel.addBind(attribute);
+    this.basicViewModel.applyBindings();
     _self.className = 'ComponentBasicText';
     _self.arrayKeyboard = new Array<ComponentKeyboard>();
     _self.arrayKeyboard.type = ComponentKeyboard;
@@ -19,7 +24,8 @@ export class ComponentBasicText extends ComponentBasicInformation {
   public renderAfterUpdate() {
     super.renderAfterUpdate();
     if (this.isElementInnerHTMLEmpty()) {
-      (<HTMLInputElement>this.element).placeholder = this.placeholder;
+      this.basicViewModel.setAttributeValue('placeholder', this.placeholder);
+      // (<HTMLInputElement>this.element).placeholder = this.placeholder;
     }
     this.cleanElementInnerHTML();
   }
@@ -28,7 +34,8 @@ export class ComponentBasicText extends ComponentBasicInformation {
     super.updateLanguage(jSON);
     let variable = this.seekVariable(this.placeholder);
     if (variable !== undefined) {
-      (<HTMLInputElement>this.element).placeholder = variable;
+      this.basicViewModel.setAttributeValue('placeholder', variable);
+      // (<HTMLInputElement>this.element).placeholder = variable;
     }
   }
 }

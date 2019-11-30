@@ -15,9 +15,8 @@ export class ComponentBasicInformation extends ComponentValue {
 
   public renderAfterUpdate() {
     super.renderAfterUpdate();
-    if (this.isElementInnerHTMLEmpty()) {
-      this.element.innerHTML = this.text;
-    }
+    if (this.isElementInnerHTMLEmpty())
+      this.basicViewModel.setAttributeValue('text', this.text);
     this.cleanElementInnerHTML();
   }
 
@@ -25,7 +24,7 @@ export class ComponentBasicInformation extends ComponentValue {
     let variable = this.seekVariable(this.text);
     super.updateLanguage(jSON);
     if (variable !== undefined)
-      this.element.innerHTML = variable;
+      this.basicViewModel.setAttributeValue('text', variable);
   }
 }
 ComponentBasicInformation.addConstructor('ComponentBasicInformation', ComponentBasicInformation);

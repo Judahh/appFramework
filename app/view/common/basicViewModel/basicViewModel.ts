@@ -11,7 +11,6 @@ export class BasicViewModel {
         for (let index = 0; index < arrayType.length; index++) {
             const type = arrayType[index];
             const attribute = new Attribute(type, type + element.id);
-            this.arrayAttribute.push(attribute);
             this.addBind(attribute);
         }
         this.init();
@@ -22,9 +21,9 @@ export class BasicViewModel {
         eval(attribute.getInit());
     }
 
-    public setAttributeValue(attribute: Attribute, value: string) {
+    public setAttributeValue(attributeName: String, value: string) {
         // tslint:disable-next-line: no-eval
-        eval(attribute.getSet(value));
+        eval(this.arrayAttribute.find(attribute => attribute.getName() === attributeName).getSet(value));
     }
 
     public applyBindings() {
@@ -46,7 +45,8 @@ export class BasicViewModel {
         _self.applyBindings();
     }
 
-    private addBind(attribute: Attribute) {
+    public addBind(attribute: Attribute) {
+        this.arrayAttribute.push(attribute);
         let dataBind: string = this.element.getAttribute('data-bind');
         if (dataBind)
             this.element.setAttribute('data-bind', dataBind + ',' + attribute.getLink());
