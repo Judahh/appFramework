@@ -28,6 +28,7 @@ export class ComponentMap extends Component {
     if (this.key !== undefined) {
       let path = 'https://maps.googleapis.com/maps/api/js?key=' + this.key;
       let _self = this;
+      // tslint:disable-next-line: no-eval
       let exists = eval('google' + '.' + 'maps');
       if (exists === undefined) {
         ImportScript.importFileWithoutExtentionWithCallback(path, 'js', 'map', () => { _self.callback(); });

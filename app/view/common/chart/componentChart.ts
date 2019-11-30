@@ -101,6 +101,7 @@ export class ComponentChart extends Component {
     let data = visualization.arrayToDataTable(this.arrayData);
     // Display the chart inside the <div> element with id='piechart'
     // console.log(this.element.id);
+    // tslint:disable-next-line: no-eval
     let chart = eval('new google.visualization' + '.' + this.chartType + '(this.element)');
     chart.draw(data, this.options);
     super.renderAfterUpdate();
