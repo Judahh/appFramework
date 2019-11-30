@@ -19,20 +19,16 @@ export class ComponentBasicText extends ComponentBasicInformation {
 
   public renderAfterUpdate() {
     super.renderAfterUpdate();
-    if (this.isElementInnerHTMLEmpty()) {
+    if (this.isElementInnerHTMLEmpty())
       this.basicViewModel.setAttributeValue('placeholder', this.placeholder);
-      // (<HTMLInputElement>this.element).placeholder = this.placeholder;
-    }
     this.cleanElementInnerHTML();
   }
 
   protected updateLanguage(jSON) {
     super.updateLanguage(jSON);
     let variable = this.seekVariable(this.placeholder);
-    if (variable !== undefined) {
+    if (variable !== undefined)
       this.basicViewModel.setAttributeValue('placeholder', variable);
-      // (<HTMLInputElement>this.element).placeholder = variable;
-    }
   }
 }
 ComponentBasicText.addConstructor('ComponentBasicText', ComponentBasicText);

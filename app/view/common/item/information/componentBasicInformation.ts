@@ -22,8 +22,8 @@ export class ComponentBasicInformation extends ComponentValue {
   }
 
   protected updateLanguage(jSON) {
-    let variable = this.seekVariable(this.text);
     super.updateLanguage(jSON);
+    let variable = this.seekVariable(this.text);
     if (variable !== undefined)
       this.basicViewModel.setAttributeValue('text', variable);
   }
