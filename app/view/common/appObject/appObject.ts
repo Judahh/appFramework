@@ -1,10 +1,9 @@
 import 'simpleutils';
 import { Util } from 'basicutil';
+import { Child } from '../child/child';
 
 export class AppObject extends Child {
   private static types: any;
-  protected className: string;
-  protected arrayVariable: Array<String>;
   arrayAppObject: Array<AppObject>;
   arrayAppObjectEvent: Array<AppObjectEvent>;
 
@@ -55,15 +54,10 @@ export class AppObject extends Child {
     this.arrayAppObjectEvent = new Array<AppObjectEvent>();
     this.arrayAppObjectEvent.type = AppObjectEvent;
     this.className = 'AppObject';
-    this.arrayVariable = new Array<String>();
   }
 
   protected getConstructor() {
     return this.constructor;
-  }
-
-  public getClassName() {
-    return this.className;
   }
 
   public getPageFrame() {
@@ -297,14 +291,6 @@ export class AppObject extends Child {
     // this.updateLanguage(language);
   }
 
-  protected seekVariable(name: string) {
-    if (this[name] !== undefined)
-      return this[name];
-    if (this.father !== undefined)
-      return this.father.seekVariable(name);
-    return undefined;
-  }
-
   protected beforeUpdateLanguage() {
     // this.updateLanguage(language);
   }
@@ -354,28 +340,6 @@ export class AppObject extends Child {
 
   public getCurrentLanguage() {
     return Util.getInstance().getCurrentLanguage();
-  }
-
-  public seekFather(className: string): AppObject {
-    if (this.father !== undefined) {
-      // console.log('FATHER NAME:' + this.father.getClassName());
-      if (this.father.getClassName() === 'ComponentGeneric') {
-        if (this.father.getClassName() === 'ComponentGeneric') {
-          if ((<ComponentGeneric>this.father).generateTag(className)) {
-            if ((<ComponentGeneric>this.father).generateTag(className).tag === (<Component>this.father).getTag()) {
-              return this.father;
-            }
-          } else {
-            return this.father.seekFather(className);
-          }
-        }
-      } else if (this.father.getClassName() === className) {
-        return this.father;
-      } else {
-        return this.father.seekFather(className);
-      }
-    }
-    return undefined;
   }
 
   public getArrayType(array: Array<any>) {
@@ -451,10 +415,7 @@ export class AppObject extends Child {
 import { AppObjectEvent } from './event/appObjectEvent';
 import { ComponentView } from './../../componentView';
 import { ComponentPageBody } from './../../body/componentPageBody';
-import { ComponentGeneric } from '../component/generic/componentGeneric';
 import { ComponentRouter } from '../component/generic/router/componentRouter';
 import { ComponentPageFrame } from '../../page/componentPageFrame';
 import { JSONObjectType } from './jSONObjectType';
-import { Component } from '../component/component';
-import { Child } from '../child/child';
 AppObject.addConstructor('AppObject', AppObject);
