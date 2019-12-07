@@ -39,9 +39,9 @@ export class Component extends AppObject {
     // console.log('nodes:', nodes);
     this.element.id = this.tag + 'Id' + nodes;
 
-    if (this.father) {
+    if (this.father && this.father instanceof Component) {
       // console.log('this.father.tag:' + this.father.tag);
-      this.insert(father);
+      this.insert(<Component> father);
     }
 
     AppObjectFactory.addElement(this.tag);
