@@ -2,6 +2,7 @@ import 'simpleutils';
 import { Util } from 'basicutil';
 import { AppObject } from './../appObject/appObject';
 import { AppObjectFactory } from './../appObject/factory/appObjectFactory';
+import { Page } from '../../page/page';
 
 export class Component extends AppObject {
   protected element: HTMLElement | SVGElement | SVGSVGElement | HTMLInputElement | HTMLTextAreaElement;
@@ -13,7 +14,7 @@ export class Component extends AppObject {
     return this.tag;
   }
 
-  public constructor(tag: string, father?: Component, sVG?: boolean) {
+  public constructor(tag: string, father?: Component|Page, sVG?: boolean) {
     super(father);
     this.className = 'Component';
 

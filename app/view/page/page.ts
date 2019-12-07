@@ -1,19 +1,21 @@
 import { ComponentPageFrame } from './componentPageFrame';
 import { ServiceModel } from '../serviceModel/serviceModel';
 import { ComponentRouter } from '../common/component/generic/router/componentRouter';
+import { Child } from '../common/child/child';
 
-export class Page {
+export class Page extends Child {
+    protected father: ComponentRouter;
     private arrayFrame: Array<ComponentPageFrame>;
     private currentFrame: ComponentPageFrame;
-    private father: ComponentRouter;
     private language: any;
     private unknown: boolean;
 
-    constructor(father: ComponentRouter, file) {
+    constructor(father?: ComponentRouter, file?) {
+        super(father);
         this.arrayFrame = new Array<ComponentPageFrame>();
-        this.father = father;
         this.unknown = false;
-        ServiceModel.getPromise(file + 'L').then((data) => this.checkLanguage(file, data)).fail((data) => this.checkFailed(data));
+        if (file)
+            ServiceModel.getPromise(file + 'L').then((data) => this.checkLanguage(file, data)).fail((data) => this.checkFailed(data));
     }
 
     public getLanguage() {

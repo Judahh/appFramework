@@ -1,9 +1,8 @@
 import 'simpleutils';
 import { Util } from 'basicutil';
 
-export class AppObject {
+export class AppObject extends Child {
   private static types: any;
-  protected father: AppObject;
   protected className: string;
   protected arrayVariable: Array<String>;
   arrayAppObject: Array<AppObject>;
@@ -47,9 +46,7 @@ export class AppObject {
   }
 
   constructor(father?: any) {
-    if (father) {
-      this.father = father;
-    }
+    super(father);
 
     this.checkPageFrame = false;
     this.checkView = false;
@@ -333,7 +330,9 @@ export class AppObject {
         if (!subJSON.hasOwnProperty(languageProperty)) {
           continue;
         }
-        this.arrayVariable.push(languageProperty);
+        if (this.arrayVariable.indexOf(languageProperty) === -1) {
+          this.arrayVariable.push(languageProperty);
+        }
         let variable = 'this.' + languageProperty;
         // tslint:disable-next-line: no-eval
         eval(variable + '="' + subJSON[languageProperty] + '";');
@@ -457,4 +456,5 @@ import { ComponentRouter } from '../component/generic/router/componentRouter';
 import { ComponentPageFrame } from '../../page/componentPageFrame';
 import { JSONObjectType } from './jSONObjectType';
 import { Component } from '../component/component';
+import { Child } from '../child/child';
 AppObject.addConstructor('AppObject', AppObject);
