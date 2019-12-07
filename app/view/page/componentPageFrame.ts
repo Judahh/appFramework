@@ -18,7 +18,7 @@ export class ComponentPageFrame extends Component {
     }
 
     public init(jSON) {
-        this.updateJSON(jSON);
+        this.renderFromJSON(jSON);
     }
 
     public setMinWidth(minWidth: number) {

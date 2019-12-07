@@ -105,9 +105,9 @@ export class Component extends AppObject {
     range.deleteContents();
   }
 
-  // protected updateJSON(jSON, type?: number) {
+  // protected renderFromJSON(jSON, type?: number) {
   //   this.destroyChildElements();
-  //   super.updateJSON(jSON,type);
+  //   super.renderFromJSON(jSON,type);
   // }
 
   protected clearProperty(property) {
@@ -121,11 +121,11 @@ export class Component extends AppObject {
     }
   }
 
-  protected elementStyle(jSON, property) {
+  protected generateElementStyleFromJSON(jSON, property) {
     this.element.style[property] = jSON[property];
   }
 
-  protected elementVar(jSON, property) {
+  protected generateElementVarFromJSON(jSON, property) {
     // this.element[property] = jSON[property];
     this.element.setAttribute(property, jSON[property]);
   }

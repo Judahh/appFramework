@@ -125,108 +125,157 @@ export class AppObject {
     return this.notificationName;
   }
 
-
   protected clearProperty(property) { }
 
+  protected generateElementStyleFromJSON(jSON, property) { }
 
-  protected elementStyle(jSON, property) { }
+  protected generateElementVarFromJSON(jSON, property) { }
 
-
-  protected elementVar(jSON, property) { }
-
-  protected updateJSONWithArray(jSON, property: any) {
-    this.clearProperty(property);
-
-    if (this[property].type !== undefined) {
-      jSON[property].forEach(element => {
-        let properElement = new this[property].type(this);
-        // console.log(properElement);
-        properElement.updateJSON(element);
-        this[property].push(properElement);
-      });
+  protected generateNotElementStyleFromJSON(jSON, property) {
+    let _self = this;
+    if (property === 'style') {
+      // console.log('Prop is style');
+      _self.generateFromJSON(jSON[property], JSONObjectType.Style);
     } else {
-      jSON[property].forEach(element => {
-        // console.log('START');
-        // console.log('type', element.type);
-        let object = AppObject.getTypes()[element.type];
-        let properElement;
-        if (object !== null && object !== undefined) {
-          properElement = new object(this);
-        } else {
-          object = AppObject.getTypes()['ComponentGeneric'];
-          properElement = new object(this, element.type);
-        }
-        // console.log('object', object);
-        // console.log('properElement', properElement);
-        properElement.updateJSON(element);
-        this[property].push(properElement);
-
-      });
+      // console.log('Prop is special');
+      _self.generateElementVarFromJSON(jSON, property);
     }
   }
 
-  protected updateJSONWithType(jSON, property: any, type: JSONObjectType) {
+  protected generateArrayFromJSON(jSON, property: any) {
+    let _self = this;
+    _self.clearProperty(property);
+    if (_self[property].type !== undefined) {
+      _self.generateElementsFromJSONArrayProperty(jSON, property);
+    } else {
+      _self.generateObjectsFromJSONArrayProperty(jSON, property);
+    }
+  }
+
+  protected generateObjectsFromJSONArrayProperty(jSON, property: any) {
+    let _self = this;
+    jSON[property].forEach(element => {
+      _self.generateObjectFromJSON(element, property);
+    });
+  }
+
+  protected generateElementsFromJSONArrayProperty(jSON, property: any) {
+    let _self = this;
+    jSON[property].forEach(element => {
+      _self.generateElementFromJSON(element, property);
+    });
+  }
+
+  protected generateObjectFromJSON(jSON, property: any) {
+    let _self = this;
+    // console.log('START');
+    // console.log('type', element.type);
+    let object = AppObject.getTypes()[jSON.type];
+    let properElement;
+    if (object !== null && object !== undefined) {
+      properElement = new object(_self);
+    } else {
+      object = AppObject.getTypes()['ComponentGeneric'];
+      properElement = new object(_self, jSON.type);
+    }
+    // console.log('object', object);
+    // console.log('properElement', properElement);
+    properElement.renderFromJSON(jSON);
+    _self[property].push(properElement);
+  }
+
+  protected generateElementFromJSON(jSON, property: any) {
+    let _self = this;
+    let properElement = new _self[property].type(_self);
+    // console.log(properElement);
+    properElement.renderFromJSON(jSON);
+    _self[property].push(properElement);
+  }
+
+  protected generateWithTypeFromJSON(jSON, property: any, type: JSONObjectType) {
+    let _self = this;
     // console.log('Prop2');
     if (type === JSONObjectType.Style) {
       // console.log('Prop3 is var');
-      this.elementStyle(jSON, property);
+      _self.generateElementStyleFromJSON(jSON, property);
     } else {
-      if (property === 'style') {
-        // console.log('Prop is style');
-        this.updateJSON(jSON[property], JSONObjectType.Style);
-      } else {
-        // console.log('Prop is special');
-        this.elementVar(jSON, property);
-      }
+      _self.generateNotElementStyleFromJSON(jSON, property);
     }
   }
 
-  protected updateJSONWithObject(jSON, property: any) {
+  protected generateWithoutTypeFromJSON(jSON, property: any) {
+    let _self = this;
+    if (typeof jSON[property] === 'object') {
+      _self.generatePropertyFromJSON(jSON, property);
+    } else {
+      // console.log('Prop is var:' + jSON[property]);
+      _self[property] = jSON[property];
+    }
+  }
+
+  protected populateRegularPropertyFromJSON(jSON, property: any) {
+    let _self = this;
+    if (_self[property].constructor === Array) {
+      _self.generateArrayFromJSON(jSON, property);
+    } else {
+      _self[property].renderFromJSON(jSON[property]);
+      // _self[property].insert(_self);
+    }
+  }
+
+  protected generateRegularPropertyFromJSON(jSON, property: any) {
+    let _self = this;
+    if (_self[property] === undefined) {
+      _self[property] = jSON[property];
+      // _self[property].insert(_self);
+    } else {
+      _self.populateRegularPropertyFromJSON(jSON, property);
+    }
+  }
+
+  protected generatePropertyFromJSON(jSON, property: any) {
+    let _self = this;
     // console.log('Prop is object');
     if (property === 'element') {
       // console.log('Prop is element');
-      this.updateJSON(jSON[property], JSONObjectType.Element);
+      _self.generateFromJSON(jSON[property], JSONObjectType.Element);
       // // console.log('Prop is element OUT');
     } else {
       // console.log('Prop is regular');
-      if (this[property] === undefined) {
-        this[property] = jSON[property];
-        // this[property].insert(this);
-      } else {
-        if (this[property].constructor === Array) {
-          this.updateJSONWithArray(jSON, property);
-        } else {
-          this[property].updateJSON(jSON[property]);
-          // this[property].insert(this);
-        }
+      _self.generateRegularPropertyFromJSON(jSON, property);
+    }
+  }
+
+  protected populatePropertyFromJSON(jSON, property: any, type?: JSONObjectType) {
+    let _self = this;
+    // console.log('DEFINED!');
+    if (!jSON.hasOwnProperty(property)) {
+      return;
+    }
+    // console.log('TYPE:'+type);
+    if (type) {
+      _self.generateWithTypeFromJSON(jSON, property, type);
+    } else {
+      _self.generateWithoutTypeFromJSON(jSON, property);
+    }
+  }
+
+  protected generateFromJSON(jSON, type?: JSONObjectType) {
+    let _self = this;
+    for (let property in jSON) {
+      // console.log('Prop:' + property);
+      if (property !== undefined) {
+        _self.populatePropertyFromJSON(jSON, property);
       }
     }
   }
 
-  protected updateJSON(jSON, type?: JSONObjectType) {
-    this.renderBeforeUpdate();
-    // console.log('UPDATE!');
-    for (let property in jSON) {
-      // console.log('Prop:' + property);
-      if (property !== undefined) {
-        // console.log('DEFINED!');
-        if (!jSON.hasOwnProperty(property)) {
-          continue;
-        }
-        // console.log('TYPE:'+type);
-        if (type) {
-          this.updateJSONWithType(jSON, property, type);
-        } else {
-          if (typeof jSON[property] === 'object') {
-            this.updateJSONWithObject(jSON, property);
-          } else {
-            // console.log('Prop is var:' + jSON[property]);
-            this[property] = jSON[property];
-          }
-        }
-      }
-    }
-    this.renderAfterUpdate();
+  protected renderFromJSON(jSON, type?: JSONObjectType) {
+    let _self = this;
+    _self.renderBeforeUpdate();
+    // console.log('GENERATE!');
+    _self.generateFromJSON(jSON, type);
+    _self.renderAfterUpdate();
   }
 
 
