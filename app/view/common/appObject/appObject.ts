@@ -265,16 +265,16 @@ export class AppObject {
     for (let property in jSON) {
       // console.log('Prop:' + property);
       if (property !== undefined) {
-        _self.populatePropertyFromJSON(jSON, property);
+        _self.populatePropertyFromJSON(jSON, property, type);
       }
     }
   }
 
-  protected renderFromJSON(jSON, type?: JSONObjectType) {
+  protected renderFromJSON(jSON) {
     let _self = this;
     _self.renderBeforeUpdate();
     // console.log('GENERATE!');
-    _self.generateFromJSON(jSON, type);
+    _self.generateFromJSON(jSON);
     _self.renderAfterUpdate();
   }
 

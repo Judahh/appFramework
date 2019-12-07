@@ -105,11 +105,6 @@ export class Component extends AppObject {
     range.deleteContents();
   }
 
-  // protected renderFromJSON(jSON, type?: number) {
-  //   this.destroyChildElements();
-  //   super.renderFromJSON(jSON,type);
-  // }
-
   protected clearProperty(property) {
     if (this[property].length > 0) {
       // console.log('CLEAR');
