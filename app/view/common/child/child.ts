@@ -14,6 +14,14 @@ export class Child {
         this.arrayVariable = new Array<String>();
     }
 
+    public getFather() {
+        return this.father;
+    }
+
+    public setFather(father) {
+        this.father = father;
+    }
+
     public getClassName() {
         return this.className;
     }
@@ -48,27 +56,27 @@ export class Child {
         return undefined;
     }
 
-    
-  public getChild(className) {
-    for (let index = 0; index < this.arrayChild.length; index++) {
-      const child = this.arrayChild[index];
-      if (child.className === className) {
-        return child;
-      }
-    }
-    return undefined;
-  }
 
-  public getAllChildren(className) {
-    let array = new Array<Child>();
-    for (let index = 0; index < this.arrayChild.length; index++) {
-      const child = this.arrayChild[index];
-      if (child.className === className) {
-        array.push(child);
-      }
+    public getChild(className) {
+        for (let index = 0; index < this.arrayChild.length; index++) {
+            const child = this.arrayChild[index];
+            if (child.className === className) {
+                return child;
+            }
+        }
+        return undefined;
     }
-    return array;
-  }
+
+    public getAllChildren(className) {
+        let array = new Array<Child>();
+        for (let index = 0; index < this.arrayChild.length; index++) {
+            const child = this.arrayChild[index];
+            if (child.className === className) {
+                array.push(child);
+            }
+        }
+        return array;
+    }
 }
 
 import { Component } from '../component/component';
