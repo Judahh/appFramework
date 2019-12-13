@@ -4,8 +4,7 @@ import { Child } from '../child/child';
 
 export class AppObject extends Child {
   private static types: any;
-  arrayAppObject: Array<AppObject>;
-  arrayAppObjectEvent: Array<AppObjectEvent>;
+  arrayEvent: Array<Event>;
 
   page: string;
   notificationName: string;
@@ -50,9 +49,8 @@ export class AppObject extends Child {
     this.checkPageFrame = false;
     this.checkView = false;
     this.checkNotification = false;
-    this.arrayAppObject = new Array<AppObject>();
-    this.arrayAppObjectEvent = new Array<AppObjectEvent>();
-    this.arrayAppObjectEvent.type = AppObjectEvent;
+    this.arrayEvent = new Array<Event>();
+    this.arrayEvent.type = Event;
     this.className = 'AppObject';
   }
 
@@ -350,27 +348,6 @@ export class AppObject extends Child {
     return arrayName.split('array')[1];
   }
 
-  public getAppObject(className) {
-    for (let index = 0; index < this.arrayAppObject.length; index++) {
-      const appObject = this.arrayAppObject[index];
-      if (appObject.className === className) {
-        return appObject;
-      }
-    }
-    return undefined;
-  }
-
-  public getAllAppObject(className) {
-    let array = new Array<AppObject>();
-    for (let index = 0; index < this.arrayAppObject.length; index++) {
-      const appObject = this.arrayAppObject[index];
-      if (appObject.className === className) {
-        array.push(appObject);
-      }
-    }
-    return array;
-  }
-
   public setPageFrame() {
     this.checkPageFrame = true;
     this.pageFrame = <ComponentPageFrame>this.seekFather('ComponentPageFrame');
@@ -412,7 +389,7 @@ export class AppObject extends Child {
   }
 }
 
-import { AppObjectEvent } from './event/appObjectEvent';
+import { Event } from './event/event';
 import { ComponentView } from './../../componentView';
 import { ComponentPageBody } from './../../body/componentPageBody';
 import { ComponentRouter } from '../component/generic/router/componentRouter';

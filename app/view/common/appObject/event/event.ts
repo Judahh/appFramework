@@ -1,9 +1,9 @@
-import { AppObject } from './../appObject';
-import { AppObjectFactory } from './../factory/appObjectFactory';
+import { AppObject } from '../appObject';
+import { AppObjectFactory } from '../factory/appObjectFactory';
 import * as $ from 'jquery';
 import { Component } from '../../component/component';
 
-export class AppObjectEvent extends AppObject {
+export class Event extends AppObject {
   name: string;
   link: string;
   code: string;
@@ -18,7 +18,7 @@ export class AppObjectEvent extends AppObject {
 
   constructor(father?: any /*AppObject*/) {
     super(father);
-    this.className = 'AppObjectEvent';
+    this.className = 'Event';
     this.verified = true;
   }
 
@@ -156,4 +156,4 @@ export class AppObjectEvent extends AppObject {
     eval('appObject' + '.' + runFunction + '((data) => { _self.auth(data); })');
   }
 }
-AppObjectEvent.addConstructor('AppObjectEvent', AppObjectEvent);
+Event.addConstructor('Event', Event);

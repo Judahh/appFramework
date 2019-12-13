@@ -1,13 +1,16 @@
 export class Child {
-    protected father: any;
+    protected father: Child;
     protected className: string;
     protected arrayVariable: Array<String>;
+    protected arrayChild: Array<Child>;
 
-    constructor(father?: any) {
+    constructor(father?: Child) {
         if (father) {
             this.father = father;
+            this.father.arrayChild.push(this);
         }
         this.className = 'Child';
+        this.arrayChild = new Array<Child>();
         this.arrayVariable = new Array<String>();
     }
 
@@ -44,6 +47,28 @@ export class Child {
             return this.father.seekVariable(name);
         return undefined;
     }
+
+    
+  public getChild(className) {
+    for (let index = 0; index < this.arrayChild.length; index++) {
+      const child = this.arrayChild[index];
+      if (child.className === className) {
+        return child;
+      }
+    }
+    return undefined;
+  }
+
+  public getAllChildren(className) {
+    let array = new Array<Child>();
+    for (let index = 0; index < this.arrayChild.length; index++) {
+      const child = this.arrayChild[index];
+      if (child.className === className) {
+        array.push(child);
+      }
+    }
+    return array;
+  }
 }
 
 import { Component } from '../component/component';

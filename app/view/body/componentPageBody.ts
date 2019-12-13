@@ -12,7 +12,7 @@ export class ComponentPageBody extends ComponentRouter {
   }
 
   public getAllNotification(appObject: AppObject) {
-    return (<Array<ComponentRouter>>appObject.getAllAppObject('ComponentNotification'));
+    return (<Array<ComponentRouter>>appObject.getAllChildren('ComponentNotification'));
   }
 
   public getAllNotificationFromHeaderAndFooter() {

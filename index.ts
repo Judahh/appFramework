@@ -32,7 +32,7 @@ import { ComponentChart } from './app/view/common/chart/componentChart';
 import { ComponentRouter } from './app/view/common/component/generic/router/componentRouter';
 import { ComponentGeneric } from './app/view/common/component/generic/componentGeneric';
 import { AppObjectFactory } from './app/view/common/appObject/factory/appObjectFactory';
-import { AppObjectEvent } from './app/view/common/appObject/event/appObjectEvent';
+import { Event } from './app/view/common/appObject/event/event';
 import { ApiConnection } from './app/view/apiConnection/apiConnection';
 import { OnLoad } from './app/onLoad/onLoad';
 import * as loader from './loader';
@@ -41,6 +41,6 @@ export {
     Component, ComponentGeneric, ComponentPageBody, ComponentItem, ComponentMap, ComponentInformation, ComponentDataInput, ComponentOption,
     ComponentComboBox,  ComponentTextArea, ComponentDataList, ComponentTextField, ComponentButton, ComponentBox, ComponentRangeSlider,
     ComponentRouter, ComponentText, ComponentG, ComponentFilter, ComponentLinearGradient, ComponentRadialGradient, ComponentPageFrame,
-    ComponentDefs, ServiceModel, Util, ComponentView, App, AppObject, ImportScript, ComponentChart, AppObjectFactory, AppObjectEvent,
+    ComponentDefs, ServiceModel, Util, ComponentView, App, AppObject, ImportScript, ComponentChart, AppObjectFactory, Event,
     ApiConnection, ComponentTemplate, ComponentBasicText, ComponentBasicInformation, OnLoad, loader
 }
