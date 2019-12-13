@@ -2,7 +2,7 @@ export class Child {
     protected father: Child;
     protected className: string;
     protected arrayVariable: Array<String>;
-    protected arrayChild: Array<Child>;
+    public arrayChild: Array<Child>;
 
     constructor(father?: Child) {
         if (father) {
