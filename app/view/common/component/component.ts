@@ -2,6 +2,7 @@ import 'simpleutils';
 import { Util } from 'basicutil';
 import { AppObject } from './../appObject/appObject';
 import { AppObjectFactory } from './../appObject/factory/appObjectFactory';
+import { Page } from '../../page/page';
 
 export class Component extends AppObject {
   protected element: HTMLElement | SVGElement | SVGSVGElement | HTMLInputElement | HTMLTextAreaElement;
@@ -13,7 +14,7 @@ export class Component extends AppObject {
     return this.tag;
   }
 
-  public constructor(tag: string, father?: Component, sVG?: boolean) {
+  public constructor(tag: string, father?: Component|Page, sVG?: boolean) {
     super(father);
     this.className = 'Component';
 
@@ -38,9 +39,9 @@ export class Component extends AppObject {
     // console.log('nodes:', nodes);
     this.element.id = this.tag + 'Id' + nodes;
 
-    if (this.father) {
+    if (this.father && this.father instanceof Component) {
       // console.log('this.father.tag:' + this.father.tag);
-      this.insert(father);
+      this.insert(<Component> father);
     }
 
     AppObjectFactory.addElement(this.tag);
@@ -105,11 +106,6 @@ export class Component extends AppObject {
     range.deleteContents();
   }
 
-  // protected updateJSON(jSON, type?: number) {
-  //   this.destroyChildElements();
-  //   super.updateJSON(jSON,type);
-  // }
-
   protected clearProperty(property) {
     if (this[property].length > 0) {
       // console.log('CLEAR');
@@ -121,11 +117,11 @@ export class Component extends AppObject {
     }
   }
 
-  protected elementStyle(jSON, property) {
+  protected generateElementStyleFromJSON(jSON, property) {
     this.element.style[property] = jSON[property];
   }
 
-  protected elementVar(jSON, property) {
+  protected generateElementVarFromJSON(jSON, property) {
     // this.element[property] = jSON[property];
     this.element.setAttribute(property, jSON[property]);
   }
