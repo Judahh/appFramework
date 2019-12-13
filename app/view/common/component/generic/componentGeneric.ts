@@ -49,7 +49,7 @@ export class ComponentGeneric extends Component {
         'ComponentFooter': { tag: 'footer', sVG: false },
         'ComponentItalic': { tag: 'i', sVG: false },
         'ComponentI': { tag: 'i', sVG: false },
-        'ComponentTemplate': { tag: 'template', sVG: false },
+        'ComponentTemplate': { tag: 'cTemplate', sVG: false },
         'ComponentPageBody': { tag: 'pageBody', sVG: false },
         'ComponentProgressBar': { tag: 'progress', sVG: false },
         'ComponentNotification': { tag: 'notification', sVG: false },
