@@ -32,6 +32,10 @@ export class Child {
         return this.arrayChild[index];
     }
 
+    public getChildLength() {
+        return this.arrayChild.length;
+    }
+
     public addChild(child: Child, jSON?: JSON) {
         this.initChild(child, jSON);
         this.arrayChild.push(child);
