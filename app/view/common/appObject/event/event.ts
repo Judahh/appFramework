@@ -16,8 +16,8 @@ export class Event extends AppObject {
   running: boolean;
   verified: boolean;
 
-  constructor(father?: any /*AppObject*/) {
-    super(father);
+  constructor() {
+    super();
     this.className = 'Event';
     this.verified = true;
   }

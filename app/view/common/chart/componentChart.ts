@@ -9,8 +9,8 @@ export class ComponentChart extends Component {
   arrayPackages: Array<string>;
   language: any;
 
-  constructor(father?: Component) {
-    super('chart', father);
+  constructor() {
+    super('chart');
     this.className = 'ComponentChart';
   }
 

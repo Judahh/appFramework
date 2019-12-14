@@ -9,16 +9,22 @@ try { require('./componentGeneric5.css'); } catch (e) { };
 try { require('./componentGeneric6.css'); } catch (e) { };
 
 export class ComponentGeneric extends Component {
-    private static map: { [key: string]: { tag: string, sVG: boolean } } = {
+    private static map: { [key: string]: { tag: string, sVG?: boolean, arrayAttribute?: Array<{ name: string, value: string }> } } = {
         'ComponentDivisor': { tag: 'div', sVG: false },
         'ComponentDiv': { tag: 'div', sVG: false },
         'ComponentForm': { tag: 'form', sVG: false },
+        'ComponentItem': { tag: 'item', sVG: false },
         'ComponentAnimationSubEffectHolder': { tag: 'animationSubEffectHolder', sVG: false },
         'ComponentAnimationSubEffect': { tag: 'animationSubEffect', sVG: false },
         'ComponentAnimationEffect': { tag: 'animationEffect', sVG: false },
         'ComponentFont': { tag: 'font', sVG: false },
         'ComponentColorEffect': { tag: 'colorEffect', sVG: false },
-        'ComponentLabel': { tag: 'label', sVG: false },
+        'ComponentRangeSlider': { tag: 'input', sVG: false, arrayAttribute: [{ name: 'type', value: 'range' }] },
+        'ComponentButton': { tag: 'button', sVG: false },
+        'ComponentBox': { tag: 'input', sVG: false },
+        'ComponentComboBox': { tag: 'select', sVG: false },
+        'ComponentDataList': { tag: 'datalist', sVG: false },
+        'ComponentDataInput': { tag: 'dataInput', sVG: false },
         'ComponentSource': { tag: 'source', sVG: false },
         'ComponentSrc': { tag: 'src', sVG: false },
         'ComponentVideo': { tag: 'video', sVG: false },
@@ -54,6 +60,12 @@ export class ComponentGeneric extends Component {
         'ComponentProgressBar': { tag: 'progress', sVG: false },
         'ComponentNotification': { tag: 'notification', sVG: false },
         'ComponentFontAwesome': { tag: 'i', sVG: false },
+        'ComponentSVG': { tag: 'svg', sVG: true },
+        'ComponentDefs': { tag: 'defs', sVG: true },
+        'ComponentG': { tag: 'g', sVG: true },
+        'ComponentFilter': { tag: 'filter', sVG: true },
+        'ComponentLinearGradient': { tag: 'linearGradient', sVG: true },
+        'ComponentRadialGradient': { tag: 'radialGradient', sVG: true },
         'ComponentCircle': { tag: 'circle', sVG: true },
         'ComponentStop': { tag: 'stop', sVG: true },
         'ComponentEllipse': { tag: 'ellipse', sVG: true },
@@ -65,7 +77,7 @@ export class ComponentGeneric extends Component {
         'ComponentOption': { tag: 'option', sVG: true }
     };
 
-    private static generateTag(name?: string) {
+    private static generateMap(name?: string) {
         if (name === undefined || name === null) {
             return undefined
         } else {
@@ -73,13 +85,23 @@ export class ComponentGeneric extends Component {
         }
     }
 
-    constructor(father?: any, name?: string) {
-        super(ComponentGeneric.generateTag(name).tag, father, ComponentGeneric.generateTag(name).sVG);
+    constructor(name?: string) {
+        super(ComponentGeneric.generateMap(name).tag, ComponentGeneric.generateMap(name).sVG);
         this.className = 'ComponentGeneric';
     }
 
-    public generateTag(name?: string) {
-        return ComponentGeneric.generateTag(name);
+    public setFather(father) {
+        super.setFather(father);
+        let map = ComponentGeneric.generateMap(name);
+        if (map.arrayAttribute && map.arrayAttribute.length > 0)
+            for (let index = 0; index < map.arrayAttribute.length; index++) {
+                const attribute = map.arrayAttribute[index];
+                this.getElement().setAttribute(attribute.name, attribute.value);
+            }
+    }
+
+    public generateMap(name?: string) {
+        return ComponentGeneric.generateMap(name);
     }
 }
 ComponentGeneric.addConstructor('ComponentGeneric', ComponentGeneric);

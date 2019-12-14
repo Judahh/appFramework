@@ -5,8 +5,8 @@ try { require('./ComponentTemplate.css'); } catch (e) { };
 
 export class ComponentTemplate extends ComponentRouter {
 
-  constructor(father?: Component, pageName?: string) {
-    super(father, 'ComponentTemplate', 'template', pageName, 'Template', '');
+  constructor(pageName?: string) {
+    super('ComponentTemplate', 'cTemplate', pageName, 'Template', '');
     this.className = 'ComponentTemplate';
   }
 

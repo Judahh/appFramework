@@ -4,8 +4,8 @@ import { ComponentBasicText } from '../componentBasicText';
 
 export class ComponentTextArea extends ComponentBasicText {
 
-  constructor(father?: Component) {
-    super('textarea', father);
+  constructor() {
+    super('textarea');
     this.className = 'ComponentTextArea';
   }
 }

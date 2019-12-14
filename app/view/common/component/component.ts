@@ -8,14 +8,16 @@ export class Component extends AppObject {
   protected element: HTMLElement | SVGElement | SVGSVGElement | HTMLInputElement | HTMLTextAreaElement;
   protected tag: string;
   protected infoMap: { [key: string]: string };
+  protected form: ComponentGeneric;
+  protected formChecked: boolean;
   sVG: boolean;
 
   public getTag() {
     return this.tag;
   }
 
-  public constructor(tag: string, father?: Component|Page, sVG?: boolean) {
-    super(father);
+  public constructor(tag: string, sVG?: boolean) {
+    super();
     this.className = 'Component';
 
     this.tag = tag;
@@ -39,14 +41,25 @@ export class Component extends AppObject {
     // console.log('nodes:', nodes);
     this.element.id = this.tag + 'Id' + nodes;
 
-    if (this.father && this.father instanceof Component) {
-      // console.log('this.father.tag:' + this.father.tag);
-      this.insert(<Component> father);
-    }
-
     AppObjectFactory.addElement(this.tag);
 
     this.clear();
+  }
+
+  public setFather(father) {
+    super.setFather(father);
+    if (this.father && this.father instanceof Component) {
+      // console.log('this.father.tag:' + this.father.tag);
+      this.insert(<Component> father);
+      this.father.renderAfterUpdate();
+    }
+  }
+
+  public getForm() {
+    if (!this.formChecked) {
+      this.setForm();
+    }
+    return this.form;
   }
 
   public getElement() {
@@ -106,6 +119,11 @@ export class Component extends AppObject {
     range.deleteContents();
   }
 
+  protected setForm() {
+    this.form = <ComponentGeneric>this.seekFather('ComponentForm');
+    this.formChecked = true;
+  }
+
   protected clearProperty(property) {
     if (this[property].length > 0) {
       // console.log('CLEAR');
@@ -126,4 +144,6 @@ export class Component extends AppObject {
     this.element.setAttribute(property, jSON[property]);
   }
 }
+import { ComponentGeneric } from './../component/generic/componentGeneric';
+
 Component.addConstructor('Component', Component);

@@ -14,8 +14,8 @@ export class ComponentRouter extends ComponentGeneric {
 
     private go: boolean;
 
-    constructor(father?: any, name?: string, routerName?: string, nextName?: string, suffix?: string, main?: string) {
-        super(father, name);
+    constructor(name?: string, routerName?: string, nextName?: string, suffix?: string, main?: string) {
+        super(name);
         this.pages = {};
         this.routerName = routerName;
         this.suffix = suffix;
@@ -68,7 +68,7 @@ export class ComponentRouter extends ComponentGeneric {
     public initPage(pageName: string) {
         this.go = true;
         if (this.pages[pageName] === undefined) {
-            this.pages[pageName] = new Page(this, pageName);
+            this.pages[pageName] = new Page(pageName);
         } else {
             if (this.pages[pageName].arrayFrame.length === 0 && this.pages[pageName].getUnknown() === true) {
                 this.nextName = 'unknown';

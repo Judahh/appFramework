@@ -1,11 +1,11 @@
 import 'simpleutils';
 import { Util } from 'basicutil';
-import { Component } from './../../component/component';
-import { ComponentBasicInformation } from '../../item/information/componentBasicInformation';
+import { Component } from '../../component/component';
+import { ComponentBasicInformation } from '../componentBasicInformation';
 
 export class ComponentText extends ComponentBasicInformation {
-  constructor(father?: Component) {
-    super('text', father, true);
+  constructor() {
+    super('text', true);
     this.className = 'ComponentText';
   }
 }

@@ -10,16 +10,16 @@ export class ComponentPageFrame extends Component {
     private maxHeight: number;
     private fullPage: Page;
 
-    constructor(father?: Page) {
-        super('pageFrame', father);
-        this.fullPage = father;
+    constructor() {
+        super('pageFrame');
         this.className = 'ComponentPageFrame';
-        this.background = new ComponentGeneric(this, 'ComponentBackground');
+        this.background = new ComponentGeneric('ComponentBackground');
     }
 
-    public init(jSON) {
-        this.renderFromJSON(jSON);
-    }
+    public setFather(father) {
+        super.setFather(father);
+        this.fullPage = father;
+      }
 
     public setMinWidth(minWidth: number) {
         this.minWidth = minWidth;

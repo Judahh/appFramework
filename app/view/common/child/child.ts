@@ -2,16 +2,40 @@ export class Child {
     protected father: Child;
     protected className: string;
     protected arrayVariable: Array<String>;
-    public arrayChild: Array<Child>;
+    protected arrayChild: Array<Child>;
 
-    constructor(father?: Child) {
-        if (father) {
-            this.father = father;
-            this.father.arrayChild.push(this);
-        }
+    constructor() {
         this.className = 'Child';
         this.arrayChild = new Array<Child>();
         this.arrayVariable = new Array<String>();
+    }
+
+    public populate(jSON: JSON) {
+
+    }
+
+    public seekVariable(name: string) {
+        if (this[name] !== undefined)
+            return this[name];
+        if (this.father !== undefined)
+            return this.father.seekVariable(name);
+        return undefined;
+    }
+
+    public initChild(child: Child, jSON?: JSON) {
+        child.setFather(this);
+        if (jSON)
+            child.populate(jSON);
+    }
+
+    public addChild(child: Child, jSON?: JSON) {
+        this.initChild(child, jSON);
+        this.arrayChild.push(child);
+    }
+
+    public setChild(child: Child, index: number, jSON?: JSON) {
+        this.initChild(child, jSON);
+        this.arrayChild[index] = child;
     }
 
     public getFather() {
@@ -19,6 +43,10 @@ export class Child {
     }
 
     public setFather(father) {
+        if (this.father && this.father instanceof Component) {
+            this.father.destroyChildElements();
+        }
+
         this.father = father;
     }
 
@@ -31,8 +59,8 @@ export class Child {
             // console.log('FATHER NAME:' + this.father.getClassName());
             if (this.father.getClassName() === 'ComponentGeneric') {
                 if (this.father.getClassName() === 'ComponentGeneric') {
-                    if ((<ComponentGeneric>this.father).generateTag(className)) {
-                        if ((<ComponentGeneric>this.father).generateTag(className).tag === (<Component>this.father).getTag()) {
+                    if ((<ComponentGeneric>this.father).generateMap(className)) {
+                        if ((<ComponentGeneric>this.father).generateMap(className).tag === (<Component>this.father).getTag()) {
                             return this.father;
                         }
                     } else {
@@ -47,15 +75,6 @@ export class Child {
         }
         return undefined;
     }
-
-    protected seekVariable(name: string) {
-        if (this[name] !== undefined)
-            return this[name];
-        if (this.father !== undefined)
-            return this.father.seekVariable(name);
-        return undefined;
-    }
-
 
     public getChild(className) {
         for (let index = 0; index < this.arrayChild.length; index++) {

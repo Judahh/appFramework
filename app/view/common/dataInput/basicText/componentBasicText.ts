@@ -2,15 +2,15 @@ import 'simpleutils';
 import { Util } from 'basicutil';
 import { Component } from '../../component/component';
 import { ComponentKeyboard } from '../keyboard/componentKeyboard';
-import { ComponentBasicInformation } from '../../item/information/componentBasicInformation';
+import { ComponentBasicInformation } from '../../information/componentBasicInformation';
 import { Attribute } from '../../basicViewModel/attribute';
 
 export class ComponentBasicText extends ComponentBasicInformation {
   public arrayKeyboard: Array<ComponentKeyboard>;
   public placeholder: string;
 
-  constructor(tag?: string, father?: Component, sVG?: boolean, arrayType?: Array<string>, arrayBindHandlers?: Array<string>) {
-    super(tag, father, sVG, ComponentBasicText.cleanAdd(arrayType, 'placeholder'), ComponentBasicText.cleanAdd(arrayBindHandlers, 'placeholder'));
+  constructor(tag?: string, sVG?: boolean, arrayType?: Array<string>, arrayBindHandlers?: Array<string>) {
+    super(tag, sVG, ComponentBasicText.cleanAdd(arrayType, 'placeholder'), ComponentBasicText.cleanAdd(arrayBindHandlers, 'placeholder'));
     let _self = this;
     _self.className = 'ComponentBasicText';
     _self.arrayKeyboard = new Array<ComponentKeyboard>();

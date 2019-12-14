@@ -5,17 +5,10 @@ import { Child } from '../child/child';
 export class AppObject extends Child {
   private static types: any;
   arrayEvent: Array<Event>;
-
   page: string;
   notificationName: string;
-
   view: ComponentView;
-  pageBody: ComponentPageBody;
-  header: ComponentRouter;
-  notification: ComponentRouter;
-  footer: ComponentRouter;
   pageFrame: ComponentPageFrame;
-
   checkPageFrame: boolean;
   checkView: boolean;
   checkNotification: boolean;
@@ -24,8 +17,8 @@ export class AppObject extends Child {
     return this.types;
   }
 
-  public static getInstance(father?: AppObject) {
-    return new this(father);
+  public static getInstance() {
+    return new this();
   }
 
   public static addType(type) {
@@ -43,8 +36,8 @@ export class AppObject extends Child {
     }
   }
 
-  constructor(father?: any) {
-    super(father);
+  constructor() {
+    super();
 
     this.checkPageFrame = false;
     this.checkView = false;
@@ -80,31 +73,19 @@ export class AppObject extends Child {
   }
 
   public getPageBody() {
-    if (this.pageBody === undefined) {
-      this.setPageBody();
-    }
-    return this.pageBody;
+    return this.getView().getPageBody();
   }
 
   public getHeader() {
-    if (this.header === undefined) {
-      this.setHeader();
-    }
-    return this.header;
+    return this.getView().getHeader();
   }
 
   public getFooter() {
-    if (this.footer === undefined) {
-      this.setFooter();
-    }
-    return this.footer;
+    return this.getView().getFooter();
   }
 
   public getNotification() {
-    if (!this.checkNotification) {
-      this.setNotification();
-    }
-    return this.notification;
+    return this.getView().getNotification();
   }
 
   public getNotificationName() {
@@ -259,7 +240,7 @@ export class AppObject extends Child {
     }
   }
 
-  protected renderFromJSON(jSON) {
+  public populate(jSON) {
     let _self = this;
     _self.renderBeforeUpdate();
     // console.log('GENERATE!');
@@ -345,29 +326,9 @@ export class AppObject extends Child {
     this.pageFrame = <ComponentPageFrame>this.seekFather('ComponentPageFrame');
   }
 
-  private setPageBody() {
-    this.pageBody = this.getView().pageBody;
-  }
-
-  private setHeader() {
-    this.header = this.getView().header;
-  }
-
-  private setFooter() {
-    this.footer = this.getView().footer;
-  }
-
   private setView() {
     this.checkView = true;
     this.view = <ComponentView>this.seekFather('ComponentView');
-  }
-
-  private setNotification() {
-    this.checkNotification = true;
-    // this.notification = <ComponentRouter>this.seekFather('ComponentNotification');
-    // if (this.notification === undefined) {
-    this.notification = this.getView().getNotification();
-    // }
   }
 
   private setPage() {

@@ -6,8 +6,8 @@ try { require('./componentPageBody.css'); } catch (e) { };
 
 export class ComponentPageBody extends ComponentRouter {
 
-  constructor(father?: Component, pageName?: string) {
-    super(father, 'ComponentPageBody', 'page', pageName, '', 'home');
+  constructor(pageName?: string) {
+    super('ComponentPageBody', 'page', pageName, '', 'home');
     this.className = 'ComponentPageBody';
   }
 

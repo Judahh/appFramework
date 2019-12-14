@@ -3,54 +3,56 @@ import { ComponentPageBody } from './body/componentPageBody';
 import { ComponentRouter } from './common/component/generic/router/componentRouter';
 
 export class ComponentView extends Component { // body
-  constructor(father?: Component) {
-    super('body', father);
+  constructor() {
+    super('body');
     this.className = 'ComponentView';
-    this.header = new ComponentRouter(this, 'ComponentHeader', 'header', '', '', 'header');
-    this.notification = new ComponentRouter(this, 'ComponentNotification', 'notification', 'none', 'Notification', 'none');
-    this.pageBody = new ComponentPageBody(this);
-    this.footer = new ComponentRouter(this, 'ComponentFooter', 'footer', '', '', 'footer');
+    this.resetHeader();
+    this.resetNotification();
+    this.resetPageBody();
+    this.resetFooter();
   }
 
   public goToPage(pageName?: string) {
-    this.pageBody.name = pageName;
-  }
-
-  public getNotification() {
-    return this.notification;
+    this.getPageBody().name = pageName;
   }
 
   public getHeader() {
-    return this.header;
+    return <ComponentRouter>this.arrayChild[0];
   }
-
-  public getFooter() {
-    return this.footer;
+  public getNotification() {
+    return <ComponentRouter>this.arrayChild[1];
   }
 
   public getPageBody() {
-    return this.pageBody;
+    return <ComponentPageBody>this.arrayChild[2];
   }
 
+  public getFooter() {
+    return <ComponentRouter>this.arrayChild[3];
+  }
 
   public resetHeader() {
-    this.header.destroyElement();
-    this.header = new ComponentRouter(this, 'ComponentHeader', 'header', '', '', 'header');
+    if (this.getHeader())
+      this.getHeader().destroyElement();
+    this.setChild(new ComponentRouter('ComponentHeader', 'header', '', '', 'header'), 0);
   }
 
   public resetNotification() {
-    this.notification.destroyElement();
-    this.notification = new ComponentRouter(this, 'ComponentNotification', 'notification', 'none', 'Notification', 'none');
+    if (this.getNotification())
+      this.getNotification().destroyElement();
+    this.setChild(new ComponentRouter('ComponentNotification', 'notification', 'none', 'Notification', 'none'), 1);
   }
 
   public resetPageBody() {
-    this.pageBody.destroyElement();
-    this.pageBody = new ComponentPageBody(this);
+    if (this.getPageBody())
+      this.getPageBody().destroyElement();
+    this.setChild(new ComponentPageBody(), 2);
   }
 
   public resetFooter() {
-    this.footer.destroyElement();
-    this.footer = new ComponentRouter(this, 'ComponentFooter', 'footer', '', '', 'footer');
+    if (this.getFooter())
+      this.getFooter().destroyElement();
+    this.setChild(new ComponentRouter('ComponentFooter', 'footer', '', '', 'footer'), 3);
   }
 }
 ComponentView.addConstructor('ComponentView', ComponentView);
