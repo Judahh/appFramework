@@ -28,8 +28,8 @@ export class Child {
             child.populate(jSON);
     }
 
-    public getArryChild() {
-        return this.arrayChild;
+    public getChildAt(index: number) {
+        return this.arrayChild[index];
     }
 
     public addChild(child: Child, jSON?: JSON) {
