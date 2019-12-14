@@ -28,6 +28,10 @@ export class Child {
             child.populate(jSON);
     }
 
+    public getArryChild() {
+        return this.arrayChild;
+    }
+
     public addChild(child: Child, jSON?: JSON) {
         this.initChild(child, jSON);
         this.arrayChild.push(child);
