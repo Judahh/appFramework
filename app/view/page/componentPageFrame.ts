@@ -10,8 +10,8 @@ export class ComponentPageFrame extends Component {
     private maxHeight: number;
     private fullPage: Page;
 
-    constructor() {
-        super('pageFrame');
+    constructor(sVG?: boolean, arrayType?: string[]) {
+        super('pageFrame', sVG, arrayType);
         this.className = 'ComponentPageFrame';
         this.background = new ComponentGeneric('ComponentBackground');
     }

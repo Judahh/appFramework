@@ -9,7 +9,8 @@ try { require('./componentGeneric5.css'); } catch (e) { };
 try { require('./componentGeneric6.css'); } catch (e) { };
 
 export class ComponentGeneric extends Component {
-    private static map: { [key: string]: { tag: string, sVG?: boolean, arrayAttribute?: Array<{ name: string, value: string }> } } = {
+    private static basicInformationArrayType: Array<string> = ['text'];
+    private static map: { [key: string]: { tag: string, sVG?: boolean, arrayAttribute?: Array<{ name: string, value: string }>, arrayType?: Array<string> } } = {
         'ComponentDivisor': { tag: 'div', sVG: false },
         'ComponentDiv': { tag: 'div', sVG: false },
         'ComponentForm': { tag: 'form', sVG: false },
@@ -74,7 +75,9 @@ export class ComponentGeneric extends Component {
         'ComponentPolygon': { tag: 'polygon', sVG: true },
         'ComponentPolyline': { tag: 'polyline', sVG: true },
         'ComponentRectangle': { tag: 'rect', sVG: true },
-        'ComponentOption': { tag: 'option', sVG: true }
+        'ComponentOption': { tag: 'option', sVG: true },
+        'ComponentBasicInformation': { tag: 'basicInformation', sVG: false, arrayType: ComponentGeneric.basicInformationArrayType},
+        'ComponentBasicText': { tag: 'basicText', sVG: false, arrayType: Array.cleanPush(ComponentGeneric.basicInformationArrayType, 'placeholder')},
     };
 
     private static generateMap(name?: string) {
@@ -86,7 +89,7 @@ export class ComponentGeneric extends Component {
     }
 
     constructor(name?: string) {
-        super(ComponentGeneric.generateMap(name).tag, ComponentGeneric.generateMap(name).sVG);
+        super(ComponentGeneric.generateMap(name).tag, ComponentGeneric.generateMap(name).sVG, ComponentGeneric.generateMap(name).arrayType);
         this.className = 'ComponentGeneric';
     }
 

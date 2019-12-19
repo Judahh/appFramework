@@ -2,11 +2,15 @@ export class Child {
     protected father: Child;
     protected className: string;
     protected arrayVariable: Array<String>;
-    protected arrayChild: Array<Child>;
+    public arrayChild: ObservableArray<Child>;
 
     constructor() {
+        let _self = this;
         this.className = 'Child';
-        this.arrayChild = new Array<Child>();
+        this.arrayChild = ko.observableArray<Child>();
+        this.arrayChild.subscribe((changes) => {
+            _self.arrayChange(changes);
+        });
         this.arrayVariable = new Array<String>();
     }
 
@@ -20,12 +24,6 @@ export class Child {
         if (this.father !== undefined)
             return this.father.seekVariable(name);
         return undefined;
-    }
-
-    public initChild(child: Child, jSON?: JSON) {
-        child.setFather(this);
-        if (jSON)
-            child.populate(jSON);
     }
 
     public getChildAt(index: number) {
@@ -104,7 +102,25 @@ export class Child {
         }
         return array;
     }
+
+    private initChild(child: Child, jSON?: JSON) {
+        child.setFather(this);
+        if (jSON)
+            child.populate(jSON);
+    }
+
+    private arrayChange(changes) {
+        for (let index = 0; index < changes.length; index++) {
+            const change = changes[index];
+            if (change.status = 'added') {
+                this.initChild(change.value);
+            }
+        }
+    }
 }
 
 import { Component } from '../component/component';
 import { ComponentGeneric } from '../component/generic/componentGeneric';
+import { ObservableArray, SubscriptionCallback } from 'knockout';
+import * as ko from 'knockout';
+

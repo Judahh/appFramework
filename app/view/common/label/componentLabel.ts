@@ -3,8 +3,8 @@ import { Component } from '../component/component';
 export class ComponentLabel extends Component {
   // type = radio or checkbox
 
-  constructor() {
-    super('label');
+  constructor(sVG?: boolean, arrayType?: string[]) {
+    super('label', sVG, arrayType);
     this.className = 'ComponentLabel';
   }
 

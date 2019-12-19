@@ -1,7 +1,6 @@
 import { Attribute } from './attribute'
 import * as ko from 'knockout';
 export class BasicViewModel {
-
     protected arrayAttribute: Array<Attribute>;
     protected element: HTMLElement | SVGElement | SVGSVGElement | HTMLInputElement | HTMLTextAreaElement;
 

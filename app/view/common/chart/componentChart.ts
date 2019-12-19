@@ -9,8 +9,8 @@ export class ComponentChart extends Component {
   arrayPackages: Array<string>;
   language: any;
 
-  constructor() {
-    super('chart');
+  constructor(sVG?: boolean, arrayType?: string[]) {
+    super('chart', sVG, arrayType);
     this.className = 'ComponentChart';
   }
 

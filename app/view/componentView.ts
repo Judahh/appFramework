@@ -3,8 +3,8 @@ import { ComponentPageBody } from './body/componentPageBody';
 import { ComponentRouter } from './common/component/generic/router/componentRouter';
 
 export class ComponentView extends Component { // body
-  constructor() {
-    super('body');
+  constructor(sVG?: boolean, arrayType?: string[]) {
+    super('body', sVG, arrayType);
     this.className = 'ComponentView';
     this.resetHeader();
     this.resetNotification();

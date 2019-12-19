@@ -10,47 +10,58 @@ export class Component extends AppObject {
   protected infoMap: { [key: string]: string };
   protected form: ComponentGeneric;
   protected formChecked: boolean;
-  sVG: boolean;
+  protected sVG: boolean;
+  protected basicViewModel: BasicViewModel;
+  public properties: Object;
 
   public getTag() {
     return this.tag;
   }
 
-  public constructor(tag: string, sVG?: boolean) {
+  public constructor(tag: string, sVG?: boolean, arrayType?: Array<string>) {
     super();
-    this.className = 'Component';
+    let _self = this;
+    _self.className = 'Component';
 
-    this.tag = tag;
-    if (AppObjectFactory.numberOfElements(this.tag) === 0 && document.getElementsByTagName(this.tag).length > 0) {
-      AppObjectFactory.addElements(this.tag, document.getElementsByTagName(this.tag).length);
+    _self.tag = tag;
+    if (AppObjectFactory.numberOfElements(_self.tag) === 0 && document.getElementsByTagName(_self.tag).length > 0) {
+      AppObjectFactory.addElements(_self.tag, document.getElementsByTagName(_self.tag).length);
     }
-    let nodes = AppObjectFactory.numberOfElements(this.tag);
+    let nodes = AppObjectFactory.numberOfElements(_self.tag);
 
     if (tag === 'body') {
-      this.element = document.body;
-    } else if (this.sVG) {
-      // console.log('this.tag:' + this.tag);
-      this.sVG = true;
-      this.element = document.createElementNS('http://www.w3.org/2000/svg', this.tag);
+      _self.element = document.body;
+    } else if (sVG) {
+      // console.log('_self.tag:' + _self.tag);
+      _self.sVG = sVG;
+      _self.element = document.createElementNS('http://www.w3.org/2000/svg', _self.tag);
     } else {
-      this.sVG = false;
-      this.element = document.createElement(this.tag);
+      _self.sVG = false;
+      _self.element = document.createElement(_self.tag);
     }
 
-    // console.log('this.tag:', this.tag);
+    // console.log('_self.tag:', _self.tag);
     // console.log('nodes:', nodes);
-    this.element.id = this.tag + 'Id' + nodes;
+    _self.element.id = _self.tag + 'Id' + nodes;
 
-    AppObjectFactory.addElement(this.tag);
+    AppObjectFactory.addElement(_self.tag);
 
-    this.clear();
+    _self.clear();
+    let arrayBindHandlers = [...arrayType];
+    for (const property of Object.keys(_self.properties)) {
+      Array.cleanPush(arrayType, property);
+      if (property !== 'text')
+        Array.cleanPush(arrayBindHandlers, property);
+    }
+    _self.basicViewModel = new BasicViewModel(arrayType, _self.element, arrayBindHandlers);
+    _self.basicViewModel.init();
   }
 
   public setFather(father) {
     super.setFather(father);
     if (this.father && this.father instanceof Component) {
       // console.log('this.father.tag:' + this.father.tag);
-      this.insert(<Component> father);
+      this.insert(<Component>father);
       this.father.renderAfterUpdate();
     }
   }
@@ -143,7 +154,26 @@ export class Component extends AppObject {
     // this.element[property] = jSON[property];
     this.element.setAttribute(property, jSON[property]);
   }
+
+  public beforeUpdateLanguage() {
+    for (const property of Object.keys(this.properties)) {
+      if (this.isElementInnerHTMLEmpty()) {
+        this.basicViewModel.setAttributeValue(property, this.properties[property]);
+      }
+    }
+    this.cleanElementInnerHTML();
+  }
+
+  protected afterUpdateLanguage() {
+    for (const property of Object.keys(this.properties)) {
+      let variable = this.seekVariable(this.properties[property]);
+      if (variable !== undefined) {
+        this.basicViewModel.setAttributeValue(property, variable);
+      }
+    }
+  }
 }
 import { ComponentGeneric } from './../component/generic/componentGeneric';
+import { BasicViewModel } from '../basicViewModel/basicViewModel';
 
 Component.addConstructor('Component', Component);

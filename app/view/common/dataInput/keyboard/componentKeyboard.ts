@@ -9,8 +9,8 @@ export class ComponentKeyboard extends Component {
   private typing;
   private extender;
 
-  constructor() {
-    super('virtualKeyboard');
+  constructor(sVG?: boolean, arrayType?: string[]) {
+    super('virtualKeyboard', sVG, arrayType);
     this.className = 'ComponentKeyboard';
     let keyboardOptionsB = KeyboardOptions;
   }

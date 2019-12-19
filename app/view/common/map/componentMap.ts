@@ -14,8 +14,8 @@ export class ComponentMap extends Component {
   // <input list='datalistID' name='inputNAME'>
   // <datalist id='datalistID'>
 
-  constructor() {
-    super('map');
+  constructor(sVG?: boolean, arrayType?: string[]) {
+    super('map', sVG, arrayType);
     this.className = 'ComponentMap';
     this.arrayMarker = new Array<any>();
   }
