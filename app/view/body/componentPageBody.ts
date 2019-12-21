@@ -1,4 +1,3 @@
-import { Component } from './../common/component/component';
 import { AppObject } from './../common/appObject/appObject';
 import { ComponentRouter } from '../common/component/generic/router/componentRouter';
 

@@ -13,6 +13,7 @@ export class Component extends AppObject {
   protected sVG: boolean;
   protected basicViewModel: BasicViewModel;
   public properties: Object;
+  public item: ComponentGeneric;
 
   public getTag() {
     return this.tag;
@@ -55,6 +56,7 @@ export class Component extends AppObject {
     }
     _self.basicViewModel = new BasicViewModel(arrayType, _self.element, arrayBindHandlers);
     _self.basicViewModel.init();
+    _self.getItem();
   }
 
   public setFather(father) {
@@ -171,6 +173,10 @@ export class Component extends AppObject {
         this.basicViewModel.setAttributeValue(property, variable);
       }
     }
+  }
+
+  private getItem() {
+    this.item = <ComponentGeneric>this.seekFather('ComponentItem');
   }
 }
 import { ComponentGeneric } from './../component/generic/componentGeneric';

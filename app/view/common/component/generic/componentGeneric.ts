@@ -78,6 +78,7 @@ export class ComponentGeneric extends Component {
         'ComponentRectangle': { tag: 'rect', sVG: true },
         'ComponentText': { tag: 'text', sVG: true, arrayType: ComponentGeneric.basicInformationArrayType},
         'ComponentBasicInformation': { tag: 'basicInformation', sVG: false, arrayType: ComponentGeneric.basicInformationArrayType},
+        'ComponentInformation': { tag: 'a', sVG: false, arrayType: ComponentGeneric.basicInformationArrayType},
         'ComponentOption': { tag: 'option', sVG: false, arrayType: ComponentGeneric.basicInformationArrayType},
         'ComponentBasicText': { tag: 'basicText', sVG: false, arrayType: ComponentGeneric.basicTextArrayType},
         'ComponentTextField': { tag: 'input', sVG: false, arrayType: ComponentGeneric.basicTextArrayType},
