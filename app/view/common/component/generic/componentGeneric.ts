@@ -9,9 +9,9 @@ try { require('./componentGeneric5.css'); } catch (e) { };
 try { require('./componentGeneric6.css'); } catch (e) { };
 
 export class ComponentGeneric extends Component {
-    private static basicInformationArrayType: Array<string> = ['text'];
-    private static basicTextArrayType: Array<string> = Array.cleanPush(ComponentGeneric.basicInformationArrayType, 'placeholder');
-    private static map: { [key: string]: { tag: string, sVG?: boolean, arrayAttribute?: Array<{ name: string, value: string }>, arrayType?: Array<string> } } = {
+    public static basicInformationArrayType: Array<string> = ['text'];
+    public static basicTextArrayType: Array<string> = Array.cleanPush(ComponentGeneric.basicInformationArrayType, 'placeholder');
+    public static map: { [key: string]: { tag: string, sVG?: boolean, arrayAttribute?: Array<{ name: string, value: string }>, arrayType?: Array<string> } } = {
         'ComponentDivisor': { tag: 'div', sVG: false },
         'ComponentDiv': { tag: 'div', sVG: false },
         'ComponentForm': { tag: 'form', sVG: false },
@@ -85,7 +85,7 @@ export class ComponentGeneric extends Component {
         'ComponentTextArea': { tag: 'textarea', sVG: false, arrayType: ComponentGeneric.basicTextArrayType}
     };
 
-    private static generateMap(name?: string) {
+    public static generateMap(name?: string) {
         if (name === undefined || name === null) {
             return undefined
         } else {
