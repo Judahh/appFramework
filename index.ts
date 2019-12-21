@@ -3,13 +3,7 @@ import { ComponentPageBody } from './app/view/body/componentPageBody';
 import { ComponentTemplate } from './app/view/common/component/generic/template/componentTemplate';
 import { ComponentPageFrame } from './app/view/page/componentPageFrame';
 import { ComponentInformation } from './app/view/common/information/componentInformation';
-import { ComponentBasicInformation } from './app/view/common/information/componentBasicInformation';
-import { ComponentOption } from './app/view/common/information/option/componentOption'
-import { ComponentTextArea } from './app/view/common/dataInput/basicText/textArea/componentTextArea';
-import { ComponentTextField } from './app/view/common/dataInput/basicText/textField/componentTextField';
-import { ComponentBasicText } from './app/view/common/dataInput/basicText/componentBasicText';
 import { ComponentMap } from './app/view/common/map/componentMap';
-import { ComponentText } from './app/view/common/information/text/componentText';
 import { ServiceModel } from './app/view/serviceModel/serviceModel';
 import { Util } from 'basicutil';
 import { ComponentView } from './app/view/componentView';
@@ -26,8 +20,9 @@ import { OnLoad } from './app/onLoad/onLoad';
 import * as loader from './loader';
 
 export {
-    Component, ComponentGeneric, ComponentPageBody, ComponentMap, ComponentInformation, ComponentOption,
-    ComponentTextArea, ComponentTextField, ComponentRouter, ComponentText, ComponentPageFrame,
-    ServiceModel, Util, ComponentView, App, AppObject, ImportScript, ComponentChart, AppObjectFactory, Event,
-    ApiConnection, ComponentTemplate, ComponentBasicText, ComponentBasicInformation, OnLoad, loader
+    Component, ComponentGeneric, ComponentPageBody, ComponentMap, ComponentInformation,
+    ComponentRouter, ComponentPageFrame, Event, ServiceModel, Util, ComponentView, App,
+    AppObject, ImportScript, ComponentChart, AppObjectFactory, ApiConnection, ComponentTemplate,
+    OnLoad, loader
+
 }

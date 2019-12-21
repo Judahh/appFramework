@@ -1,12 +1,12 @@
 import 'simpleutils';
 import { Component } from '../component/component';
-import { ComponentBasicInformation } from './componentBasicInformation';
+import { ComponentGeneric } from '../component/generic/componentGeneric';
 
-export class ComponentInformation extends ComponentBasicInformation {
+export class ComponentInformation extends ComponentGeneric {
   item: any; // ComponentItem
 
   constructor() {
-    super('a');
+    super('ComponentBasicInformation', 'a');
     this.className = 'ComponentInformation';
     this.getItem();
     // this.item=new ComponentItem(this.element);
