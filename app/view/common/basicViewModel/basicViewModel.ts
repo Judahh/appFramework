@@ -1,20 +1,46 @@
 import { Attribute } from './attribute'
 import * as ko from 'knockout';
+import { AppObjectFactory } from '../appObject/factory/appObjectFactory';
 export class BasicViewModel {
     protected arrayAttribute: Array<Attribute>;
     protected element: HTMLElement | SVGElement | SVGSVGElement | HTMLInputElement | HTMLTextAreaElement;
-
-    constructor(arrayType: Array<string>, element: HTMLElement | SVGElement | SVGSVGElement | HTMLInputElement | HTMLTextAreaElement, arrayBindHandlers?: Array<string>) {
+    protected sVG: boolean;
+    constructor(arrayType: Array<string>, tag: string, sVG: boolean, arrayBindHandlers?: Array<string>) {
+        let _self = this;
         if (arrayBindHandlers)
             for (let index = 0; index < arrayBindHandlers.length; index++)
                 this.addBindHandler(arrayBindHandlers[index]);
         this.arrayAttribute = new Array<Attribute>();
-        this.element = element;
+
+        if (AppObjectFactory.numberOfElements(tag) === 0 && document.getElementsByTagName(tag).length > 0) {
+            AppObjectFactory.addElements(tag, document.getElementsByTagName(tag).length);
+        }
+        let nodes = AppObjectFactory.numberOfElements(tag);
+
+        if (tag === 'body') {
+            _self.element = document.body;
+        } else if (sVG) {
+            // console.log('_self.tag:' + _self.tag);
+            _self.sVG = sVG;
+            _self.element = document.createElementNS('http://www.w3.org/2000/svg', tag);
+        } else {
+            _self.sVG = false;
+            _self.element = document.createElement(tag);
+        }
+
+        _self.element.id = tag + 'Id' + nodes;
+
+        AppObjectFactory.addElement(tag);
+
         for (let index = 0; index < arrayType.length; index++) {
             const type = arrayType[index];
-            const attribute = new Attribute(type, type + element.id);
+            const attribute = new Attribute(type, type + _self.element.id);
             this.addBind(attribute);
         }
+    }
+
+    public getElement() {
+        return this.element;
     }
 
     public initAttributeValue(attribute: Attribute) {

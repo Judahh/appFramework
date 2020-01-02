@@ -1,51 +1,23 @@
 import 'simpleutils';
 import { Util } from 'basicutil';
 import { AppObject } from './../appObject/appObject';
-import { AppObjectFactory } from './../appObject/factory/appObjectFactory';
-import { Page } from '../../page/page';
 
 export class Component extends AppObject {
-  protected element: HTMLElement | SVGElement | SVGSVGElement | HTMLInputElement | HTMLTextAreaElement;
-  protected tag: string;
   protected infoMap: { [key: string]: string };
   protected form: ComponentGeneric;
   protected formChecked: boolean;
-  protected sVG: boolean;
   protected basicViewModel: BasicViewModel;
   public properties: Object;
   public item: ComponentGeneric;
 
   public getTag() {
-    return this.tag;
+    return this.basicViewModel.getElement().tagName;
   }
 
   public constructor(tag: string, sVG?: boolean, arrayType?: Array<string>) {
     super();
     let _self = this;
     _self.className = 'Component';
-
-    _self.tag = tag;
-    if (AppObjectFactory.numberOfElements(_self.tag) === 0 && document.getElementsByTagName(_self.tag).length > 0) {
-      AppObjectFactory.addElements(_self.tag, document.getElementsByTagName(_self.tag).length);
-    }
-    let nodes = AppObjectFactory.numberOfElements(_self.tag);
-
-    if (tag === 'body') {
-      _self.element = document.body;
-    } else if (sVG) {
-      // console.log('_self.tag:' + _self.tag);
-      _self.sVG = sVG;
-      _self.element = document.createElementNS('http://www.w3.org/2000/svg', _self.tag);
-    } else {
-      _self.sVG = false;
-      _self.element = document.createElement(_self.tag);
-    }
-
-    // console.log('_self.tag:', _self.tag);
-    // console.log('nodes:', nodes);
-    _self.element.id = _self.tag + 'Id' + nodes;
-
-    AppObjectFactory.addElement(_self.tag);
 
     _self.clear();
     let arrayBindHandlers = [...arrayType];
@@ -54,7 +26,7 @@ export class Component extends AppObject {
       if (property !== 'text')
         Array.cleanPush(arrayBindHandlers, property);
     }
-    _self.basicViewModel = new BasicViewModel(arrayType, _self.element, arrayBindHandlers);
+    _self.basicViewModel = new BasicViewModel(arrayType, tag, sVG, arrayBindHandlers);
     _self.basicViewModel.init();
     _self.getItem();
   }
@@ -76,11 +48,11 @@ export class Component extends AppObject {
   }
 
   public getElement() {
-    return this.element;
+    return this.basicViewModel.getElement();
   }
 
   public isElementInnerHTMLEmpty() {
-    return (!this.element.innerHTML || this.element.innerHTML === undefined || this.element.innerHTML === 'undefined');
+    return (!this.basicViewModel.getElement().innerHTML || this.basicViewModel.getElement().innerHTML === undefined || this.basicViewModel.getElement().innerHTML === 'undefined');
   }
 
   public cleanElementInnerHTML() {
@@ -90,11 +62,11 @@ export class Component extends AppObject {
   }
 
   public clearElementInnerHTML() {
-    this.element.innerHTML = '';
+    this.basicViewModel.getElement().innerHTML = '';
   }
 
   public setElementSource(source: string) {
-    let tmp: any = this.element;
+    let tmp: any = this.basicViewModel.getElement();
     tmp.src = source;
   }
 
@@ -106,18 +78,18 @@ export class Component extends AppObject {
     // this.render();
     // console.log('FATHER:' + fatherElement.tagName);
     // console.log('this:' + this.getClassName());
-    fatherElement.appendChild(this.element);
+    fatherElement.appendChild(this.basicViewModel.getElement());
   }
 
   public clear() {
-    this.element.innerHTML = '';
+    this.basicViewModel.getElement().innerHTML = '';
   }
 
   public destroyElement() {
-    let element = document.getElementById(this.element.id);
+    let element = document.getElementById(this.basicViewModel.getElement().id);
     if (element === undefined || element === null) {
-      if (this.element !== undefined && this.element !== null) {
-        this.element.remove(); // parentElement.removeChild(element);
+      if (this.basicViewModel.getElement() !== undefined && this.basicViewModel.getElement() !== null) {
+        this.basicViewModel.getElement().remove(); // parentElement.removeChild(element);
         // this.element.outerHTML = "";
       }
     } else {
@@ -128,7 +100,7 @@ export class Component extends AppObject {
 
   public destroyChildElements() {
     let range = document.createRange();
-    range.selectNodeContents(this.element);
+    range.selectNodeContents(this.basicViewModel.getElement());
     range.deleteContents();
   }
 
@@ -142,19 +114,19 @@ export class Component extends AppObject {
       // console.log('CLEAR');
       // console.log(property);
       // console.log(this[property][0].getTag());
-      let elements = this.element.getElementsByTagName(this[property][0].getTag());
+      let elements = this.basicViewModel.getElement().getElementsByTagName(this[property][0].getTag());
       Util.getInstance().removeElements(elements);
       this[property].length = 0;
     }
   }
 
   protected generateElementStyleFromJSON(jSON, property) {
-    this.element.style[property] = jSON[property];
+    this.basicViewModel.getElement().style[property] = jSON[property];
   }
 
   protected generateElementVarFromJSON(jSON, property) {
     // this.element[property] = jSON[property];
-    this.element.setAttribute(property, jSON[property]);
+    this.basicViewModel.getElement().setAttribute(property, jSON[property]);
   }
 
   public beforeUpdateLanguage() {
