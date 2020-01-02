@@ -42,7 +42,7 @@ export class ComponentMap extends Component {
     // console.log('key:'+this.key);
     // tslint:disable-next-line: no-eval
     this.maps = eval('google' + '.' + 'maps');
-    this.map = new this.maps.Map(this.element, this.options);
+    this.map = new this.maps.Map(this.basicViewModel.getElement(), this.options);
     this.arrayMarkerPosition.forEach(markerPosition => {
       let marker = new this.maps.Marker({
         position: markerPosition,
