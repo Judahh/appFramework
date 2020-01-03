@@ -16,6 +16,9 @@ export class BasicViewModel {
             AppObjectFactory.addElements(tag, document.getElementsByTagName(tag).length);
         }
         let nodes = AppObjectFactory.numberOfElements(tag);
+        let id = tag + 'Id' + nodes;
+
+        this.clear(document.getElementById(id));
 
         if (tag === 'body') {
             _self.element = document.body;
@@ -28,7 +31,7 @@ export class BasicViewModel {
             _self.element = document.createElement(tag);
         }
 
-        _self.element.id = tag + 'Id' + nodes;
+        _self.element.id = id;
 
         AppObjectFactory.addElement(tag);
 
@@ -91,5 +94,12 @@ export class BasicViewModel {
                 ko.applyBindingsToNode(element, binding, _self);
             }
         };
+    }
+
+    private clear(element?: HTMLElement | SVGElement | SVGSVGElement | HTMLInputElement | HTMLTextAreaElement) {
+        if (element)
+            element.innerHTML = '';
+        else
+            this.element.innerHTML = '';
     }
 }

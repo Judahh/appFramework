@@ -19,7 +19,6 @@ export class Component extends AppObject {
     let _self = this;
     _self.className = 'Component';
 
-    _self.clear();
     let arrayBindHandlers = [...arrayType];
     for (const property of Object.keys(_self.properties)) {
       Array.cleanPush(arrayType, property);
@@ -79,10 +78,6 @@ export class Component extends AppObject {
     // console.log('FATHER:' + fatherElement.tagName);
     // console.log('this:' + this.getClassName());
     fatherElement.appendChild(this.basicViewModel.getElement());
-  }
-
-  public clear() {
-    this.basicViewModel.getElement().innerHTML = '';
   }
 
   public destroyElement() {
