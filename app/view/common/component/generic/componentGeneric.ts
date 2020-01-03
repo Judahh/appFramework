@@ -85,6 +85,8 @@ export class ComponentGeneric extends Component {
         'ComponentTextArea': { tag: 'textarea', sVG: false, arrayType: ComponentGeneric.basicTextArrayType}
     };
 
+    private specificName: string;
+
     public static generateMap(name?: string) {
         if (name === undefined || name === null) {
             return undefined
@@ -95,12 +97,13 @@ export class ComponentGeneric extends Component {
 
     constructor(name?: string, tag?: string) {
         super(tag ? tag : ComponentGeneric.generateMap(name).tag, ComponentGeneric.generateMap(name).sVG, ComponentGeneric.generateMap(name).arrayType);
+        this.specificName = name;
         this.className = 'ComponentGeneric';
     }
 
     public setFather(father) {
         super.setFather(father);
-        let map = ComponentGeneric.generateMap(name);
+        let map = ComponentGeneric.generateMap(this.specificName);
         if (map.arrayAttribute && map.arrayAttribute.length > 0)
             for (let index = 0; index < map.arrayAttribute.length; index++) {
                 const attribute = map.arrayAttribute[index];
@@ -109,7 +112,10 @@ export class ComponentGeneric extends Component {
     }
 
     public generateMap(name?: string) {
-        return ComponentGeneric.generateMap(name);
+        if (name)
+            return ComponentGeneric.generateMap(name);
+        else if (this.specificName)
+            return ComponentGeneric.generateMap(this.specificName);
     }
 }
 ComponentGeneric.addConstructor('ComponentGeneric', ComponentGeneric);
