@@ -18,14 +18,17 @@ export class Component extends AppObject {
     super();
     let _self = this;
     _self.className = 'Component';
+    let arrayBindHandlers;
 
-    let arrayBindHandlers = [...arrayType];
-    for (const property of Object.keys(_self.properties)) {
-      Array.cleanPush(arrayType, property);
-      if (property !== 'text')
-        Array.cleanPush(arrayBindHandlers, property);
+    if (_self.properties && arrayType) {
+      arrayBindHandlers = [...arrayType];
+      for (const property of Object.keys(_self.properties)) {
+        Array.cleanPush(arrayType, property);
+        if (property !== 'text')
+          Array.cleanPush(arrayBindHandlers, property);
+      }
     }
-    _self.basicViewModel = new BasicViewModel(arrayType, tag, sVG, arrayBindHandlers);
+    _self.basicViewModel = new BasicViewModel({ tag: tag, sVG: sVG, arrayType: arrayType, arrayBindHandlers: arrayBindHandlers });
     _self.basicViewModel.init();
     _self.getItem();
   }
@@ -125,21 +128,23 @@ export class Component extends AppObject {
   }
 
   public beforeUpdateLanguage() {
-    for (const property of Object.keys(this.properties)) {
-      if (this.isElementInnerHTMLEmpty()) {
-        this.basicViewModel.setAttributeValue(property, this.properties[property]);
+    if (this.properties)
+      for (const property of Object.keys(this.properties)) {
+        if (this.isElementInnerHTMLEmpty()) {
+          this.basicViewModel.setAttributeValue(property, this.properties[property]);
+        }
       }
-    }
     this.cleanElementInnerHTML();
   }
 
   protected afterUpdateLanguage() {
-    for (const property of Object.keys(this.properties)) {
-      let variable = this.seekVariable(this.properties[property]);
-      if (variable !== undefined) {
-        this.basicViewModel.setAttributeValue(property, variable);
+    if (this.properties)
+      for (const property of Object.keys(this.properties)) {
+        let variable = this.seekVariable(this.properties[property]);
+        if (variable !== undefined) {
+          this.basicViewModel.setAttributeValue(property, variable);
+        }
       }
-    }
   }
 
   private getItem() {

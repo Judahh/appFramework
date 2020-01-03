@@ -5,7 +5,7 @@ export class BasicViewModel {
     protected arrayAttribute: Array<Attribute>;
     protected element: HTMLElement | SVGElement | SVGSVGElement | HTMLInputElement | HTMLTextAreaElement;
     protected sVG: boolean;
-    constructor(arrayType: Array<string>, tag: string, sVG: boolean, arrayBindHandlers?: Array<string>) {
+    constructor({ tag, sVG, arrayType, arrayBindHandlers }: { tag: string; sVG: boolean; arrayType?: Array<string>; arrayBindHandlers?: Array<string>; }) {
         let _self = this;
         if (arrayBindHandlers)
             for (let index = 0; index < arrayBindHandlers.length; index++)
@@ -35,11 +35,12 @@ export class BasicViewModel {
 
         AppObjectFactory.addElement(tag);
 
-        for (let index = 0; index < arrayType.length; index++) {
-            const type = arrayType[index];
-            const attribute = new Attribute(type, type + _self.element.id);
-            this.addBind(attribute);
-        }
+        if  (arrayType)
+            for (let index = 0; index < arrayType.length; index++) {
+                const type = arrayType[index];
+                const attribute = new Attribute(type, type + _self.element.id);
+                this.addBind(attribute);
+            }
     }
 
     public getElement() {
@@ -99,7 +100,7 @@ export class BasicViewModel {
     private clear(element?: HTMLElement | SVGElement | SVGSVGElement | HTMLInputElement | HTMLTextAreaElement) {
         if (element)
             element.innerHTML = '';
-        else
+        else if (this.element)
             this.element.innerHTML = '';
     }
 }
