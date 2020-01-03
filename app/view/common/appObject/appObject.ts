@@ -344,8 +344,6 @@ export class AppObject extends Child {
 
 import { Event } from './event/event';
 import { ComponentView } from './../../componentView';
-import { ComponentPageBody } from './../../body/componentPageBody';
-import { ComponentRouter } from '../component/generic/router/componentRouter';
 import { ComponentPageFrame } from '../../page/componentPageFrame';
 import { JSONObjectType } from './jSONObjectType';
 AppObject.addConstructor('AppObject', AppObject);

@@ -39,6 +39,14 @@ export class Child {
         this.arrayChild.push(child);
     }
 
+    public spliceChild(start: number, deleteCount?: number, ...children: Child[]) {
+        for (let index = 0; index < children.length; index++) {
+            const child = children[index];
+            this.initChild(child);
+        }
+        this.arrayChild.splice(start, deleteCount, ...children);
+    }
+
     public setChild(child: Child, index: number, jSON?: JSON) {
         this.initChild(child, jSON);
         this.arrayChild[index] = child;

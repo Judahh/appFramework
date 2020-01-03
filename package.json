@@ -2,7 +2,7 @@
   "name": "backappjh",
   "productName": "backApp",
   "author": "Judah Holanda Correia Lima <judahholanda7@gmail.com> (https://judahh.com)",
-  "version": "0.3.49",
+  "version": "0.3.50",
   "private": false,
   "description": "Judahh APP project",
   "main": "index.js",
@@ -33,8 +33,7 @@
     "webpack": "webpack"
   },
   "dependencies": {
-    "node": "13.5.0",
-    "basicsocket": "0.2.2",
+    "basicsocket": "0.2.3",
     "basicutil": "1.2.7",
     "simpleutils": "1.0.17",
     "tslint": "5.20.1",
