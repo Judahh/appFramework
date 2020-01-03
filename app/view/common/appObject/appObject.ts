@@ -4,7 +4,6 @@ import { Child } from '../child/child';
 
 export class AppObject extends Child {
   private static types: any;
-  arrayEvent: Array<Event>;
   page: string;
   notificationName: string;
   view: ComponentView;
@@ -42,8 +41,6 @@ export class AppObject extends Child {
     this.checkPageFrame = false;
     this.checkView = false;
     this.checkNotification = false;
-    this.arrayEvent = new Array<Event>();
-    this.arrayEvent.type = Event;
     this.className = 'AppObject';
   }
 
@@ -342,7 +339,7 @@ export class AppObject extends Child {
   }
 }
 
-import { Event } from './event/event';
+
 import { ComponentView } from './../../componentView';
 import { ComponentPageFrame } from '../../page/componentPageFrame';
 import { JSONObjectType } from './jSONObjectType';
