@@ -10,6 +10,7 @@ export class Page extends Child {
 
     constructor(file?) {
         super();
+        this.className = 'Page';
         this.unknown = false;
         if (file)
             ServiceModel.getPromise(file + 'L').then((data) => this.checkLanguage(file, data)).fail((data) => this.checkFailed(data));
@@ -69,10 +70,6 @@ export class Page extends Child {
             this.father.updateFailed(data, this);
     }
 
-    public getFather() {
-        return this.father;
-    }
-
     public setPage() {// depois checar evento de resize e fazer esperar carregamento
         let width = document.documentElement.clientWidth;
         let height = document.documentElement.clientHeight;
@@ -97,7 +94,8 @@ export class Page extends Child {
 
     private refreshFrame(frame: ComponentPageFrame) {
         this.currentFrame = frame;
-        this.addChild(frame);
+        if (this.getArrayChild.indexOf(frame) === -1)
+            this.addChild(frame);
         // this.currentFrame.renderAfterFullUpdate(this.currentFrame);
     }
 }

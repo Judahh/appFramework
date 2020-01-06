@@ -4,6 +4,8 @@ export class Child {
     protected arrayVariable: Array<String>;
     public arrayChild: ObservableArray<Child>;
 
+    public getArrayChild: Array<Child>;
+
     constructor() {
         let _self = this;
         this.className = 'Child';
@@ -11,6 +13,7 @@ export class Child {
         this.arrayChild.subscribe((changes) => {
             _self.arrayChange(changes);
         }, null, 'arrayChange');
+        this.getArrayChild = this.arrayChild();
         this.arrayVariable = new Array<String>();
     }
 

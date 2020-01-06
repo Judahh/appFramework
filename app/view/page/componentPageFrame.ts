@@ -8,18 +8,13 @@ export class ComponentPageFrame extends Component {
     private maxWidth: number;
     private minHeight: number;
     private maxHeight: number;
-    private fullPage: Page;
 
     constructor(sVG?: boolean, arrayType?: string[]) {
         super('pageFrame', sVG, arrayType);
         this.className = 'ComponentPageFrame';
         this.background = new ComponentGeneric('ComponentBackground');
+        this.background.setFather(this);
     }
-
-    public setFather(father) {
-        super.setFather(father);
-        this.fullPage = father;
-      }
 
     public setMinWidth(minWidth: number) {
         this.minWidth = minWidth;
@@ -34,11 +29,11 @@ export class ComponentPageFrame extends Component {
     }
 
     public setMaxHeight(maxHeight: number) {
-        return this.maxHeight;
+        this.maxHeight = maxHeight;
     }
 
-    public getFullPage() {
-        return this.fullPage;
+    public getFullPage(): Page {
+        return <Page> this.getFather();
     }
 
     public getMinWidth() {
