@@ -120,9 +120,19 @@ export class Child {
     private arrayChange(changes) {
         for (let index = 0; index < changes.length; index++) {
             const change = changes[index];
-            if (change.status = 'added') {
-                this.initChild(change.value);
+            // TODO missing status
+            if (change.status === 'added') {
+                this.addChange(change);
             }
+        }
+    }
+
+    private addChange(change) {
+        if (change.value === undefined) {
+            delete change.status;
+            this.initChild(change);
+        } else {
+            this.initChild(change.value);
         }
     }
 }

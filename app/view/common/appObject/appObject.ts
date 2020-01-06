@@ -140,14 +140,14 @@ export class AppObject extends Child {
     let object = AppObject.getTypes()[jSON.type];
     let properElement;
     if (object !== null && object !== undefined) {
-      properElement = new object(_self);
+      properElement = new object();
     } else {
       object = AppObject.getTypes()['ComponentGeneric'];
-      properElement = new object(_self, jSON.type);
+      properElement = new object(jSON.type);
     }
     // console.log('object', object);
     // console.log('properElement', properElement);
-    properElement.renderFromJSON(jSON);
+    properElement.populate(jSON);
     _self[property].push(properElement);
   }
 
@@ -155,7 +155,7 @@ export class AppObject extends Child {
     let _self = this;
     let properElement = new _self[property].type(_self);
     // console.log(properElement);
-    properElement.renderFromJSON(jSON);
+    properElement.populate(jSON);
     _self[property].push(properElement);
   }
 
@@ -195,7 +195,7 @@ export class AppObject extends Child {
     if (_self.getArrayProperty(property).constructor === Array) {
       _self.generateArrayFromJSON(jSON, property);
     } else {
-      _self[property].renderFromJSON(jSON[property]);
+      _self[property].populate(jSON[property]);
       // _self[property].insert(_self);
     }
   }
