@@ -10,7 +10,7 @@ export class Child {
         this.arrayChild = ko.observableArray<Child>();
         this.arrayChild.subscribe((changes) => {
             _self.arrayChange(changes);
-        });
+        }, null, 'arrayChange');
         this.arrayVariable = new Array<String>();
     }
 
