@@ -112,7 +112,7 @@ export class AppObject extends Child {
   protected generateArrayFromJSON(jSON, property: any) {
     let _self = this;
     _self.clearProperty(property);
-    if (_self[property].type !== undefined) {
+    if (_self.getArrayProperty(property).type !== undefined) {
       _self.generateElementsFromJSONArrayProperty(jSON, property);
     } else {
       _self.generateObjectsFromJSONArrayProperty(jSON, property);
@@ -180,9 +180,19 @@ export class AppObject extends Child {
     }
   }
 
-  protected populateRegularPropertyFromJSON(jSON, property: any) {
+  protected getArrayProperty(property: any) {
     let _self = this;
     if (_self[property].constructor === Array) {
+      return _self[property];
+    } else if (_self[property].constructor === Function &&
+      _self[property]().constructor === Array) {
+      return _self[property]();
+    }
+  }
+
+  protected populateRegularPropertyFromJSON(jSON, property: any) {
+    let _self = this;
+    if (_self.getArrayProperty(property).constructor === Array) {
       _self.generateArrayFromJSON(jSON, property);
     } else {
       _self[property].renderFromJSON(jSON[property]);
