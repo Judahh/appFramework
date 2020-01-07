@@ -104,21 +104,23 @@ export class ComponentGeneric extends Component {
         this.specificName = geneticCode.specificName;
     }
 
-    public setFather(father) {
-        super.setFather(father);
-        let map = ComponentGeneric.generateMap(this.specificName);
-        if (map.arrayAttribute && map.arrayAttribute.length > 0)
-            for (let index = 0; index < map.arrayAttribute.length; index++) {
-                const attribute = map.arrayAttribute[index];
-                this.getElement().setAttribute(attribute.name, attribute.value);
-            }
-    }
-
     public generateMap(name?: string) {
         if (name)
             return ComponentGeneric.generateMap(name);
         else if (this.specificName)
             return ComponentGeneric.generateMap(this.specificName);
+    }
+
+    protected initGeneticCode(geneticCode: GeneticCode) {
+        let _self = this;
+        geneticCode = super.initGeneticCode(geneticCode);
+        let map = ComponentGeneric.generateMap(geneticCode.specificName);
+        if (map.arrayAttribute && map.arrayAttribute.length > 0)
+            for (let index = 0; index < map.arrayAttribute.length; index++) {
+                const attribute = map.arrayAttribute[index];
+                _self.getElement().setAttribute(attribute.name, attribute.value);
+            }
+        return geneticCode;
     }
 }
 ComponentGeneric.addConstructor('ComponentGeneric', ComponentGeneric);
