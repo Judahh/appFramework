@@ -108,13 +108,13 @@ export class Component extends AppObject {
   }
 
   protected clearProperty(property) {
-    if (this.getArrayProperty(property).length > 0) {
+    if (this.getProperty(property).length > 0) {
       // console.log('CLEAR');
       // console.log(property);
       // console.log(this[property][0].getTag());
-      let elements = this.basicViewModel.getElement().getElementsByTagName(this.getArrayProperty(property)[0].getTag());
+      let elements = this.basicViewModel.getElement().getElementsByTagName(this.getProperty(property)[0].getTag());
       Util.getInstance().removeElements(elements);
-      this.getArrayProperty(property).length = 0;
+      this.getProperty(property).length = 0;
     }
   }
 

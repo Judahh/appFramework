@@ -112,7 +112,7 @@ export class AppObject extends Child {
   protected generateArrayFromJSON(jSON, property: any) {
     let _self = this;
     _self.clearProperty(property);
-    if (_self.getArrayProperty(property).type !== undefined) {
+    if (_self.getProperty(property).type !== undefined) {
       _self.generateElementsFromJSONArrayProperty(jSON, property);
     } else {
       _self.generateObjectsFromJSONArrayProperty(jSON, property);
@@ -147,8 +147,9 @@ export class AppObject extends Child {
     }
     // console.log('object', object);
     // console.log('properElement', properElement);
-    properElement.populate(jSON);
-    _self[property].push(properElement);
+    _self.addChild(properElement, jSON);
+    // properElement.populate(jSON);
+    // _self[property].push(properElement);
   }
 
   protected generateElementFromJSON(jSON, property: any) {
@@ -176,23 +177,31 @@ export class AppObject extends Child {
       _self.generatePropertyFromJSON(jSON, property);
     } else {
       // console.log('Prop is var:' + jSON[property]);
-      _self[property] = jSON[property];
+      _self.setProperty(property, jSON[property]);
     }
   }
 
-  protected getArrayProperty(property: any) {
+  protected getProperty(property: any) {
     let _self = this;
-    if (_self[property].constructor === Array) {
-      return _self[property];
-    } else if (_self[property].constructor === Function &&
+    if (_self[property].constructor === Function &&
       _self[property]().constructor === Array) {
       return _self[property]();
     }
+    return _self[property];
+  }
+
+  protected setProperty(property: any, value: any) {
+    let _self = this;
+    if (_self[property].constructor === Function &&
+      _self[property]().constructor === Array) {
+
+    } else
+      _self[property] = value;
   }
 
   protected populateRegularPropertyFromJSON(jSON, property: any) {
     let _self = this;
-    if (_self.getArrayProperty(property).constructor === Array) {
+    if (_self.getProperty(property).constructor === Array) {
       _self.generateArrayFromJSON(jSON, property);
     } else {
       _self[property].populate(jSON[property]);

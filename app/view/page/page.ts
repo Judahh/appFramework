@@ -29,7 +29,6 @@ export class Page extends Child {
     }
 
     protected checkLanguage(file, jSON) {
-        // jSON = JSON.parse(jSON);
         this.language = jSON;
         ServiceModel.getPromise(file).then((data) => this.checkArray(data)).fail((data) => this.checkFailed(data));
     }
@@ -48,7 +47,7 @@ export class Page extends Child {
             }
         } else {
             let frame = new ComponentPageFrame();
-            this.addChild(frame, jSON);
+            this.addFrame(frame, jSON);
             this.setPage();
         }
     }
@@ -60,7 +59,7 @@ export class Page extends Child {
         frame.setMaxWidth(fJSON.maxWidth);
         frame.setMinHeight(fJSON.minHeight);
         frame.setMaxHeight(fJSON.maxHeight);
-        this.addChild(frame, jSON);
+        this.addFrame(frame, jSON);
         this.setPage();
     }
 
@@ -94,8 +93,12 @@ export class Page extends Child {
 
     private refreshFrame(frame: ComponentPageFrame) {
         this.currentFrame = frame;
-        if (this.getArrayChild.indexOf(frame) === -1)
-            this.addChild(frame);
+        this.addFrame(frame);
         // this.currentFrame.renderAfterFullUpdate(this.currentFrame);
+    }
+
+    private addFrame(frame: ComponentPageFrame, jSON?) {
+        if (this.getArrayChild.indexOf(frame) === -1)
+            this.addChild(frame, jSON);
     }
 }

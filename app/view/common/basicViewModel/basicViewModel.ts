@@ -12,26 +12,11 @@ export class BasicViewModel {
                 this.addBindHandler(arrayBindHandlers[index]);
         this.arrayAttribute = new Array<Attribute>();
 
-        if (AppObjectFactory.numberOfElements(tag) === 0 && document.getElementsByTagName(tag).length > 0) {
-            AppObjectFactory.addElements(tag, document.getElementsByTagName(tag).length);
-        }
+        AppObjectFactory.cleanAddElements(tag);
+
         let nodes = AppObjectFactory.numberOfElements(tag);
-        let id = tag + 'Id' + nodes;
-
-        this.clear(document.getElementById(id));
-
-        if (tag === 'body') {
-            _self.element = document.body;
-        } else if (sVG) {
-            // console.log('_self.tag:' + _self.tag);
-            _self.sVG = sVG;
-            _self.element = document.createElementNS('http://www.w3.org/2000/svg', tag);
-        } else {
-            _self.sVG = false;
-            _self.element = document.createElement(tag);
-        }
-
-        _self.element.id = id;
+        _self.element = AppObjectFactory.createElement(tag, tag + 'Id' + nodes, sVG);
+        _self.sVG = sVG;
 
         AppObjectFactory.addElement(tag);
 
@@ -95,12 +80,5 @@ export class BasicViewModel {
                 ko.applyBindingsToNode(element, binding, _self);
             }
         };
-    }
-
-    private clear(element?: HTMLElement | SVGElement | SVGSVGElement | HTMLInputElement | HTMLTextAreaElement) {
-        if (element)
-            element.innerHTML = '';
-        else if (this.element)
-            this.element.innerHTML = '';
     }
 }

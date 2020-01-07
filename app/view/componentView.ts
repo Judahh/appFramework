@@ -17,18 +17,18 @@ export class ComponentView extends Component { // body
   }
 
   public getHeader() {
-    return <ComponentRouter>this.arrayChild[0];
+    return <ComponentRouter>this.getArrayChild[0];
   }
   public getNotification() {
-    return <ComponentRouter>this.arrayChild[1];
+    return <ComponentRouter>this.getArrayChild[1];
   }
 
   public getPageBody() {
-    return <ComponentPageBody>this.arrayChild[2];
+    return <ComponentPageBody>this.getArrayChild[2];
   }
 
   public getFooter() {
-    return <ComponentRouter>this.arrayChild[3];
+    return <ComponentRouter>this.getArrayChild[3];
   }
 
   public resetHeader() {
