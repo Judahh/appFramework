@@ -1,10 +1,11 @@
 import { Component } from './common/component/component';
 import { ComponentPageBody } from './body/componentPageBody';
 import { ComponentRouter } from './common/component/generic/router/componentRouter';
+import { GeneticCode } from './common/child/geneticCode';
 
 export class ComponentView extends Component { // body
-  constructor(sVG?: boolean, arrayType?: string[]) {
-    super('body', sVG, arrayType);
+  constructor(geneticCode: GeneticCode) {
+    super({...geneticCode, ...{tag: 'body'}});
     this.className = 'ComponentView';
     this.resetHeader();
     this.resetNotification();
@@ -34,25 +35,25 @@ export class ComponentView extends Component { // body
   public resetHeader() {
     if (this.getHeader())
       this.getHeader().destroyElement();
-    this.setChild(new ComponentRouter('ComponentHeader', 'header', '', '', 'header'), 0);
+    new ComponentRouter({ father: this, position: 0, specificName: 'ComponentHeader', routerName: 'header', nextName: '', suffix: '', main: 'header' });
   }
 
   public resetNotification() {
     if (this.getNotification())
       this.getNotification().destroyElement();
-    this.setChild(new ComponentRouter('ComponentNotification', 'notification', 'none', 'Notification', 'none'), 1);
+    new ComponentRouter({ father: this, position: 1, specificName: 'ComponentNotification', routerName: 'notification', nextName: 'none', suffix: 'Notification', main: 'none' });
   }
 
   public resetPageBody() {
     if (this.getPageBody())
       this.getPageBody().destroyElement();
-    this.setChild(new ComponentPageBody(), 2);
+    new ComponentPageBody({ father: this, position: 2 });
   }
 
   public resetFooter() {
     if (this.getFooter())
       this.getFooter().destroyElement();
-    this.setChild(new ComponentRouter('ComponentFooter', 'footer', '', '', 'footer'), 3);
+    new ComponentRouter({ father: this, position: 3, specificName: 'ComponentFooter', routerName: 'footer', nextName: '', suffix: '', main: 'footer' });
   }
 }
 ComponentView.addConstructor('ComponentView', ComponentView);

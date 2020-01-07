@@ -14,21 +14,21 @@ export class Component extends AppObject {
     return this.basicViewModel.getElement().tagName;
   }
 
-  public constructor(tag: string, sVG?: boolean, arrayType?: Array<string>) {
-    super();
+  public constructor(geneticCode: GeneticCode) { // ex: {tag: 'chart', sVG: geneticCode.sVG, arrayType: geneticCode.arrayType}
+    super(geneticCode);
     let _self = this;
     _self.className = 'Component';
     let arrayBindHandlers;
 
-    if (_self.properties && arrayType) {
-      arrayBindHandlers = [...arrayType];
+    if (_self.properties && geneticCode.arrayType) {
+      arrayBindHandlers = [...geneticCode.arrayType];
       for (const property of Object.keys(_self.properties)) {
-        Array.cleanPush(arrayType, property);
+        Array.cleanPush(geneticCode.arrayType, property);
         if (property !== 'text')
           Array.cleanPush(arrayBindHandlers, property);
       }
     }
-    _self.basicViewModel = new BasicViewModel({ tag: tag, sVG: sVG, arrayType: arrayType, arrayBindHandlers: arrayBindHandlers });
+    _self.basicViewModel = new BasicViewModel({ tag: geneticCode.tag, sVG: geneticCode.sVG, arrayType: geneticCode.arrayType, arrayBindHandlers: arrayBindHandlers });
     _self.basicViewModel.init();
     _self.getItem();
   }
@@ -153,5 +153,6 @@ export class Component extends AppObject {
 }
 import { ComponentGeneric } from './../component/generic/componentGeneric';
 import { BasicViewModel } from '../basicViewModel/basicViewModel';
+import { GeneticCode } from '../child/geneticCode';
 
 Component.addConstructor('Component', Component);

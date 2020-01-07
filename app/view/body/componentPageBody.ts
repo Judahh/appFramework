@@ -1,12 +1,13 @@
 import { AppObject } from './../common/appObject/appObject';
 import { ComponentRouter } from '../common/component/generic/router/componentRouter';
+import { GeneticCode } from '../common/child/geneticCode';
 
 try { require('./componentPageBody.css'); } catch (e) { };
 
 export class ComponentPageBody extends ComponentRouter {
 
-  constructor(pageName?: string) {
-    super('ComponentPageBody', 'page', pageName, '', 'home');
+  constructor(geneticCode: GeneticCode) {
+    super({...geneticCode , ...{specificName: 'ComponentPageBody', routerName: 'page', suffix: '', main: 'home'}});
     this.className = 'ComponentPageBody';
   }
 

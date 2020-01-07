@@ -2,14 +2,15 @@ import { ComponentPageFrame } from './componentPageFrame';
 import { ServiceModel } from '../serviceModel/serviceModel';
 import { ComponentRouter } from '../common/component/generic/router/componentRouter';
 import { Child } from '../common/child/child';
+import { GeneticCode } from '../common/child/geneticCode';
 
 export class Page extends Child {
     private currentFrame: ComponentPageFrame;
     private language: any;
     private unknown: boolean;
 
-    constructor(file?) {
-        super();
+    constructor(geneticCode: GeneticCode, file?) {
+        super(geneticCode);
         this.className = 'Page';
         this.unknown = false;
         if (file)
@@ -46,20 +47,18 @@ export class Page extends Child {
                 ServiceModel.getPromise(jSON[index]['file']).then((data) => this.checkFrame(data, fJSON)).fail((data) => this.checkFailed(data));
             }
         } else {
-            let frame = new ComponentPageFrame();
-            this.addFrame(frame, jSON);
+            let frame = new ComponentPageFrame({father: this, jSON: jSON});
             this.setPage();
         }
     }
 
     protected checkFrame(jSON, fJSON) {
         // jSON = JSON.parse(jSON);
-        let frame = new ComponentPageFrame();
+        let frame = new ComponentPageFrame({father: this, jSON: jSON});
         frame.setMinWidth(fJSON.minWidth);
         frame.setMaxWidth(fJSON.maxWidth);
         frame.setMinHeight(fJSON.minHeight);
         frame.setMaxHeight(fJSON.maxHeight);
-        this.addFrame(frame, jSON);
         this.setPage();
     }
 

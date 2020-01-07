@@ -1,6 +1,7 @@
 import 'simpleutils';
 import { Util } from 'basicutil';
 import { Component } from './../component/component';
+import { GeneticCode } from '../child/geneticCode';
 
 export class ComponentChart extends Component {
   arrayData: Array<any>;
@@ -9,8 +10,8 @@ export class ComponentChart extends Component {
   arrayPackages: Array<string>;
   language: any;
 
-  constructor(sVG?: boolean, arrayType?: string[]) {
-    super('chart', sVG, arrayType);
+  constructor(geneticCode: GeneticCode) {
+    super({...geneticCode, ...{tag: 'chart'}});
     this.className = 'ComponentChart';
   }
 

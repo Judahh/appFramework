@@ -2,6 +2,7 @@ import 'simpleutils';
 import { Util } from 'basicutil';
 import { Page } from '../../../../page/page';
 import { ComponentGeneric } from '../componentGeneric';
+import { GeneticCode } from '../../../child/geneticCode';
 
 
 export class ComponentRouter extends ComponentGeneric {
@@ -11,17 +12,16 @@ export class ComponentRouter extends ComponentGeneric {
     private routerName: string; // notification, page,header,footer
     private suffix: string; // Notification,empty,empty,empty
     private main: string; // none,home,header,footer
-
     private go: boolean;
 
-    constructor(name?: string, routerName?: string, nextName?: string, suffix?: string, main?: string) {
-        super(name);
+    constructor(geneticCode: GeneticCode) { // ex: {specificName: 'ComponentPageBody', routerName: 'page', nextName: geneticCode.nextName, suffix: '', main: 'home'}
+        super(geneticCode);
         this.pages = {};
-        this.routerName = routerName;
-        this.suffix = suffix;
-        this.main = main;
+        this.routerName = geneticCode.routerName;
+        this.suffix = geneticCode.suffix;
+        this.main = geneticCode.main;
         this.go = false;
-        this.init(nextName);
+        this.init(geneticCode.nextName);
         // console.log(father, name, routerName, nextName, suffix, main);
     }
 
@@ -68,7 +68,7 @@ export class ComponentRouter extends ComponentGeneric {
     public initPage(pageName: string) {
         this.go = true;
         if (this.pages[pageName] === undefined) {
-            this.pages[pageName] = new Page(pageName);
+            this.pages[pageName] = new Page({father: this}, pageName);
         } else {
             if (this.pages[pageName].getArrayChild.length === 0 && this.pages[pageName].getUnknown() === true) {
                 this.nextName = 'unknown';

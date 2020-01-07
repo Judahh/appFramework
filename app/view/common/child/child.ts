@@ -6,8 +6,13 @@ export class Child {
 
     public getArrayChild: Array<Child>;
 
-    constructor() {
+    constructor(geneticCode: GeneticCode) {
         let _self = this;
+        if (geneticCode.father)
+            if (geneticCode.position)
+                geneticCode.father.setChild(this, geneticCode.position, geneticCode.jSON);
+            else
+                geneticCode.father.addChild(this, geneticCode.jSON);
         this.className = 'Child';
         this.arrayChild = ko.observableArray<Child>();
         this.arrayChild.subscribe((changes) => {
@@ -140,6 +145,7 @@ export class Child {
     }
 }
 
+import { GeneticCode } from './geneticCode';
 import { Component } from '../component/component';
 import { ComponentGeneric } from '../component/generic/componentGeneric';
 import { ObservableArray, SubscriptionCallback } from 'knockout';

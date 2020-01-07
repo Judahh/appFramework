@@ -1,6 +1,7 @@
 import { Component } from './../../component/component';
 import * as $ from 'jquery';
 import { KeyboardOptions, Typing, Extender } from 'virtual-keyboard';
+import { GeneticCode } from '../../child/geneticCode';
 
 try { require('./componentKeyboard.css'); } catch (e) { };
 
@@ -9,8 +10,8 @@ export class ComponentKeyboard extends Component {
   private typing;
   private extender;
 
-  constructor(sVG?: boolean, arrayType?: string[]) {
-    super('virtualKeyboard', sVG, arrayType);
+  constructor(geneticCode: GeneticCode) {
+    super({...geneticCode, ...{tag: 'virtualKeyboard'}});
     this.className = 'ComponentKeyboard';
     let keyboardOptionsB = KeyboardOptions;
   }

@@ -16,8 +16,8 @@ export class AppObject extends Child {
     return this.types;
   }
 
-  public static getInstance() {
-    return new this();
+  public static getInstance(geneticCode: GeneticCode) {
+    return new this(geneticCode);
   }
 
   public static addType(type) {
@@ -35,8 +35,8 @@ export class AppObject extends Child {
     }
   }
 
-  constructor() {
-    super();
+  constructor(geneticCode: GeneticCode) {
+    super(geneticCode);
 
     this.checkPageFrame = false;
     this.checkView = false;
@@ -137,17 +137,17 @@ export class AppObject extends Child {
     let _self = this;
     // console.log('START');
     // console.log('type', element.type);
+    let geneticCode: GeneticCode = {father: _self};
     let object = AppObject.getTypes()[jSON.type];
     let properElement;
     if (object !== null && object !== undefined) {
-      properElement = new object();
+      properElement = new object(geneticCode);
     } else {
       object = AppObject.getTypes()['ComponentGeneric'];
-      properElement = new object(jSON.type);
+      properElement = new object({...geneticCode, ...{specificName: jSON.type}});
     }
     // console.log('object', object);
     // console.log('properElement', properElement);
-    _self.addChild(properElement, jSON);
     // properElement.populate(jSON);
     // _self[property].push(properElement);
   }
@@ -192,7 +192,8 @@ export class AppObject extends Child {
 
   protected setProperty(property: any, value: any) {
     let _self = this;
-    if (_self[property].constructor === Function &&
+    if (_self[property] && _self[property].constructor &&
+      _self[property].constructor === Function &&
       _self[property]().constructor === Array) {
 
     } else
@@ -362,4 +363,5 @@ export class AppObject extends Child {
 import { ComponentView } from './../../componentView';
 import { ComponentPageFrame } from '../../page/componentPageFrame';
 import { JSONObjectType } from './jSONObjectType';
+import { GeneticCode } from '../child/geneticCode';
 AppObject.addConstructor('AppObject', AppObject);

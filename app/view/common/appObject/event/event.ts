@@ -2,6 +2,7 @@ import { AppObject } from '../appObject';
 import { AppObjectFactory } from '../factory/appObjectFactory';
 import * as $ from 'jquery';
 import { Component } from '../../component/component';
+import { GeneticCode } from '../../child/geneticCode';
 
 export class Event extends AppObject {
   name: string;
@@ -16,8 +17,8 @@ export class Event extends AppObject {
   running: boolean;
   verified: boolean;
 
-  constructor() {
-    super();
+  constructor(geneticCode: GeneticCode) {
+    super(geneticCode);
     this.className = 'Event';
     this.verified = true;
   }
@@ -111,7 +112,7 @@ export class Event extends AppObject {
 
   private onEvent() {
     if (this.code !== undefined && this.runFunction !== undefined) {
-      let appObject = AppObjectFactory.create(this.code, this);
+      let appObject = AppObjectFactory.create(this.code, {father: this});
       for (let property in this.appObject) {
         if (this.appObject.hasOwnProperty(property)) {
           appObject[property] = this.appObject[property];
@@ -151,7 +152,7 @@ export class Event extends AppObject {
       runFunction = _self.subscribeFunction;
     }
 
-    appObject = AppObjectFactory.create(code, _self);
+    appObject = AppObjectFactory.create(code, {father: _self});
     // tslint:disable-next-line: no-eval
     eval('appObject' + '.' + runFunction + '((data) => { _self.auth(data); })');
   }

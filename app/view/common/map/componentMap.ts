@@ -1,5 +1,6 @@
 import { Component } from './../component/component';
 import { ImportScript } from './../../../../importScript';
+import { GeneticCode } from '../child/geneticCode';
 
 export class ComponentMap extends Component {
   options: any;
@@ -14,8 +15,8 @@ export class ComponentMap extends Component {
   // <input list='datalistID' name='inputNAME'>
   // <datalist id='datalistID'>
 
-  constructor(sVG?: boolean, arrayType?: string[]) {
-    super('map', sVG, arrayType);
+  constructor(geneticCode: GeneticCode) {
+    super({...geneticCode, ...{tag: 'map'}});
     this.className = 'ComponentMap';
     this.arrayMarker = new Array<any>();
   }

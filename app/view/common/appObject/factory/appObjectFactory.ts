@@ -1,4 +1,5 @@
 import { AppObject } from './../appObject';
+import { GeneticCode } from '../../../../..';
 
 export abstract class AppObjectFactory {
     private static elementTypes = {};
@@ -37,17 +38,8 @@ export abstract class AppObjectFactory {
         return element;
     }
 
-    private static newElement(tag: string, sVG?: boolean) {
-        let element: HTMLElement | SVGElement | SVGSVGElement | HTMLInputElement | HTMLTextAreaElement;
-        if (sVG) {
-            element = document.createElementNS('http://www.w3.org/2000/svg', tag);
-        } else {
-            element = document.createElement(tag);
-        }
-        return element;
-    }
-
     public static clear(element?: HTMLElement | SVGElement | SVGSVGElement | HTMLInputElement | HTMLTextAreaElement) {
+        if (element)
             element.innerHTML = '';
     }
 
@@ -60,12 +52,21 @@ export abstract class AppObjectFactory {
         return number;
     }
 
-    public static create(name: string, father?: AppObject) {
+    public static create(name: string, geneticCode: GeneticCode) {
         let object;
         // console.log('object = window.exports.' + name + '.getInstance(father);');
         // tslint:disable-next-line: no-eval
-        object = eval('window.exports.' + name + '.' + 'getInstance()');
-        father.addChild(object);
+        object = eval('window.exports.' + name + '.' + 'getInstance(geneticCode)');
         return object;
+    }
+
+    private static newElement(tag: string, sVG?: boolean) {
+        let element: HTMLElement | SVGElement | SVGSVGElement | HTMLInputElement | HTMLTextAreaElement;
+        if (sVG) {
+            element = document.createElementNS('http://www.w3.org/2000/svg', tag);
+        } else {
+            element = document.createElement(tag);
+        }
+        return element;
     }
 }

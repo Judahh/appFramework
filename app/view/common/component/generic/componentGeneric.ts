@@ -1,5 +1,6 @@
 import 'simpleutils';
 import { Component } from './../../component/component';
+import { GeneticCode } from '../../child/geneticCode';
 
 try { require('./componentGeneric.css'); } catch (e) { };
 try { require('./componentGeneric2.css'); } catch (e) { };
@@ -95,9 +96,11 @@ export class ComponentGeneric extends Component {
         }
     }
 
-    constructor(name?: string, tag?: string) {
-        super(tag ? tag : ComponentGeneric.generateMap(name).tag, ComponentGeneric.generateMap(name).sVG, ComponentGeneric.generateMap(name).arrayType);
-        this.specificName = name;
+    constructor(geneticCode: GeneticCode) {
+        super({...geneticCode, ...{tag: geneticCode.tag ? geneticCode.tag : ComponentGeneric.generateMap(geneticCode.specificName).tag,
+            sVG: ComponentGeneric.generateMap(geneticCode.specificName).sVG,
+            arrayType: ComponentGeneric.generateMap(geneticCode.specificName).arrayType}});
+        this.specificName = geneticCode.specificName;
         this.className = 'ComponentGeneric';
     }
 

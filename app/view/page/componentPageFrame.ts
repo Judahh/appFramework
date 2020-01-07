@@ -1,19 +1,17 @@
 import { Component } from '../common/component/component';
 import { ComponentGeneric } from '../common/component/generic/componentGeneric';
 import { Page } from './page';
+import { GeneticCode } from '../common/child/geneticCode';
 
 export class ComponentPageFrame extends Component {
-    background: ComponentGeneric;
     private minWidth: number;
     private maxWidth: number;
     private minHeight: number;
     private maxHeight: number;
 
-    constructor(sVG?: boolean, arrayType?: string[]) {
-        super('pageFrame', sVG, arrayType);
+    constructor(geneticCode: GeneticCode) {
+        super({...geneticCode, ...{tag: 'pageFrame'}});
         this.className = 'ComponentPageFrame';
-        this.background = new ComponentGeneric('ComponentBackground');
-        this.background.setFather(this);
     }
 
     public setMinWidth(minWidth: number) {

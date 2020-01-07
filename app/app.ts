@@ -6,7 +6,11 @@ export class App {
   private view: ComponentView;
 
   constructor() {
-    this.view = new ComponentView();
+    this.view = new ComponentView({});
     // this.view.renderOnFatherElement(document);
+  }
+
+  public getView() {
+    return this.view;
   }
 }
