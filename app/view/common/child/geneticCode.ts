@@ -5,9 +5,10 @@ export class GeneticCode {
     tag?: string;
     sVG?: boolean;
     arrayType?: Array<string>;
+    arrayBindHandlers?: Array<string>;
     specificName?: string;
     routerName?: string;
-    nextName?: string; //pageName?: string;
+    nextName?: string; // pageName?: string;
     suffix?: string;
     main?: string;
     file?: any;

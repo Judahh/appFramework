@@ -1,6 +1,7 @@
 export class Child {
     protected father: Child;
     protected className: string;
+    public properties: Object;
     protected arrayVariable: Array<String>;
     public arrayChild: ObservableArray<Child>;
 
@@ -8,6 +9,7 @@ export class Child {
 
     constructor(geneticCode: GeneticCode) {
         let _self = this;
+        _self.initGeneticCode(geneticCode);
         if (geneticCode.father)
             if (geneticCode.position)
                 geneticCode.father.setChild(this, geneticCode.position, geneticCode.jSON);
@@ -117,6 +119,23 @@ export class Child {
             }
         }
         return array;
+    }
+
+    protected initGeneticCode(geneticCode: GeneticCode) {
+        let _self = this;
+        let arrayBindHandlers;
+
+        if (_self.properties && geneticCode.arrayType) {
+            arrayBindHandlers = [...geneticCode.arrayType];
+            for (const property of Object.keys(_self.properties)) {
+                Array.cleanPush(geneticCode.arrayType, property);
+                if (property !== 'text')
+                    Array.cleanPush(arrayBindHandlers, property);
+            }
+        }
+
+        geneticCode.arrayBindHandlers = arrayBindHandlers;
+        return geneticCode;
     }
 
     private initChild(child: Child, jSON?: JSON) {

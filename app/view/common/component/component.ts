@@ -7,7 +7,6 @@ export class Component extends AppObject {
   protected form: ComponentGeneric;
   protected formChecked: boolean;
   protected basicViewModel: BasicViewModel;
-  public properties: Object;
   public item: ComponentGeneric;
 
   public getTag() {
@@ -18,19 +17,6 @@ export class Component extends AppObject {
     super(geneticCode);
     let _self = this;
     _self.className = 'Component';
-    let arrayBindHandlers;
-
-    if (_self.properties && geneticCode.arrayType) {
-      arrayBindHandlers = [...geneticCode.arrayType];
-      for (const property of Object.keys(_self.properties)) {
-        Array.cleanPush(geneticCode.arrayType, property);
-        if (property !== 'text')
-          Array.cleanPush(arrayBindHandlers, property);
-      }
-    }
-    _self.basicViewModel = new BasicViewModel({ tag: geneticCode.tag, sVG: geneticCode.sVG, arrayType: geneticCode.arrayType, arrayBindHandlers: arrayBindHandlers });
-    _self.basicViewModel.init();
-    _self.getItem();
   }
 
   public setFather(father) {
@@ -100,6 +86,15 @@ export class Component extends AppObject {
     let range = document.createRange();
     range.selectNodeContents(this.basicViewModel.getElement());
     range.deleteContents();
+  }
+
+  protected initGeneticCode(geneticCode) {
+    let _self = this;
+    geneticCode = super.initGeneticCode(geneticCode);
+    _self.basicViewModel = new BasicViewModel(geneticCode);
+    _self.basicViewModel.init();
+    _self.getItem();
+    return geneticCode;
   }
 
   protected setForm() {
