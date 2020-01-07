@@ -4,9 +4,8 @@ import { ComponentRouter } from './common/component/generic/router/componentRout
 import { GeneticCode } from './common/child/geneticCode';
 
 export class ComponentView extends Component { // body
-  constructor(geneticCode: GeneticCode) {
-    super({...geneticCode, ...{tag: 'body'}});
-    this.className = 'ComponentView';
+  constructor(geneticCode?: GeneticCode) {
+    super({ ...{name: 'ComponentView', tag: 'body'}, ...geneticCode});
     this.resetHeader();
     this.resetNotification();
     this.resetPageBody();

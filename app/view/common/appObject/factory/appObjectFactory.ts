@@ -52,7 +52,7 @@ export abstract class AppObjectFactory {
         return number;
     }
 
-    public static create(name: string, geneticCode: GeneticCode) {
+    public static create(name: string, geneticCode?: GeneticCode) {
         let object;
         // console.log('object = window.exports.' + name + '.getInstance(father);');
         // tslint:disable-next-line: no-eval

@@ -1,28 +1,29 @@
 import { Attribute } from './attribute'
 import * as ko from 'knockout';
 import { AppObjectFactory } from '../appObject/factory/appObjectFactory';
+import { GeneticCode } from '../child/geneticCode';
 export class BasicViewModel {
     protected arrayAttribute: Array<Attribute>;
     protected element: HTMLElement | SVGElement | SVGSVGElement | HTMLInputElement | HTMLTextAreaElement;
     protected sVG: boolean;
-    constructor({ tag, sVG, arrayType, arrayBindHandlers }: { tag: string; sVG: boolean; arrayType?: Array<string>; arrayBindHandlers?: Array<string>; }) {
+    constructor(geneticCode?: GeneticCode) {
         let _self = this;
-        if (arrayBindHandlers)
-            for (let index = 0; index < arrayBindHandlers.length; index++)
-                this.addBindHandler(arrayBindHandlers[index]);
+        if (geneticCode.arrayBindHandlers)
+            for (let index = 0; index < geneticCode.arrayBindHandlers.length; index++)
+                this.addBindHandler(geneticCode.arrayBindHandlers[index]);
         this.arrayAttribute = new Array<Attribute>();
 
-        AppObjectFactory.cleanAddElements(tag);
+        AppObjectFactory.cleanAddElements(geneticCode.tag);
 
-        let nodes = AppObjectFactory.numberOfElements(tag);
-        _self.element = AppObjectFactory.createElement(tag, tag + 'Id' + nodes, sVG);
-        _self.sVG = sVG;
+        let nodes = AppObjectFactory.numberOfElements(geneticCode.tag);
+        _self.element = AppObjectFactory.createElement(geneticCode.tag, geneticCode.tag + 'Id' + nodes, geneticCode.sVG);
+        _self.sVG = geneticCode.sVG;
 
-        AppObjectFactory.addElement(tag);
+        AppObjectFactory.addElement(geneticCode.tag);
 
-        if  (arrayType)
-            for (let index = 0; index < arrayType.length; index++) {
-                const type = arrayType[index];
+        if  (geneticCode.arrayType)
+            for (let index = 0; index < geneticCode.arrayType.length; index++) {
+                const type = geneticCode.arrayType[index];
                 const attribute = new Attribute(type, type + _self.element.id);
                 this.addBind(attribute);
             }

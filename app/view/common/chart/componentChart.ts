@@ -10,9 +10,8 @@ export class ComponentChart extends Component {
   arrayPackages: Array<string>;
   language: any;
 
-  constructor(geneticCode: GeneticCode) {
-    super({...geneticCode, ...{tag: 'chart'}});
-    this.className = 'ComponentChart';
+  constructor(geneticCode?: GeneticCode) {
+    super({...{name: 'ComponentChart', tag: 'chart'}, ...geneticCode});
   }
 
   beforeUpdateLanguage() {

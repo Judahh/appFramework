@@ -7,21 +7,26 @@ export class Child {
 
     public getArrayChild: Array<Child>;
 
-    constructor(geneticCode: GeneticCode) {
+    constructor(geneticCode?: GeneticCode) {
         let _self = this;
+        if (!geneticCode)
+            geneticCode = {};
         _self.initGeneticCode(geneticCode);
         if (geneticCode.father)
             if (geneticCode.position)
-                geneticCode.father.setChild(this, geneticCode.position, geneticCode.jSON);
+                geneticCode.father.setChild(_self, geneticCode.position, geneticCode.jSON);
             else
-                geneticCode.father.addChild(this, geneticCode.jSON);
-        this.className = 'Child';
-        this.arrayChild = ko.observableArray<Child>();
-        this.arrayChild.subscribe((changes) => {
+                geneticCode.father.addChild(_self, geneticCode.jSON);
+
+        _self.className = 'Child';
+        if (geneticCode.name)
+            _self.className = geneticCode.name;
+        _self.arrayChild = ko.observableArray<Child>();
+        _self.arrayChild.subscribe((changes) => {
             _self.arrayChange(changes);
         }, null, 'arrayChange');
-        this.getArrayChild = this.arrayChild();
-        this.arrayVariable = new Array<String>();
+        _self.getArrayChild = _self.arrayChild();
+        _self.arrayVariable = new Array<String>();
     }
 
     public populate(jSON: JSON) {

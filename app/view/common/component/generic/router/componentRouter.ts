@@ -14,7 +14,7 @@ export class ComponentRouter extends ComponentGeneric {
     private main: string; // none,home,header,footer
     private go: boolean;
 
-    constructor(geneticCode: GeneticCode) { // ex: {specificName: 'ComponentPageBody', routerName: 'page', nextName: geneticCode.nextName, suffix: '', main: 'home'}
+    constructor(geneticCode?: GeneticCode) { // ex: {specificName: 'ComponentPageBody', routerName: 'page', nextName: geneticCode.nextName, suffix: '', main: 'home'}
         super(geneticCode);
         this.pages = {};
         this.routerName = geneticCode.routerName;

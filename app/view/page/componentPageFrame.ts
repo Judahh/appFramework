@@ -9,9 +9,8 @@ export class ComponentPageFrame extends Component {
     private minHeight: number;
     private maxHeight: number;
 
-    constructor(geneticCode: GeneticCode) {
-        super({...geneticCode, ...{tag: 'pageFrame'}});
-        this.className = 'ComponentPageFrame';
+    constructor(geneticCode?: GeneticCode) {
+        super({...{name: 'ComponentPageFrame', tag: 'pageFrame'}, ...geneticCode});
     }
 
     public setMinWidth(minWidth: number) {

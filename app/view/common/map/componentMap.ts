@@ -15,9 +15,8 @@ export class ComponentMap extends Component {
   // <input list='datalistID' name='inputNAME'>
   // <datalist id='datalistID'>
 
-  constructor(geneticCode: GeneticCode) {
-    super({...geneticCode, ...{tag: 'map'}});
-    this.className = 'ComponentMap';
+  constructor(geneticCode?: GeneticCode) {
+    super({...{name: 'ComponentMap', tag: 'map'}, ...geneticCode});
     this.arrayMarker = new Array<any>();
   }
 

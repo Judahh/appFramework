@@ -17,9 +17,8 @@ export class Event extends AppObject {
   running: boolean;
   verified: boolean;
 
-  constructor(geneticCode: GeneticCode) {
-    super(geneticCode);
-    this.className = 'Event';
+  constructor(geneticCode?: GeneticCode) {
+    super({...{name: 'Event'}, ...geneticCode});
     this.verified = true;
   }
 

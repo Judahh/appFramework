@@ -13,10 +13,8 @@ export class Component extends AppObject {
     return this.basicViewModel.getElement().tagName;
   }
 
-  public constructor(geneticCode: GeneticCode) { // ex: {tag: 'chart', sVG: geneticCode.sVG, arrayType: geneticCode.arrayType}
-    super(geneticCode);
-    let _self = this;
-    _self.className = 'Component';
+  public constructor(geneticCode?: GeneticCode) { // ex: {tag: 'chart', sVG: geneticCode.sVG, arrayType: geneticCode.arrayType}
+    super({...{name: 'Component'}, ...geneticCode});
   }
 
   public setFather(father) {

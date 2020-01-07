@@ -6,9 +6,8 @@ try { require('./componentPageBody.css'); } catch (e) { };
 
 export class ComponentPageBody extends ComponentRouter {
 
-  constructor(geneticCode: GeneticCode) {
-    super({...geneticCode , ...{specificName: 'ComponentPageBody', routerName: 'page', suffix: '', main: 'home'}});
-    this.className = 'ComponentPageBody';
+  constructor(geneticCode?: GeneticCode) {
+    super({...{name: 'ComponentPageBody', specificName: 'ComponentPageBody', routerName: 'page', suffix: '', main: 'home'}, ...geneticCode});
   }
 
   public getAllNotification(appObject: AppObject) {

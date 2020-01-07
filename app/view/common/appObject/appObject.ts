@@ -16,7 +16,7 @@ export class AppObject extends Child {
     return this.types;
   }
 
-  public static getInstance(geneticCode: GeneticCode) {
+  public static getInstance(geneticCode?: GeneticCode) {
     return new this(geneticCode);
   }
 
@@ -35,13 +35,12 @@ export class AppObject extends Child {
     }
   }
 
-  constructor(geneticCode: GeneticCode) {
-    super(geneticCode);
+  constructor(geneticCode?: GeneticCode) {
+    super({...{name : 'AppObject'}, ...geneticCode});
 
     this.checkPageFrame = false;
     this.checkView = false;
     this.checkNotification = false;
-    this.className = 'AppObject';
   }
 
   protected getConstructor() {
@@ -144,7 +143,7 @@ export class AppObject extends Child {
       properElement = new object(geneticCode);
     } else {
       object = AppObject.getTypes()['ComponentGeneric'];
-      properElement = new object({...geneticCode, ...{specificName: jSON.type}});
+      properElement = new object({...{specificName: jSON.type}, ...geneticCode});
     }
     // console.log('object', object);
     // console.log('properElement', properElement);

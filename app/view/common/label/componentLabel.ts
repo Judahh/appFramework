@@ -4,9 +4,8 @@ import { GeneticCode } from '../child/geneticCode';
 export class ComponentLabel extends Component {
   // type = radio or checkbox
 
-  constructor(geneticCode: GeneticCode) {
-    super({...geneticCode, ...{tag: 'label'}});
-    this.className = 'ComponentLabel';
+  constructor(geneticCode?: GeneticCode) {
+    super({...{name: 'ComponentLabel', tag: 'label'}, ...geneticCode});
   }
 
   public setFather(father) {

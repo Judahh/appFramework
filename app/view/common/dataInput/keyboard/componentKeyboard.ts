@@ -10,10 +10,9 @@ export class ComponentKeyboard extends Component {
   private typing;
   private extender;
 
-  constructor(geneticCode: GeneticCode) {
-    super({...geneticCode, ...{tag: 'virtualKeyboard'}});
-    this.className = 'ComponentKeyboard';
-    let keyboardOptionsB = KeyboardOptions;
+  constructor(geneticCode?: GeneticCode) {
+    super({...{name: 'ComponentKeyboard', tag: 'virtualKeyboard'}, ...geneticCode});
+    let keyboardOptionsB = KeyboardOptions; // ?
   }
 
   public beforeUpdateLanguage() {

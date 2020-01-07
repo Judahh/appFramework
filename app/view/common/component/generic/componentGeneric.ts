@@ -96,12 +96,12 @@ export class ComponentGeneric extends Component {
         }
     }
 
-    constructor(geneticCode: GeneticCode) {
-        super({...geneticCode, ...{tag: geneticCode.tag ? geneticCode.tag : ComponentGeneric.generateMap(geneticCode.specificName).tag,
+    constructor(geneticCode?: GeneticCode) {
+        super({...{name: 'ComponentGeneric', tag: geneticCode.tag ? geneticCode.tag : ComponentGeneric.generateMap(geneticCode.specificName).tag,
             sVG: ComponentGeneric.generateMap(geneticCode.specificName).sVG,
-            arrayType: ComponentGeneric.generateMap(geneticCode.specificName).arrayType}});
+            arrayType: ComponentGeneric.generateMap(geneticCode.specificName).arrayType},
+            ...geneticCode});
         this.specificName = geneticCode.specificName;
-        this.className = 'ComponentGeneric';
     }
 
     public setFather(father) {

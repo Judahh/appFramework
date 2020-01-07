@@ -9,12 +9,11 @@ export class Page extends Child {
     private language: any;
     private unknown: boolean;
 
-    constructor(geneticCode: GeneticCode, file?) {
-        super(geneticCode);
-        this.className = 'Page';
+    constructor(geneticCode?: GeneticCode) {
+        super({...{name: 'Page'}, ...geneticCode});
         this.unknown = false;
-        if (file)
-            ServiceModel.getPromise(file + 'L').then((data) => this.checkLanguage(file, data)).fail((data) => this.checkFailed(data));
+        if (geneticCode.file)
+            ServiceModel.getPromise(geneticCode.file + 'L').then((data) => this.checkLanguage(geneticCode.file, data)).fail((data) => this.checkFailed(data));
     }
 
     public getLanguage() {
