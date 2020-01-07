@@ -9,7 +9,7 @@ export class Page extends Child {
     private language: any;
     private unknown: boolean;
 
-    constructor(geneticCode?: GeneticCode) {
+    constructor(geneticCode?: GeneticCode) {// {father: this, file: pageName}
         super({...{name: 'Page'}, ...geneticCode});
         this.unknown = false;
         if (geneticCode.file)

@@ -68,7 +68,7 @@ export class ComponentRouter extends ComponentGeneric {
     public initPage(pageName: string) {
         this.go = true;
         if (this.pages[pageName] === undefined) {
-            this.pages[pageName] = new Page({father: this}, pageName);
+            this.pages[pageName] = new Page({father: this, file: pageName});
         } else {
             if (this.pages[pageName].getArrayChild.length === 0 && this.pages[pageName].getUnknown() === true) {
                 this.nextName = 'unknown';
