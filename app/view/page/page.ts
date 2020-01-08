@@ -3,6 +3,7 @@ import { ServiceModel } from '../serviceModel/serviceModel';
 import { ComponentRouter } from '../common/component/generic/router/componentRouter';
 import { Child } from '../common/child/child';
 import { GeneticCode } from '../common/child/geneticCode';
+import { Component } from '../../..';
 
 export class Page extends Child {
     private currentFrame: ComponentPageFrame;
@@ -91,8 +92,9 @@ export class Page extends Child {
 
     private refreshFrame(frame: ComponentPageFrame) {
         this.currentFrame = frame;
-        this.addFrame(frame);
-        // this.currentFrame.renderAfterFullUpdate(this.currentFrame);
+        (<Component> this.father).destroyChildElements();
+        frame.setFather(this.getFather());
+        (<Component> this.father).renderAfterUpdate();
     }
 
     private addFrame(frame: ComponentPageFrame, jSON?) {
