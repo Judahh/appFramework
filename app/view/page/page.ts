@@ -1,3 +1,4 @@
+import { Child } from '../common/child/child';
 export class Page extends Child {
     private currentFrame: ComponentPageFrame;
     private language: any;
@@ -103,6 +104,5 @@ export class Page extends Child {
 import { ComponentPageFrame } from './componentPageFrame';
 import { ServiceModel } from '../serviceModel/serviceModel';
 import { ComponentRouter } from '../common/component/generic/router/componentRouter';
-import { Child } from '../common/child/child';
 import { GeneticCode } from '../common/child/geneticCode';
 import { Component } from '../../..';
