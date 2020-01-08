@@ -14,17 +14,17 @@ export class Component extends AppObject {
   }
 
   public constructor(geneticCode?: GeneticCode) { // ex: {tag: 'chart', sVG: geneticCode.sVG, arrayType: geneticCode.arrayType}
-    super({...{name: 'Component'}, ...geneticCode});
+    super({ ...{ name: 'Component' }, ...geneticCode });
   }
 
-  // public setFather(father) {
-  //   super.setFather(father);
-  //   if (this.father && this.father instanceof Component) {
-  //     // console.log('this.father.tag:' + this.father.tag);
-  //     this.insert(<Component>father);
-  //     this.father.renderAfterUpdate();
-  //   }
-  // }
+  public setFather(father) {
+    super.setFather(father);
+    if (father) {
+      // console.log('this.father.tag:' + this.father.tag);
+      this.insert(father);
+      father.renderAfterUpdate();
+    }
+  }
 
   public getForm() {
     if (!this.formChecked) {

@@ -78,15 +78,10 @@ export class Child {
     public setFather(father) {
         if (this.father && this.father instanceof Component) {
             this.father.destroyChildElements();
-        } else if (this.father && this.father instanceof Page && this.father.father instanceof Component) {
+        } else if (this.father && this.father.father instanceof Component) {
             this.father.father.destroyChildElements();
         }
         this.father = father;
-        if (father && ((this instanceof Component) || (this instanceof Page))) {
-            // console.log('this.father.tag:' + this.father.tag);
-            this.insert(father);
-            father.renderAfterUpdate();
-        }
     }
 
     public getClassName() {
@@ -182,7 +177,6 @@ export class Child {
 import { GeneticCode } from './geneticCode';
 import { Component } from '../component/component';
 import { ComponentGeneric } from '../component/generic/componentGeneric';
-import { ObservableArray, SubscriptionCallback } from 'knockout';
+import { ObservableArray } from 'knockout';
 import * as ko from 'knockout';
-import { Page } from '../../page/page';
 

@@ -88,6 +88,15 @@ export class Page extends Child {
         this.currentFrame.insertElement(father.getElement());
     }
 
+    public setFather(father) {
+        super.setFather(father);
+        if (father) {
+          // console.log('this.father.tag:' + this.father.tag);
+          this.insert(father);
+          father.renderAfterUpdate();
+        }
+      }
+
     private refreshFrame(frame: ComponentPageFrame) {
         this.currentFrame = frame;
         (<Component> this.father).destroyChildElements();
