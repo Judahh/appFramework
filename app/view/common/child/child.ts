@@ -49,7 +49,7 @@ export class Child {
         return this.getArrayChild.length;
     }
 
-    public addChild({ child, index, jSON }: { child: Child; index?: number; jSON?: JSON;  }) {
+    public addChild({ child, index, jSON }: { child: Child; index?: number; jSON?: JSON; }) {
         this.initChild(child, jSON);
         if (index) {
             this.arrayChild.splice(index, 0, child);
@@ -78,9 +78,15 @@ export class Child {
     public setFather(father) {
         if (this.father && this.father instanceof Component) {
             this.father.destroyChildElements();
+        } else if (this.father && this.father instanceof Page && this.father.father instanceof Component) {
+            this.father.father.destroyChildElements();
         }
-
         this.father = father;
+        if (father && ((this instanceof Component) || (this instanceof Page))) {
+            // console.log('this.father.tag:' + this.father.tag);
+            this.insert(father);
+            father.renderAfterUpdate();
+        }
     }
 
     public getClassName() {
@@ -178,4 +184,5 @@ import { Component } from '../component/component';
 import { ComponentGeneric } from '../component/generic/componentGeneric';
 import { ObservableArray, SubscriptionCallback } from 'knockout';
 import * as ko from 'knockout';
+import { Page } from '../../page/page';
 

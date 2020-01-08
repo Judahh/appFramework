@@ -70,7 +70,7 @@ export class ComponentRouter extends ComponentGeneric {
         if (this.pages[pageName] === undefined) {
             this.pages[pageName] = new Page({father: this, file: pageName});
         } else {
-            if (this.pages[pageName].getArrayChild.length === 0 && this.pages[pageName].getUnknown() === true) {
+            if (this.pages[pageName].getChildrenLength() === 0 && this.pages[pageName].getUnknown() === true) {
                 this.nextName = 'unknown';
                 this.pages[this.nextName].setPage();
             } else {

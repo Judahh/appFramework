@@ -90,10 +90,15 @@ export class Page extends Child {
         }
     }
 
+    public insert(father) {
+        this.currentFrame.insertElement(father.getElement());
+    }
+
     private refreshFrame(frame: ComponentPageFrame) {
         this.currentFrame = frame;
         (<Component> this.father).destroyChildElements();
-        frame.setFather(this.getFather());
+        // frame.setFather(this.getFather());
+        frame.insert(<Component>this.getFather());
         (<Component> this.father).renderAfterUpdate();
     }
 

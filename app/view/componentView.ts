@@ -5,7 +5,7 @@ import { GeneticCode } from './common/child/geneticCode';
 
 export class ComponentView extends Component { // body
   constructor(geneticCode?: GeneticCode) {
-    super({ ...{name: 'ComponentView', tag: 'body'}, ...geneticCode});
+    super({ ...{ name: 'ComponentView', tag: 'body' }, ...geneticCode });
     this.resetHeader();
     this.resetNotification();
     this.resetPageBody();
@@ -34,25 +34,25 @@ export class ComponentView extends Component { // body
   public resetHeader() {
     if (this.getHeader())
       this.getHeader().destroyElement();
-    new ComponentRouter({ father: this, position: 0, specificName: 'ComponentHeader', routerName: 'header', nextName: '', suffix: '', main: 'header' });
+    let componentRouter = new ComponentRouter({ father: this, position: 0, specificName: 'ComponentHeader', routerName: 'header', nextName: '', suffix: '', main: 'header' });
   }
 
   public resetNotification() {
     if (this.getNotification())
       this.getNotification().destroyElement();
-    new ComponentRouter({ father: this, position: 1, specificName: 'ComponentNotification', routerName: 'notification', nextName: 'none', suffix: 'Notification', main: 'none' });
+    let componentRouter = new ComponentRouter({ father: this, position: 1, specificName: 'ComponentNotification', routerName: 'notification', nextName: 'none', suffix: 'Notification', main: 'none' });
   }
 
   public resetPageBody() {
     if (this.getPageBody())
       this.getPageBody().destroyElement();
-    new ComponentPageBody({ father: this, position: 2 });
+    let componentRouter = new ComponentPageBody({ father: this, position: 2 });
   }
 
   public resetFooter() {
     if (this.getFooter())
       this.getFooter().destroyElement();
-    new ComponentRouter({ father: this, position: 3, specificName: 'ComponentFooter', routerName: 'footer', nextName: '', suffix: '', main: 'footer' });
+    let componentRouter = new ComponentRouter({ father: this, position: 3, specificName: 'ComponentFooter', routerName: 'footer', nextName: '', suffix: '', main: 'footer' });
   }
 }
 ComponentView.addConstructor('ComponentView', ComponentView);
