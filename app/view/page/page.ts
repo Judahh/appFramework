@@ -99,6 +99,6 @@ export class Page extends Child {
 
     private addFrame(frame: ComponentPageFrame, jSON?) {
         if (this.getArrayChild.indexOf(frame) === -1)
-            this.addChild(frame, jSON);
+            this.addChild({ child: frame, jSON: jSON });
     }
 }

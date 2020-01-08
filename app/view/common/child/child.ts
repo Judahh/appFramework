@@ -14,9 +14,9 @@ export class Child {
         _self.initGeneticCode(geneticCode);
         if (geneticCode.father)
             if (geneticCode.position)
-                geneticCode.father.setChild(_self, geneticCode.position, geneticCode.jSON);
+                geneticCode.father.setChild({ child: _self, index: geneticCode.position, jSON: geneticCode.jSON });
             else
-                geneticCode.father.addChild(_self, geneticCode.jSON);
+                geneticCode.father.addChild({ child: _self, jSON: geneticCode.jSON });
 
         _self.className = 'Child';
         if (geneticCode.name)
@@ -49,7 +49,7 @@ export class Child {
         return this.getArrayChild.length;
     }
 
-    public addChild(child: Child, index?: number, jSON?: JSON) {
+    public addChild({ child, index, jSON }: { child: Child; index?: number; jSON?: JSON;  }) {
         this.initChild(child, jSON);
         if (index) {
             this.arrayChild.splice(index, 0, child);
@@ -66,7 +66,7 @@ export class Child {
         this.arrayChild.splice(start, deleteCount, ...children);
     }
 
-    public setChild(child: Child, index: number, jSON?: JSON) {
+    public setChild({ child, index, jSON }: { child: Child; index: number; jSON?: JSON; }) {
         this.initChild(child, jSON);
         this.arrayChild.splice(index, 1, child);
     }
