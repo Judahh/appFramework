@@ -17,14 +17,14 @@ export class Component extends AppObject {
     super({ ...{ name: 'Component' }, ...geneticCode });
   }
 
-  public setFather(father) {
-    super.setFather(father);
-    if (father) {
-      // console.log('this.father.tag:' + this.father.tag);
-      this.insert(father);
-      father.renderAfterUpdate();
-    }
-  }
+  // public setFather(father) {
+  //   super.setFather(father);
+  //   if (father) {
+  //     // console.log('this.father.tag:' + this.father.tag);
+  //     this.insert(father);
+  //     father.renderAfterUpdate();
+  //   }
+  // }
 
   public getForm() {
     if (!this.formChecked) {

@@ -5,7 +5,7 @@ export class Page extends Child {
     private unknown: boolean;
 
     constructor(geneticCode?: GeneticCode) {// {father: this, file: pageName}
-        super({...{name: 'Page'}, ...geneticCode});
+        super({ ...{ name: 'Page' }, ...geneticCode });
         this.unknown = false;
         if (geneticCode.file)
             ServiceModel.getPromise(geneticCode.file + 'L').then((data) => this.checkLanguage(geneticCode.file, data)).fail((data) => this.checkFailed(data));
@@ -41,14 +41,14 @@ export class Page extends Child {
                 ServiceModel.getPromise(jSON[index]['file']).then((data) => this.checkFrame(data, fJSON)).fail((data) => this.checkFailed(data));
             }
         } else {
-            let frame = new ComponentPageFrame({father: this, jSON: jSON});
+            let frame = new ComponentPageFrame({ father: this, jSON: jSON });
             this.setPage();
         }
     }
 
     protected checkFrame(jSON, fJSON) {
         // jSON = JSON.parse(jSON);
-        let frame = new ComponentPageFrame({father: this, jSON: jSON});
+        let frame = new ComponentPageFrame({ father: this, jSON: jSON });
         frame.setMinWidth(fJSON.minWidth);
         frame.setMaxWidth(fJSON.maxWidth);
         frame.setMinHeight(fJSON.minHeight);
@@ -85,24 +85,25 @@ export class Page extends Child {
     }
 
     public insert(father) {
-        this.currentFrame.insertElement(father.getElement());
+        if (this.currentFrame)
+            this.currentFrame.insertElement(father.getElement());
     }
 
     public setFather(father) {
         super.setFather(father);
         if (father) {
-          // console.log('this.father.tag:' + this.father.tag);
-          this.insert(father);
-          father.renderAfterUpdate();
+            // console.log('this.father.tag:' + this.father.tag);
+            this.insert(father);
+            father.renderAfterUpdate();
         }
-      }
+    }
 
     private refreshFrame(frame: ComponentPageFrame) {
         this.currentFrame = frame;
-        (<Component> this.father).destroyChildElements();
+        (<Component>this.father).destroyChildElements();
         // frame.setFather(this.getFather());
         frame.insert(<Component>this.getFather());
-        (<Component> this.father).renderAfterUpdate();
+        (<Component>this.father).renderAfterUpdate();
     }
 
     private addFrame(frame: ComponentPageFrame, jSON?) {

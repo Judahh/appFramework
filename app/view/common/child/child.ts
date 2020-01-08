@@ -82,6 +82,11 @@ export class Child {
             this.father.father.destroyChildElements();
         }
         this.father = father;
+        if (father && this instanceof Component) {
+            // console.log('this.father.tag:' + this.father.tag);
+            this.insert(father);
+            father.renderAfterUpdate();
+        }
     }
 
     public getClassName() {
