@@ -105,4 +105,4 @@ import { ComponentPageFrame } from './componentPageFrame';
 import { ServiceModel } from '../serviceModel/serviceModel';
 import { ComponentRouter } from '../common/component/generic/router/componentRouter';
 import { GeneticCode } from '../common/child/geneticCode';
-import { Component } from '../../..';
+import { Component } from '../common/component/component';
