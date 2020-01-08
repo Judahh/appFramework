@@ -85,13 +85,13 @@ export class Page extends Child {
     }
 
     public insert(father) {
-        if (this.currentFrame)
+        if (this.currentFrame && this.currentFrame instanceof Component)
             this.currentFrame.insertElement(father.getElement());
     }
 
     public setFather(father) {
         super.setFather(father);
-        if (father) {
+        if (father && father instanceof Component) {
             // console.log('this.father.tag:' + this.father.tag);
             this.insert(father);
             father.renderAfterUpdate();

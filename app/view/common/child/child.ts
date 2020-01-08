@@ -82,7 +82,7 @@ export class Child {
             this.father.father.destroyChildElements();
         }
         this.father = father;
-        if (father && this instanceof Component) {
+        if (father && this instanceof Component  && father instanceof Component) {
             // console.log('this.father.tag:' + this.father.tag);
             this.insert(father);
             father.renderAfterUpdate();
