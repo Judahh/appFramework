@@ -71,8 +71,8 @@ export class Page extends Child {
     public setPage() {// depois checar evento de resize e fazer esperar carregamento
         let width = document.documentElement.clientWidth;
         let height = document.documentElement.clientHeight;
-        for (let index = 0; index < this.arrayChild.length; index++) {
-            let frame = this.arrayChild[index];
+        for (let index = 0; index < this.getChildrenLength(); index++) {
+            let frame = this.getChildAt(index);
             if (frame instanceof ComponentPageFrame && this.father instanceof ComponentRouter) {
                 if (frame.getMaxHeight() === undefined || frame.getMaxHeight() >= height) {
                     if (frame.getMinHeight() === undefined || frame.getMinHeight() <= height) {

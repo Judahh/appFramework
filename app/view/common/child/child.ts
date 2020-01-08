@@ -42,11 +42,11 @@ export class Child {
     }
 
     public getChildAt(index: number) {
-        return this.arrayChild[index];
+        return this.getArrayChild[index];
     }
 
-    public getChildLength() {
-        return this.arrayChild.length;
+    public getChildrenLength() {
+        return this.getArrayChild.length;
     }
 
     public addChild(child: Child, jSON?: JSON) {
@@ -64,7 +64,7 @@ export class Child {
 
     public setChild(child: Child, index: number, jSON?: JSON) {
         this.initChild(child, jSON);
-        this.arrayChild[index] = child;
+        this.arrayChild.splice(index, 0, child);
     }
 
     public getFather() {
@@ -106,8 +106,8 @@ export class Child {
     }
 
     public getChild(className) {
-        for (let index = 0; index < this.arrayChild.length; index++) {
-            const child = this.arrayChild[index];
+        for (let index = 0; index < this.getChildrenLength(); index++) {
+            const child = this.getArrayChild[index];
             if (child.className === className) {
                 return child;
             }
@@ -117,8 +117,8 @@ export class Child {
 
     public getAllChildren(className) {
         let array = new Array<Child>();
-        for (let index = 0; index < this.arrayChild.length; index++) {
-            const child = this.arrayChild[index];
+        for (let index = 0; index < this.getChildrenLength(); index++) {
+            const child = this.getArrayChild[index];
             if (child.className === className) {
                 array.push(child);
             }
