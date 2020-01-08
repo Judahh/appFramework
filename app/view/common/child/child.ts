@@ -49,9 +49,13 @@ export class Child {
         return this.getArrayChild.length;
     }
 
-    public addChild(child: Child, jSON?: JSON) {
+    public addChild(child: Child, index?: number, jSON?: JSON) {
         this.initChild(child, jSON);
-        this.arrayChild.push(child);
+        if (index) {
+            this.arrayChild.splice(index, 0, child);
+        } else {
+            this.arrayChild.push(child);
+        }
     }
 
     public spliceChild(start: number, deleteCount?: number, ...children: Child[]) {
@@ -64,7 +68,7 @@ export class Child {
 
     public setChild(child: Child, index: number, jSON?: JSON) {
         this.initChild(child, jSON);
-        this.arrayChild.splice(index, 0, child);
+        this.arrayChild.splice(index, 1, child);
     }
 
     public getFather() {
