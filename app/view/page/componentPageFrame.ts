@@ -1,7 +1,4 @@
 import { Component } from '../common/component/component';
-import { ComponentGeneric } from '../common/component/generic/componentGeneric';
-import { Page } from './page';
-import { GeneticCode } from '../common/child/geneticCode';
 
 export class ComponentPageFrame extends Component {
     private minWidth: number;
@@ -49,4 +46,7 @@ export class ComponentPageFrame extends Component {
         return this.maxHeight;
     }
 }
+import { Page } from './page';
+import { GeneticCode } from '../common/child/geneticCode';
+
 ComponentPageFrame.addConstructor('ComponentPageFrame', ComponentPageFrame);
