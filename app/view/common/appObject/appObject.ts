@@ -136,7 +136,7 @@ export class AppObject extends Child {
     let _self = this;
     // console.log('START');
     // console.log('type', element.type);
-    let geneticCode: GeneticCode = {father: _self};
+    let geneticCode: GeneticCode = {father: _self, jSON: jSON};
     let object = AppObject.getTypes()[jSON.type];
     let properElement;
     if (object !== null && object !== undefined) {
