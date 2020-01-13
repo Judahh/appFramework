@@ -5,7 +5,7 @@ import { Component } from '../../component/component';
 import { GeneticCode } from '../../child/geneticCode';
 
 export class Event extends AppObject {
-  type: string;
+  event: string;
   link: string;
   code: string;
   runFunction: string;
@@ -23,8 +23,8 @@ export class Event extends AppObject {
   }
 
   public beforeUpdateLanguage() {
-    if (this.type !== undefined) {
-      switch (this.type) {
+    if (this.event !== undefined) {
+      switch (this.event) {
         case 'build':
           this.onLoad();
           break;
@@ -39,7 +39,7 @@ export class Event extends AppObject {
           break;
 
         default:
-          this.addEventListener(this.type);
+          this.addEventListener(this.event);
           break;
       }
     }
