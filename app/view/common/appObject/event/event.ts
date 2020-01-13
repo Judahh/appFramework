@@ -92,7 +92,7 @@ export class Event extends AppObject {
   private activateFather() {
     // console.log('FATHER DESTROY:', this.father, this);
     if (!this.verified) {
-      (<Component>this.father).insert(<Component>(<Component>this.father).getFather());
+      (<Component>(this.father).getFather()).insert(<Component>this.father);
     }
   }
 

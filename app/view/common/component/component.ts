@@ -56,15 +56,37 @@ export class Component extends AppObject {
     tmp.src = source;
   }
 
-  public insert(father: Component) {
-    this.insertElement(father.getElement());
+  public insertOn(father: Component) {
+    this.insertElementOn(father.getElement());
   }
 
-  public insertElement(fatherElement: HTMLElement | SVGElement | SVGSVGElement) {
+  public insert(child: Component) {
+    this.insertElement(child.getElement());
+  }
+
+  public remove(child: Component) {
+    this.removeElement(child.getElement());
+  }
+
+  public insertElementOn(fatherElement: HTMLElement | SVGElement | SVGSVGElement) {
     // this.render();
     // console.log('FATHER:' + fatherElement.tagName);
     // console.log('this:' + this.getClassName());
     fatherElement.appendChild(this.basicViewModel.getElement());
+  }
+
+  public insertElement(element: HTMLElement | SVGElement | SVGSVGElement) {
+    // this.render();
+    // console.log('FATHER:' + fatherElement.tagName);
+    // console.log('this:' + this.getClassName());
+    this.basicViewModel.getElement().appendChild(element);
+  }
+
+  public removeElement(element: HTMLElement | SVGElement | SVGSVGElement) {
+    // this.render();
+    // console.log('FATHER:' + fatherElement.tagName);
+    // console.log('this:' + this.getClassName());
+    this.basicViewModel.getElement().removeChild(element);
   }
 
   public destroyElement() {

@@ -75,15 +75,17 @@ export class Child {
     }
 
     public setFather(father) {
-        if (this.father && this.father instanceof Component) {
-            this.father.destroyChildElements();
-        } else if (this.father && this.father.father instanceof Component) {
-            this.father.father.destroyChildElements();
+        let _self = this;
+        if (_self.father && _self.father instanceof Component) {
+            _self.father.spliceChild(_self.father.getArrayChild.findIndex((element) => {return element === _self; } ), 1);
+        } else if (_self.father && _self.father.father instanceof Component) {
+            // destroy just this child from old father
+            _self.father.father.destroyChildElements();
         }
-        this.father = father;
-        if (father && this instanceof Component  && father instanceof Component) {
-            // console.log('this.father.tag:' + this.father.tag);
-            this.insert(father);
+        _self.father = father;
+        if (father && _self instanceof Component  && father instanceof Component) {
+            // console.log('_self.father.tag:' + _self.father.tag);
+            father.insert(_self);
             father.renderAfterUpdate();
         }
     }
@@ -135,6 +137,9 @@ export class Child {
         return array;
     }
 
+    public remove(child: Component) {
+    }
+
     protected initGeneticCode(geneticCode: GeneticCode) {
         let _self = this;
         let arrayBindHandlers;
@@ -162,18 +167,18 @@ export class Child {
         for (let index = 0; index < changes.length; index++) {
             const change = changes[index];
             // TODO missing status
-            if (change.status === 'added') {
-                this.addChange(change);
-            }
-        }
-    }
+            switch (change.status) {
+                case 'added':
+                    this.initChild(change.value);
+                    break;
 
-    private addChange(change) {
-        if (change.value === undefined) {
-            delete change.status;
-            this.initChild(change);
-        } else {
-            this.initChild(change.value);
+                case 'deleted':
+                    this.remove(change.value);
+                    break;
+
+                default:
+                    break;
+            }
         }
     }
 }

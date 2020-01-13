@@ -84,7 +84,7 @@ export class Page extends Child {
         }
     }
 
-    public insert(father) {
+    public insertOn(father) {
         if (this.currentFrame && this.currentFrame instanceof Component)
             this.currentFrame.insertElement(father.getElement());
     }
@@ -93,17 +93,17 @@ export class Page extends Child {
         super.setFather(father);
         if (father && father instanceof Component) {
             // console.log('this.father.tag:' + this.father.tag);
-            this.insert(father);
+            this.insertOn(father);
             father.renderAfterUpdate();
         }
     }
 
     private refreshFrame(frame: ComponentPageFrame) {
         this.currentFrame = frame;
-        (<Component>this.father).destroyChildElements();
+        (<Component>this.getFather()).destroyChildElements();
         // frame.setFather(this.getFather());
-        frame.insert(<Component>this.getFather());
-        (<Component>this.father).renderAfterUpdate();
+        this.insertOn(<Component>this.getFather());
+        (<Component>this.getFather()).renderAfterUpdate();
     }
 
     private addFrame(frame: ComponentPageFrame, jSON?) {

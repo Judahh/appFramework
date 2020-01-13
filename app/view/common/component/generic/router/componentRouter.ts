@@ -43,8 +43,9 @@ export class ComponentRouter extends ComponentGeneric {
 
     public set pageName(newName: string) {
         if (newName !== undefined &&
-            (newName.indexOf(this.suffix) === -1)) {
-                newName = newName + this.suffix;
+            (newName.indexOf(this.suffix) === -1) &&
+            this.suffix !== undefined) {
+            newName = newName + this.suffix;
         }
 
         let cookie = Util.getInstance().getCookie(this.routerName);
@@ -68,7 +69,7 @@ export class ComponentRouter extends ComponentGeneric {
     public initPage(pageName: string) {
         this.go = true;
         if (this.pages[pageName] === undefined) {
-            this.pages[pageName] = new Page({father: this, file: pageName});
+            this.pages[pageName] = new Page({ father: this, file: pageName });
         } else {
             if (this.pages[pageName].getChildrenLength() === 0 && this.pages[pageName].getUnknown() === true) {
                 this.nextName = 'unknown';

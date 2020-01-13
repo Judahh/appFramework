@@ -136,7 +136,7 @@ export class AppObject extends Child {
     let _self = this;
     // console.log('START');
     // console.log('type', element.type);
-    let geneticCode: GeneticCode = {father: _self, jSON: jSON};
+    let geneticCode: GeneticCode = {father: _self} // , jSON: jSON}; fix: fazer uma maneira do populate ser chamado só depois do chonstrutor da child
     let object = AppObject.getTypes()[jSON.type];
     let properElement;
     if (object !== null && object !== undefined) {
@@ -147,7 +147,7 @@ export class AppObject extends Child {
     }
     // console.log('object', object);
     // console.log('properElement', properElement);
-    // properElement.populate(jSON);
+    properElement.populate(jSON); // remover depois do fix
     // _self[property].push(properElement);
   }
 
