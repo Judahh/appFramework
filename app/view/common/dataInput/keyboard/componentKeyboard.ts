@@ -11,7 +11,7 @@ export class ComponentKeyboard extends Component {
   private extender;
 
   constructor(geneticCode?: GeneticCode) {
-    super({...{name: 'ComponentKeyboard', tag: 'virtualKeyboard'}, ...geneticCode});
+    super({...{className: 'ComponentKeyboard', tag: 'virtualKeyboard'}, ...geneticCode});
     let keyboardOptionsB = KeyboardOptions; // ?
   }
 

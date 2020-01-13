@@ -24,19 +24,19 @@ export class AppObject extends Child {
     AppObject.addConstructor(type.getClassName(), type.getConstructor());
   }
 
-  public static addConstructor(name, constructor) {
+  public static addConstructor(className, constructor) {
     if (AppObject.types === undefined) {
       AppObject.types = {};
     }
-    if (AppObject.types[name] === undefined) {
-      AppObject.types[name] = constructor;
-      // console.log('name', name);
+    if (AppObject.types[className] === undefined) {
+      AppObject.types[className] = constructor;
+      // console.log('className', className);
       // console.log('constructor', constructor);
     }
   }
 
   constructor(geneticCode?: GeneticCode) {
-    super({...{name : 'AppObject'}, ...geneticCode});
+    super({...{className: 'AppObject'}, ...geneticCode});
 
     this.checkPageFrame = false;
     this.checkView = false;

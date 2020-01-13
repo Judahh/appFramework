@@ -88,25 +88,25 @@ export class ComponentGeneric extends Component {
 
     private specificName: string;
 
-    public static generateMap(name?: string) {
-        if (name === undefined || name === null) {
+    public static generateMap(className?: string) {
+        if (className === undefined || className === null) {
             return undefined
         } else {
-            return ComponentGeneric.map[name];
+            return ComponentGeneric.map[className];
         }
     }
 
     constructor(geneticCode?: GeneticCode) {
-        super({...{name: 'ComponentGeneric', tag: geneticCode.tag ? geneticCode.tag : ComponentGeneric.generateMap(geneticCode.specificName).tag,
+        super({...{className: 'ComponentGeneric', tag: geneticCode.tag ? geneticCode.tag : ComponentGeneric.generateMap(geneticCode.specificName).tag,
             sVG: ComponentGeneric.generateMap(geneticCode.specificName).sVG,
             arrayType: ComponentGeneric.generateMap(geneticCode.specificName).arrayType},
             ...geneticCode});
         this.specificName = geneticCode.specificName;
     }
 
-    public generateMap(name?: string) {
-        if (name)
-            return ComponentGeneric.generateMap(name);
+    public generateMap(className?: string) {
+        if (className)
+            return ComponentGeneric.generateMap(className);
         else if (this.specificName)
             return ComponentGeneric.generateMap(this.specificName);
     }

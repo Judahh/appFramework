@@ -18,8 +18,8 @@ export class Child {
         _self.className = 'Child';
         if (!geneticCode)
             geneticCode = {};
-        if (geneticCode.name)
-            _self.className = geneticCode.name;
+        if (geneticCode.className)
+            _self.className = geneticCode.className;
         _self.initGeneticCode(geneticCode);
         if (geneticCode.father)
             if (geneticCode.position)

@@ -5,7 +5,7 @@ export class Page extends Child {
     private unknown: boolean;
 
     constructor(geneticCode?: GeneticCode) {// {father: this, file: pageName}
-        super({ ...{ name: 'Page' }, ...geneticCode });
+        super({ ...{ className: 'Page' }, ...geneticCode });
         this.unknown = false;
         if (geneticCode.file)
             ServiceModel.getPromise(geneticCode.file + 'L').then((data) => this.checkLanguage(geneticCode.file, data)).fail((data) => this.checkFailed(data));

@@ -22,11 +22,11 @@ export class ComponentRouter extends ComponentGeneric {
         this.main = geneticCode.main;
         this.go = false;
         this.init(geneticCode.nextName);
-        // console.log(father, name, routerName, nextName, suffix, main);
+        // console.log(father, pageName, routerName, nextName, suffix, main);
     }
 
     protected init(nextName?: string) {
-        this.name = nextName;
+        this.pageName = nextName;
     }
 
     public getNextName() {
@@ -41,7 +41,7 @@ export class ComponentRouter extends ComponentGeneric {
         this.go = false;
     }
 
-    public set name(newName: string) {
+    public set pageName(newName: string) {
         if (newName !== undefined &&
             (newName.indexOf(this.suffix) === -1)) {
                 newName = newName + this.suffix;
@@ -54,14 +54,14 @@ export class ComponentRouter extends ComponentGeneric {
             if (newName) {
                 this.initPage(newName);
             } else if (cookie !== '') {
-                this.name = cookie;
+                this.pageName = cookie;
             } else {
-                this.name = this.main;
+                this.pageName = this.main;
             }
         }
     }
 
-    public get name() {
+    public get pageName() {
         return this.currentName;
     }
 
@@ -82,15 +82,15 @@ export class ComponentRouter extends ComponentGeneric {
     public refresh() {
         // console.log('refreshNotification:');
         this.pages = {};
-        let name = this.currentName;
+        let pageName = this.currentName;
         this.currentName = undefined;
-        this.name = name;
+        this.pageName = pageName;
     }
 
     public updateFailed(data, page) {
         // console.log('updateFailed:', data);
         page.setUnknown(true);
-        this.name = 'unknown';
+        this.pageName = 'unknown';
     }
 
     public beforeUpdateLanguage() {

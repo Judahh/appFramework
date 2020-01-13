@@ -7,7 +7,7 @@ try { require('./componentPageBody.css'); } catch (e) { };
 export class ComponentPageBody extends ComponentRouter {
 
   constructor(geneticCode?: GeneticCode) {
-    super({...{name: 'ComponentPageBody', specificName: 'ComponentPageBody', routerName: 'page', suffix: '', main: 'home'}, ...geneticCode});
+    super({...{pageName: 'ComponentPageBody', specificName: 'ComponentPageBody', routerName: 'page', suffix: '', main: 'home'}, ...geneticCode});
   }
 
   public getAllNotification(appObject: AppObject) {
@@ -22,7 +22,7 @@ export class ComponentPageBody extends ComponentRouter {
   }
 
   public goToNotificationNone(notification: ComponentRouter) {
-    notification.name = 'none';
+    notification.pageName = 'none';
   }
 
   public goAllToNotificationNone(arrayNotification: Array<ComponentRouter>) {

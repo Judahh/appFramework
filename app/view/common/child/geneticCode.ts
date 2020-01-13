@@ -6,7 +6,8 @@ export class GeneticCode {
     sVG?: boolean;
     arrayType?: Array<string>;
     arrayBindHandlers?: Array<string>;
-    name?: string; // className
+    className?: string; // name
+    pageName?: string; // name
     specificName?: string;
     routerName?: string;
     nextName?: string; // pageName?: string;

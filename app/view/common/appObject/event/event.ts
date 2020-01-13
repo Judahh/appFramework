@@ -5,7 +5,7 @@ import { Component } from '../../component/component';
 import { GeneticCode } from '../../child/geneticCode';
 
 export class Event extends AppObject {
-  name: string;
+  type: string;
   link: string;
   code: string;
   runFunction: string;
@@ -18,13 +18,13 @@ export class Event extends AppObject {
   verified: boolean;
 
   constructor(geneticCode?: GeneticCode) {
-    super({...{name: 'Event'}, ...geneticCode});
+    super({...{className: 'Event'}, ...geneticCode});
     this.verified = true;
   }
 
   public beforeUpdateLanguage() {
-    if (this.name !== undefined) {
-      switch (this.name) {
+    if (this.type !== undefined) {
+      switch (this.type) {
         case 'build':
           this.onLoad();
           break;
@@ -39,7 +39,7 @@ export class Event extends AppObject {
           break;
 
         default:
-          this.addEventListener(this.name);
+          this.addEventListener(this.type);
           break;
       }
     }

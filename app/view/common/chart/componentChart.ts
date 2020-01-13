@@ -11,7 +11,7 @@ export class ComponentChart extends Component {
   language: any;
 
   constructor(geneticCode?: GeneticCode) {
-    super({...{name: 'ComponentChart', tag: 'chart'}, ...geneticCode});
+    super({...{className: 'ComponentChart', tag: 'chart'}, ...geneticCode});
   }
 
   beforeUpdateLanguage() {

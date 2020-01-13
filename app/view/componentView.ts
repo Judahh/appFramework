@@ -5,7 +5,7 @@ import { GeneticCode } from './common/child/geneticCode';
 
 export class ComponentView extends Component { // body
   constructor(geneticCode?: GeneticCode) {
-    super({ ...{ name: 'ComponentView', tag: 'body' }, ...geneticCode });
+    super({ ...{ className: 'ComponentView', tag: 'body' }, ...geneticCode });
     this.resetHeader();
     this.resetNotification();
     this.resetPageBody();
@@ -13,7 +13,7 @@ export class ComponentView extends Component { // body
   }
 
   public goToPage(pageName?: string) {
-    this.getPageBody().name = pageName;
+    this.getPageBody().pageName = pageName;
   }
 
   public getHeader() {

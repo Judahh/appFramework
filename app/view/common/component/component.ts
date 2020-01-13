@@ -14,7 +14,7 @@ export class Component extends AppObject {
   }
 
   public constructor(geneticCode?: GeneticCode) { // ex: {tag: 'chart', sVG: geneticCode.sVG, arrayType: geneticCode.arrayType}
-    super({ ...{ name: 'Component' }, ...geneticCode });
+    super({ ...{ className: 'Component' }, ...geneticCode });
   }
 
   // public setFather(father) {
