@@ -102,4 +102,4 @@ export class ComponentRouter extends ComponentGeneric {
         Util.getInstance().clearCookie(this.routerName);
     }
 }
-ComponentRouter.addConstructor('ComponentRouter', ComponentRouter);
+ComponentRouter.addConstructor(ComponentRouter);

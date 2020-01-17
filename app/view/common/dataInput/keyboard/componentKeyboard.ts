@@ -21,4 +21,4 @@ export class ComponentKeyboard extends Component {
     element.keyboard(_self.keyboardOptions);
   }
 }
-ComponentKeyboard.addConstructor('ComponentKeyboard', ComponentKeyboard);
+ComponentKeyboard.addConstructor(ComponentKeyboard);

@@ -14,4 +14,4 @@ export class ComponentLabel extends Component {
   }
 
 }
-ComponentLabel.addConstructor('ComponentLabel', ComponentLabel);
+ComponentLabel.addConstructor(ComponentLabel);

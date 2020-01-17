@@ -156,4 +156,4 @@ export class Event extends AppObject {
     eval('appObject' + '.' + runFunction + '((data) => { _self.auth(data); })');
   }
 }
-Event.addConstructor('Event', Event);
+Event.addConstructor(Event);

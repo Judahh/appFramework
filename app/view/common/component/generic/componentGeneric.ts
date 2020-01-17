@@ -123,4 +123,4 @@ export class ComponentGeneric extends Component {
         return geneticCode;
     }
 }
-ComponentGeneric.addConstructor('ComponentGeneric', ComponentGeneric);
+ComponentGeneric.addConstructor(ComponentGeneric);

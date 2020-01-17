@@ -13,4 +13,4 @@ export class ComponentTemplate extends ComponentRouter {
     // this.pageName = nextName;
   }
 }
-ComponentTemplate.addConstructor('ComponentTemplate', ComponentTemplate);
+ComponentTemplate.addConstructor(ComponentTemplate);

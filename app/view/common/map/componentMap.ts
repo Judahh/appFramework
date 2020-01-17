@@ -53,4 +53,4 @@ export class ComponentMap extends Component {
     super.renderAfterUpdate();
   }
 }
-ComponentMap.addConstructor('ComponentMap', ComponentMap);
+ComponentMap.addConstructor(ComponentMap);

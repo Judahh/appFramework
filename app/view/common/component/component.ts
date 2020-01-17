@@ -170,4 +170,4 @@ import { ComponentGeneric } from './../component/generic/componentGeneric';
 import { BasicViewModel } from '../basicViewModel/basicViewModel';
 import { GeneticCode } from '../child/geneticCode';
 
-Component.addConstructor('Component', Component);
+Component.addConstructor(Component);

@@ -31,4 +31,4 @@ export class ComponentPageBody extends ComponentRouter {
     });
   }
 }
-ComponentPageBody.addConstructor('ComponentPageBody', ComponentPageBody);
+ComponentPageBody.addConstructor(ComponentPageBody);

@@ -107,4 +107,4 @@ export class ComponentChart extends Component {
     super.renderAfterUpdate();
   }
 }
-ComponentChart.addConstructor('ComponentChart', ComponentChart);
+ComponentChart.addConstructor(ComponentChart);

@@ -21,10 +21,11 @@ export class AppObject extends Child {
   }
 
   public static addType(type) {
-    AppObject.addConstructor(type.getClassName(), type.getConstructor());
+    AppObject.addConstructor(type.getConstructor());
   }
 
-  public static addConstructor(className, constructor) {
+  public static addConstructor(constructor) {
+    let className = constructor.name;
     if (AppObject.types === undefined) {
       AppObject.types = {};
     }
@@ -363,4 +364,4 @@ import { ComponentView } from './../../componentView';
 import { ComponentPageFrame } from '../../page/componentPageFrame';
 import { JSONObjectType } from './jSONObjectType';
 import { GeneticCode } from '../child/geneticCode';
-AppObject.addConstructor('AppObject', AppObject);
+AppObject.addConstructor(AppObject);

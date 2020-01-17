@@ -55,4 +55,4 @@ export class ComponentView extends Component { // body
     let componentRouter = new ComponentRouter({ father: this, position: 3, specificName: 'ComponentFooter', routerName: 'footer', nextName: '', suffix: '', main: 'footer' });
   }
 }
-ComponentView.addConstructor('ComponentView', ComponentView);
+ComponentView.addConstructor(ComponentView);

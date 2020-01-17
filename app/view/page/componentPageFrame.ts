@@ -49,4 +49,4 @@ export class ComponentPageFrame extends Component {
 import { Page } from './page';
 import { GeneticCode } from '../common/child/geneticCode';
 
-ComponentPageFrame.addConstructor('ComponentPageFrame', ComponentPageFrame);
+ComponentPageFrame.addConstructor(ComponentPageFrame);

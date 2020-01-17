@@ -354,10 +354,10 @@
   dependencies:
     "@types/sizzle" "*"
 
-"@types/node@13.1.7":
-  version "13.1.7"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-13.1.7.tgz#db51d28b8dfacfe4fb2d0da88f5eb0a2eca00675"
-  integrity sha512-HU0q9GXazqiKwviVxg9SI/+t/nAsGkvLDkIdxz+ObejG2nX6Si00TeLqHMoS+a/1tjH7a8YpKVQwtgHuMQsldg==
+"@types/node@13.1.8":
+  version "13.1.8"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-13.1.8.tgz#1d590429fe8187a02707720ecf38a6fe46ce294b"
+  integrity sha512-6XzyyNM9EKQW4HKuzbo/CkOIjn/evtCmsU+MUM1xDfJ+3/rNjBttM1NgN7AOQvN6tP1Sl1D1PIKMreTArnxM9A==
 
 "@types/sizzle@*":
   version "2.3.2"
@@ -613,10 +613,10 @@ basicsocket@0.2.5:
     node "13.6.0"
     socket.io-client "2.3.0"
 
-basicutil@1.2.9:
-  version "1.2.9"
-  resolved "https://registry.yarnpkg.com/basicutil/-/basicutil-1.2.9.tgz#d63cb5537d11d38745f517dc6e21d9fbbccab7d9"
-  integrity sha512-1rzI+//qM/3eQqNmxX8XYxBf0+haz6EowUi7+Ohd2YXn314UgxOB1IVBVbowA9eBbJAXRYqxyDU0J/biR1vVVA==
+basicutil@1.2.10:
+  version "1.2.10"
+  resolved "https://registry.yarnpkg.com/basicutil/-/basicutil-1.2.10.tgz#695c641dbe8ef99487171dd40a3e7ccce5aa7578"
+  integrity sha512-bXWlyilFs9q7ft4f4mdCV6J1r12ARpYgt2w89+9s4KV2IGdtllJxrdnjYfyLaqcOOTjSea0BoT7kMykXQaNn+Q==
   dependencies:
     jquery "^3.4.1"
     simpleutils "^1.0.20"
