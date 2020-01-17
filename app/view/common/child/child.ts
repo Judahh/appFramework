@@ -76,17 +76,14 @@ export class Child {
 
     public setFather(father) {
         let _self = this;
-        if (_self.father && _self.father instanceof Component) {
-            _self.father.spliceChild(_self.father.getArrayChild.findIndex((element) => {return element === _self; } ), 1);
-        } else if (_self.father && _self.father.father instanceof Component) {
-            // destroy just this child from old father
-            _self.father.father.destroyChildElements();
-        }
-        _self.father = father;
-        if (father && _self instanceof Component  && father instanceof Component) {
-            // console.log('_self.father.tag:' + _self.father.tag);
-            father.insert(_self);
-            father.renderAfterUpdate();
+        if (_self.father !== father) {
+            if (_self.father && _self.father instanceof AppObject) {
+                _self.father.spliceChild(_self.father.getArrayChild.findIndex((element) => {return element === _self; } ), 1);
+            } else if (_self.father && _self.father.father instanceof Component) {
+                // destroy just this child from old father
+                _self.father.father.destroyChildElements();
+            }
+            _self.father = father;
         }
     }
 
@@ -170,10 +167,18 @@ export class Child {
             switch (change.status) {
                 case 'added':
                     this.initChild(change.value);
+                    if (this.father && this instanceof Component  && this.father instanceof Component) {
+                        // console.log('_self.father.tag:' + _self.father.tag);
+                        this.father.insert(this);
+                        this.father.renderAfterUpdate();
+                    }
                     break;
 
                 case 'deleted':
-                    this.remove(change.value);
+                    if (this.father && this instanceof Component  && this.father instanceof Component) {
+                        this.remove(change.value);
+                        this.father.renderAfterUpdate();
+                    }
                     break;
 
                 default:
@@ -188,4 +193,5 @@ import { Component } from '../component/component';
 import { ComponentGeneric } from '../component/generic/componentGeneric';
 import { ObservableArray } from 'knockout';
 import * as ko from 'knockout';
+import { AppObject } from '../appObject/appObject';
 
