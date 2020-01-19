@@ -137,6 +137,13 @@ export class Child {
     public remove(child: Component) {
     }
 
+    public insert(child: Component) {
+    }
+
+    public renderAfterUpdate() {
+
+    }
+
     protected initGeneticCode(geneticCode: GeneticCode) {
         let _self = this;
         let arrayBindHandlers;
@@ -167,7 +174,7 @@ export class Child {
             switch (change.status) {
                 case 'added':
                     this.initChild(change.value);
-                    if (this.father && this instanceof Component  && this.father instanceof Component) {
+                    if (this.father && this instanceof Component) {
                         // console.log('_self.father.tag:' + _self.father.tag);
                         this.father.insert(this);
                         this.father.renderAfterUpdate();
@@ -175,7 +182,7 @@ export class Child {
                     break;
 
                 case 'deleted':
-                    if (this.father && this instanceof Component  && this.father instanceof Component) {
+                    if (this.father && this instanceof Component) {
                         this.remove(change.value);
                         this.father.renderAfterUpdate();
                     }

@@ -41,19 +41,21 @@ export class Page extends Child {
                 ServiceModel.getPromise(jSON[index]['file']).then((data) => this.checkFrame(data, fJSON)).fail((data) => this.checkFailed(data));
             }
         } else {
-            let frame = new ComponentPageFrame({ father: this, jSON: jSON });
+            let frame = new ComponentPageFrame({ father: this });
             this.setPage();
+            frame.populate(jSON);
         }
     }
 
     protected checkFrame(jSON, fJSON) {
         // jSON = JSON.parse(jSON);
-        let frame = new ComponentPageFrame({ father: this, jSON: jSON });
+        let frame = new ComponentPageFrame({ father: this });
         frame.setMinWidth(fJSON.minWidth);
         frame.setMaxWidth(fJSON.maxWidth);
         frame.setMinHeight(fJSON.minHeight);
         frame.setMaxHeight(fJSON.maxHeight);
         this.setPage();
+        frame.populate(jSON);
     }
 
     protected checkFailed(data) {
@@ -84,31 +86,31 @@ export class Page extends Child {
         }
     }
 
-    public insertOn(father) {
-        if (this.currentFrame && this.currentFrame instanceof Component)
-            this.currentFrame.insertElement(father.getElement());
+    public remove(child) {
+        this.father.remove(child);
     }
 
-    public setFather(father) {
-        super.setFather(father);
-        if (father && father instanceof Component) {
-            // console.log('this.father.tag:' + this.father.tag);
-            this.insertOn(father);
-            father.renderAfterUpdate();
-        }
+    public insert(child) {
+        this.father.insert(child);
+    }
+
+    public renderAfterUpdate() {
+        this.father.renderAfterUpdate();
     }
 
     private refreshFrame(frame: ComponentPageFrame) {
         this.currentFrame = frame;
         (<Component>this.getFather()).destroyChildElements();
         // frame.setFather(this.getFather());
-        this.insertOn(<Component>this.getFather());
-        (<Component>this.getFather()).renderAfterUpdate();
+        this.insert(frame);
+        this.renderAfterUpdate();
     }
 
     private addFrame(frame: ComponentPageFrame, jSON?) {
-        if (this.getArrayChild.indexOf(frame) === -1)
-            this.addChild({ child: frame, jSON: jSON });
+        if (this.getArrayChild.indexOf(frame) === -1) {
+            this.addChild({ child: frame });
+            frame.populate(jSON);
+        }
     }
 }
 import { ComponentPageFrame } from './componentPageFrame';
