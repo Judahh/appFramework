@@ -5,7 +5,7 @@ export class Page extends Component {
     private unknown: boolean;
 
     constructor(geneticCode?: GeneticCode) {// {father: this, file: pageName}
-        super({ ...{ className: 'Page' }, ...geneticCode });
+        super({ ...{ className: 'Page', tag: 'page' }, ...geneticCode });
         this.unknown = false;
         if (geneticCode.file)
             ServiceModel.getPromise(geneticCode.file + 'L').then((data) => this.checkLanguage(geneticCode.file, data)).fail((data) => this.checkFailed(data));
@@ -38,24 +38,11 @@ export class Page extends Component {
                     minHeight: jSON[index]['minHeight'],
                     maxHeight: jSON[index]['maxHeight'],
                 };
-                ServiceModel.getPromise(jSON[index]['file']).then((data) => this.checkFrame(data, fJSON)).fail((data) => this.checkFailed(data));
+                ServiceModel.getPromise(jSON[index]['file']).then((data) => this.setCurrentPage(data, fJSON)).fail((data) => this.checkFailed(data));
             }
         } else {
-            let frame = new ComponentPageFrame({ father: this });
-            this.setCurrentPage();
-            frame.populate(jSON);
+            this.setCurrentPage(jSON);
         }
-    }
-
-    protected checkFrame(jSON, fJSON) {
-        // jSON = JSON.parse(jSON);
-        let frame = new ComponentPageFrame({ father: this });
-        frame.setMinWidth(fJSON.minWidth);
-        frame.setMaxWidth(fJSON.maxWidth);
-        frame.setMinHeight(fJSON.minHeight);
-        frame.setMaxHeight(fJSON.maxHeight);
-        this.setCurrentPage();
-        frame.populate(jSON);
     }
 
     protected checkFailed(data) {
@@ -64,34 +51,54 @@ export class Page extends Component {
             this.father.updateFailed(data, this);
     }
 
-    private setCurrentPage() {// depois checar evento de resize e fazer esperar carregamento
-        let width = document.documentElement.clientWidth;
-        let height = document.documentElement.clientHeight;
-        for (let index = 0; index < this.getChildrenLength(); index++) {
-            let frame = this.getChildAt(index);
-            if (frame instanceof ComponentPageFrame && this.father instanceof ComponentRouter) {
-                if (frame.getMaxHeight() === undefined || frame.getMaxHeight() >= height) {
-                    if (frame.getMinHeight() === undefined || frame.getMinHeight() <= height) {
-                        if (frame.getMaxWidth() === undefined || frame.getMaxWidth() >= width) {
-                            if (frame.getMinWidth() === undefined || frame.getMinWidth() <= width) {
-                                if (this.currentFrame === undefined || this.currentFrame !== frame || this.father.toGo()) {
-                                    this.father.went();
-                                    this.refreshFrame(frame);
-                                }
-                            }
-                        }
-                    }
-                }
-            }
+    private setCurrentPage(jSON, fJSON?) {// depois checar evento de resize e fazer esperar carregamento
+        let frame = this.newFrame(fJSON);
+        let refresh = this.checkSize(frame);
+        frame.populate(jSON);
+        if (refresh) {
+            this.refreshFrame(frame);
         }
+    }
+
+    private checkFrame(frame: ComponentPageFrame) {
+        return ((this.father instanceof ComponentRouter) && (this.currentFrame === undefined || this.currentFrame !== frame || this.father.toGo()));
+    }
+
+    private checkSize(frame: ComponentPageFrame) {
+        let refresh = false;
+        if (this.checkFrame(frame) && this.checkHeight(frame) && this.checkWidth(frame)) {
+            (<ComponentRouter> this.father).went();
+            refresh = true;
+        }
+        return refresh;
+    }
+
+    private checkHeight(frame: ComponentPageFrame) {
+        let height = document.documentElement.clientHeight;
+        return ((frame.getMaxHeight() === undefined || frame.getMaxHeight() >= height) && (frame.getMinHeight() === undefined || frame.getMinHeight() <= height));
+    }
+
+    private checkWidth(frame: ComponentPageFrame) {
+        let width = document.documentElement.clientWidth;
+        return ((frame.getMaxWidth() === undefined || frame.getMaxWidth() >= width) && (frame.getMinWidth() === undefined || frame.getMinWidth() <= width));
     }
 
     private refreshFrame(frame: ComponentPageFrame) {
         this.currentFrame = frame;
-        (<Component>this.getFather()).destroyChildElements();
-        // frame.setFather(this.getFather());
+        this.destroyChildElements();
         this.insert(frame);
         this.renderAfterUpdate();
+    }
+
+    private newFrame(fJSON?) {
+        let frame = new ComponentPageFrame({ father: this });
+        if (fJSON) {
+            frame.setMinWidth(fJSON.minWidth);
+            frame.setMaxWidth(fJSON.maxWidth);
+            frame.setMinHeight(fJSON.minHeight);
+            frame.setMaxHeight(fJSON.maxHeight);
+        }
+        return frame;
     }
 
     private addFrame(frame: ComponentPageFrame, jSON?) {
