@@ -57,15 +57,18 @@ export class Component extends AppObject {
   }
 
   public insertOn(father: Component) {
-    this.insertElementOn(father.getElement());
+    if (typeof father.getElement === 'function')
+      this.insertElementOn(father.getElement());
   }
 
   public insert(child: Component) {
-    this.insertElement(child.getElement());
+    if (typeof child.getElement === 'function')
+      this.insertElement(child.getElement());
   }
 
   public remove(child: Component) {
-    this.removeElement(child.getElement());
+    if (typeof child.getElement === 'function')
+      this.removeElement(child.getElement());
   }
 
   public insertElementOn(fatherElement: HTMLElement | SVGElement | SVGSVGElement) {
