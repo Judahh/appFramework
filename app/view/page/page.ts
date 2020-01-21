@@ -1,3 +1,4 @@
+import { Component } from '../common/component/component';
 export class Page extends Component {
     private currentFrame: ComponentPageFrame;
     private language: any;
@@ -104,4 +105,3 @@ import { ComponentPageFrame } from './componentPageFrame';
 import { ServiceModel } from '../serviceModel/serviceModel';
 import { ComponentRouter } from '../common/component/generic/router/componentRouter';
 import { GeneticCode } from '../common/child/geneticCode';
-import { Component } from '../common/component/component';
