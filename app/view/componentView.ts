@@ -4,7 +4,14 @@ import { ComponentRouter } from './common/component/generic/router/componentRout
 import { GeneticCode } from './common/child/geneticCode';
 
 export class ComponentView extends Component { // body
+
+  private static clear() {
+    let range = document.createRange();
+    range.selectNodeContents(document.getElementsByTagName('body')[0]);
+    range.deleteContents();
+  }
   constructor(geneticCode?: GeneticCode) {
+    ComponentView.clear();
     super({ ...{ className: 'ComponentView', tag: 'body' }, ...geneticCode });
     this.resetHeader();
     this.resetNotification();

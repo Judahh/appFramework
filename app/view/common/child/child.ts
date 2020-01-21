@@ -134,10 +134,10 @@ export class Child {
         return array;
     }
 
-    public remove(child: Component) {
+    public remove(child: Child) {
     }
 
-    public insert(child: Component) {
+    public insert(child: Child) {
     }
 
     public renderAfterUpdate() {
@@ -174,7 +174,7 @@ export class Child {
             switch (change.status) {
                 case 'added':
                     this.initChild(change.value);
-                    if (this.father && this instanceof Component) {
+                    if (this.father) {
                         // console.log('_self.father.tag:' + _self.father.tag);
                         this.father.insert(this);
                         this.father.renderAfterUpdate();
@@ -182,7 +182,7 @@ export class Child {
                     break;
 
                 case 'deleted':
-                    if (this.father && this instanceof Component) {
+                    if (this.father) {
                         this.remove(change.value);
                         this.father.renderAfterUpdate();
                     }

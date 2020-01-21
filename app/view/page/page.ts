@@ -1,5 +1,4 @@
-import { Child } from '../common/child/child';
-export class Page extends Child {
+export class Page extends Component {
     private currentFrame: ComponentPageFrame;
     private language: any;
     private unknown: boolean;
@@ -42,7 +41,7 @@ export class Page extends Child {
             }
         } else {
             let frame = new ComponentPageFrame({ father: this });
-            this.setPage();
+            this.setCurrentPage();
             frame.populate(jSON);
         }
     }
@@ -54,7 +53,7 @@ export class Page extends Child {
         frame.setMaxWidth(fJSON.maxWidth);
         frame.setMinHeight(fJSON.minHeight);
         frame.setMaxHeight(fJSON.maxHeight);
-        this.setPage();
+        this.setCurrentPage();
         frame.populate(jSON);
     }
 
@@ -64,7 +63,7 @@ export class Page extends Child {
             this.father.updateFailed(data, this);
     }
 
-    public setPage() {// depois checar evento de resize e fazer esperar carregamento
+    private setCurrentPage() {// depois checar evento de resize e fazer esperar carregamento
         let width = document.documentElement.clientWidth;
         let height = document.documentElement.clientHeight;
         for (let index = 0; index < this.getChildrenLength(); index++) {
@@ -84,18 +83,6 @@ export class Page extends Child {
                 }
             }
         }
-    }
-
-    public remove(child) {
-        this.father.remove(child);
-    }
-
-    public insert(child) {
-        this.father.insert(child);
-    }
-
-    public renderAfterUpdate() {
-        this.father.renderAfterUpdate();
     }
 
     private refreshFrame(frame: ComponentPageFrame) {
