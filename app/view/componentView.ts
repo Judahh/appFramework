@@ -11,7 +11,7 @@ export class ComponentView extends Component { // body
     range.deleteContents();
   }
   constructor(geneticCode?: GeneticCode) {
-    // ComponentView.clear();
+    ComponentView.clear();
     super({ ...{ className: 'ComponentView', tag: 'body' }, ...geneticCode });
     this.resetHeader();
     this.resetNotification();
