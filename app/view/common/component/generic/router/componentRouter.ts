@@ -33,6 +33,10 @@ export class ComponentRouter extends ComponentGeneric {
         return this.nextName;
     }
 
+    public getPages() {
+        return this.pages;
+    }
+
     public toGo() {
         return this.go;
     }

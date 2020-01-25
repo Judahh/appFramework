@@ -23,6 +23,11 @@ export class ComponentView extends Component { // body
     this.getPageBody().pageName = pageName;
   }
 
+  public getPageFrame() {
+    let pageBody = this.getPageBody();
+    return pageBody.getPages()[pageBody.getNextName()];
+  }
+
   public getHeader() {
     return <ComponentRouter>this.getChildAt(0);
   }
