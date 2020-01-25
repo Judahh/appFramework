@@ -22,7 +22,7 @@ export class Event extends AppObject {
     this.verified = true;
   }
 
-  public beforeUpdateLanguage() {
+  public renderAfterUpdate() {
     if (this.event !== undefined) {
       switch (this.event) {
         case 'build':

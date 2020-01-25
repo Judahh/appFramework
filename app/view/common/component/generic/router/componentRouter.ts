@@ -94,7 +94,7 @@ export class ComponentRouter extends ComponentGeneric {
         this.pageName = 'unknown';
     }
 
-    public beforeUpdateLanguage() {
+    public renderAfterUpdate() {
         this.currentName = this.nextName;
         if (this.routerName === 'page') {
             window.history.pushState('', '', '/' + this.currentName);

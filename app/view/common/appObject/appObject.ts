@@ -262,9 +262,12 @@ export class AppObject extends Child {
     _self.renderBeforeUpdate();
     // console.log('GENERATE!');
     _self.generateFromJSON(jSON);
+    _self.setProperties();
     _self.renderAfterUpdate();
   }
 
+  protected setProperties() {
+  }
 
   public renderBeforeUpdate() {
 
@@ -272,54 +275,7 @@ export class AppObject extends Child {
 
 
   public renderAfterUpdate() {
-    this.beforeUpdateLanguage();
-    let pageFrame = <ComponentPageFrame>this.seekFather('ComponentPageFrame');
-    if (pageFrame !== undefined) {
-      // console.log('a');
-      // console.log(pageFrame.getFullPage().getLanguage());
-      this.updateLanguage(pageFrame.getFullPage().getLanguage());
-    }
-    // this.updateLanguage((<ComponentPageFrame>this.seekFather('ComponentPageFrame')).getFullPage().getLanguage());
-    this.afterUpdateLanguage();
-  }
 
-  protected afterUpdateLanguage() {
-    // this.updateLanguage(language);
-  }
-
-  protected beforeUpdateLanguage() {
-    // this.updateLanguage(language);
-  }
-
-  protected updateLanguage(jSON) {
-    let property;
-    for (property in jSON) {
-      if (property !== undefined) {
-        if (!jSON.hasOwnProperty(property)) {
-          continue;
-        }
-
-        if (jSON[property]['language'] === Util.getInstance().getCurrentLanguage()) {
-          // console.log('LANG:'+jSON[property]['language']);
-          break;
-        }
-      }
-    }
-    // console.log('selected lan:'+property);
-    let subJSON = jSON[property];
-    for (let languageProperty in subJSON) {
-      if (languageProperty !== undefined) {
-        if (!subJSON.hasOwnProperty(languageProperty)) {
-          continue;
-        }
-        if (this.arrayVariable.indexOf(languageProperty) === -1) {
-          this.arrayVariable.push(languageProperty);
-        }
-        let variable = 'this.' + languageProperty;
-        // tslint:disable-next-line: no-eval
-        eval(variable + '="' + subJSON[languageProperty] + '";');
-      }
-    }
   }
 
   public setCurrentLanguage(language: string) {

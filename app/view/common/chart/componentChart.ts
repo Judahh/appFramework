@@ -14,7 +14,7 @@ export class ComponentChart extends Component {
     super({...{className: 'ComponentChart', tag: 'chart'}, ...geneticCode});
   }
 
-  beforeUpdateLanguage() {
+  renderAfterUpdate() {
     // Load google charts
     // tslint:disable-next-line: no-eval
     let charts = eval('google' + '.' + 'charts');
@@ -29,7 +29,7 @@ export class ComponentChart extends Component {
 
   }
 
-  protected updateLanguage(jSON) {
+  protected updateLanguage(jSON) { // TODO: REMOVER
     let property;
     for (property in jSON) {
       if (property !== undefined) {

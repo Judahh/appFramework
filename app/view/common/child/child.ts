@@ -2,7 +2,6 @@ export class Child {
     protected father: Child;
     protected className: string;
     public properties: Object;
-    protected arrayVariable: Array<String>;
     public arrayChild: ObservableArray<Child>;
 
     public getArrayChild: Array<Child>;
@@ -14,7 +13,6 @@ export class Child {
             _self.arrayChange(changes);
         }, null, 'arrayChange');
         _self.getArrayChild = _self.arrayChild();
-        _self.arrayVariable = new Array<String>();
         _self.className = 'Child';
         if (!geneticCode)
             geneticCode = {};
@@ -174,18 +172,13 @@ export class Child {
             switch (change.status) {
                 case 'added':
                     this.initChild(change.value);
-                    if (this.father) {
-                        // console.log('_self.father.tag:' + _self.father.tag);
-                        this.father.insert(this);
-                        this.father.renderAfterUpdate();
-                    }
+                    this.insert(this);
+                    // this.renderAfterUpdate();
                     break;
 
                 case 'deleted':
-                    if (this.father) {
-                        this.remove(change.value);
-                        this.father.renderAfterUpdate();
-                    }
+                    this.remove(change.value);
+                    // this.renderAfterUpdate();
                     break;
 
                 default:

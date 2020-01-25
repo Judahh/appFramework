@@ -15,6 +15,24 @@ export class Page extends Component {
         return this.language;
     }
 
+    public getCurrentLanguage() {
+        let jSON = this.language;
+        let property;
+        for (property in jSON) {
+            if (property !== undefined) {
+                if (!jSON.hasOwnProperty(property)) {
+                    continue;
+                }
+
+                if (jSON[property]['language'] === this.getCurrentLanguage()) {
+                    // console.log('LANG:'+jSON[property]['language']);
+                    break;
+                }
+            }
+        }
+        return jSON[property];
+    }
+
     public getUnknown() {
         return this.unknown;
     }
@@ -67,7 +85,7 @@ export class Page extends Component {
     private checkSize(frame: ComponentPageFrame) {
         let refresh = false;
         if (this.checkFrame(frame) && this.checkHeight(frame) && this.checkWidth(frame)) {
-            (<ComponentRouter> this.father).went();
+            (<ComponentRouter>this.father).went();
             refresh = true;
         }
         return refresh;

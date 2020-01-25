@@ -145,24 +145,36 @@ export class Component extends AppObject {
     this.basicViewModel.getElement().setAttribute(property, jSON[property]);
   }
 
-  public beforeUpdateLanguage() {
+  protected setProperties() {
     if (this.properties)
       for (const property of Object.keys(this.properties)) {
-        if (this.isElementInnerHTMLEmpty()) {
-          this.basicViewModel.setAttributeValue(property, this.properties[property]);
-        }
+        let value = this.getPropertyValue(this.properties[property]);
+        this.basicViewModel.setAttributeValue(property, value);
       }
-    this.cleanElementInnerHTML();
   }
 
-  protected afterUpdateLanguage() {
-    if (this.properties)
-      for (const property of Object.keys(this.properties)) {
-        let variable = this.seekVariable(this.properties[property]);
-        if (variable !== undefined) {
-          this.basicViewModel.setAttributeValue(property, variable);
-        }
-      }
+  private getPropertyValue(variable) {
+    if (this.father && this.father instanceof Component && this.father.properties && this.father.properties[variable]) {
+      return this.father.getPropertyValue(this.father.properties[variable]);
+    }
+    return this.getLanguagePropertyValue(variable);
+  }
+
+  private getLanguagePropertyValue(variable) {
+    let pageFrame = <ComponentPageFrame>this.seekFather('ComponentPageFrame');
+    if (pageFrame !== undefined) {
+      // console.log('a');
+      // console.log(pageFrame.getFullPage().getLanguage());
+      return this.getLanguagePropertyValueFromJSON(pageFrame.getFullPage().getCurrentLanguage(), variable);
+    }
+    return variable;
+  }
+
+  private getLanguagePropertyValueFromJSON(jSON, variable) {
+    if (jSON[variable]) {
+      return jSON[variable];
+    }
+    return variable;
   }
 
   private getItem() {
