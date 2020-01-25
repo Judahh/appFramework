@@ -154,8 +154,12 @@ export class Component extends AppObject {
   }
 
   private getPropertyValue(variable) {
-    if (this.father && this.father instanceof Component && this.father.properties && this.father.properties[variable]) {
-      return this.father.getPropertyValue(this.father.properties[variable]);
+    if (this.father && this.father instanceof Component) {
+      if  (this.father.properties && this.father.properties[variable]) {
+        return this.father.getPropertyValue(this.father.properties[variable]);
+      } else {
+        return this.father.getPropertyValue(variable);
+      }
     }
     return this.getLanguagePropertyValue(variable);
   }
