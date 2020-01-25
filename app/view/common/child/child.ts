@@ -172,13 +172,13 @@ export class Child {
             switch (change.status) {
                 case 'added':
                     this.initChild(change.value);
-                    this.insert(this);
-                    // this.renderAfterUpdate();
+                    this.insert(change.value);
+                    this.renderAfterUpdate();
                     break;
 
                 case 'deleted':
                     this.remove(change.value);
-                    // this.renderAfterUpdate();
+                    this.renderAfterUpdate();
                     break;
 
                 default:

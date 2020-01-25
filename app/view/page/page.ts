@@ -11,11 +11,11 @@ export class Page extends Component {
             ServiceModel.getPromise(geneticCode.file + 'L').then((data) => this.checkLanguage(geneticCode.file, data)).fail((data) => this.checkFailed(data));
     }
 
-    public getLanguage() {
+    public getLanguageJSON() {
         return this.language;
     }
 
-    public getCurrentLanguage() {
+    public getCurrentLanguageJSON() {
         let jSON = this.language;
         let property;
         for (property in jSON) {

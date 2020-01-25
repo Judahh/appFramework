@@ -163,7 +163,7 @@ export class Component extends AppObject {
   private getLanguagePropertyValue(variable) {
     let pageFrame = this.getPageFrame();
     if (pageFrame !== undefined) {
-      return this.getLanguagePropertyValueFromJSON(pageFrame.getFullPage().getCurrentLanguage(), variable);
+      return this.getLanguagePropertyValueFromJSON(pageFrame.getFullPage().getCurrentLanguageJSON(), variable);
     }
     return variable;
   }

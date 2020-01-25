@@ -37,7 +37,7 @@ export class ComponentChart extends Component {
           continue;
         }
 
-        if (jSON[property]['language'] === Util.getInstance().getCurrentLanguage()) {
+        if (jSON[property]['language'] === this.getCurrentLanguage()) {
           // console.log('LANG:'+jSON[property]['language']);
           break;
         }
