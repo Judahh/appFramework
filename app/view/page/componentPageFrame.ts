@@ -26,8 +26,8 @@ export class ComponentPageFrame extends Component {
         this.maxHeight = maxHeight;
     }
 
-    public getFullPage(): Page {
-        return <Page> this.getFather();
+    public getFullPage(): ComponentPage {
+        return <ComponentPage> this.getFather();
     }
 
     public getMinWidth() {
@@ -46,7 +46,7 @@ export class ComponentPageFrame extends Component {
         return this.maxHeight;
     }
 }
-import { Page } from './page';
+import { ComponentPage } from './componentPage';
 import { GeneticCode } from '../common/child/geneticCode';
 
 ComponentPageFrame.addConstructor(ComponentPageFrame);

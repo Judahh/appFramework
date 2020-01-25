@@ -2,6 +2,7 @@ import { Component } from './common/component/component';
 import { ComponentPageBody } from './body/componentPageBody';
 import { ComponentRouter } from './common/component/generic/router/componentRouter';
 import { GeneticCode } from './common/child/geneticCode';
+import { ComponentPage } from './page/componentPage';
 
 export class ComponentView extends Component { // body
 
@@ -25,7 +26,7 @@ export class ComponentView extends Component { // body
 
   public getPageFrame() {
     let pageBody = this.getPageBody();
-    return pageBody.getPages()[pageBody.getNextName()];
+    return (<ComponentPage>pageBody.getPages()[pageBody.getNextName()]).getCurrentFrame();
   }
 
   public getHeader() {

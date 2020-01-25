@@ -2,7 +2,7 @@ import { Component } from './app/view/common/component/component';
 import { ComponentGeneric } from './app/view/common/component/generic/componentGeneric';
 import { ComponentRouter } from './app/view/common/component/generic/router/componentRouter';
 import { ComponentTemplate } from './app/view/common/component/generic/template/componentTemplate';
-import { Page } from './app/view/page/page';
+import { ComponentPage } from './app/view/page/componentPage';
 import { ComponentPageBody } from './app/view/body/componentPageBody';
 import { ComponentPageFrame } from './app/view/page/componentPageFrame';
 import { ComponentView } from './app/view/componentView';
@@ -24,5 +24,5 @@ import * as loader from './loader';
 export {
     Component, ComponentGeneric, ComponentPageBody, ComponentMap, ComponentRouter, ComponentPageFrame,
     ComponentChart, ComponentView, ComponentTemplate, Event, ServiceModel, Util, App, AppObject, Child,
-    GeneticCode, Page, ImportScript, AppObjectFactory, ApiConnection, OnLoad, loader
+    GeneticCode, ComponentPage, ImportScript, AppObjectFactory, ApiConnection, OnLoad, loader
 }

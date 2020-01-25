@@ -1,6 +1,6 @@
 import 'simpleutils';
 import { Util } from 'basicutil';
-import { Page } from '../../../../page/page';
+import { ComponentPage } from '../../../../page/componentPage';
 import { ComponentGeneric } from '../componentGeneric';
 import { GeneticCode } from '../../../child/geneticCode';
 
@@ -73,7 +73,7 @@ export class ComponentRouter extends ComponentGeneric {
     public initPage(pageName: string) {
         this.go = true;
         if (this.pages[pageName] === undefined) {
-            this.pages[pageName] = new Page({ father: this, file: pageName });
+            this.pages[pageName] = new ComponentPage({ father: this, file: pageName });
         } else {
             if (this.pages[pageName].getChildrenLength() === 0 && this.pages[pageName].getUnknown() === true) {
                 this.nextName = 'unknown';
