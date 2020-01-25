@@ -49,9 +49,9 @@ export class AppObject extends Child {
   }
 
   public getPageFrame() {
-    // if (!this.checkPageFrame) {
-    this.setPageFrame();
-    // }
+    if (!this.checkPageFrame) {
+      this.setPageFrame();
+    }
     return this.pageFrame;
   }
 

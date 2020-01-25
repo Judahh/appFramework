@@ -161,10 +161,8 @@ export class Component extends AppObject {
   }
 
   private getLanguagePropertyValue(variable) {
-    let pageFrame = <ComponentPageFrame>this.seekFather('ComponentPageFrame');
+    let pageFrame = this.getPageFrame();
     if (pageFrame !== undefined) {
-      // console.log('a');
-      // console.log(pageFrame.getFullPage().getLanguage());
       return this.getLanguagePropertyValueFromJSON(pageFrame.getFullPage().getCurrentLanguage(), variable);
     }
     return variable;
