@@ -6,13 +6,13 @@ import { GeneticCode } from '../../../child/geneticCode';
 
 
 export class ComponentRouter extends ComponentGeneric {
-    private pages: any;
-    private currentName: string;
-    private nextName: string;
-    private routerName: string; // notification, page,header,footer
-    private suffix: string; // Notification,empty,empty,empty
-    private main: string; // none,home,header,footer
-    private go: boolean;
+    protected currentName: string;
+    protected nextName: string;
+    protected routerName: string; // notification, page,header,footer
+    protected pages: any;
+    protected suffix: string; // Notification,empty,empty,empty
+    protected main: string; // none,home,header,footer
+    protected go: boolean;
 
     constructor(geneticCode?: GeneticCode) { // ex: {specificName: 'ComponentPageBody', routerName: 'page', nextName: geneticCode.nextName, suffix: '', main: 'home'}
         super(geneticCode);
@@ -27,6 +27,33 @@ export class ComponentRouter extends ComponentGeneric {
 
     protected init(nextName?: string) {
         this.pageName = nextName;
+    }
+
+    protected getNormalizedName(newName?: string) {
+        if (newName !== undefined &&
+            (newName.indexOf(this.suffix) === -1) &&
+            this.suffix !== undefined) {
+            newName = newName + this.suffix;
+        }
+
+        return newName;
+    }
+
+    protected initPage(pageName: string) {
+        this.go = true;
+        if (this.pages[pageName] === undefined) {
+            this.pages[pageName] = new ComponentPage({ father: this, file: pageName });
+        } else {
+            if (this.pages[pageName].getChildrenLength() === 0 && this.pages[pageName].getUnknown() === true) {
+                this.nextName = 'unknown';
+                this.pages[this.nextName].setPage();
+            } else {
+                this.pages[pageName].setPage();
+            }
+        }
+    }
+
+    protected setState() {
     }
 
     public getNextName() {
@@ -46,11 +73,7 @@ export class ComponentRouter extends ComponentGeneric {
     }
 
     public set pageName(newName: string) {
-        if (newName !== undefined &&
-            (newName.indexOf(this.suffix) === -1) &&
-            this.suffix !== undefined) {
-            newName = newName + this.suffix;
-        }
+        newName = this.getNormalizedName(newName);
 
         let cookie = Util.getInstance().getCookie(this.routerName);
         if (this.currentName === undefined ||
@@ -63,25 +86,12 @@ export class ComponentRouter extends ComponentGeneric {
             } else {
                 this.pageName = this.main;
             }
+            this.updateName();
         }
     }
 
     public get pageName() {
         return this.currentName;
-    }
-
-    public initPage(pageName: string) {
-        this.go = true;
-        if (this.pages[pageName] === undefined) {
-            this.pages[pageName] = new ComponentPage({ father: this, file: pageName });
-        } else {
-            if (this.pages[pageName].getChildrenLength() === 0 && this.pages[pageName].getUnknown() === true) {
-                this.nextName = 'unknown';
-                this.pages[this.nextName].setPage();
-            } else {
-                this.pages[pageName].setPage();
-            }
-        }
     }
 
     public refresh() {
@@ -98,11 +108,9 @@ export class ComponentRouter extends ComponentGeneric {
         this.pageName = 'unknown';
     }
 
-    public renderAfterUpdate() {
+    public updateName() {
         this.currentName = this.nextName;
-        if (this.routerName === 'page') {
-            window.history.pushState('', '', '/' + this.currentName);
-        }
+        this.setState();
         Util.getInstance().clearCookie(this.routerName);
     }
 }
